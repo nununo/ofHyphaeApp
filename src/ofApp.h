@@ -1,9 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Surface.hpp"
 
 class ofApp : public ofBaseApp{
 
+private:
+  Surface *surface;
 	public:
 		void setup();
 		void update();
