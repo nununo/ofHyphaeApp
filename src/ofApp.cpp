@@ -4,19 +4,20 @@
 void ofApp::setup(){
   ofSetFrameRate(60);
   ofSetVerticalSync(true);
+  
+  Surface *s = new Surface("images/test_texture.jpg");
 
-  surface = new Surface("test_texture.jpg",
-                        "bread_profile_mask.png");
+  ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-  surface->update();
+  ms->update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  surface->draw();
+  ms->draw();
 }
 
 void ofApp::keyPressed(int key){}

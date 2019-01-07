@@ -1,12 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Surface.hpp"
+#include "MaskedSurface.hpp"
 
 class ofApp : public ofBaseApp{
 
 private:
-  Surface *surface;
+  ISurface *ms;
 	public:
 		void setup();
 		void update();

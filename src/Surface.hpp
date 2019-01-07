@@ -9,18 +9,20 @@
 #define Surface_hpp
 
 #include "ofMain.h"
+#include "ISurface.h"
 
-class Surface {
+class Surface : public ISurface {
 private:
-  ofImage  mask;
-  ofImage  image;
-  ofFbo    fbo;
-  ofShader shader;
+  ofImage image;
 
 public:
-  Surface(const std::filesystem::path imageFilename,
-          const std::filesystem::path maskFilename);
+  Surface(const std::filesystem::path imageFilename);
+  
+  // ISurface
+  float getWidth();
+  float getHeight();
   void update();
   void draw();
 };
+
 #endif /* Surface_hpp */

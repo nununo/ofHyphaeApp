@@ -7,29 +7,18 @@
 
 #include "Surface.hpp"
 
-Surface::Surface(const std::filesystem::path imageFilename,
-                 const std::filesystem::path maskFilename) {
-
+Surface::Surface(const std::filesystem::path imageFilename) {
   image.load(imageFilename);
-  mask.load(maskFilename);
-
-  shader.setupShaderFromFile(GL_FRAGMENT_SHADER, "shaders/alphamask.frag");
-  shader.linkProgram();
-
-  fbo.allocate(image.getWidth(), image.getHeight());
 }
 
 void Surface::update() {
-  fbo.begin();
-  ofClear(0, 0, 0, 0);
-  shader.begin();
-  shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
-  image.draw(0,0);
-  shader.end();
-  fbo.end();
 }
 
 void Surface::draw() {
   ofSetColor(255,255);
-  fbo.draw(0,0, ofGetWidth(), ofGetHeight());
+  image.draw(0,0);
 }
+
+float Surface::getWidth() {return image.getWidth();}
+
+float Surface::getHeight() {return image.getHeight();}

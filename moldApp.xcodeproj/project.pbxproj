@@ -14,6 +14,7 @@
 		6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E58DA97D3CAF3F74578F88 /* tinyxmlerror.cpp */; };
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
 		7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903E721E3C0C80063F045 /* Surface.cpp */; };
+		7D8903EC21E404270063F045 /* MaskedSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EB21E404270063F045 /* MaskedSurface.cpp */; };
 		7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CE90C6D9EF6BB1529BE9E /* ofxToggle.cpp */; };
 		86E7B2E9A54542BCD06C455E /* ofxColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB7B57F3BD101DF858A341BA /* ofxColorPicker.cpp */; };
 		8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */; };
@@ -50,6 +51,9 @@
 		7B7822AD98C03F9EB207427D /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSliderGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Surface.hpp; sourceTree = "<group>"; };
+		7D8903EA21E404270063F045 /* MaskedSurface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaskedSurface.hpp; sourceTree = "<group>"; };
+		7D8903EB21E404270063F045 /* MaskedSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaskedSurface.cpp; sourceTree = "<group>"; };
+		7D8903ED21E4058A0063F045 /* ISurface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISurface.h; sourceTree = "<group>"; };
 		818C0C8F387E334BA95FDDDE /* ofxPanel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxPanel.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxPanel.cpp; sourceTree = SOURCE_ROOT; };
 		8DE51F6E85718A03C8A2B826 /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
 		ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSliderGroup.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
@@ -641,11 +645,14 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7D8903EB21E404270063F045 /* MaskedSurface.cpp */,
+				7D8903EA21E404270063F045 /* MaskedSurface.hpp */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				7D8903E721E3C0C80063F045 /* Surface.cpp */,
 				7D8903E821E3C0C80063F045 /* Surface.hpp */,
+				7D8903ED21E4058A0063F045 /* ISurface.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -758,6 +765,7 @@
 				204A1C84FA14E65FA63D95C4 /* ofxLabel.cpp in Sources */,
 				DCDC2010C94095DC6E6D23BE /* ofxPanel.cpp in Sources */,
 				A315B62461489292F81EDB04 /* ofxSlider.cpp in Sources */,
+				7D8903EC21E404270063F045 /* MaskedSurface.cpp in Sources */,
 				8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */,
 				7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */,
 				7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */,
