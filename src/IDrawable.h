@@ -5,10 +5,10 @@
 //  Created by Nuno on 07/01/2019.
 //
 
-#ifndef ISurface_h
-#define ISurface_h
+#ifndef IDrawable_h
+#define IDrawable_h
 
-class ISurface {
+class IDrawable {
 
 public:
   virtual void update() = 0;
@@ -16,4 +16,4 @@ public:
   virtual float getWidth() = 0;
   virtual float getHeight() = 0;
 };
-#endif /* ISurface_h */
+#endif /* IDrawable_h */

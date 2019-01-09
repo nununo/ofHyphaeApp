@@ -11,20 +11,20 @@
 #include "ofMain.h"
 #include "Surface.hpp"
 
-class MaskedSurface: public ISurface {
+class MaskedSurface: public IDrawable {
 private:
-  Surface  *surface;
+  IDrawable  *surface;
   ofImage  mask;
   ofFbo    fbo;
   ofShader shader;
 
 public:
-  MaskedSurface(Surface *surface,
+  MaskedSurface(IDrawable *surface,
                 const std::filesystem::path maskFilename);
 
   // ISurface
-  float getWidth();
-  float getHeight();
+  float getWidth() {return surface->getWidth();}
+  float getHeight() {return surface->getHeight();}
   void update();
   void draw();
 };

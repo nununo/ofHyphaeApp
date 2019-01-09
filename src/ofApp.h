@@ -6,7 +6,7 @@
 class ofApp : public ofBaseApp{
 
 private:
-  ISurface *ms;
+  IDrawable *ms;
 	public:
 		void setup();
 		void update();

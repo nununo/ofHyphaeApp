@@ -7,23 +7,24 @@
 
 #include "MaskedSurface.hpp"
 
-MaskedSurface::MaskedSurface(Surface *surface,
+MaskedSurface::MaskedSurface(IDrawable *surface,
                              const std::filesystem::path maskFilename) {
 
   this->surface = surface;
   mask.load(maskFilename);
+  mask.resize(surface->getWidth(), surface->getHeight());
 
   shader.setupShaderFromFile(GL_FRAGMENT_SHADER, "shaders/alphamask.frag");
   shader.linkProgram();
 
-  fbo.allocate(surface->getWidth(), surface->getHeight());
+  fbo.allocate(getWidth(), getHeight());
 }
 
-float MaskedSurface::getWidth() {return surface->getWidth();}
-
-float MaskedSurface::getHeight() {return surface->getHeight();}
-
 void MaskedSurface::update() {
+  surface->update();
+}
+
+void MaskedSurface::draw() {
   fbo.begin();
   ofClear(0, 0, 0, 0);
   shader.begin();
@@ -31,9 +32,7 @@ void MaskedSurface::update() {
   surface->draw();
   shader.end();
   fbo.end();
-}
 
-void MaskedSurface::draw() {
   ofSetColor(255,255);
-  fbo.draw(0,0, ofGetWidth(), ofGetHeight());
+  fbo.draw(0,0, getWidth(), getHeight());
 }

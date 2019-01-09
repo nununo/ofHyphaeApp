@@ -7,18 +7,21 @@
 
 #include "Surface.hpp"
 
-Surface::Surface(const std::filesystem::path imageFilename) {
+Surface::Surface(Family *family, const std::filesystem::path imageFilename, ofVec2f size) {
   image.load(imageFilename);
+  this->family = family;
+  this->size = size;
+  fbo.allocate(getWidth(), getHeight());
 }
 
 void Surface::update() {
+  fbo.begin();
+  image.draw(0,0, getWidth(), getHeight());
+  family->draw();
+  fbo.end();
 }
 
 void Surface::draw() {
   ofSetColor(255,255);
-  image.draw(0,0);
+  fbo.draw(0,0);
 }
-
-float Surface::getWidth() {return image.getWidth();}
-
-float Surface::getHeight() {return image.getHeight();}
