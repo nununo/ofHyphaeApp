@@ -18,6 +18,7 @@ private:
   ofVec2f pos;
   float size;
   std::list<ofVec2f> spotPositions;
+  ofFbo fbo;
 
 public:
   Family(const std::filesystem::path imageFilename, ofVec2f pos, float size);

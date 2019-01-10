@@ -22,9 +22,7 @@ MaskedSurface::MaskedSurface(IDrawable *surface,
 
 void MaskedSurface::update() {
   surface->update();
-}
 
-void MaskedSurface::draw() {
   fbo.begin();
   ofClear(0, 0, 0, 0);
   shader.begin();
@@ -32,7 +30,9 @@ void MaskedSurface::draw() {
   surface->draw();
   shader.end();
   fbo.end();
+}
 
+void MaskedSurface::draw() {
   ofSetColor(255,255);
   fbo.draw(0,0, getWidth(), getHeight());
 }

@@ -15,13 +15,19 @@ Surface::Surface(Family *family, const std::filesystem::path imageFilename, ofVe
 }
 
 void Surface::update() {
+  family->update();
+
   fbo.begin();
+  ofEnableAlphaBlending();
+  ofClear(0,0,0);
+  ofSetColor(255,0,0,100);
   image.draw(0,0, getWidth(), getHeight());
+  image.unbind(); // So that it does not become tex0 for MaskedSurface's shader
+  ofSetColor(255,255,255,255);
   family->draw();
   fbo.end();
 }
 
 void Surface::draw() {
-  ofSetColor(255,255);
   fbo.draw(0,0);
 }
