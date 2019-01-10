@@ -18,7 +18,6 @@ void Surface::update() {
   family->update();
 
   fbo.begin();
-  ofEnableAlphaBlending();
   ofClear(0,0,0);
   ofSetColor(255,0,0,100);
   image.draw(0,0, getWidth(), getHeight());
