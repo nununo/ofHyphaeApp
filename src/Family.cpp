@@ -7,13 +7,15 @@
 
 #include "Family.hpp"
 
-Family::Family(const std::filesystem::path imageFilename, ofVec2f pos, float size) {
-  image.load(imageFilename);
+Family::Family(Ink *ink, ofVec2f pos, float size) {
+  this->ink = ink;
   this->pos = pos;
   this->size = size;
+  
   for(int i=0;i<10;i++) {
-    spotPositions.push_back(ofVec2f(ofRandom(-50, 50), ofRandom(-50, 50)));
+    elements.push_back( Element(ink, ofVec2f(ofRandom(-50, 50), ofRandom(-50, 50)), size) );
   }
+  
   fbo.allocate(size*10, size*10);
   fbo.begin();
   ofClear(0, 0, 0, 0);
@@ -22,13 +24,16 @@ Family::Family(const std::filesystem::path imageFilename, ofVec2f pos, float siz
 
 void Family::update() {
   fbo.begin();
-  //ofSetColor(255, 255, 255, 255);
-  for( list<ofVec2f>::iterator itr = spotPositions.begin(); itr != spotPositions.end(); ++itr ) {
-    image.draw(pos + *itr, size, size);
+  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+    itr->update();
+    ofPushMatrix();
+    ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
+    itr->draw();
+    ofPopMatrix();
   }
   fbo.end();
 }
 
 void Family::draw() {
-  fbo.draw(pos.x-size/2, pos.y-size/2);
+  fbo.draw(pos - size/2);
 }

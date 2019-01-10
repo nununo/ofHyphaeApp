@@ -15,7 +15,7 @@ class Ink
   int transparency;
   
 public:
-  Ink(int transparency){ this.transparency = transparency;}
+  Ink(int transparency){ this->transparency = transparency;}
   virtual ~Ink() {}
   int getTransparency() {return transparency;}
 

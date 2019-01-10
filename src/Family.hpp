@@ -10,18 +10,19 @@
 
 #include "ofMain.h"
 #include <list>
+#include "Element.hpp"
 
 class Family {
 
 private:
-  ofImage image;
+  Ink *ink;
   ofVec2f pos;
   float size;
-  std::list<ofVec2f> spotPositions;
+  std::list<Element> elements;
   ofFbo fbo;
 
 public:
-  Family(const std::filesystem::path imageFilename, ofVec2f pos, float size);
+  Family(Ink *ink, ofVec2f pos, float size);
   void update();
   void draw();
 };
