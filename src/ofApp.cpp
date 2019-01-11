@@ -3,13 +3,13 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-  ofSetFrameRate(60);
+  ofSetFrameRate(120);
   ofSetVerticalSync(true);
 
   Ink *ink = new InkColor(ofColor(0,0,255));
-  Family *f = new Family(ink, ofVec2f(200,100), 50);
+  Family *f = new Family(ink, ofVec2f(300,220), 100);
   Surface *s = new Surface(f, "images/test_texture.jpg", ofVec2f(ofGetWidth(), ofGetHeight()));
-  ms = new MaskedSurface(s, "images/bread_profile_mask.png");
+  ms = new MaskedSurface(s, "images/empty_profile_mask.png");
 }
 
 //--------------------------------------------------------------

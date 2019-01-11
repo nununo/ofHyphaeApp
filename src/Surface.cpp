@@ -19,7 +19,7 @@ void Surface::update() {
 
   fbo.begin();
   ofClear(0,0,0);
-  ofSetColor(255,0,0,100);
+  ofSetColor(255,0,0,50);
   image.draw(0,0, getWidth(), getHeight());
   image.unbind(); // So that it does not become tex0 for MaskedSurface's shader
   ofSetColor(255,255,255,255);

@@ -7,16 +7,18 @@
 
 #include "Family.hpp"
 
-Family::Family(Ink *ink, ofVec2f pos, float size) {
+Family::Family(Ink *ink, ofVec2f pos, float elementSize) {
   this->ink = ink;
   this->pos = pos;
-  this->size = size;
   
   for(int i=0;i<10;i++) {
-    elements.push_back( Element(ink, ofVec2f(ofRandom(-50, 50), ofRandom(-50, 50)), size) );
+    ofVec2f elementPos = ofVec2f(ofRandom(-elementSize/2, elementSize/2), ofRandom(-elementSize/2, elementSize/2));
+    elements.push_back( Element(ink, elementPos, elementSize) );
   }
-  
-  fbo.allocate(size*10, size*10);
+
+  float size = elementSize * 3;
+
+  fbo.allocate(size, size);
   fbo.begin();
   ofClear(0, 0, 0, 0);
   fbo.end();
@@ -24,16 +26,17 @@ Family::Family(Ink *ink, ofVec2f pos, float size) {
 
 void Family::update() {
   fbo.begin();
+  ofPushMatrix();
+  ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
+  //ofClear(255,255,255,50);
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr->update();
-    ofPushMatrix();
-    ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
     itr->draw();
-    ofPopMatrix();
   }
+  ofPopMatrix();
   fbo.end();
 }
 
 void Family::draw() {
-  fbo.draw(pos - size/2);
+  fbo.draw(pos.x - getWidth()/2, pos.y - getHeight()/2);
 }

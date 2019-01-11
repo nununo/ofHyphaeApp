@@ -10,7 +10,6 @@
 Element::Element(Ink *ink, ofVec2f pos, float size) {
   this->ink = ink;
   this->pos = pos;
-  this->size = size;
   fbo.allocate(size, size);
   fbo.begin();
   ofClear(0, 0, 0, 0);
@@ -21,11 +20,13 @@ void Element::update() {
   cursor = cursor + ofVec2f(ofRandom(-1,1), ofRandom(-1,1));
 
   fbo.begin();
-  ofSetColor(ink->getColor(cursor));
-  ofDrawRectangle(size/2 + cursor.x, size/2 + cursor.y, 1, 1);
+  //ofClear(255,255,255,100);
+  //ofSetColor(ink->getColor(cursor));
+  ofSetColor(255,255,255,100);
+  ofDrawRectangle(getWidth()/2 + cursor.x, getHeight()/2 + cursor.y, 1, 1);
   fbo.end();
 }
 
 void Element::draw() {
-  fbo.draw(-size/2,-size/2);
+  fbo.draw(pos.x-getWidth()/2, pos.y-getHeight()/2);
 }

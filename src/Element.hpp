@@ -10,12 +10,12 @@
 
 #include "ofMain.h"
 #include "Ink.hpp"
+#include "IDrawable.h"
 
-class Element {
+class Element : IDrawable {
 private:
   Ink *ink;
   ofVec2f pos;
-  float size;
   ofFbo fbo;
   ofVec2f cursor;
   
@@ -23,6 +23,8 @@ public:
   Element(Ink *ink, ofVec2f pos, float size);
   void update();
   void draw();
+  float getWidth() {return fbo.getWidth();}
+  float getHeight() {return fbo.getHeight();}
 };
 
 #endif /* Element_hpp */
