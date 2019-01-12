@@ -16,7 +16,7 @@ private:
   ofColor color;
   
 public:
-  InkColor(ofColor color, int _transparency=255) : Ink(_transparency) {this->color = color;}
+  InkColor(ofColor color, int _transparency=255) : Ink(_transparency) {this->color = color; this->color.a = getTransparency();}
   ofColor getColor(ofPoint position) {return this->color;}
 };
 

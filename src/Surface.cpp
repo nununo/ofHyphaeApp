@@ -7,8 +7,7 @@
 
 #include "Surface.hpp"
 
-Surface::Surface(Family *family, const std::filesystem::path imageFilename, ofVec2f size) {
-  image.load(imageFilename);
+Surface::Surface(Family *family, ofVec2f size) {
   this->family = family;
   this->size = size;
   fbo.allocate(getWidth(), getHeight());
@@ -19,10 +18,6 @@ void Surface::update() {
 
   fbo.begin();
   ofClear(0,0,0);
-  ofSetColor(255,0,0,50);
-  image.draw(0,0, getWidth(), getHeight());
-  image.unbind(); // So that it does not become tex0 for MaskedSurface's shader
-  ofSetColor(255,255,255,255);
   family->draw();
   fbo.end();
 }

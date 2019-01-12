@@ -24,7 +24,6 @@ void MaskedSurface::update() {
   surface->update();
 
   fbo.begin();
-  ofClear(0, 0, 0, 0);
   shader.begin();
   shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
   surface->draw();
@@ -33,6 +32,8 @@ void MaskedSurface::update() {
 }
 
 void MaskedSurface::draw() {
-  ofSetColor(255,255);
+  ofSetColor(255,0,0);
+  ofDrawRectangle(0, 0, getWidth(), getHeight());
+  ofSetColor(255,255,255);
   fbo.draw(0,0, getWidth(), getHeight());
 }

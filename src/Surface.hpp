@@ -19,7 +19,7 @@ private:
   ofFbo fbo;
 
 public:
-  Surface(Family *family, const std::filesystem::path imageFilename, ofVec2f size);
+  Surface(Family *family, ofVec2f size);
   
   // ISurface
   float getWidth() {return size.x;}

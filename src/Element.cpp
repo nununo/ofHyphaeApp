@@ -12,18 +12,20 @@ Element::Element(Ink *ink, ofVec2f pos, float size) {
   this->pos = pos;
   fbo.allocate(size, size);
   fbo.begin();
-  ofClear(0, 0, 0, 0);
+  ofClear(0,0,0,0);
   fbo.end();
 }
 
 void Element::update() {
-  cursor = cursor + ofVec2f(ofRandom(-1,1), ofRandom(-1,1));
+  ofVec2f dir = ofVec2f(ofRandom(-(getWidth()+cursor.x)/getWidth(),(getWidth()-cursor.x)/getWidth()),
+                        ofRandom(-(getHeight()+cursor.y)/getHeight(),(getHeight()-cursor.y)/getHeight()));
+  cursor = cursor + dir;
 
   fbo.begin();
-  //ofClear(255,255,255,100);
-  //ofSetColor(ink->getColor(cursor));
-  ofSetColor(255,255,255,100);
+  glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
+  ofSetColor(ink->getColor(cursor));
   ofDrawRectangle(getWidth()/2 + cursor.x, getHeight()/2 + cursor.y, 1, 1);
+  ofDisableAlphaBlending();
   fbo.end();
 }
 
