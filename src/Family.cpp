@@ -12,9 +12,9 @@ Family::Family(Ink *ink, ofVec2f pos, float elementSize) {
   this->ink = ink;
   this->pos = pos;
   
-  for(int i=0;i<3000;i++) {
+  for(int i=0;i<100;i++) {
     ofVec2f elementPos = ofVec2f(ofRandom(-elementSize/2, elementSize/2), ofRandom(-elementSize/2, elementSize/2));
-    InkColor *ic = new InkColor(ofColor(ofRandom(0,255), ofRandom(0,255), ofRandom(0,255)), 30);
+    InkColor *ic = new InkColor(ofColor(ofRandom(0,255), ofRandom(0,255), ofRandom(0,255)), 10);
     elements.push_back( Element(ic, elementPos, elementSize) );
   }
 
@@ -30,9 +30,6 @@ void Family::update() {
   fbo.begin();
   ofPushMatrix();
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
-
-  ofSetColor(0,0,0,0);
-  ofDrawRectangle(0, 0, getWidth(), getHeight());
 
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);

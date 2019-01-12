@@ -12,7 +12,7 @@
 #include "Ink.hpp"
 #include "IDrawable.h"
 
-class Element : IDrawable {
+class Element : public IDrawable {
 private:
   Ink *ink;
   ofVec2f pos;

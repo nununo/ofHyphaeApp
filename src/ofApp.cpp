@@ -1,16 +1,15 @@
 #include "ofApp.h"
 #include "InkColor.hpp"
+#include "Family.hpp"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
   ofSetFrameRate(60);
   ofSetVerticalSync(true);
   ofDisableAlphaBlending();
-  ofSetBackgroundColor(0xff0000);
-  
   Ink *ink = new InkColor(ofColor(0,0,255));
-  Family *f = new Family(ink, ofVec2f(300,220), 100);
-  Surface *s = new Surface(f, ofVec2f(ofGetWidth(), ofGetHeight()));
+  Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
+  s->addPart(new Family(ink, ofVec2f(300,220), 100));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 

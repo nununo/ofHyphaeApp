@@ -7,21 +7,24 @@
 
 #include "Surface.hpp"
 
-Surface::Surface(Family *family, ofVec2f size) {
-  this->family = family;
+Surface::Surface(ofVec2f size) {
   this->size = size;
   fbo.allocate(getWidth(), getHeight());
 }
 
 void Surface::update() {
-  family->update();
-
-  fbo.begin();
-  ofClear(0,0,0);
-  family->draw();
-  fbo.end();
+  for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
+    (*itr)->update();
+  }
 }
 
 void Surface::draw() {
+  fbo.begin();
+  ofClear(0,0,0);
+  for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
+    (*itr)->draw();
+  }
+  fbo.end();
+
   fbo.draw(0,0);
 }
