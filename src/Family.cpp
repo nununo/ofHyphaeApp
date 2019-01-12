@@ -12,10 +12,10 @@ Family::Family(Ink *ink, ofVec2f pos, int size) {
   this->ink = ink;
   this->pos = pos;
   
-  for(int i=0;i<1;i++) {
-    ofVec2f elementPos = ofVec2f(ofRandom(-size/2, size/2), ofRandom(-size/2, size/2));
+  for(int i=0;i<100;i++) {
+    ofVec2f elementPos = ofVec2f(ofRandom(-30, 30), ofRandom(-30, 30));
     InkColor *ic = new InkColor(ofColor(ofRandom(0,255), ofRandom(0,255), ofRandom(0,255)), 5);
-    elements.push_back( Element(ic, elementPos) );
+    elements.push_back( Element(ic, ofVec2f(0,0)) );
   }
 
   fbo.allocate(size, size);

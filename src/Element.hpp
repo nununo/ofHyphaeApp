@@ -15,6 +15,7 @@
 class Element : public IDrawable {
 private:
   Ink *ink;
+  ofVec2f dir;
   ofVec2f pos;
   float size = ofGetHeight()/2;
   ofVec2f cursor;
