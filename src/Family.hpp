@@ -11,22 +11,21 @@
 #include "ofMain.h"
 #include <list>
 #include "Element.hpp"
+#include "VboElement.hpp"
 #include "IDrawable.h"
 
 class Family : public IDrawable {
 
 private:
-  Ink *ink;
   ofVec2f pos;
-  std::list<Element> elements;
-  ofFbo fbo;
+  std::list<VboElement> vboElements;
 
 public:
-  Family(Ink *ink, ofVec2f pos, int size);
+  Family(ofVec2f pos, int size);
   void update();
   void draw();
-  float getWidth() {return fbo.getWidth();}
-  float getHeight() {return fbo.getHeight();}
+  float getWidth() {return 0;}
+  float getHeight() {return 0;}
 };
 
 #endif /* Family_hpp */

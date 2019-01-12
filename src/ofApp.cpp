@@ -7,10 +7,13 @@ void ofApp::setup(){
   ofSetFrameRate(60);
   ofSetVerticalSync(true);
   ofDisableAlphaBlending();
-  Ink *ink = new InkColor(ofColor(0,0,255));
+
+  glPointSize(1);
+
   Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
-  s->addPart(new Family(ink, ofVec2f(500,400), 600));
+  s->addPart(new Family(ofVec2f(ofGetWidth()/2,ofGetHeight()/2), 600));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
+  ms = s;
 }
 
 //--------------------------------------------------------------
