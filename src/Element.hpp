@@ -16,15 +16,15 @@ class Element : public IDrawable {
 private:
   Ink *ink;
   ofVec2f pos;
-  ofFbo fbo;
+  float size;
   ofVec2f cursor;
   
 public:
   Element(Ink *ink, ofVec2f pos, float size);
   void update();
   void draw();
-  float getWidth() {return fbo.getWidth();}
-  float getHeight() {return fbo.getHeight();}
+  float getWidth() {return size;}
+  float getHeight() {return size;}
 };
 
 #endif /* Element_hpp */

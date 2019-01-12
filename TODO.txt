@@ -1,0 +1,2 @@
+How to avoid drawing outside the visible area
+
