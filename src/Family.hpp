@@ -22,7 +22,7 @@ private:
   ofFbo fbo;
 
 public:
-  Family(Ink *ink, ofVec2f pos, float elementSize);
+  Family(Ink *ink, ofVec2f pos, int size);
   void update();
   void draw();
   float getWidth() {return fbo.getWidth();}

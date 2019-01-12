@@ -16,11 +16,11 @@ class Element : public IDrawable {
 private:
   Ink *ink;
   ofVec2f pos;
-  float size;
+  float size = ofGetHeight()/2;
   ofVec2f cursor;
   
 public:
-  Element(Ink *ink, ofVec2f pos, float size);
+  Element(Ink *ink, ofVec2f pos);
   void update();
   void draw();
   float getWidth() {return size;}

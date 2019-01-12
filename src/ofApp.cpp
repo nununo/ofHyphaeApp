@@ -9,7 +9,7 @@ void ofApp::setup(){
   ofDisableAlphaBlending();
   Ink *ink = new InkColor(ofColor(0,0,255));
   Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
-  s->addPart(new Family(ink, ofVec2f(500,400), 700));
+  s->addPart(new Family(ink, ofVec2f(500,400), 600));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 
