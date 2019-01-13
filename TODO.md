@@ -1,3 +1,4 @@
+- Generate new Elements according to the Distorted Circle
 - Should one family have one or multiple colors?
 
 - Family decay (fade to black)
