@@ -11,6 +11,7 @@ Element::Element(Ink *ink, ofVec3f pos, int lifespan) {
   this->size = ofGetHeight()/2;
   this->ink = ink;
   this->pos = pos;
+  this->cursor = ofVec3f(0,0,0);
   this->dir = ofVec3f(0,0,0); //ofVec2f(ofRandom(0.01f, 0.01f),0).getRotated(ofRandom(360));
   this->lifespan = lifespan;
 }
@@ -18,7 +19,8 @@ Element::Element(Ink *ink, ofVec3f pos, int lifespan) {
 void Element::update() {
   if (lifespan >0) {
     updatePosition();
-    updateCursor();
+    //updateCursor();
+    dc.update();
     grow();
   }
 }
@@ -33,6 +35,7 @@ void Element::draw() {
     ofDrawRectangle(cursor.x, cursor.y, 3, 3);
     ofPopStyle();
     ofPopMatrix();
+    dc.draw();
   }
 }
 

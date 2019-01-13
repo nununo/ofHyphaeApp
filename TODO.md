@@ -1,4 +1,3 @@
-- 2D Perlin noise to slow down some directions (terrain difficulty)
 - Should one family have one or multiple colors?
 
 - Family decay (fade to black)

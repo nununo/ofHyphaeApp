@@ -28,6 +28,7 @@ private:
 
   void addElement(ofVec3f pos);
   float getElementAngleDistance();
+  ofVec3f calcCorrectedPosition(ofVec3f p, float maxCorrection);
   void grow();
   void createElements();
   void destroyDeadElements();

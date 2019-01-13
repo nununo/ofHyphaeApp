@@ -46,6 +46,7 @@ void Family::update() {
       itr->update();
     }
     fbo.begin();
+    ofClear(0,0,0); // TEMP!!!
     ofPushMatrix();
     ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
 
@@ -77,10 +78,17 @@ float Family::getElementAngleDistance() {
   return 360 * this->elementDistance / circlePerimeter;
 }
 
+ofVec3f Family::calcCorrectedPosition(ofVec3f p, float maxCorrection) {
+  float noise = ofSignedNoise(p + 0.123f);
+  ofVec3f newP = p + noise * maxCorrection;
+  newP.z = p.z; // Do not affect Z
+  return newP;
+}
+
 void Family::grow() {
   if (isAlive()) {
     this->radius += this->growthSpeed;
-    createElements();
+    //createElements();
     destroyDeadElements();
     this->lifespan--;
   }
@@ -91,7 +99,8 @@ void Family::createElements() {
     float currentAngle = 0;
     float angleIncrement = getElementAngleDistance();
     while (currentAngle < 360) {
-      addElement(ofVec3f(this->radius, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1)));
+      ofVec3f p = ofVec3f(this->radius, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1));
+      addElement(calcCorrectedPosition(p, this->elementDistance));
       currentAngle += angleIncrement;
     }
     this->lastElementRadius = this->radius;

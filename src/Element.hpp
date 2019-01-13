@@ -11,6 +11,7 @@
 #include "ofMain.h"
 #include "Ink.hpp"
 #include "IDrawable.h"
+#include "DistortedCircle.hpp"
 
 class Element : public IDrawable {
 private:
@@ -20,6 +21,7 @@ private:
   float size;
   ofVec2f cursor;
   int lifespan;
+  DistortedCircle dc;
   
   void grow() {this->lifespan--;}
   void updateCursor();
