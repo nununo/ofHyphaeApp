@@ -27,5 +27,6 @@ public:
   float getHeight() {return surface->getHeight();}
   void update();
   void draw();
+  bool isAlive() {return true;}
 };
 #endif /* MaskedSurface_hpp */

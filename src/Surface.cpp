@@ -14,7 +14,11 @@ Surface::Surface(ofVec2f size) {
 
 void Surface::update() {
   for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
-    (*itr)->update();
+    if ((*itr)->isAlive()) {
+      (*itr)->update();
+    } else {
+      itr = parts.erase(itr);
+    }
   }
 }
 

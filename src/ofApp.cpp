@@ -8,7 +8,12 @@ void ofApp::setup(){
   ofSetVerticalSync(true);
   ofDisableAlphaBlending();
   Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
-  s->addPart(new Family(ofVec2f(500,400), 600, 30, 100));
+  s->addPart(new Family(ofVec2f(500,400),
+                        600,  // Size
+                        1000, // Lifespan
+                        100,  // Element lifespan
+                        30    // Element distance
+                        ));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 

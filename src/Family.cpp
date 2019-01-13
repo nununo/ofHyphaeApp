@@ -8,8 +8,9 @@
 #include "Family.hpp"
 #include "InkColor.hpp"
 
-Family::Family(ofVec3f pos, int size, float elementDistance, int elementLifespan) {
+Family::Family(ofVec3f pos, int size, int lifespan, int elementLifespan, float elementDistance) {
   this->pos = pos;
+  this->lifespan = lifespan;
   this->elementDistance = elementDistance;
   this->elementLifespan = elementLifespan;
   radius = 0;
@@ -32,28 +33,32 @@ Family::Family(ofVec3f pos, int size, float elementDistance, int elementLifespan
 }
 
 void Family::update() {
-  grow();
-  
-  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->update();
-  }
-  fbo.begin();
-  ofPushMatrix();
-  ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
+  if (isAlive()) {
+    grow();
+    
+    for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+      itr->update();
+    }
+    fbo.begin();
+    ofPushMatrix();
+    ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
 
-  ofEnableAlphaBlending();
-  ofSetColor(255,255,255,255);
-  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->draw();
-  }
-  ofDisableBlendMode();
+    ofEnableAlphaBlending();
+    ofSetColor(255,255,255,255);
+    for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+      itr->draw();
+    }
+    ofDisableBlendMode();
 
-  ofPopMatrix();
-  fbo.end();
+    ofPopMatrix();
+    fbo.end();
+  }
 }
 
 void Family::draw() {
-  fbo.draw(pos.x - getWidth()/2, pos.y - getHeight()/2);
+  if (isAlive()) {
+    fbo.draw(pos.x - getWidth()/2, pos.y - getHeight()/2);
+  }
 }
 
 void Family::addElement(ofVec3f pos) {
@@ -67,9 +72,12 @@ float Family::getElementAngleDistance() {
 }
 
 void Family::grow() {
-  this->radius += this->growthSpeed;
-  createElements();
-  destroyDeadElements();
+  if (isAlive()) {
+    this->radius += this->growthSpeed;
+    createElements();
+    destroyDeadElements();
+    this->lifespan--;
+  }
 }
 
 void Family::createElements() {

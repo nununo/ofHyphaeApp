@@ -19,11 +19,12 @@ private:
   ofVec2f pos;
   std::list<Element> elements;
   ofFbo fbo;
-  float elementDistance;
   float radius;
   float growthSpeed;
-  float lastElementRadius;
+  int lifespan;
+  float elementDistance;
   int elementLifespan;
+  float lastElementRadius;
 
   void addElement(ofVec3f pos);
   float getElementAngleDistance();
@@ -32,11 +33,14 @@ private:
   void destroyDeadElements();
 
 public:
-  Family(ofVec3f pos, int size, float elementDistance, int elementLifespan);
+  Family(ofVec3f pos, int size, int lifespan, int elementLifespan, float elementDistance);
+
+  // IDrawable
   void update();
   void draw();
   float getWidth() {return fbo.getWidth();}
   float getHeight() {return fbo.getHeight();}
+  bool isAlive() {return this->lifespan > 0;}
 };
 
 #endif /* Family_hpp */

@@ -27,6 +27,8 @@ private:
 
 public:
   Element(Ink *ink, ofVec3f pos, int lifespan);
+
+  // IDrawable
   void update();
   void draw();
   float getWidth() {return this->size;}
