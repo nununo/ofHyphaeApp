@@ -8,10 +8,11 @@
 #ifndef Family_hpp
 #define Family_hpp
 
-#include "ofMain.h"
 #include <list>
+#include "ofMain.h"
 #include "Element.hpp"
 #include "IDrawable.h"
+#include "Perimeter.hpp"
 
 class Family : public IDrawable {
 
@@ -26,11 +27,12 @@ private:
   int elementLifespan;
   float lastElementRadius;
   DistortedCircle dc;
+  Perimeter per360;
   
   bool drawDC = false;
 
   void addElement(ofVec3f pos);
-  float getElementAngleDistance();
+  float getElementAngleDistance(float r);
   void grow();
   void createElements();
   void destroyDeadElements();

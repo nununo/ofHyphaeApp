@@ -4,16 +4,16 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-  ofSetFrameRate(60);
+  ofSetFrameRate(120);
   ofSetVerticalSync(true);
   ofDisableAlphaBlending();
   Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   s->addPart(new Family(ofVec2f(500,400),
                         600,    // Size
-                        0.1f,  // Growth speed
+                        0.025f,  // Growth speed
                         100000, // Lifespan
                         1000,    // Element lifespan
-                        20      // Element distance
+                        10      // Element distance
                         ));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }

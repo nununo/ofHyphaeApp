@@ -62,7 +62,8 @@ void Family::updateFBO() {
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
   
   if (drawDC) {
-    dc.draw(this->radius);
+    //dc.draw(this->radius, this->elementDistance);
+    per360.draw();
     drawDC = false;
   }
   
@@ -82,8 +83,8 @@ void Family::addElement(ofVec3f pos) {
   elements.push_back( Element(ic, pos, elementLifespan) );
 }
 
-float Family::getElementAngleDistance() {
-  float circlePerimeter = 2 * PI * this->radius;
+float Family::getElementAngleDistance(float r) {
+  float circlePerimeter = 2 * PI * r;
   return 360 * this->elementDistance / circlePerimeter;
 }
 
@@ -100,12 +101,20 @@ void Family::createElements() {
   if (this->radius >= this->lastElementRadius + this->elementDistance) {
     dc.update();
     drawDC = true;
-    float currentAngle = 0;
-    float angleIncrement = getElementAngleDistance();
+    float currentAngle = 0.0f;
+    float angleIncrement = 30.0f;//getElementAngleDistance();
     while (currentAngle < 360) {
-      ofVec3f u = ofVec3f(1, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1));
-      ofVec3f p = u * (this->radius * dc.getRadius(currentAngle));
+      float r = this->radius + dc.getRadius(currentAngle) * this->elementDistance;
+      ofVec3f p = ofVec3f(r, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1));
+
+      //if (p.length() < per360.get(currentAngle)) {
+      //  p = p.getScaled(per360.get(currentAngle));
+      //}
+      
       addElement(p);
+      for(int i=currentAngle; i<currentAngle+angleIncrement; i++) {
+        per360.set(i, p.length());
+      }
       currentAngle += angleIncrement;
     }
     this->lastElementRadius = this->radius;
