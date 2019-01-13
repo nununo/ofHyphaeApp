@@ -20,19 +20,11 @@ private:
   ofVec2f pos;
   std::list<Element> elements;
   ofFbo fbo;
-  float radius;
-  float growthSpeed;
   int lifespan;
-  float elementDistance;
   int elementLifespan;
-  float lastElementRadius;
-  DistortedCircle dc;
-  Perimeter per360;
+  Perimeter *perimeter;
   
-  bool drawDC = false;
-
   void addElement(ofVec3f pos);
-  float getElementAngleDistance(float r);
   void grow();
   void createElements();
   void destroyDeadElements();

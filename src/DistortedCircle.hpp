@@ -14,16 +14,12 @@
 class DistortedCircle {
 
 private:
-  float points[360];
-  int iteration;
   ofVec2f offset;
   float scale;
   
 public:
-  DistortedCircle();
-  float getRadius(float angle) {return points[Utils::angleToIndex(angle)];}
-  void update();
-  void draw(float radius, float distance);
+  DistortedCircle(float scale);
+  float get(float angle, float radius);
 };
 
 #endif /* DistortedCircle_hpp */

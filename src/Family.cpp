@@ -11,11 +11,8 @@
 Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance) {
   this->pos = pos;
   this->lifespan = lifespan;
-  this->elementDistance = elementDistance;
   this->elementLifespan = elementLifespan;
-  radius = 0;
-  this->growthSpeed = growthSpeed;
-  lastElementRadius = 0;
+  this->perimeter = new Perimeter(growthSpeed, elementDistance);
 
   addElement(ofVec3f(0,0,0));
   
@@ -41,6 +38,7 @@ Family::~Family() {
 void Family::update() {
   if (isAlive()) {
     grow();
+    perimeter->update();
     
     for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
       itr->update();
@@ -58,23 +56,21 @@ void Family::draw() {
 
 void Family::updateFBO() {
   fbo.begin();
+  ofPushStyle();
   ofPushMatrix();
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
-  
-  if (drawDC) {
-    //dc.draw(this->radius, this->elementDistance);
-    per360.draw();
-    drawDC = false;
-  }
-  
+
+  ofClear(0,0,0);
+  perimeter->draw();
+
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr->draw();
   }
-  ofDisableBlendMode();
-  
+
   ofPopMatrix();
+  ofPopStyle();
   fbo.end();
 }
 
@@ -83,41 +79,10 @@ void Family::addElement(ofVec3f pos) {
   elements.push_back( Element(ic, pos, elementLifespan) );
 }
 
-float Family::getElementAngleDistance(float r) {
-  float circlePerimeter = 2 * PI * r;
-  return 360 * this->elementDistance / circlePerimeter;
-}
-
 void Family::grow() {
   if (isAlive()) {
-    this->radius += this->growthSpeed;
-    createElements();
     destroyDeadElements();
     this->lifespan--;
-  }
-}
-
-void Family::createElements() {
-  if (this->radius >= this->lastElementRadius + this->elementDistance) {
-    dc.update();
-    drawDC = true;
-    float currentAngle = 0.0f;
-    float angleIncrement = 30.0f;//getElementAngleDistance();
-    while (currentAngle < 360) {
-      float r = this->radius + dc.getRadius(currentAngle) * this->elementDistance;
-      ofVec3f p = ofVec3f(r, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1));
-
-      //if (p.length() < per360.get(currentAngle)) {
-      //  p = p.getScaled(per360.get(currentAngle));
-      //}
-      
-      addElement(p);
-      for(int i=currentAngle; i<currentAngle+angleIncrement; i++) {
-        per360.set(i, p.length());
-      }
-      currentAngle += angleIncrement;
-    }
-    this->lastElementRadius = this->radius;
   }
 }
 

@@ -9,16 +9,23 @@
 #define Perimeter_hpp
 
 #include "ofMain.h"
+#include "DistortedCircle.hpp"
 
 class Perimeter {
   
 private:
-  float points[360];
+  DistortedCircle *dc;
+  float elementDistance;
+  float growthSpeed;
+  float lastElements[360];
+  float cursors[360];
+
+  float getElementAngleDistance(float r);
 
 public:
-  Perimeter();
-  void set(float angle, float v);
-  float get(float angle);
+  Perimeter(float growthSpeed, float elementDistance);
+  ~Perimeter();
+  void update();
   void draw();
 };
 
