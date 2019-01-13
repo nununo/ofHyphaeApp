@@ -16,13 +16,21 @@
 class Family : public IDrawable {
 
 private:
-  Ink *ink;
   ofVec2f pos;
   std::list<Element> elements;
   ofFbo fbo;
+  float elementDistance;
+  float radius;
+  float growthSpeed;
+  float lastElementRadius;
+
+  void addElement(ofVec3f pos);
+  float getElementAngleDistance();
+  void grow();
+  void createElements();
 
 public:
-  Family(Ink *ink, ofVec2f pos, int size);
+  Family(ofVec3f pos, int size, float elementDistance);
   void update();
   void draw();
   float getWidth() {return fbo.getWidth();}

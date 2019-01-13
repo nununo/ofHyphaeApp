@@ -19,7 +19,7 @@ private:
   ofVec2f pos;
   float size = ofGetHeight()/2;
   ofVec2f cursor;
-  
+
 public:
   Element(Ink *ink, ofVec2f pos);
   void update();

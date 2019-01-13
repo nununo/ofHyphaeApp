@@ -8,16 +8,15 @@
 #include "Family.hpp"
 #include "InkColor.hpp"
 
-Family::Family(Ink *ink, ofVec2f pos, int size) {
-  this->ink = ink;
+Family::Family(ofVec3f pos, int size, float elementDistance) {
   this->pos = pos;
-  
-  for(int i=0;i<100;i++) {
-    ofVec2f elementPos = ofVec2f(ofRandom(-30, 30), ofRandom(-30, 30));
-    InkColor *ic = new InkColor(ofColor(ofRandom(0,255), ofRandom(0,255), ofRandom(0,255)), 5);
-    elements.push_back( Element(ic, ofVec2f(0,0)) );
-  }
+  this->elementDistance = elementDistance;
+  radius = 0;
+  growthSpeed = 0.5;
+  lastElementRadius = 0;
 
+  addElement(ofVec3f(0,0,0));
+  
   fbo.allocate(size, size);
   ofPushStyle();
   fbo.begin();
@@ -32,6 +31,11 @@ Family::Family(Ink *ink, ofVec2f pos, int size) {
 }
 
 void Family::update() {
+  grow();
+  
+  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+    itr->update();
+  }
   fbo.begin();
   ofPushMatrix();
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
@@ -39,8 +43,6 @@ void Family::update() {
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->update();
-    
     itr->draw();
   }
   ofDisableBlendMode();
@@ -52,3 +54,33 @@ void Family::update() {
 void Family::draw() {
   fbo.draw(pos.x - getWidth()/2, pos.y - getHeight()/2);
 }
+
+void Family::addElement(ofVec3f pos) {
+  InkColor *ic = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
+  elements.push_back( Element(ic, pos) );
+}
+
+float Family::getElementAngleDistance() {
+  float circlePerimeter = 2 * PI * this->radius;
+  return 360 * this->elementDistance / circlePerimeter;
+}
+
+void Family::grow() {
+  this->radius += this->growthSpeed;
+  ofLog() << this->radius;
+  createElements();
+}
+
+void Family::createElements() {
+  if (this->radius >= this->lastElementRadius + this->elementDistance) {
+    float currentAngle = 0;
+    float angleIncrement = getElementAngleDistance();
+    ofLog() << "creating elements " << angleIncrement;
+    while (currentAngle < 360) {
+      addElement(ofVec3f(this->radius, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1)));
+      currentAngle += angleIncrement;
+    }
+    this->lastElementRadius = this->radius;
+  }
+}
+
