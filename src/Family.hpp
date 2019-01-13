@@ -25,16 +25,19 @@ private:
   float elementDistance;
   int elementLifespan;
   float lastElementRadius;
+  DistortedCircle dc;
+  
+  bool drawDC = false;
 
   void addElement(ofVec3f pos);
   float getElementAngleDistance();
-  ofVec3f calcCorrectedPosition(ofVec3f p, float maxCorrection);
   void grow();
   void createElements();
   void destroyDeadElements();
+  void updateFBO();
 
 public:
-  Family(ofVec3f pos, int size, int lifespan, int elementLifespan, float elementDistance);
+  Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance);
   ~Family();
 
   // IDrawable

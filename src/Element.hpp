@@ -21,7 +21,6 @@ private:
   float size;
   ofVec2f cursor;
   int lifespan;
-  DistortedCircle dc;
   
   void grow() {this->lifespan--;}
   void updateCursor();

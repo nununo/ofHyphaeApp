@@ -19,7 +19,7 @@ public:
   DistortedCircle();
   float getRadius(float angle) {return points[int(angle+0.5f) % 360];}
   void update();
-  void draw();
+  void draw(float radius);
 };
 
 #endif /* DistortedCircle_hpp */

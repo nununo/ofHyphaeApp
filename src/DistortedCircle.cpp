@@ -18,16 +18,17 @@ void DistortedCircle::update() {
     // Even though we need a 1D noise, since it's circular (and thus periodic)
     // we will use 2D Perlin noise to achieve consistency in the transition
     // from 0 to 360
-    points[i] += ofSignedNoise(ofVec2f(1,0).getRotated(i)) / 1000;
+    points[i] += ofSignedNoise(ofVec2f(1,0).getRotated(i)/3) / 10;
   }
 }
 
-void DistortedCircle::draw() {
+void DistortedCircle::draw(float radius) {
+  ofLog() << "DistortedCircle::draw" << radius;
   for(int i=0; i<360; i++) {
-    ofVec2f p = ofVec2f(1,0).getRotated(i) * getRadius(i) * 150;
+    ofVec2f p = ofVec2f(1,0).getRotated(i) * getRadius(i) * radius;
     ofPushStyle();
-    ofSetColor(255, 255, 255);
-    ofDrawRectangle(p, 2, 2);
+    ofSetColor(255, 255, 255, 255);
+    ofDrawRectangle(p, 1, 1);
     ofPopStyle();
   }
 }

@@ -9,10 +9,11 @@ void ofApp::setup(){
   ofDisableAlphaBlending();
   Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   s->addPart(new Family(ofVec2f(500,400),
-                        600,  // Size
+                        600,    // Size
+                        0.1f,  // Growth speed
                         100000, // Lifespan
-                        100000,  // Element lifespan
-                        30    // Element distance
+                        1000,    // Element lifespan
+                        20      // Element distance
                         ));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }

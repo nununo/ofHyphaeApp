@@ -19,8 +19,7 @@ Element::Element(Ink *ink, ofVec3f pos, int lifespan) {
 void Element::update() {
   if (lifespan >0) {
     updatePosition();
-    //updateCursor();
-    dc.update();
+    updateCursor();
     grow();
   }
 }
@@ -35,12 +34,10 @@ void Element::draw() {
     ofDrawRectangle(cursor.x, cursor.y, 3, 3);
     ofPopStyle();
     ofPopMatrix();
-    dc.draw();
   }
 }
 
 void Element::updateCursor() {
-  // Move cursor
   ofVec2f cursorDir = ofVec2f(ofRandom(-(getWidth()+cursor.x)/getWidth(),(getWidth()-cursor.x)/getWidth()),
                               ofRandom(-(getHeight()+cursor.y)/getHeight(),(getHeight()-cursor.y)/getHeight()));
   cursor = cursor + cursorDir;
