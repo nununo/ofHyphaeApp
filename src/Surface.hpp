@@ -20,6 +20,7 @@ private:
 
 public:
   Surface(ofVec2f size);
+  ~Surface();
   
   // ISurface
   float getWidth() {return size.x;}

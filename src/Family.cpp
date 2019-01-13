@@ -32,6 +32,12 @@ Family::Family(ofVec3f pos, int size, int lifespan, int elementLifespan, float e
   fbo.end();
 }
 
+Family::~Family() {
+  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+    itr = elements.erase(itr);
+  }
+}
+
 void Family::update() {
   if (isAlive()) {
     grow();

@@ -34,6 +34,7 @@ private:
 
 public:
   Family(ofVec3f pos, int size, int lifespan, int elementLifespan, float elementDistance);
+  ~Family();
 
   // IDrawable
   void update();

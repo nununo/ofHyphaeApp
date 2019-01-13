@@ -12,6 +12,12 @@ Surface::Surface(ofVec2f size) {
   fbo.allocate(getWidth(), getHeight());
 }
 
+Surface::~Surface() {
+  for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
+    itr = parts.erase(itr);
+  }
+}
+
 void Surface::update() {
   for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
     if ((*itr)->isAlive()) {
