@@ -8,9 +8,10 @@
 #include "Family.hpp"
 #include "InkColor.hpp"
 
-Family::Family(ofVec3f pos, int size, float elementDistance) {
+Family::Family(ofVec3f pos, int size, float elementDistance, int elementLifespan) {
   this->pos = pos;
   this->elementDistance = elementDistance;
+  this->elementLifespan = elementLifespan;
   radius = 0;
   growthSpeed = 0.5;
   lastElementRadius = 0;
@@ -57,7 +58,7 @@ void Family::draw() {
 
 void Family::addElement(ofVec3f pos) {
   InkColor *ic = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
-  elements.push_back( Element(ic, pos) );
+  elements.push_back( Element(ic, pos, elementLifespan) );
 }
 
 float Family::getElementAngleDistance() {
@@ -67,20 +68,27 @@ float Family::getElementAngleDistance() {
 
 void Family::grow() {
   this->radius += this->growthSpeed;
-  ofLog() << this->radius;
   createElements();
+  destroyDeadElements();
 }
 
 void Family::createElements() {
   if (this->radius >= this->lastElementRadius + this->elementDistance) {
     float currentAngle = 0;
     float angleIncrement = getElementAngleDistance();
-    ofLog() << "creating elements " << angleIncrement;
     while (currentAngle < 360) {
       addElement(ofVec3f(this->radius, 0, 0).rotate(currentAngle, ofVec3f(0, 0, 1)));
       currentAngle += angleIncrement;
     }
     this->lastElementRadius = this->radius;
+  }
+}
+
+void Family::destroyDeadElements() {
+  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+    if (!itr->isAlive()) {
+      itr = elements.erase(itr);
+    }
   }
 }
 

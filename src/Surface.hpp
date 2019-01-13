@@ -26,6 +26,7 @@ public:
   float getHeight() {return size.y;}
   void update();
   void draw();
+
   void addPart(IDrawable *d) {parts.push_back(d);}
 };
 

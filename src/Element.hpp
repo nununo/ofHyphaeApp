@@ -15,17 +15,23 @@
 class Element : public IDrawable {
 private:
   Ink *ink;
-  ofVec2f dir;
-  ofVec2f pos;
-  float size = ofGetHeight()/2;
+  ofVec3f dir;
+  ofVec3f pos;
+  float size;
   ofVec2f cursor;
+  int lifespan;
+  
+  void grow() {this->lifespan--;}
+  void updateCursor();
+  void updatePosition() {pos += dir; }
 
 public:
-  Element(Ink *ink, ofVec2f pos);
+  Element(Ink *ink, ofVec3f pos, int lifespan);
   void update();
   void draw();
-  float getWidth() {return size;}
-  float getHeight() {return size;}
+  float getWidth() {return this->size;}
+  float getHeight() {return this->size;}
+  bool isAlive() {return this->lifespan > 0;}
 };
 
 #endif /* Element_hpp */

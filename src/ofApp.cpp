@@ -8,7 +8,7 @@ void ofApp::setup(){
   ofSetVerticalSync(true);
   ofDisableAlphaBlending();
   Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
-  s->addPart(new Family(ofVec2f(500,400), 600, 30));
+  s->addPart(new Family(ofVec2f(500,400), 600, 30, 100));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 

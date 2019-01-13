@@ -23,14 +23,16 @@ private:
   float radius;
   float growthSpeed;
   float lastElementRadius;
+  int elementLifespan;
 
   void addElement(ofVec3f pos);
   float getElementAngleDistance();
   void grow();
   void createElements();
+  void destroyDeadElements();
 
 public:
-  Family(ofVec3f pos, int size, float elementDistance);
+  Family(ofVec3f pos, int size, float elementDistance, int elementLifespan);
   void update();
   void draw();
   float getWidth() {return fbo.getWidth();}
