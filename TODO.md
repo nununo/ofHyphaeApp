@@ -1,7 +1,6 @@
-- The family perimeter must maintain a constant density. Solution: distance from center decides the amount of Elements needed to keep the same density
-- Should one family have one or multiple colors?
-- Decide element lifecycle (sudden death?)
+- Family lifespan
 - Make destructors
+- Should one family have one or multiple colors?
 
 - Family decay (fade to black)
 - Create the concept of a Family "strength"
