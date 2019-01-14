@@ -42,21 +42,31 @@ void Perimeter::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
   ofSetColor(255, 255, 0, 255);
+  drawCursor();
+  drawSockets();
+  ofPopStyle();
+}
+
+void Perimeter::drawCursor() {
   for(int i=0; i<360; i++) {
-    ofVec2f pc = ofVec2f(cursors[i],0).getRotated(i);
-    ofDrawRectangle(pc, 1, 1);
+    ofVec2f p = ofVec2f(cursors[i],0).getRotated(i);
+    ofDrawRectangle(p, 1, 1);
+  }
+}
+
+void Perimeter::drawSockets() {
+  for(int i=0; i<360; i++) {
     for (int j=0; j<10;j ++) {
       SocketState s = sockets->getState(j*this->elementDistance, i);
       if ( s != Invalid ) {
-        ofVec2f ps = ofVec2f(j*this->elementDistance,0).getRotated(i);
+        ofVec2f p = ofVec2f(j*this->elementDistance,0).getRotated(i);
         if (s == Empty ) {
           ofSetColor(255, 255, 255);
         } else {
           ofSetColor(255, 255, 0);
         }
-        ofDrawRectangle(ps, 1, 1);
+        ofDrawRectangle(p, 1, 1);
       }
     }
   }
-  ofPopStyle();
 }

@@ -39,7 +39,6 @@ Family::~Family() {
 
 void Family::onNewElementEvent(NewElementEvent &e) {
   addElement(e.pos);
-  ofLog() << "New element: " << e.pos;
 }
 
 void Family::update() {
@@ -67,8 +66,8 @@ void Family::updateFBO() {
   ofPushMatrix();
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
 
-  ofClear(0,0,0);
-  perimeter->draw();
+  //ofClear(0,0,0);
+  //perimeter->draw();
 
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);

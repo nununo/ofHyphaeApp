@@ -21,6 +21,9 @@ private:
   float growthSpeed;
   float cursors[360];
 
+  void drawCursor();
+  void drawSockets();
+
 public:
   Perimeter(float growthSpeed, float elementDistance);
   ~Perimeter();

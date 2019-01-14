@@ -12,7 +12,7 @@ void ofApp::setup(){
                         600,    // Size
                         0.025f,  // Growth speed
                         100000, // Lifespan
-                        1000,    // Element lifespan
+                        2000,    // Element lifespan
                         10      // Element distance
                         ));
   ms = new MaskedSurface(s, "images/bread_profile_mask.png");
