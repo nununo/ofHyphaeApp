@@ -2,31 +2,36 @@
 #include "InkColor.h"
 #include "Family.h"
 
-//--------------------------------------------------------------
 void ofApp::setup(){
   ofSetFrameRate(120);
   ofSetVerticalSync(true);
   ofDisableAlphaBlending();
-  Surface *s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
-  s->addPart(new Family(ofVec2f(500,400),
-                        600,    // Size
+  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
+  addFamily();
+  //ms = new MaskedSurface(s, "images/bread_profile_mask.png");
+}
+
+void ofApp::addFamily() {
+  s->addPart(new Family(ofVec2f(ofRandom(150,650),ofRandom(15,650)),
+                        700,    // Size
                         0.025f,  // Growth speed
                         100000, // Lifespan
-                        2000,    // Element lifespan
-                        10      // Element distance
+                        1000,    // Element lifespan
+                        5      // Element distance
                         ));
-  ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 
-//--------------------------------------------------------------
 void ofApp::update(){
-  ms->update();
+  s->update();
 }
 
-//--------------------------------------------------------------
 void ofApp::draw(){
-  ms->draw();
+  s->draw();
   ofSetColor(255, 255, 255,255);
   string fpsStr = "frame rate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(fpsStr, 10,10);
+}
+
+void ofApp::keyPressed(int key) {
+  addFamily();
 }
