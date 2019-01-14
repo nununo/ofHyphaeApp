@@ -27,12 +27,19 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int eleme
   
   ofPopStyle();
   fbo.end();
+  
+  ofAddListener(NewElementEvent::events, this, &Family::onNewElementEvent);
 }
 
 Family::~Family() {
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr = elements.erase(itr);
   }
+}
+
+void Family::onNewElementEvent(NewElementEvent &e) {
+  addElement(e.pos);
+  ofLog() << "New element: " << e.pos;
 }
 
 void Family::update() {

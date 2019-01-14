@@ -13,6 +13,8 @@
 		38BB2209DB529AACA60431DB /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC23ADD796DD593D355583B9 /* ofxBaseGui.cpp */; };
 		6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E58DA97D3CAF3F74578F88 /* tinyxmlerror.cpp */; };
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
+		7D6EDC8C21ED077900511B76 /* Sockets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6EDC8A21ED077900511B76 /* Sockets.cpp */; };
+		7D6EDC9121ED152100511B76 /* NewElementEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */; };
 		7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903E721E3C0C80063F045 /* Surface.cpp */; };
 		7D8903EC21E404270063F045 /* MaskedSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EB21E404270063F045 /* MaskedSurface.cpp */; };
 		7D8903F021E413240063F045 /* Family.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EE21E413240063F045 /* Family.cpp */; };
@@ -57,6 +59,10 @@
 		7D20814F21E4C267007DE176 /* Ink.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
 		7D20815121E4C332007DE176 /* InkImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InkImage.hpp; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		7D6EDC8A21ED077900511B76 /* Sockets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sockets.cpp; sourceTree = "<group>"; };
+		7D6EDC8B21ED077900511B76 /* Sockets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sockets.hpp; sourceTree = "<group>"; };
+		7D6EDC8D21ED113B00511B76 /* NewElementEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewElementEvent.h; sourceTree = "<group>"; };
+		7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NewElementEvent.cpp; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Surface.hpp; sourceTree = "<group>"; };
 		7D8903EA21E404270063F045 /* MaskedSurface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaskedSurface.hpp; sourceTree = "<group>"; };
@@ -678,6 +684,10 @@
 				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.hpp */,
 				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
 				7DEF8B7221EBC8B1003E5F7E /* Perimeter.hpp */,
+				7D6EDC8A21ED077900511B76 /* Sockets.cpp */,
+				7D6EDC8B21ED077900511B76 /* Sockets.hpp */,
+				7D6EDC8D21ED113B00511B76 /* NewElementEvent.h */,
+				7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */,
 				7D20814F21E4C267007DE176 /* Ink.hpp */,
 				7D20815121E4C332007DE176 /* InkImage.hpp */,
 				7DFEC78A21E7D1F0009DC9DD /* InkColor.hpp */,
@@ -789,6 +799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				7D6EDC9121ED152100511B76 /* NewElementEvent.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				7DFEC78821E7D06E009DC9DD /* Element.cpp in Sources */,
 				7DEF8B7021EBAAB1003E5F7E /* DistortedCircle.cpp in Sources */,
@@ -796,6 +807,7 @@
 				CAFB1448316E1452DFCB4D0A /* ofxButton.cpp in Sources */,
 				86E7B2E9A54542BCD06C455E /* ofxColorPicker.cpp in Sources */,
 				F3DDAE2AA1D070E91A537EBC /* ofxGuiGroup.cpp in Sources */,
+				7D6EDC8C21ED077900511B76 /* Sockets.cpp in Sources */,
 				0ECC7B14C8561DF0F89CF3E6 /* ofxInputField.cpp in Sources */,
 				7DEF8B7321EBC8B1003E5F7E /* Perimeter.cpp in Sources */,
 				204A1C84FA14E65FA63D95C4 /* ofxLabel.cpp in Sources */,

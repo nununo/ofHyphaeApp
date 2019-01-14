@@ -10,17 +10,16 @@
 
 #include "ofMain.h"
 #include "DistortedCircle.hpp"
+#include "Sockets.hpp"
 
 class Perimeter {
   
 private:
   DistortedCircle *dc;
+  Sockets *sockets;
   float elementDistance;
   float growthSpeed;
-  float lastElements[360];
   float cursors[360];
-
-  float getElementAngleDistance(float r);
 
 public:
   Perimeter(float growthSpeed, float elementDistance);

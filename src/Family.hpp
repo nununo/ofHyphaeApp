@@ -13,6 +13,7 @@
 #include "Element.hpp"
 #include "IDrawable.h"
 #include "Perimeter.hpp"
+#include "NewElementEvent.h"
 
 class Family : public IDrawable {
 
@@ -34,6 +35,8 @@ public:
   Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance);
   ~Family();
 
+  void onNewElementEvent(NewElementEvent &e);
+  
   // IDrawable
   void update();
   void draw();
