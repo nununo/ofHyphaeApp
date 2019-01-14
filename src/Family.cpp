@@ -13,6 +13,7 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int eleme
   this->lifespan = lifespan;
   this->elementLifespan = elementLifespan;
   this->perimeter = new Perimeter(growthSpeed, elementDistance);
+  this->ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
 
   addElement(ofVec3f(0,0,0));
   
@@ -21,9 +22,9 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int eleme
   fbo.begin();
   ofClear(0, 0, 0, 0);
 
-  ofSetColor(40, 40, 40, 255);
-  ofNoFill();
-  ofDrawRectangle(1,1,size-1,size-1);
+  //ofSetColor(40, 40, 40, 255);
+  //ofNoFill();
+  //ofDrawRectangle(1,1,size-1,size-1);
   
   ofPopStyle();
   fbo.end();
@@ -81,8 +82,8 @@ void Family::updateFBO() {
 }
 
 void Family::addElement(ofVec3f pos) {
-  InkColor *ic = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
-  elements.push_back( Element(ic, pos, elementLifespan) );
+  //InkColor *ic = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
+  elements.push_back( Element(this->ink, pos, elementLifespan) );
 }
 
 void Family::grow() {

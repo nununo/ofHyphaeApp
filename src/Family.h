@@ -18,6 +18,7 @@
 class Family : public IDrawable {
 
 private:
+  Ink *ink;
   ofVec2f pos;
   std::list<Element> elements;
   ofFbo fbo;
