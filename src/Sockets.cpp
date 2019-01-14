@@ -5,7 +5,7 @@
 //  Created by Nuno on 14/01/2019.
 //
 
-#include "Sockets.hpp"
+#include "Sockets.h"
 #include "ofMain.h"
 
 Sockets::Sockets(float distance) {

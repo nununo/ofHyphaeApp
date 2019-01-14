@@ -11,7 +11,7 @@
 #include "ofMain.h"
 #include "Ink.hpp"
 #include "IDrawable.h"
-#include "DistortedCircle.hpp"
+#include "DistortedCircle.h"
 
 class Element : public IDrawable {
 private:

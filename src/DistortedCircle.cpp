@@ -5,7 +5,7 @@
 //  Created by Nuno on 13/01/2019.
 //
 
-#include "DistortedCircle.hpp"
+#include "DistortedCircle.h"
 
 DistortedCircle::DistortedCircle(float scale) {
   this->offset = ofVec2f(ofRandom(1000), ofRandom(1000));

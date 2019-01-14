@@ -5,8 +5,8 @@
 //  Created by Nuno on 08/01/2019.
 //
 
-#include "Family.hpp"
-#include "InkColor.hpp"
+#include "Family.h"
+#include "InkColor.h"
 
 Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance) {
   this->pos = pos;

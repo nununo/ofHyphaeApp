@@ -10,9 +10,9 @@
 
 #include <list>
 #include "ofMain.h"
-#include "Element.hpp"
+#include "Element.h"
 #include "IDrawable.h"
-#include "Perimeter.hpp"
+#include "Perimeter.h"
 #include "NewElementEvent.h"
 
 class Family : public IDrawable {

@@ -5,7 +5,7 @@
 //  Created by Nuno on 07/01/2019.
 //
 
-#include "MaskedSurface.hpp"
+#include "MaskedSurface.h"
 
 MaskedSurface::MaskedSurface(IDrawable *surface,
                              const std::filesystem::path maskFilename) {

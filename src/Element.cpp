@@ -5,7 +5,7 @@
 //  Created by Nuno on 10/01/2019.
 //
 
-#include "Element.hpp"
+#include "Element.h"
 
 Element::Element(Ink *ink, ofVec3f pos, int lifespan) {
   this->size = ofGetHeight()/2;

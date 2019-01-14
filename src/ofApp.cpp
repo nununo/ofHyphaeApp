@@ -1,6 +1,6 @@
 #include "ofApp.h"
-#include "InkColor.hpp"
-#include "Family.hpp"
+#include "InkColor.h"
+#include "Family.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){

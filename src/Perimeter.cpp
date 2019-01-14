@@ -5,8 +5,8 @@
 //  Created by Nuno on 13/01/2019.
 //
 
-#include "Perimeter.hpp"
-#include "Utils.hpp"
+#include "Perimeter.h"
+#include "Utils.h"
 #include "NewElementEvent.h"
 
 Perimeter::Perimeter(float growthSpeed, float elementDistance) {

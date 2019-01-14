@@ -5,7 +5,7 @@
 //  Created by Nuno on 07/01/2019.
 //
 
-#include "Surface.hpp"
+#include "Surface.h"
 
 Surface::Surface(ofVec2f size) {
   this->size = size;

@@ -9,7 +9,7 @@
 #define MaskedSurface_hpp
 
 #include "ofMain.h"
-#include "Surface.hpp"
+#include "Surface.h"
 
 class MaskedSurface: public IDrawable {
 private:

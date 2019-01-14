@@ -57,28 +57,28 @@
 		796F3C930E9F094E76752F24 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSlider.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		7B7822AD98C03F9EB207427D /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSliderGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
 		7D20814F21E4C267007DE176 /* Ink.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
-		7D20815121E4C332007DE176 /* InkImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InkImage.hpp; sourceTree = "<group>"; };
+		7D20815121E4C332007DE176 /* InkImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkImage.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D6EDC8A21ED077900511B76 /* Sockets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sockets.cpp; sourceTree = "<group>"; };
-		7D6EDC8B21ED077900511B76 /* Sockets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sockets.hpp; sourceTree = "<group>"; };
+		7D6EDC8B21ED077900511B76 /* Sockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sockets.h; sourceTree = "<group>"; };
 		7D6EDC8D21ED113B00511B76 /* NewElementEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewElementEvent.h; sourceTree = "<group>"; };
 		7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NewElementEvent.cpp; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
-		7D8903E821E3C0C80063F045 /* Surface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Surface.hpp; sourceTree = "<group>"; };
-		7D8903EA21E404270063F045 /* MaskedSurface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaskedSurface.hpp; sourceTree = "<group>"; };
+		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
+		7D8903EA21E404270063F045 /* MaskedSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskedSurface.h; sourceTree = "<group>"; };
 		7D8903EB21E404270063F045 /* MaskedSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaskedSurface.cpp; sourceTree = "<group>"; };
 		7D8903ED21E4058A0063F045 /* IDrawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDrawable.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Family.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Family.cpp; sourceTree = "<group>"; };
-		7D8903EF21E413240063F045 /* Family.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Family.hpp; sourceTree = "<group>"; };
+		7D8903EF21E413240063F045 /* Family.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
 		7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DistortedCircle.cpp; sourceTree = "<group>"; };
-		7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DistortedCircle.hpp; sourceTree = "<group>"; };
+		7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistortedCircle.h; sourceTree = "<group>"; };
 		7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Perimeter.cpp; sourceTree = "<group>"; };
-		7DEF8B7221EBC8B1003E5F7E /* Perimeter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Perimeter.hpp; sourceTree = "<group>"; };
-		7DEF8B7421EBCA2F003E5F7E /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Perimeter.h; sourceTree = "<group>"; };
+		7DEF8B7421EBCA2F003E5F7E /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		7DEF8B7521EBCA2F003E5F7E /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		7DFEC78621E7D06E009DC9DD /* Element.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
-		7DFEC78721E7D06E009DC9DD /* Element.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Element.hpp; sourceTree = "<group>"; };
-		7DFEC78A21E7D1F0009DC9DD /* InkColor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InkColor.hpp; sourceTree = "<group>"; };
+		7DFEC78721E7D06E009DC9DD /* Element.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
+		7DFEC78A21E7D1F0009DC9DD /* InkColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkColor.h; sourceTree = "<group>"; };
 		818C0C8F387E334BA95FDDDE /* ofxPanel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxPanel.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxPanel.cpp; sourceTree = SOURCE_ROOT; };
 		8DE51F6E85718A03C8A2B826 /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
 		ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSliderGroup.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
@@ -673,28 +673,28 @@
 			children = (
 				7D8903ED21E4058A0063F045 /* IDrawable.h */,
 				7D8903EB21E404270063F045 /* MaskedSurface.cpp */,
-				7D8903EA21E404270063F045 /* MaskedSurface.hpp */,
+				7D8903EA21E404270063F045 /* MaskedSurface.h */,
 				7D8903E721E3C0C80063F045 /* Surface.cpp */,
-				7D8903E821E3C0C80063F045 /* Surface.hpp */,
+				7D8903E821E3C0C80063F045 /* Surface.h */,
 				7D8903EE21E413240063F045 /* Family.cpp */,
-				7D8903EF21E413240063F045 /* Family.hpp */,
+				7D8903EF21E413240063F045 /* Family.h */,
 				7DFEC78621E7D06E009DC9DD /* Element.cpp */,
-				7DFEC78721E7D06E009DC9DD /* Element.hpp */,
+				7DFEC78721E7D06E009DC9DD /* Element.h */,
 				7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */,
-				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.hpp */,
+				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
 				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
-				7DEF8B7221EBC8B1003E5F7E /* Perimeter.hpp */,
+				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
 				7D6EDC8A21ED077900511B76 /* Sockets.cpp */,
-				7D6EDC8B21ED077900511B76 /* Sockets.hpp */,
+				7D6EDC8B21ED077900511B76 /* Sockets.h */,
 				7D6EDC8D21ED113B00511B76 /* NewElementEvent.h */,
 				7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */,
 				7D20814F21E4C267007DE176 /* Ink.hpp */,
-				7D20815121E4C332007DE176 /* InkImage.hpp */,
-				7DFEC78A21E7D1F0009DC9DD /* InkColor.hpp */,
+				7D20815121E4C332007DE176 /* InkImage.h */,
+				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				7DEF8B7421EBCA2F003E5F7E /* Utils.hpp */,
+				7DEF8B7421EBCA2F003E5F7E /* Utils.h */,
 				7DEF8B7521EBCA2F003E5F7E /* Utils.cpp */,
 			);
 			path = src;

@@ -9,8 +9,8 @@
 #define Perimeter_hpp
 
 #include "ofMain.h"
-#include "DistortedCircle.hpp"
-#include "Sockets.hpp"
+#include "DistortedCircle.h"
+#include "Sockets.h"
 
 class Perimeter {
   

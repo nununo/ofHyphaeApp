@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "MaskedSurface.hpp"
+#include "MaskedSurface.h"
 
 class ofApp : public ofBaseApp{
 
