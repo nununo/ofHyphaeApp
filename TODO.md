@@ -1,6 +1,6 @@
 - Elements should move away from center and new elements should be created when the old ones reach them
+- Manage to overimpose Families keeping transparency and preserving colors correctly 
 
-- Should one family have one or multiple colors?
 - Family decay (fade to black)
 - Create the concept of a Family "strength"
 
