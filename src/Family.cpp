@@ -69,7 +69,6 @@ void Family::updateFBO() {
 }
 
 void Family::addElement(ofVec3f p) {
-  //InkColor *ic = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
   elements.push_back( Element(this->ink, p, 0.03f, elementLifespan) );
 }
 
