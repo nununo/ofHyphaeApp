@@ -35,6 +35,8 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key) {
   switch (key) {
     case ' ':
+      // Space adds a new family (currently hiding the previous one because for now
+      // this is just for convenience
       addFamily();
       break;
       
