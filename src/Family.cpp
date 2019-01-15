@@ -13,7 +13,7 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int eleme
   this->lifespan = lifespan;
   this->elementLifespan = elementLifespan;
   this->perimeter = new Perimeter(growthSpeed, elementDistance);
-  this->ink = new InkColor(ofColor(0,0,0), 5);
+  this->ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
 
   addElement(ofVec3f(0,0,0));
 
@@ -91,7 +91,7 @@ void Family::destroyDeadElements() {
 void Family::initializeFBO(float size) {
   fbo.allocate(size, size);
   fbo.begin();
-  ofClear(255, 255, 255, 0);
+  ofClear(0, 0, 0, 0);
   ofPopStyle();
   fbo.end();
 }
