@@ -48,10 +48,6 @@ void Family::update() {
 void Family::draw() {
   if (isAlive()) {
     fbo.draw(0,0);
-    ofPushMatrix();
-    ofTranslate(pos.x, pos.y);
-    perimeter->draw();
-    ofPopMatrix();
   }
 }
 
