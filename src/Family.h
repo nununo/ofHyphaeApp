@@ -11,7 +11,6 @@
 #include <list>
 #include "ofMain.h"
 #include "Element.h"
-#include "IDrawable.h"
 #include "Perimeter.h"
 #include "NewElementEvent.h"
 
@@ -31,6 +30,8 @@ private:
   void createElements();
   void destroyDeadElements();
   void updateFBO();
+  void drawFrame();
+  void initializeFBO(float size);
 
 public:
   Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance);

@@ -16,19 +16,9 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int eleme
   this->ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
 
   addElement(ofVec3f(0,0,0));
-  
-  fbo.allocate(size, size);
-  ofPushStyle();
-  fbo.begin();
-  ofClear(0, 0, 0, 0);
 
-  //ofSetColor(40, 40, 40, 255);
-  //ofNoFill();
-  //ofDrawRectangle(1,1,size-1,size-1);
-  
-  ofPopStyle();
-  fbo.end();
-  
+  initializeFBO(size);
+
   ofAddListener(NewElementEvent::events, this, &Family::onNewElementEvent);
 }
 
@@ -57,7 +47,11 @@ void Family::update() {
 
 void Family::draw() {
   if (isAlive()) {
-    fbo.draw(pos.x - getWidth()/2, pos.y - getHeight()/2);
+    fbo.draw(0,0);
+    ofPushMatrix();
+    ofTranslate(pos.x, pos.y);
+    perimeter->draw();
+    ofPopMatrix();
   }
 }
 
@@ -66,10 +60,7 @@ void Family::updateFBO() {
   ofPushStyle();
   ofPushMatrix();
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
-
-  //ofClear(0,0,0);
-  //perimeter->draw();
-
+  
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
@@ -101,3 +92,20 @@ void Family::destroyDeadElements() {
   }
 }
 
+void Family::initializeFBO(float size) {
+  fbo.allocate(size, size);
+  fbo.begin();
+  ofClear(0, 0, 0, 0);
+  ofPopStyle();
+  fbo.end();
+}
+
+void Family::drawFrame() {
+  fbo.begin();
+  ofPushStyle();
+  ofSetColor(40, 40, 40, 255);
+  ofNoFill();
+  ofDrawRectangle(1,1,fbo.getWidth()-1,fbo.getHeight()-1);
+  ofPopStyle();
+  fbo.end();
+}

@@ -28,13 +28,14 @@ private:
 
 public:
   Element(Ink *ink, ofVec3f pos, int lifespan);
+  bool isAlive() {return this->lifespan > 0;}
+  void kill() {this->lifespan = 0;}
 
   // IDrawable
   void update();
   void draw();
   float getWidth() {return this->size;}
   float getHeight() {return this->size;}
-  bool isAlive() {return this->lifespan > 0;}
 };
 
 #endif /* Element_hpp */

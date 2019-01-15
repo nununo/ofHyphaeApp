@@ -12,7 +12,7 @@ Element::Element(Ink *ink, ofVec3f pos, int lifespan) {
   this->ink = ink;
   this->pos = pos;
   this->cursor = ofVec3f(0,0,0);
-  this->dir = ofVec3f(0,0,0); //ofVec2f(ofRandom(0.01f, 0.01f),0).getRotated(ofRandom(360));
+  this->dir = ofVec3f(0,0,0); //ofVec2f(ofRandom(0.1f, 0.1f),0).getRotated(ofRandom(360));
   this->lifespan = lifespan;
 }
 
@@ -29,8 +29,6 @@ void Element::draw() {
     ofPushMatrix();
     ofPushStyle();
     ofTranslate(pos.x, pos.y);
-    //ofSetColor(255, 255, 255);
-    //ofDrawRectangle(0, 0, 2, 2);
     ofSetColor(ink->getColor(cursor));
     ofFill();
     ofDrawRectangle(cursor.x, cursor.y, 1, 1);

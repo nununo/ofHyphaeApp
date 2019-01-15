@@ -12,7 +12,7 @@ void ofApp::setup(){
 }
 
 void ofApp::addFamily() {
-  s->addPart(new Family(ofVec2f(ofRandom(150,650),ofRandom(15,650)),
+  s->addPart(new Family(ofVec2f(s->getWidth()/2,s->getHeight()/2), // ofVec2f(ofRandom(150,650),ofRandom(15,650)),
                         700,    // Size
                         0.025f,  // Growth speed
                         100000, // Lifespan
@@ -33,5 +33,12 @@ void ofApp::draw(){
 }
 
 void ofApp::keyPressed(int key) {
-  addFamily();
+  switch (key) {
+    case ' ':
+      addFamily();
+      break;
+      
+    default:
+      break;
+  }
 }
