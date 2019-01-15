@@ -16,7 +16,7 @@
 class Element : public IDrawable {
 private:
   Ink *ink;
-  ofVec3f dir;
+  ofVec2f speed;
   ofVec3f pos;
   float size;
   ofVec2f cursor;
@@ -24,10 +24,10 @@ private:
   
   void grow() {this->lifespan--;}
   void updateCursor();
-  void updatePosition() {pos += dir; }
+  void updatePosition() {pos += this->speed; }
 
 public:
-  Element(Ink *ink, ofVec3f pos, int lifespan);
+  Element(Ink *ink, ofVec3f pos, float speed, int lifespan);
   bool isAlive() {return this->lifespan > 0;}
   void kill() {this->lifespan = 0;}
 

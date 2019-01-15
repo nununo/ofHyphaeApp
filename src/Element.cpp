@@ -7,12 +7,12 @@
 
 #include "Element.h"
 
-Element::Element(Ink *ink, ofVec3f pos, int lifespan) {
+Element::Element(Ink *ink, ofVec3f pos, float speed, int lifespan) {
   this->size = ofGetHeight()/2;
   this->ink = ink;
   this->pos = pos;
   this->cursor = ofVec3f(0,0,0);
-  this->dir = ofVec3f(0,0,0); //ofVec2f(ofRandom(0.1f, 0.1f),0).getRotated(ofRandom(360));
+  this->speed = this->pos.getNormalized()*speed;
   this->lifespan = lifespan;
 }
 
