@@ -1,4 +1,5 @@
-- Elements should move away from center and new elements should be created when the old ones reach them
+- Change Element cursor algorithm to tend towards the center so that the perimeter becomes less scattered
+- Prevent Family from becoming so distorted. Ideally by reducing the perlin scale more or, if this doesn't do it, by controlling somehow how much distortion can happen
 - Manage to overimpose Families keeping transparency and preserving colors correctly 
 
 - Family decay (fade to black)
