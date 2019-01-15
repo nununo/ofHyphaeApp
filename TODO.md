@@ -1,8 +1,9 @@
-- Generate new Elements according to the Distorted Circle
-- Should one family have one or multiple colors?
+- Elements should move away from center and new elements should be created when the old ones reach them
 
+- Should one family have one or multiple colors?
 - Family decay (fade to black)
 - Create the concept of a Family "strength"
+
 - How to avoid drawing outside the visible area
 - Try Retina mode again with the hack suggested in the OF forum
 
