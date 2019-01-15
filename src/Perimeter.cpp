@@ -7,7 +7,6 @@
 
 #include "Perimeter.h"
 #include "Utils.h"
-#include "NewElementEvent.h"
 
 Perimeter::Perimeter(float growthSpeed, float elementDistance) {
   this->elementDistance = elementDistance;
@@ -32,7 +31,7 @@ void Perimeter::update() {
       if (sockets->fillState(cursors[i], i) == 0) {
         static NewElementEvent event;
         event.pos = ofVec2f(cursors[i],0).getRotated(i);
-        ofNotifyEvent(NewElementEvent::events, event);
+        ofNotifyEvent(this->newElementEvent, event);
       }
     }
   }

@@ -6,5 +6,3 @@
 //
 
 #include "NewElementEvent.h"
-
-ofEvent <NewElementEvent> NewElementEvent::events;

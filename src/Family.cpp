@@ -19,7 +19,7 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int eleme
 
   initializeFBO(size);
 
-  ofAddListener(NewElementEvent::events, this, &Family::onNewElementEvent);
+  ofAddListener(this->perimeter->newElementEvent, this, &Family::onNewElementEvent);
 }
 
 Family::~Family() {

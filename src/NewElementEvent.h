@@ -15,7 +15,7 @@ class NewElementEvent : public ofEventArgs {
 public:
   ofVec3f pos;
   
-  static ofEvent <NewElementEvent> events;
+  ofEvent<NewElementEvent> events;
 };
 
 #endif /* NewElementEvent_h */
