@@ -3,8 +3,8 @@
 #include "Family.h"
 
 void ofApp::setup(){
-  ofSetFrameRate(120);
-  ofSetVerticalSync(true);
+  //ofSetFrameRate(120);
+  ofSetVerticalSync(false);
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   addFamily();

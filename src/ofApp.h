@@ -7,6 +7,7 @@ class ofApp : public ofBaseApp{
 
 private:
   Surface *s;
+  //MaskedSurface *ms;
   
   void addFamily();
 
