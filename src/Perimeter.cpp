@@ -10,7 +10,7 @@
 
 Perimeter::Perimeter(float growthSpeed, float elementDistance) {
   this->elementDistance = elementDistance;
-  this->dc = new DistortedCircle(0.01f);
+  this->dc = new DistortedCircle(0.0025f);
   this->sockets = new Sockets(elementDistance);
   this->growthSpeed = growthSpeed;
   

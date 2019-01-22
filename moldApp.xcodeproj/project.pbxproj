@@ -56,7 +56,7 @@
 		5F73E80E6C5FEADD0A9B0FF1 /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxPanel.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
 		796F3C930E9F094E76752F24 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSlider.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		7B7822AD98C03F9EB207427D /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSliderGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
-		7D20814F21E4C267007DE176 /* Ink.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ink.hpp; sourceTree = "<group>"; };
+		7D20814F21E4C267007DE176 /* Ink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ink.h; sourceTree = "<group>"; };
 		7D20815121E4C332007DE176 /* InkImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkImage.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D6EDC8A21ED077900511B76 /* Sockets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sockets.cpp; sourceTree = "<group>"; };
@@ -688,7 +688,7 @@
 				7D6EDC8B21ED077900511B76 /* Sockets.h */,
 				7D6EDC8D21ED113B00511B76 /* NewElementEvent.h */,
 				7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */,
-				7D20814F21E4C267007DE176 /* Ink.hpp */,
+				7D20814F21E4C267007DE176 /* Ink.h */,
 				7D20815121E4C332007DE176 /* InkImage.h */,
 				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,

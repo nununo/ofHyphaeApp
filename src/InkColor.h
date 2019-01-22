@@ -9,7 +9,7 @@
 #ifndef InkColor_hpp
 #define InkColor_hpp
 
-#include "Ink.hpp"
+#include "Ink.h"
 
 class InkColor : public Ink {
 private:
