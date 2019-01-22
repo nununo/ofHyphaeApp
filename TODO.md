@@ -1,6 +1,7 @@
 - Check why the Perimeter growth is gradually slowing down when DistortedCircle is active (now it's not)
 - Fractor out Element's moving algorithm into Dance which will be the one receiving the Ink
 - Solve weird circle bug that happen at the radius where 360 Elements are created
+- Correct Sockets rounding bug
 - Change Element cursor algorithm to tend towards the center so that the perimeter becomes less scattered
 - Experiment with new Dances (filaments moviment away)
 - Prevent Family from becoming so distorted. Ideally by reducing the perlin scale more or, if this doesn't do it, by controlling somehow how much distortion can happen
