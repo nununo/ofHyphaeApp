@@ -9,7 +9,7 @@
 #define Element_hpp
 
 #include "ofMain.h"
-#include "Ink.hpp"
+#include "Ink.h"
 #include "IDrawable.h"
 #include "DistortedCircle.h"
 
