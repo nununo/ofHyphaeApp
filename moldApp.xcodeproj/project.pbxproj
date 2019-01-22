@@ -13,6 +13,7 @@
 		38BB2209DB529AACA60431DB /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC23ADD796DD593D355583B9 /* ofxBaseGui.cpp */; };
 		6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E58DA97D3CAF3F74578F88 /* tinyxmlerror.cpp */; };
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
+		7D2691D521F7E03E001483D8 /* Hole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D2691D321F7E03E001483D8 /* Hole.cpp */; };
 		7D6EDC8C21ED077900511B76 /* Sockets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6EDC8A21ED077900511B76 /* Sockets.cpp */; };
 		7D6EDC9121ED152100511B76 /* NewElementEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6EDC9021ED152100511B76 /* NewElementEvent.cpp */; };
 		7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903E721E3C0C80063F045 /* Surface.cpp */; };
@@ -58,6 +59,8 @@
 		7B7822AD98C03F9EB207427D /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSliderGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
 		7D20814F21E4C267007DE176 /* Ink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ink.h; sourceTree = "<group>"; };
 		7D20815121E4C332007DE176 /* InkImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkImage.h; sourceTree = "<group>"; };
+		7D2691D321F7E03E001483D8 /* Hole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hole.cpp; sourceTree = "<group>"; };
+		7D2691D421F7E03E001483D8 /* Hole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D6EDC8A21ED077900511B76 /* Sockets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sockets.cpp; sourceTree = "<group>"; };
 		7D6EDC8B21ED077900511B76 /* Sockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sockets.h; sourceTree = "<group>"; };
@@ -684,6 +687,8 @@
 				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
 				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
 				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
+				7D2691D321F7E03E001483D8 /* Hole.cpp */,
+				7D2691D421F7E03E001483D8 /* Hole.h */,
 				7D6EDC8A21ED077900511B76 /* Sockets.cpp */,
 				7D6EDC8B21ED077900511B76 /* Sockets.h */,
 				7D6EDC8D21ED113B00511B76 /* NewElementEvent.h */,
@@ -821,6 +826,7 @@
 				7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */,
 				7DEF8B7621EBCA2F003E5F7E /* Utils.cpp in Sources */,
 				6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */,
+				7D2691D521F7E03E001483D8 /* Hole.cpp in Sources */,
 				21C28723F7D8CA1BB84F3F3F /* tinyxmlparser.cpp in Sources */,
 				D4EBA2E1D767309891BAE77B /* ofxXmlSettings.cpp in Sources */,
 			);
