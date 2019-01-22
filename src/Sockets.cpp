@@ -14,37 +14,51 @@ Sockets::Sockets(float distance) {
 }
 
 void Sockets::initialize() {
-  for (int i=0;i<SOCKETS_MAX_DISTANCE;i++) {
-    for (int j=0;j<360;j++) {
-      if (i != 0 && (j == 0 || j % getAngularDistance(i) == 0)) {
-        states[i][j] = Empty;
+  for (int ring=0;ring<MAX_RINGS;ring++) {
+    float angularDistance = getAngularDistance(ring);
+    for (int angle=0;angle<ANGLE_STEPS;angle++) {
+      if (ring != 0 && (angle == 0 || angle % getAngularDistance(ring) == 0)) {
+        states[ring][angle] = Empty;
       } else {
-        states[i][j] = Invalid;
+        states[ring][angle] = Invalid;
       }
     }
   }
 }
 
-int Sockets::getAngularDistance(int i) {
-  float circlePerimeter = 2 * PI * this->distance * i;
-  return (int)(360 * this->distance / circlePerimeter + 0.5f);
+int Sockets::getAngularDistance(int ring) {
+  float circlePerimeter = 2 * PI * this->distance * ring;
+  return (int)(ANGLE_STEPS * this->distance / circlePerimeter + 0.5f);
 }
 
-SocketState Sockets::getState(float r, int angle) {
-  int i = getIndex(r);
-  if (i<SOCKETS_MAX_DISTANCE) {
-    return states[i][angle];
+SocketState Sockets::isFilled(int ring, float angle) {
+  if (ring<MAX_RINGS) {
+    return states[ring][getAngleIndex(angle)];
   } else {
     return Invalid;
   }
 }
 
-int Sockets::fillState(float r, int angle) {
-  int i = getIndex(r);
-  if (states[i][angle] == Empty) {
-    states[i][angle] = Filled;
-    return 0;
+bool Sockets::fill(int ring, float angle) {
+  int angleIndex = getAngleIndex(angle);
+  if (states[ring][angleIndex] == Empty) {
+    states[ring][angleIndex] = Filled;
+    return true;
   } else {
-    return 1;
+    return false;
   }
+}
+
+void Sockets::draw() {
+  ofPushStyle();
+  ofSetColor(0, 255, 0);
+  for(int ring=1; ring<MAX_RINGS; ring++) {
+    ofVec2f pos = ofVec2f(ring*this->distance,0);
+    for (int angleIndex=0;angleIndex<ANGLE_STEPS;angleIndex++) {
+      if (states[ring][angleIndex] != Invalid) {
+        ofDrawRectangle(pos.getRotated(angleIndex/100), 1, 1);
+      }
+    }
+  }
+  ofPopStyle();
 }

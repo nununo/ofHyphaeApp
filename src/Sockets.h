@@ -10,21 +10,24 @@
 
 enum SocketState { Invalid,Empty,Filled };
 
-#define SOCKETS_MAX_DISTANCE 100
+#define MAX_RINGS 100
+#define ANGLE_STEPS 36000
 
 class Sockets {
 private:
-  SocketState states[SOCKETS_MAX_DISTANCE][360];
+  SocketState states[MAX_RINGS][ANGLE_STEPS];
   float distance;
 
   void initialize();
-  int getAngularDistance(int i);
-  int getIndex(float r) {return (int)(r/this->distance + 0.5f);}
+  int getAngularDistance(int ring);
+  int getAngleIndex(float angle) {return (int)(angle*100 +0.5f);}
 
 public:
   Sockets(float distance);
-  SocketState getState(float r, int angle);
-  int fillState(float r, int angle);
+  int getRing(float radius) {return (int)(radius/this->distance + 0.5f);}
+  SocketState isFilled(int ring, float angle);
+  bool fill(int ring, float angle);
+  void draw();
 };
 
 #endif /* Sockets_hpp */

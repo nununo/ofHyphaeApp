@@ -3,8 +3,8 @@
 #include "Family.h"
 
 void ofApp::setup(){
-  ofSetFrameRate(120);
-  ofSetVerticalSync(true);
+  //ofSetFrameRate(120);
+  ofSetVerticalSync(false);
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   addFamily();
@@ -17,7 +17,7 @@ void ofApp::addFamily() {
                         0.025f,  // Growth speed
                         100000, // Lifespan
                         1000,    // Element lifespan
-                        5      // Element distance
+                        10      // Element distance
                         ));
 }
 
