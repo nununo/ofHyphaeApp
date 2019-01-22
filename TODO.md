@@ -1,3 +1,5 @@
+- Add mask to Surface and get rid of MaskedSurface
+- Get rid of all FBOs
 - Check why the Perimeter growth is gradually slowing down when DistortedCircle is active (now it's not)
 - Fractor out Element's moving algorithm into Dance which will be the one receiving the Ink
 - Solve weird circle bug that happen at the radius where 360 Elements are created
