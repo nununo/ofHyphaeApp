@@ -17,7 +17,7 @@ void ofApp::addFamily() {
                         0.025f,  // Growth speed
                         100000, // Lifespan
                         1000,    // Element lifespan
-                        5      // Element distance
+                        10      // Element distance
                         ));
 }
 

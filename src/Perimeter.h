@@ -10,23 +10,22 @@
 
 #include "ofMain.h"
 #include "DistortedCircle.h"
-#include "Sockets.h"
+#include "Rings.h"
 #include "NewElementEvent.h"
 
 class Perimeter {
   
 private:
   DistortedCircle *dc;
-  Sockets *sockets;
-  float elementDistance;
+  Rings *rings;
+  float space;
   float growthSpeed;
   float cursors[360];
 
   void drawCursor();
-  void drawSockets();
 
 public:
-  Perimeter(float growthSpeed, float elementDistance);
+  Perimeter(float growthSpeed, float space);
   ~Perimeter();
   void update();
   void draw();

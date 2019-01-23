@@ -62,6 +62,7 @@ void Family::updateFBO() {
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr->draw();
   }
+  perimeter->draw();
 
   ofPopMatrix();
   ofPopStyle();
@@ -69,7 +70,7 @@ void Family::updateFBO() {
 }
 
 void Family::addElement(ofVec3f p) {
-  elements.push_back( Element(this->ink, p, 0.03f, elementLifespan) );
+  elements.push_back( Element(this->ink, p, 0.00f, elementLifespan) );
 }
 
 void Family::grow() {
