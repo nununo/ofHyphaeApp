@@ -8,10 +8,10 @@
 #include "Perimeter.h"
 #include "Utils.h"
 
-Perimeter::Perimeter(float growthSpeed, float elementDistance) {
-  this->elementDistance = elementDistance;
+Perimeter::Perimeter(float growthSpeed, float space) {
+  this->space = space;
   this->dc = new DistortedCircle(0.0025f);
-  this->sockets = new Sockets(elementDistance);
+  this->rings = new Rings(space);
   this->growthSpeed = growthSpeed;
   
   for(int i=0; i<360;i++) {
@@ -21,14 +21,14 @@ Perimeter::Perimeter(float growthSpeed, float elementDistance) {
 
 Perimeter::~Perimeter() {
   delete this->dc;
-  delete this->sockets;
+  delete this->rings;
 }
 
 void Perimeter::update() {
   for(int i=0; i<360; i++) {
     cursors[i] += dc->get(i, cursors[i]) * this->growthSpeed;
-    int ring = sockets->getRing(cursors[i]);
-    if (sockets->fill(ring, i)) {
+    int ring = rings->getRing(cursors[i]);
+    if (rings->fill(ring, i)) {
       static NewElementEvent event;
       event.pos = ofVec2f(cursors[i],0).getRotated(i);
       ofNotifyEvent(this->newElementEvent, event);
@@ -40,8 +40,8 @@ void Perimeter::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
   ofSetColor(255, 255, 0, 255);
-  drawCursor();
-  //sockets->draw();
+  //drawCursor();
+  rings->draw();
   ofPopStyle();
 }
 

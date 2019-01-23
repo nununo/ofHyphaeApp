@@ -13,13 +13,15 @@
 enum HoleState {Invalid, Empty, Filled};
 
 class Hole {
-  ofVec2f position = ofVec2f(0,0);
-  HoleState state = Invalid;
+private:
+  ofVec2f position;
+  HoleState state;
 public:
-  ofVec2f setPosition(ofVec2f p, HoleState s) {this->position=p;this->state=s;}
+  Hole() {position=ofVec2f(0,0); state = Invalid;}
+  ofVec2f setPosition(ofVec2f p) {this->position=p; this->state=Empty;}
   ofVec2f getPosition() {return position;}
-  void setEmpty() {this->state = Empty};
-  bool fill() 
+  HoleState getState() {return state;}
+  bool fill();
 };
 
 #endif /* Hole_h */
