@@ -14,7 +14,7 @@ Rings::Rings(float space) {
   }
 }
 
-bool Rings::fill(int ring, float angle) {
+ofVec2f Rings::fill(int ring, float angle) {
   return rings[ring]->fill(angle);
 }
 

@@ -23,7 +23,7 @@ private:
 
 public:
   Ring(float space, int radius);
-  bool fill(float angle);
+  ofVec2f fill(float angle);
   void draw();
 };
 

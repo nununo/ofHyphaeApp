@@ -27,15 +27,15 @@ int Ring::getNumElements(float space, int radius) {
   return (int)(arcDistance + 0.5f);
 }
 
-bool Ring::fill(float angle) {
+ofVec2f Ring::fill(float angle) {
   int angleIndex = getAngleIndex(angle);
   bool result;
   for (int i=angleIndex; i<angleIndex+ANGLE_RESOLUTION; i++) {
     if (holes[i].fill()) {
-      return true;
+      return holes[i].getPosition();
     }
   }
-  return false;
+  return ofVec2f();
 }
 
 void Ring::draw() {

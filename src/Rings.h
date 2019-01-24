@@ -20,7 +20,7 @@ private:
 public:
   Rings(float space);
   int getRing(float radius) {return (int)(radius/this->space);}
-  bool fill(int ring, float angle);
+  ofVec2f fill(int ring, float angle);
   void draw();
 };
 

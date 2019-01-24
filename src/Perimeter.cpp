@@ -28,10 +28,11 @@ void Perimeter::update() {
   for(int i=0; i<360; i++) {
     cursors[i] += dc->get(i, cursors[i]) * this->growthSpeed;
     int ring = rings->getRing(cursors[i]);
-    if (rings->fill(ring, i)) {
+    ofVec2f pos = rings->fill(ring, i);
+    if (pos.x != 0 || pos.y != 0) {
       ofLog() << "new event: " << ring << " " << i;
       static NewElementEvent event;
-      event.pos = ofVec2f(cursors[i],0).getRotated(i);
+      event.pos = pos;
       ofNotifyEvent(this->newElementEvent, event);
     }
   }
