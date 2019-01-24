@@ -40,7 +40,7 @@ void Perimeter::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
   ofSetColor(255, 255, 0, 255);
-  //drawCursor();
+  drawCursor();
   rings->draw();
   ofPopStyle();
 }

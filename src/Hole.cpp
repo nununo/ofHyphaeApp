@@ -8,6 +8,9 @@
 #include "Hole.h"
 
 bool Hole::fill() {
+  if (this->state != Invalid) {
+    this->state = this->state;
+  }
   if (this->state == Empty) {
     this->state = Filled;
     return true;

@@ -57,10 +57,11 @@ void Family::updateFBO() {
   ofPushMatrix();
   ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
   
+  ofClear(0,0,0);
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);
   for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->draw();
+    //itr->draw();
   }
   perimeter->draw();
 

@@ -29,15 +29,26 @@ int Ring::getNumElements(float space, int radius) {
 
 bool Ring::fill(float angle) {
   int angleIndex = getAngleIndex(angle);
-  return holes[angleIndex].fill();
+  bool result;
+  for (int i=angleIndex; i<angleIndex+ANGLE_RESOLUTION; i++) {
+    result = holes[i].fill();
+    if (result) {continue;}
+  }
+  return result;
 }
 
 void Ring::draw() {
   ofPushStyle();
-  ofSetColor(0, 255, 0);
   for (int angleIndex=0; angleIndex<360*ANGLE_RESOLUTION; angleIndex+=this->angleIndexIncrement) {
-    if (holes[angleIndex].getState() == Filled) {
-    ofDrawRectangle(holes[angleIndex].getPosition(), 1, 1);
+    switch (holes[angleIndex].getState()) {
+      case Filled:
+        ofSetColor(0,255,0);
+        ofDrawRectangle(holes[angleIndex].getPosition(), 2, 2);
+      case Empty:
+        ofSetColor(100,100,100);
+        ofDrawRectangle(holes[angleIndex].getPosition(), 1, 1);
+      default:
+        continue;
     }
   }
   ofPopStyle();
