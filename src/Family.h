@@ -34,7 +34,9 @@ private:
   void initializeFBO(float size);
 
 public:
-  Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance);
+  Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
+         int elementLifespan, float elementDistance,
+         float perimeterDistortion);
   ~Family();
 
   void onNewElementEvent(NewElementEvent &e);

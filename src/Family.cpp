@@ -8,11 +8,13 @@
 #include "Family.h"
 #include "InkColor.h"
 
-Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan, int elementLifespan, float elementDistance) {
+Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
+               int elementLifespan, float elementDistance,
+               float perimeterDistortion) {
   this->pos = pos;
   this->lifespan = lifespan;
   this->elementLifespan = elementLifespan;
-  this->perimeter = new Perimeter(growthSpeed, elementDistance);
+  this->perimeter = new Perimeter(growthSpeed, elementDistance, perimeterDistortion);
   this->ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
 
   addElement(ofVec3f(0,0,0));

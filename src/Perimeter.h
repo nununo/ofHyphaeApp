@@ -25,7 +25,7 @@ private:
   void drawCursor();
 
 public:
-  Perimeter(float growthSpeed, float space);
+  Perimeter(float growthSpeed, float space, float distortion);
   ~Perimeter();
   void update();
   void draw();

@@ -8,9 +8,9 @@
 #include "Perimeter.h"
 #include "Utils.h"
 
-Perimeter::Perimeter(float growthSpeed, float space) {
+Perimeter::Perimeter(float growthSpeed, float space, float distortion) {
   this->space = space;
-  this->dc = new DistortedCircle(0.0025f);
+  this->dc = new DistortedCircle(distortion);
   this->rings = new Rings(space);
   this->growthSpeed = growthSpeed;
   

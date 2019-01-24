@@ -12,11 +12,12 @@ void ofApp::setup(){
 
 void ofApp::addFamily() {
   s->addPart(new Family(ofVec2f(s->getWidth()/2,s->getHeight()/2), // ofVec2f(ofRandom(150,650),ofRandom(15,650)),
-                        700,    // Size
+                        700,     // Size
                         0.025f,  // Growth speed
-                        100000, // Lifespan
+                        100000,  // Lifespan
                         1000,    // Element lifespan
-                        5      // Element distance
+                        5,       // Element distance
+                        0.0025f  // Perimeter distortion
                         ));
 }
 
