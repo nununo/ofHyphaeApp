@@ -1,4 +1,3 @@
-- Factor out Element's moving algorithm into Dance which will be the one receiving the Ink
 - Change Element cursor algorithm to tend towards the center so that the perimeter becomes less scattered
 - Experiment with new Dances (filaments moviment away)
 - Manage to overimpose Families keeping transparency and preserving colors correctly 

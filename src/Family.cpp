@@ -7,6 +7,7 @@
 
 #include "Family.h"
 #include "InkColor.h"
+#include "DanceRandom.h"
 
 Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
                int elementLifespan, float elementDistance,
@@ -72,7 +73,8 @@ void Family::updateFBO() {
 }
 
 void Family::addElement(ofVec3f p) {
-  elements.push_back( Element(this->ink, p, 0.00f, elementLifespan) );
+  DanceRandom *dance = new DanceRandom(this->ink);
+  elements.push_back( Element(p, 0.00f, elementLifespan, dance) );
 }
 
 void Family::grow() {

@@ -7,40 +7,30 @@
 
 #include "Element.h"
 
-Element::Element(Ink *ink, ofVec3f pos, float speed, int lifespan) {
+Element::Element(ofVec3f pos, float speed, int lifespan, IDance *dance) {
   this->size = ofGetHeight()/2;
-  this->ink = ink;
+  this->dance = dance;
   this->pos = pos;
-  this->cursor = ofVec3f(0,0,0);
   this->speed = this->pos.getNormalized()*speed;
   this->lifespan = lifespan;
 }
 
 void Element::update() {
-  if (lifespan >0) {
+  if (isAlive()) {
     updatePosition();
-    updateCursor();
-    grow();
+    this->dance->update();
+    growOlder();
   }
 }
 
 void Element::draw() {
   if (isAlive()) {
     ofPushMatrix();
-    ofPushStyle();
     ofTranslate(pos.x, pos.y);
+    this->dance->draw();
     //ofSetColor(255,255,255);
     //ofDrawRectangle(0, 0, 1, 1);
-    ofSetColor(ink->getColor(cursor));
-    ofFill();
-    ofDrawRectangle(cursor.x, cursor.y, 1, 1);
-    ofPopStyle();
     ofPopMatrix();
   }
 }
 
-void Element::updateCursor() {
-  ofVec2f cursorDir = ofVec2f(ofRandom(-(getWidth()+cursor.x)/getWidth(),(getWidth()-cursor.x)/getWidth()),
-                              ofRandom(-(getHeight()+cursor.y)/getHeight(),(getHeight()-cursor.y)/getHeight()));
-  cursor = cursor + cursorDir;
-}

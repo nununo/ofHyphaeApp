@@ -11,23 +11,23 @@
 #include "ofMain.h"
 #include "Ink.h"
 #include "IDrawable.h"
+#include "IDance.h"
 #include "DistortedCircle.h"
 
 class Element : public IDrawable {
 private:
-  Ink *ink;
+  IDance *dance;
   ofVec2f speed;
   ofVec3f pos;
   float size;
-  ofVec2f cursor;
   int lifespan;
   
-  void grow() {this->lifespan--;}
   void updateCursor();
-  void updatePosition() {pos += this->speed; }
+  void updatePosition() {this->pos += this->speed; }
+  void growOlder() {this->lifespan--;}
 
 public:
-  Element(Ink *ink, ofVec3f pos, float speed, int lifespan);
+  Element(ofVec3f pos, float speed, int lifespan, IDance *dance);
   bool isAlive() {return this->lifespan > 0;}
   void kill() {this->lifespan = 0;}
 
