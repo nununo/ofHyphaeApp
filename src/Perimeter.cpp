@@ -30,7 +30,6 @@ void Perimeter::update() {
     int ring = rings->getRing(cursors[i]);
     ofVec2f pos = rings->fill(ring, i);
     if (pos.x != 0 || pos.y != 0) {
-      ofLog() << "new event: " << ring << " " << i;
       static NewElementEvent event;
       event.pos = pos;
       ofNotifyEvent(this->newElementEvent, event);
