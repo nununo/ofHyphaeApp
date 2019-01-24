@@ -31,10 +31,11 @@ bool Ring::fill(float angle) {
   int angleIndex = getAngleIndex(angle);
   bool result;
   for (int i=angleIndex; i<angleIndex+ANGLE_RESOLUTION; i++) {
-    result = holes[i].fill();
-    if (result) {continue;}
+    if (holes[i].fill()) {
+      return true;
+    }
   }
-  return result;
+  return false;
 }
 
 void Ring::draw() {

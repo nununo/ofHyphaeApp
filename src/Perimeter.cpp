@@ -29,6 +29,7 @@ void Perimeter::update() {
     cursors[i] += dc->get(i, cursors[i]) * this->growthSpeed;
     int ring = rings->getRing(cursors[i]);
     if (rings->fill(ring, i)) {
+      ofLog() << "new event: " << ring << " " << i;
       static NewElementEvent event;
       event.pos = ofVec2f(cursors[i],0).getRotated(i);
       ofNotifyEvent(this->newElementEvent, event);
@@ -40,7 +41,7 @@ void Perimeter::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
   ofSetColor(255, 255, 0, 255);
-  drawCursor();
+  //drawCursor();
   rings->draw();
   ofPopStyle();
 }
