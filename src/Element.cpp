@@ -7,7 +7,7 @@
 
 #include "Element.h"
 
-Element::Element(ofVec3f pos, float speed, int lifespan, IDance *dance) {
+Element::Element(ofVec3f pos, float speed, int lifespan, Dance *dance) {
   this->size = ofGetHeight()/2;
   this->dance = dance;
   this->pos = pos;

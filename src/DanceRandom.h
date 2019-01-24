@@ -8,17 +8,17 @@
 #ifndef DanceRandom_h
 #define DanceRandom_h
 
-#include "IDance.h"
+#include "Dance.h"
 #include "Ink.h"
 #include "ofMain.h"
 
-class DanceRandom : public IDance {
+class DanceRandom : public Dance {
 private:
   Ink *ink;
   ofVec2f cursor;
 
 public:
-  DanceRandom(Ink *ink);
+  DanceRandom(ofVec2f pos, Ink *ink);
   void update();
   void draw();
 };

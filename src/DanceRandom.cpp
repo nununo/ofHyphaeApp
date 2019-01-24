@@ -7,7 +7,7 @@
 
 #include "DanceRandom.h"
 
-DanceRandom::DanceRandom(Ink *ink) {
+DanceRandom::DanceRandom(ofVec2f pos, Ink *ink) : Dance(pos) {
   this->ink = ink;
   this->cursor = ofVec3f(0,0,0);
 }
