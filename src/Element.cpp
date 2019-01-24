@@ -27,7 +27,9 @@ void Element::draw() {
   if (isAlive()) {
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);
+    ofPushStyle();
     this->dance->draw();
+    ofPopStyle();
     //ofSetColor(255,255,255);
     //ofDrawRectangle(0, 0, 1, 1);
     ofPopMatrix();

@@ -14,9 +14,7 @@ void DanceRandom::update() {
 }
 
 void DanceRandom::draw() {
-  ofPushStyle();
   ofSetColor(ink->getColor(cursor));
   ofFill();
   ofDrawRectangle(cursor.x, cursor.y, 1, 1);
-  ofPopStyle();
 }
