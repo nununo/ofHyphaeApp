@@ -73,7 +73,7 @@ void Family::updateFBO() {
 }
 
 void Family::addElement(ofVec3f p) {
-  DanceRandom *dance = new DanceRandom(p, this->ink);
+  DanceRandom *dance = new DanceRandom(this->ink);
   elements.push_back( Element(p, 0.00f, elementLifespan, dance) );
 }
 

@@ -18,7 +18,7 @@ private:
   ofVec2f cursor;
 
 public:
-  DanceRandom(ofVec2f pos, Ink *ink);
+  DanceRandom(Ink *ink) : Dance(ofVec2f(0,0)) {this->ink = ink;}
   void update();
   void draw();
 };
