@@ -36,7 +36,7 @@ public:
          ISpeciesFactory *danceFactory);
   ~Mycelium();
 
-  void onNewElementEvent(NewConidiumEvent &e);
+  void onNewConidiumEvent(NewConidiumEvent &e);
   
   // IDrawable
   void update();

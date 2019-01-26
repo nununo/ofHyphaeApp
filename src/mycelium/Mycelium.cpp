@@ -22,7 +22,7 @@ Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
   //conidia->add(ofVec3f(0,0,0));
   addHypha();
 
-  //ofAddListener(this->perimeter->newElementEvent, this, &Mycelium::onNewElementEvent);
+  //ofAddListener(this->perimeter->newConidiumEvent, this, &Mycelium::onNewConidiumEvent);
 }
 
 Mycelium::~Mycelium() {
@@ -31,7 +31,7 @@ Mycelium::~Mycelium() {
   delete this->hyphaeInk;
 }
 
-void Mycelium::onNewElementEvent(NewConidiumEvent &e) {
+void Mycelium::onNewConidiumEvent(NewConidiumEvent &e) {
   conidia->add(e.pos);
 }
 

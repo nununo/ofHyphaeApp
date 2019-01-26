@@ -31,7 +31,7 @@ void Perimeter::update() {
     if (pos.x != 0 || pos.y != 0) {
       static NewConidiumEvent event;
       event.pos = pos;
-      ofNotifyEvent(this->newElementEvent, event);
+      ofNotifyEvent(this->newConidiumEvent, event);
     }
   }
 }

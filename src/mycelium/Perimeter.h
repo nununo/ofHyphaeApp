@@ -30,7 +30,7 @@ public:
   void update();
   void draw();
   
-  ofEvent<NewConidiumEvent> newElementEvent;
+  ofEvent<NewConidiumEvent> newConidiumEvent;
 };
 
 #endif /* Perimeter_hpp */
