@@ -21,6 +21,7 @@ private:
   ofVec3f pos;
   float size;
   int lifespan;
+  float angle;
   
   void updateCursor();
   void updatePosition() {this->pos += this->speed; }
