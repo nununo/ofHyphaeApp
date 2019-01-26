@@ -14,10 +14,12 @@ Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
                IDanceFactory *danceFactory) {
   this->pos = pos;
   this->conidia = new Conidia(danceFactory, conidiumLifespan);
+  this->hyphaeInk = new InkColor(ofColor::black, 20); // ofColor::fromHsb(ofRandom(0,255), 255, 255)
+  this->hyphae = new Hyphae(this->hyphaeInk);
   this->lifespan = lifespan;
   this->perimeter = new Perimeter(growthSpeed, conidiumDistance, perimeterDistortion);
 
-  conidia->add(ofVec3f(0,0,0));
+  //conidia->add(ofVec3f(0,0,0));
   addHypha();
 
   //ofAddListener(this->perimeter->newElementEvent, this, &Mycelium::onNewElementEvent);
@@ -25,6 +27,8 @@ Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
 
 Mycelium::~Mycelium() {
   delete this->conidia;
+  delete this->hyphae;
+  delete this->hyphaeInk;
 }
 
 void Mycelium::onNewElementEvent(NewConidiumEvent &e) {
@@ -35,38 +39,25 @@ void Mycelium::update() {
   if (isAlive()) {
     grow();
     perimeter->update();
-    
     conidia->update();
-
-    for( list<Hypha>::iterator itr = hyphae.begin(); itr != hyphae.end(); ++itr ) {
-      itr->update();
-    }
+    hyphae->update();
   }
 }
 
 void Mycelium::draw() {
   if (isAlive()) {
-    ofPushStyle();
     ofPushMatrix();
     ofTranslate(this->pos);
-    
-    ofEnableAlphaBlending();
-    ofSetColor(255,255,255,255);
-    for( list<Hypha>::iterator itr = hyphae.begin(); itr != hyphae.end(); ++itr ) {
-      itr->draw();
-    }
+    hyphae->draw();
     conidia->draw();
     //perimeter->draw();
-    
     ofPopMatrix();
-    ofPopStyle();
   }
 }
 
 void Mycelium::addHypha() {
-  Ink *ink = new InkColor(ofColor::black, 20); // ofColor::fromHsb(ofRandom(0,255), 255, 255)
   ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
-  hyphae.push_back( Hypha(ofVec2f(0,0), ink, vel) );
+  hyphae->add(ofVec2f(0,0), vel);
 }
 
 void Mycelium::grow() {

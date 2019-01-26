@@ -11,7 +11,7 @@
 #include <list>
 #include "ofMain.h"
 #include "Conidia.h"
-#include "Hypha.h"
+#include "Hyphae.h"
 #include "Perimeter.h"
 #include "NewConidiumEvent.h"
 #include "IDanceFactory.h"
@@ -21,7 +21,8 @@ class Mycelium : public IDrawable {
 private:
   ofVec2f pos;
   Conidia *conidia;
-  std::list<Hypha> hyphae;
+  Ink *hyphaeInk;
+  Hyphae *hyphae;
   int lifespan;
   Perimeter *perimeter;
   

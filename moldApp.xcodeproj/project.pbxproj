@@ -26,6 +26,7 @@
 		7DEF8B7321EBC8B1003E5F7E /* Perimeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */; };
 		7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31021FCEE8A0034502C /* Hypha.cpp */; };
 		7DF3E31521FD0B9A0034502C /* Conidia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31321FD0B9A0034502C /* Conidia.cpp */; };
+		7DF3E31821FD123C0034502C /* Hyphae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31621FD123C0034502C /* Hyphae.cpp */; };
 		7DFEC78821E7D06E009DC9DD /* Conidium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEC78621E7D06E009DC9DD /* Conidium.cpp */; };
 		86E7B2E9A54542BCD06C455E /* ofxColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB7B57F3BD101DF858A341BA /* ofxColorPicker.cpp */; };
 		8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */; };
@@ -93,6 +94,8 @@
 		7DF3E31121FCEE8A0034502C /* Hypha.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hypha.h; sourceTree = "<group>"; };
 		7DF3E31321FD0B9A0034502C /* Conidia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidia.cpp; sourceTree = "<group>"; };
 		7DF3E31421FD0B9A0034502C /* Conidia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidia.h; sourceTree = "<group>"; };
+		7DF3E31621FD123C0034502C /* Hyphae.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hyphae.cpp; sourceTree = "<group>"; };
+		7DF3E31721FD123C0034502C /* Hyphae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hyphae.h; sourceTree = "<group>"; };
 		7DFEC78621E7D06E009DC9DD /* Conidium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidium.cpp; sourceTree = "<group>"; };
 		7DFEC78721E7D06E009DC9DD /* Conidium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidium.h; sourceTree = "<group>"; };
 		7DFEC78A21E7D1F0009DC9DD /* InkColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkColor.h; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 			children = (
 				7DF3E31021FCEE8A0034502C /* Hypha.cpp */,
 				7DF3E31121FCEE8A0034502C /* Hypha.h */,
+				7DF3E31621FD123C0034502C /* Hyphae.cpp */,
+				7DF3E31721FD123C0034502C /* Hyphae.h */,
 			);
 			path = hypha;
 			sourceTree = "<group>";
@@ -868,6 +873,7 @@
 				7DFEC78821E7D06E009DC9DD /* Conidium.cpp in Sources */,
 				7DEF8B7021EBAAB1003E5F7E /* DistortedCircle.cpp in Sources */,
 				38BB2209DB529AACA60431DB /* ofxBaseGui.cpp in Sources */,
+				7DF3E31821FD123C0034502C /* Hyphae.cpp in Sources */,
 				CAFB1448316E1452DFCB4D0A /* ofxButton.cpp in Sources */,
 				86E7B2E9A54542BCD06C455E /* ofxColorPicker.cpp in Sources */,
 				F3DDAE2AA1D070E91A537EBC /* ofxGuiGroup.cpp in Sources */,
