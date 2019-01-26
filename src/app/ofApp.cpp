@@ -5,7 +5,7 @@
 #include "DanceGravityFactory.h"
 
 void ofApp::setup(){
-  //ofSetFrameRate(120); ofSetVerticalSync(true);
+  ofSetFrameRate(120); ofSetVerticalSync(true);
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   addFamily();
@@ -16,7 +16,7 @@ void ofApp::addFamily() {
   for(int i=0; i<1; i++) {
     Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
     IDanceFactory *danceFactory = new DanceRandomFactory(ink);
-    s->addPart(new Mycelium(ofVec2f(ofRandom(250,600),ofRandom(250,600)),
+    s->addPart(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
                           700,     // Size
                           0.025f,  // Growth speed
                           100000,  // Lifespan
