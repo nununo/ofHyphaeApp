@@ -30,7 +30,6 @@ void Surface::update() {
 
 void Surface::draw() {
   fbo.begin();
-  ofClear(0,0,0);
   for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
     (*itr)->draw();
   }

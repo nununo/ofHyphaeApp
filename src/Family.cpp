@@ -20,8 +20,6 @@ Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
 
   addElement(ofVec3f(0,0,0));
 
-  initializeFBO(size);
-
   ofAddListener(this->perimeter->newElementEvent, this, &Family::onNewElementEvent);
 }
 
@@ -43,33 +41,25 @@ void Family::update() {
     for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
       itr->update();
     }
-
-    updateFBO();
   }
 }
 
 void Family::draw() {
   if (isAlive()) {
-    fbo.draw(0,0);
+    ofPushStyle();
+    ofPushMatrix();
+    ofTranslate(this->pos);
+    
+    ofEnableAlphaBlending();
+    ofSetColor(255,255,255,255);
+    for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+      itr->draw();
+    }
+    //perimeter->draw();
+    
+    ofPopMatrix();
+    ofPopStyle();
   }
-}
-
-void Family::updateFBO() {
-  fbo.begin();
-  ofPushStyle();
-  ofPushMatrix();
-  ofTranslate(fbo.getWidth()/2, fbo.getHeight()/2);
-  
-  ofEnableAlphaBlending();
-  ofSetColor(255,255,255,255);
-  for( list<Element>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->draw();
-  }
-  //perimeter->draw();
-
-  ofPopMatrix();
-  ofPopStyle();
-  fbo.end();
 }
 
 void Family::addElement(ofVec3f p) {
@@ -90,22 +80,4 @@ void Family::destroyDeadElements() {
       itr = elements.erase(itr);
     }
   }
-}
-
-void Family::initializeFBO(float size) {
-  fbo.allocate(size, size);
-  fbo.begin();
-  ofClear(0, 0, 0, 0);
-  ofPopStyle();
-  fbo.end();
-}
-
-void Family::drawFrame() {
-  fbo.begin();
-  ofPushStyle();
-  ofSetColor(40, 40, 40, 255);
-  ofNoFill();
-  ofDrawRectangle(1,1,fbo.getWidth()-1,fbo.getHeight()-1);
-  ofPopStyle();
-  fbo.end();
 }

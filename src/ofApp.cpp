@@ -1,7 +1,7 @@
 #include "ofApp.h"
 #include "InkColor.h"
 #include "Family.h"
-#include "DanceGravityFactory.h"
+#include "DanceRandomFactory.h"
 
 void ofApp::setup(){
   //ofSetFrameRate(120); ofSetVerticalSync(true);
@@ -13,7 +13,7 @@ void ofApp::setup(){
 
 void ofApp::addFamily() {
   Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
-  IDanceFactory *danceFactory = new DanceGravityFactory(ink);
+  IDanceFactory *danceFactory = new DanceRandomFactory(ink);
   s->addPart(new Family(ofVec2f(s->getWidth()/2,s->getHeight()/2), // ofVec2f(ofRandom(150,650),ofRandom(15,650)),
                         700,     // Size
                         0.025f,  // Growth speed

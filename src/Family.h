@@ -20,7 +20,6 @@ class Family : public IDrawable {
 private:
   ofVec2f pos;
   std::list<Element> elements;
-  ofFbo fbo;
   int lifespan;
   int elementLifespan;
   Perimeter *perimeter;
@@ -30,9 +29,6 @@ private:
   void grow();
   void createElements();
   void destroyDeadElements();
-  void updateFBO();
-  void drawFrame();
-  void initializeFBO(float size);
 
 public:
   Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
@@ -46,8 +42,8 @@ public:
   // IDrawable
   void update();
   void draw();
-  float getWidth() {return fbo.getWidth();}
-  float getHeight() {return fbo.getHeight();}
+  float getWidth() {return 0;}
+  float getHeight() {return 0;}
   bool isAlive() {return this->lifespan > 0;}
 };
 
