@@ -2,6 +2,7 @@
 #include "InkColor.h"
 #include "Family.h"
 #include "DanceRandomFactory.h"
+#include "DanceGravityFactory.h"
 
 void ofApp::setup(){
   //ofSetFrameRate(120); ofSetVerticalSync(true);
@@ -12,16 +13,18 @@ void ofApp::setup(){
 }
 
 void ofApp::addFamily() {
-  Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
-  IDanceFactory *danceFactory = new DanceRandomFactory(ink);
-  s->addPart(new Family(ofVec2f(s->getWidth()/2,s->getHeight()/2), // ofVec2f(ofRandom(150,650),ofRandom(15,650)),
-                        700,     // Size
-                        0.025f,  // Growth speed
-                        100000,  // Lifespan
-                        1000,    // Element lifespan
-                        5,       // Element distance
-                        0.0025f,  // Perimeter distortion
-                        danceFactory));
+  for(int i=0; i<5; i++) {
+    Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
+    IDanceFactory *danceFactory = new DanceRandomFactory(ink);
+    s->addPart(new Family(ofVec2f(ofRandom(150,650),ofRandom(15,650)),
+                          700,     // Size
+                          0.025f,  // Growth speed
+                          100000,  // Lifespan
+                          1000,    // Element lifespan
+                          5,       // Element distance
+                          0.0025f,  // Perimeter distortion
+                          danceFactory));
+  }
 }
 
 void ofApp::update(){
