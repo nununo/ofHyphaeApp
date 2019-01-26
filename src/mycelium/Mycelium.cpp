@@ -13,25 +13,22 @@ Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
                float perimeterDistortion,
                IDanceFactory *danceFactory) {
   this->pos = pos;
+  this->conidia = new Conidia(danceFactory, conidiumLifespan);
   this->lifespan = lifespan;
-  this->conidiumLifespan = conidiumLifespan;
   this->perimeter = new Perimeter(growthSpeed, conidiumDistance, perimeterDistortion);
-  this->danceFactory = danceFactory;
 
-  //addConidium(ofVec3f(0,0,0));
+  conidia->add(ofVec3f(0,0,0));
   addHypha();
 
   //ofAddListener(this->perimeter->newElementEvent, this, &Mycelium::onNewElementEvent);
 }
 
 Mycelium::~Mycelium() {
-  for( list<Conidium>::iterator itr = conidia.begin(); itr != conidia.end(); ++itr ) {
-    itr = conidia.erase(itr);
-  }
+  delete this->conidia;
 }
 
 void Mycelium::onNewElementEvent(NewConidiumEvent &e) {
-  addConidium(e.pos);
+  conidia->add(e.pos);
 }
 
 void Mycelium::update() {
@@ -39,9 +36,7 @@ void Mycelium::update() {
     grow();
     perimeter->update();
     
-    for( list<Conidium>::iterator itr = conidia.begin(); itr != conidia.end(); ++itr ) {
-      itr->update();
-    }
+    conidia->update();
 
     for( list<Hypha>::iterator itr = hyphae.begin(); itr != hyphae.end(); ++itr ) {
       itr->update();
@@ -60,19 +55,12 @@ void Mycelium::draw() {
     for( list<Hypha>::iterator itr = hyphae.begin(); itr != hyphae.end(); ++itr ) {
       itr->draw();
     }
-    for( list<Conidium>::iterator itr = conidia.begin(); itr != conidia.end(); ++itr ) {
-      itr->draw();
-    }
+    conidia->draw();
     //perimeter->draw();
     
     ofPopMatrix();
     ofPopStyle();
   }
-}
-
-void Mycelium::addConidium(ofVec3f p) {
-  Dance *dance = this->danceFactory->getInstance(p);
-  conidia.push_back( Conidium(p, 0.00f, conidiumLifespan, dance) );
 }
 
 void Mycelium::addHypha() {
@@ -83,15 +71,6 @@ void Mycelium::addHypha() {
 
 void Mycelium::grow() {
   if (isAlive()) {
-    destroyDeadElements();
     this->lifespan--;
-  }
-}
-
-void Mycelium::destroyDeadElements() {
-  for( list<Conidium>::iterator itr = conidia.begin(); itr != conidia.end(); ++itr ) {
-    if (!itr->isAlive()) {
-      itr = conidia.erase(itr);
-    }
   }
 }
