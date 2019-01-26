@@ -13,10 +13,10 @@ void ofApp::setup(){
 }
 
 void ofApp::addFamily() {
-  for(int i=0; i<5; i++) {
+  for(int i=0; i<1; i++) {
     Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
     IDanceFactory *danceFactory = new DanceRandomFactory(ink);
-    s->addPart(new Family(ofVec2f(ofRandom(150,650),ofRandom(15,650)),
+    s->addPart(new Family(ofVec2f(ofRandom(250,600),ofRandom(250,600)),
                           700,     // Size
                           0.025f,  // Growth speed
                           100000,  // Lifespan
