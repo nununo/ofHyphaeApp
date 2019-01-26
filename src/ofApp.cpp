@@ -30,9 +30,11 @@ void ofApp::update(){
 
 void ofApp::draw(){
   s->draw();
-  ofSetColor(255, 255, 255,255);
+  ofPushStyle();
+  ofSetColor(0, 0, 0);
   string fpsStr = "frame rate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(fpsStr, 10,10);
+  ofPopStyle();
 }
 
 void ofApp::keyPressed(int key) {
