@@ -8,11 +8,11 @@
 #ifndef IDanceFactory_h
 #define IDanceFactory_h
 
-#include "Dance.h"
+#include "ConidiumDance.h"
 
-class IDanceFactory {
+class ISpeciesFactory {
 public:
-  virtual Dance *getInstance(ofVec2f pos) = 0;
+  virtual ConidiumDance *getConidiumDanceInstance(ofVec2f pos) = 0;
 };
 
 #endif /* IDanceFactory_h */

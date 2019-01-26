@@ -11,7 +11,7 @@
 Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
                int conidiumLifespan, float conidiumDistance,
                float perimeterDistortion,
-               IDanceFactory *danceFactory) {
+               ISpeciesFactory *danceFactory) {
   this->pos = pos;
   this->conidia = new Conidia(danceFactory, conidiumLifespan);
   this->hyphaeInk = new InkColor(ofColor::black, 20); // ofColor::fromHsb(ofRandom(0,255), 255, 255)

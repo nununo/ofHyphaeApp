@@ -1,8 +1,8 @@
 #include "ofApp.h"
 #include "InkColor.h"
 #include "Mycelium.h"
-#include "DanceRandomFactory.h"
-#include "DanceGravityFactory.h"
+#include "SpeciesRandomFactory.h"
+#include "SpeciesGravityFactory.h"
 
 void ofApp::setup(){
   ofSetFrameRate(120); ofSetVerticalSync(true);
@@ -15,7 +15,7 @@ void ofApp::setup(){
 void ofApp::addFamily() {
   for(int i=0; i<1; i++) {
     Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
-    IDanceFactory *danceFactory = new DanceRandomFactory(ink);
+    ISpeciesFactory *danceFactory = new SpeciesRandomFactory(ink);
     s->addPart(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
                           700,     // Size
                           0.025f,  // Growth speed

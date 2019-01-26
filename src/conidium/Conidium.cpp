@@ -7,7 +7,7 @@
 
 #include "Conidium.h"
 
-Conidium::Conidium(ofVec3f pos, float speed, int lifespan, Dance *dance) {
+Conidium::Conidium(ofVec3f pos, float speed, int lifespan, ConidiumDance *dance) {
   this->size = ofGetHeight()/2;
   this->dance = dance;
   this->pos = pos;

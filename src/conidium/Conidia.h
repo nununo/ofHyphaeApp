@@ -9,16 +9,16 @@
 #define Conidia_h
 
 #include "Conidium.h"
-#include "IDanceFactory.h"
+#include "ISpeciesFactory.h"
 
 class Conidia {
 private:
   std::list<Conidium> elements;
-  IDanceFactory *danceFactory;
+  ISpeciesFactory *speciesFactory;
   int conidiumLifespan;
 
 public:
-  Conidia(IDanceFactory *danceFactory, int conidiumLifespan);
+  Conidia(ISpeciesFactory *speciesFactory, int conidiumLifespan);
   ~Conidia();
   void add(ofVec3f p);
   void update();

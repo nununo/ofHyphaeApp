@@ -7,8 +7,8 @@
 
 #include "Conidia.h"
 
-Conidia::Conidia(IDanceFactory *danceFactory, int conidiumLifespan) {
-  this->danceFactory = danceFactory;
+Conidia::Conidia(ISpeciesFactory *speciesFactory, int conidiumLifespan) {
+  this->speciesFactory = speciesFactory;
   this->conidiumLifespan = conidiumLifespan;
 }
 
@@ -19,7 +19,7 @@ Conidia::~Conidia() {
 }
 
 void Conidia::add(ofVec3f p) {
-  Dance *dance = this->danceFactory->getInstance(p);
+  ConidiumDance *dance = this->speciesFactory->getConidiumDanceInstance(p);
   this->elements.push_back( Conidium(p, 0.00f, this->conidiumLifespan, dance) );
 }
 

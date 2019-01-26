@@ -14,7 +14,7 @@
 #include "Hyphae.h"
 #include "Perimeter.h"
 #include "NewConidiumEvent.h"
-#include "IDanceFactory.h"
+#include "ISpeciesFactory.h"
 
 class Mycelium : public IDrawable {
 
@@ -33,7 +33,7 @@ public:
   Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
          int elementLifespan, float elementDistance,
          float perimeterDistortion,
-         IDanceFactory *danceFactory);
+         ISpeciesFactory *danceFactory);
   ~Mycelium();
 
   void onNewElementEvent(NewConidiumEvent &e);
