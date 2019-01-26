@@ -80,6 +80,8 @@
 		7DB0F23A21FA7D87001A8E3E /* Dance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dance.h; sourceTree = "<group>"; };
 		7DB0F23B21FA7F1C001A8E3E /* DanceRandom.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DanceRandom.cpp; sourceTree = "<group>"; };
 		7DB0F23C21FA7F1C001A8E3E /* DanceRandom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanceRandom.h; sourceTree = "<group>"; };
+		7DEA87C621FC0806003BD184 /* IDanceFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDanceFactory.h; sourceTree = "<group>"; };
+		7DEA87C821FC087C003BD184 /* DanceRandomFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanceRandomFactory.h; sourceTree = "<group>"; };
 		7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DistortedCircle.cpp; sourceTree = "<group>"; };
 		7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistortedCircle.h; sourceTree = "<group>"; };
 		7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Perimeter.cpp; sourceTree = "<group>"; };
@@ -690,6 +692,8 @@
 				7D8903EF21E413240063F045 /* Family.h */,
 				7DFEC78621E7D06E009DC9DD /* Element.cpp */,
 				7DFEC78721E7D06E009DC9DD /* Element.h */,
+				7DEA87C821FC087C003BD184 /* DanceRandomFactory.h */,
+				7DEA87C621FC0806003BD184 /* IDanceFactory.h */,
 				7DB0F23A21FA7D87001A8E3E /* Dance.h */,
 				7DB0F23B21FA7F1C001A8E3E /* DanceRandom.cpp */,
 				7DB0F23C21FA7F1C001A8E3E /* DanceRandom.h */,

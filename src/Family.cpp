@@ -7,16 +7,16 @@
 
 #include "Family.h"
 #include "InkColor.h"
-#include "DanceRandom.h"
 
 Family::Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
                int elementLifespan, float elementDistance,
-               float perimeterDistortion) {
+               float perimeterDistortion,
+               IDanceFactory *danceFactory) {
   this->pos = pos;
   this->lifespan = lifespan;
   this->elementLifespan = elementLifespan;
   this->perimeter = new Perimeter(growthSpeed, elementDistance, perimeterDistortion);
-  this->ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
+  this->danceFactory = danceFactory;
 
   addElement(ofVec3f(0,0,0));
 
@@ -73,7 +73,7 @@ void Family::updateFBO() {
 }
 
 void Family::addElement(ofVec3f p) {
-  DanceRandom *dance = new DanceRandom(this->ink);
+  Dance *dance = this->danceFactory->getInstance(p);
   elements.push_back( Element(p, 0.00f, elementLifespan, dance) );
 }
 

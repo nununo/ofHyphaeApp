@@ -13,17 +13,18 @@
 #include "Element.h"
 #include "Perimeter.h"
 #include "NewElementEvent.h"
+#include "IDanceFactory.h"
 
 class Family : public IDrawable {
 
 private:
-  Ink *ink;
   ofVec2f pos;
   std::list<Element> elements;
   ofFbo fbo;
   int lifespan;
   int elementLifespan;
   Perimeter *perimeter;
+  IDanceFactory *danceFactory;
   
   void addElement(ofVec3f pos);
   void grow();
@@ -36,7 +37,8 @@ private:
 public:
   Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
          int elementLifespan, float elementDistance,
-         float perimeterDistortion);
+         float perimeterDistortion,
+         IDanceFactory *danceFactory);
   ~Family();
 
   void onNewElementEvent(NewElementEvent &e);
