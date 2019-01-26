@@ -1,6 +1,6 @@
 #include "ofApp.h"
 #include "InkColor.h"
-#include "Family.h"
+#include "Mycelium.h"
 #include "DanceRandomFactory.h"
 #include "DanceGravityFactory.h"
 
@@ -16,12 +16,12 @@ void ofApp::addFamily() {
   for(int i=0; i<1; i++) {
     Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
     IDanceFactory *danceFactory = new DanceRandomFactory(ink);
-    s->addPart(new Family(ofVec2f(ofRandom(250,600),ofRandom(250,600)),
+    s->addPart(new Mycelium(ofVec2f(ofRandom(250,600),ofRandom(250,600)),
                           700,     // Size
                           0.025f,  // Growth speed
                           100000,  // Lifespan
-                          1000,    // Element lifespan
-                          5,       // Element distance
+                          1000,    // Conidium lifespan
+                          5,       // Conidium distance
                           0.0025f,  // Perimeter distortion
                           danceFactory));
   }

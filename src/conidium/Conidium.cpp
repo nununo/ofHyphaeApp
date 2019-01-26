@@ -1,13 +1,13 @@
 //
-//  Element.cpp
+//  Conidium.cpp
 //  moldApp
 //
 //  Created by Nuno on 10/01/2019.
 //
 
-#include "Element.h"
+#include "Conidium.h"
 
-Element::Element(ofVec3f pos, float speed, int lifespan, Dance *dance) {
+Conidium::Conidium(ofVec3f pos, float speed, int lifespan, Dance *dance) {
   this->size = ofGetHeight()/2;
   this->dance = dance;
   this->pos = pos;
@@ -16,7 +16,7 @@ Element::Element(ofVec3f pos, float speed, int lifespan, Dance *dance) {
   this->lifespan = lifespan;
 }
 
-void Element::update() {
+void Conidium::update() {
   if (isAlive()) {
     updatePosition();
     this->dance->update();
@@ -24,7 +24,7 @@ void Element::update() {
   }
 }
 
-void Element::draw() {
+void Conidium::draw() {
   if (isAlive()) {
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);

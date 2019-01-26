@@ -9,7 +9,6 @@
 #define DistortedCircle_hpp
 
 #include "ofMain.h"
-#include "Utils.h"
 
 class DistortedCircle {
 

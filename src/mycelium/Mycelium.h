@@ -5,39 +5,38 @@
 //  Created by Nuno on 08/01/2019.
 //
 
-#ifndef Family_hpp
-#define Family_hpp
+#ifndef Mycelium_h
+#define Mycelium_h
 
 #include <list>
 #include "ofMain.h"
-#include "Element.h"
+#include "Conidium.h"
 #include "Perimeter.h"
-#include "NewElementEvent.h"
+#include "NewConidiumEvent.h"
 #include "IDanceFactory.h"
 
-class Family : public IDrawable {
+class Mycelium : public IDrawable {
 
 private:
   ofVec2f pos;
-  std::list<Element> elements;
+  std::list<Conidium> conidia;
   int lifespan;
-  int elementLifespan;
+  int conidiumLifespan;
   Perimeter *perimeter;
   IDanceFactory *danceFactory;
   
-  void addElement(ofVec3f pos);
+  void addConidium(ofVec3f pos);
   void grow();
-  void createElements();
   void destroyDeadElements();
 
 public:
-  Family(ofVec3f pos, int size, float growthSpeed, int lifespan,
+  Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
          int elementLifespan, float elementDistance,
          float perimeterDistortion,
          IDanceFactory *danceFactory);
-  ~Family();
+  ~Mycelium();
 
-  void onNewElementEvent(NewElementEvent &e);
+  void onNewElementEvent(NewConidiumEvent &e);
   
   // IDrawable
   void update();
@@ -47,4 +46,4 @@ public:
   bool isAlive() {return this->lifespan > 0;}
 };
 
-#endif /* Family_hpp */
+#endif /* Mycelium_h */

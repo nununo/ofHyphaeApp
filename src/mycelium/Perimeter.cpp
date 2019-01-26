@@ -6,7 +6,6 @@
 //
 
 #include "Perimeter.h"
-#include "Utils.h"
 
 Perimeter::Perimeter(float growthSpeed, float space, float distortion) {
   this->space = space;
@@ -30,7 +29,7 @@ void Perimeter::update() {
     int ring = rings->getRing(cursors[i]);
     ofVec2f pos = rings->fill(ring, i);
     if (pos.x != 0 || pos.y != 0) {
-      static NewElementEvent event;
+      static NewConidiumEvent event;
       event.pos = pos;
       ofNotifyEvent(this->newElementEvent, event);
     }
