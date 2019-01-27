@@ -7,10 +7,11 @@
 
 #include "Hypha.h"
 
-Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, float distortion) {
+Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, int lifespan, float distortion) {
   this->pos = pos;
   this->ink = ink;
   this->vel = vel;
+  this->lifespan = lifespan;
   this->distortion = distortion;
   this->noiseOffset = ofVec2f(ofRandom(1000), ofRandom(1000));
 }
@@ -22,18 +23,21 @@ void Hypha::updateVelocity() {
 }
 
 void Hypha::update() {
-  updateVelocity();
-  this->pos += vel;
-  ofVec2f newIntPos = ofVec2f((int)(this->pos.x+0.5f),
-                              (int)(this->pos.y+0.5f));
-  if (newIntPos != this->lastIntPos) {
-    this->lastIntPos = newIntPos;
-    this->posIsNewPixel = true;
+  if (isAlive()) {
+    lifespan--;
+    updateVelocity();
+    this->pos += vel;
+    ofVec2f newIntPos = ofVec2f((int)(this->pos.x+0.5f),
+                                (int)(this->pos.y+0.5f));
+    if (newIntPos != this->lastIntPos) {
+      this->lastIntPos = newIntPos;
+      this->posIsNewPixel = true;
+    }
   }
 }
 
 void Hypha::draw() {
-  if (this->posIsNewPixel) {
+  if (isAlive() && this->posIsNewPixel) {
     ofPushStyle();
     ofEnableAlphaBlending();
     ofColor color = ink->getColor(this->pos);

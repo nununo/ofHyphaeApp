@@ -11,14 +11,17 @@
 #include "Ink.h"
 #include "Hypha.h"
 
+#define CREATION_AREA_SIZE 40
+
 class Hyphae {
 private:
   Ink *ink;
   std::list<Hypha> elements;
   float hyphaDistortion;
+  int hyphaMaxLifespan;
 
 public:
-  Hyphae(Ink *ink, float hyphaDistortion) {this->ink = ink; this->hyphaDistortion = hyphaDistortion;}
+  Hyphae(Ink *ink, int hyphaMaxLifespan, float hyphaDistortion); 
   void update();
   void draw();
   void add(ofVec2f vel);

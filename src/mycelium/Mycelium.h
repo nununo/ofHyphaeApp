@@ -33,7 +33,7 @@ public:
   Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
            int elementLifespan, float elementDistance,
            float perimeterDistortion,
-           float hyphaDistortion,
+           int hyphaMaxLifespan, float hyphaDistortion,
            ISpeciesFactory *danceFactory);
   ~Mycelium();
 

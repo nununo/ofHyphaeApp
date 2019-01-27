@@ -23,6 +23,7 @@ void ofApp::addFamily() {
                           1000,    // Conidium lifespan
                           5,       // Conidium distance
                           0.0025f, // Perimeter distortion
+                          100000,  // Hypha max lifespan
                           1.0f,  // Hypha distortion
                           danceFactory));
   }
