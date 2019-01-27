@@ -8,7 +8,7 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
-#define HYPHAE_INK_TRANSPARENCY 40
+#define HYPHAE_INK_TRANSPARENCY 10
 
 Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
                    int conidiumLifespan, float conidiumDistance,
