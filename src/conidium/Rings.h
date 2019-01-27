@@ -1,5 +1,5 @@
 //
-//  Sockets.hpp
+//  Rings.hpp
 //  moldApp
 //
 //  Created by Nuno on 14/01/2019.
