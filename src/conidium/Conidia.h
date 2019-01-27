@@ -11,12 +11,14 @@
 #include "Conidium.h"
 #include "ISpeciesFactory.h"
 #include "Settings.h"
+#include "Perimeter.h"
 
 class Conidia {
 private:
   std::list<Conidium> elements;
   ISpeciesFactory *speciesFactory;
   ConidiaSettings settings;
+  Perimeter *perimeter;
 
 public:
   Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings);
@@ -24,6 +26,8 @@ public:
   void add(ofVec3f p);
   void update();
   void draw();
+
+  void onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e);
 };
 
 #endif /* Conidia_h */

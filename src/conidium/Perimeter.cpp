@@ -36,17 +36,16 @@ void Perimeter::update() {
 }
 
 void Perimeter::draw() {
-  ofPushStyle();
-  ofEnableAlphaBlending();
-  ofSetColor(255, 255, 0, 255);
-  //drawCursor();
+  drawCursor();
   rings->draw();
-  ofPopStyle();
 }
 
 void Perimeter::drawCursor() {
+  ofPushStyle();
+  ofSetColor(255, 0, 0, 255);
   for(int i=0; i<360; i++) {
     ofVec2f p = ofVec2f(cursors[i],0).getRotated(i);
     ofDrawRectangle(p, 1, 1);
   }
+  ofPopStyle();
 }

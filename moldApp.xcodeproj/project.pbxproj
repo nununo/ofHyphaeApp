@@ -367,11 +367,6 @@
 				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
 				7D8903EE21E413240063F045 /* Mycelium.cpp */,
 				7D8903EF21E413240063F045 /* Mycelium.h */,
-				7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */,
-				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
-				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
-				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
-				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */,
 				7DEA87C821FC087C003BD184 /* SpeciesRandomFactory.h */,
 				7DEA87CB21FC0F5D003BD184 /* SpeciesGravityFactory.h */,
 				7DEA87C621FC0806003BD184 /* ISpeciesFactory.h */,
@@ -397,6 +392,11 @@
 				7D2691D921F7F340001483D8 /* Rings.h */,
 				7D2691D621F7EFE5001483D8 /* Ring.cpp */,
 				7D2691D721F7EFE5001483D8 /* Ring.h */,
+				7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */,
+				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
+				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
+				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
+				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */,
 			);
 			path = conidium;
 			sourceTree = "<group>";

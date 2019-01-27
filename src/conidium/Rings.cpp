@@ -19,10 +19,7 @@ ofVec2f Rings::fill(int ring, float angle) {
 }
 
 void Rings::draw() {
-  ofPushStyle();
-  ofSetColor(0, 255, 0);
   for(int ring=1; ring<30; ring++) {
     rings[ring]->draw();
   }
-  ofPopStyle();
 }

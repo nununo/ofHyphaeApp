@@ -12,8 +12,6 @@
 #include "ofMain.h"
 #include "Conidia.h"
 #include "Hyphae.h"
-#include "Perimeter.h"
-#include "EmptyHoleReachedEventArgs.h"
 #include "ISpeciesFactory.h"
 #include "Settings.h"
 
@@ -25,16 +23,12 @@ private:
   Ink *hyphaeInk;
   Hyphae *hyphae;
   int lifespan;
-  Perimeter *perimeter;
   
   void addHypha();
-  void grow();
 
 public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);
   ~Mycelium();
-
-  void onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e);
   
   // IDrawable
   void update();

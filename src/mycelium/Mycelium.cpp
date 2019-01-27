@@ -16,31 +16,22 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
   this->hyphaeInk = new InkColor(ofColor::black, HYPHAE_INK_TRANSPARENCY);
   this->hyphae = new Hyphae(this->hyphaeInk, settings.hyphae);
   this->lifespan = settings.lifespan;
-  this->perimeter = new Perimeter(settings.conidia);
 
-  //conidia->add(ofVec3f(0,0,0));
+  conidia->add(ofVec3f(0,0,0));
   for(int i=0; i<10; i++) {
     addHypha();
   }
-
-  //ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
 }
 
 Mycelium::~Mycelium() {
   delete this->conidia;
   delete this->hyphae;
   delete this->hyphaeInk;
-  delete this->perimeter;
-}
-
-void Mycelium::onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e) {
-  conidia->add(e.pos);
 }
 
 void Mycelium::update() {
   if (isAlive()) {
-    grow();
-    perimeter->update();
+    this->lifespan--;
     conidia->update();
     hyphae->update();
   }
@@ -52,7 +43,6 @@ void Mycelium::draw() {
     ofTranslate(this->pos);
     hyphae->draw();
     conidia->draw();
-    //perimeter->draw();
     ofPopMatrix();
   }
 }
@@ -60,10 +50,4 @@ void Mycelium::draw() {
 void Mycelium::addHypha() {
   ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
   hyphae->add(vel);
-}
-
-void Mycelium::grow() {
-  if (isAlive()) {
-    this->lifespan--;
-  }
 }
