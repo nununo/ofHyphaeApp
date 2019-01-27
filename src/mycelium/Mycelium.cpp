@@ -36,7 +36,7 @@ Mycelium::~Mycelium() {
   delete this->hyphaeInk;
 }
 
-void Mycelium::onNewConidiumEvent(NewConidiumEvent &e) {
+void Mycelium::onNewConidiumEvent(EmptyHoleReachedEvent &e) {
   conidia->add(e.pos);
 }
 

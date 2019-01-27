@@ -13,7 +13,7 @@
 #include "Conidia.h"
 #include "Hyphae.h"
 #include "Perimeter.h"
-#include "NewConidiumEvent.h"
+#include "EmptyHoleReachedEvent.h"
 #include "ISpeciesFactory.h"
 
 class Mycelium : public IDrawable {
@@ -37,7 +37,7 @@ public:
            ISpeciesFactory *danceFactory);
   ~Mycelium();
 
-  void onNewConidiumEvent(NewConidiumEvent &e);
+  void onNewConidiumEvent(EmptyHoleReachedEvent &e);
   
   // IDrawable
   void update();
