@@ -31,8 +31,7 @@ private:
   void grow();
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings,
-           ISpeciesFactory *danceFactory);
+  Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);
   ~Mycelium();
 
   void onNewConidiumEvent(EmptyHoleReachedEvent &e);

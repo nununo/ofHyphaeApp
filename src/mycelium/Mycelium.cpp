@@ -10,8 +10,7 @@
 
 #define HYPHAE_INK_TRANSPARENCY 10
 
-Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings,
-                   ISpeciesFactory *danceFactory) {
+Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory) {
   this->pos = pos;
   this->conidia = new Conidia(danceFactory, settings.conidia);
   this->hyphaeInk = new InkColor(ofColor::black, HYPHAE_INK_TRANSPARENCY);
@@ -31,6 +30,7 @@ Mycelium::~Mycelium() {
   delete this->conidia;
   delete this->hyphae;
   delete this->hyphaeInk;
+  delete this->perimeter;
 }
 
 void Mycelium::onNewConidiumEvent(EmptyHoleReachedEvent &e) {
