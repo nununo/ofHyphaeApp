@@ -18,9 +18,9 @@ Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings) {
 }
 
 void Hypha::updateVelocity() {
-  float angle = ofNoise(pos.x*settings.distortion+noiseOffset.x,
-                        pos.y*settings.distortion+noiseOffset.y)-0.5f;
-  vel.rotate(angle);
+  float bendAngle = 2*(ofNoise(pos.x*settings.distortion+noiseOffset.x,
+                        pos.y*settings.distortion+noiseOffset.y)-0.5f)*settings.maxBendAngle;
+  vel.rotate(bendAngle);
 }
 
 void Hypha::fork() {
