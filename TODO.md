@@ -1,12 +1,14 @@
-- Implement XML settings
+- Hyphae: Get rid of the bold cross that appears at the xy axis
+- Rings: Remove hard coded 200 in the array allocation
+- Rings: Replace array with std::vector<*Ring> https://stackoverflow.com/questions/21387670/pointer-to-array-of-pointers-dynamic-allocation
+- Holes: Remove hard coded ANGLE_RESOLUTION 10
+- Holes: Replace array with std::vector<*Hole> https://stackoverflow.com/questions/21387670/pointer-to-array-of-pointers-dynamic-allocation
 - Perimeter event args are currently static and probably should not be. Also the ofRemoveListener is missing
-- Hypha: each one must start from a different position in a central area of the Mycelium
 - Hypha: trident at its tip?
 
 - Implement collision detection between families
 
 - Change Element cursor algorithm to tend towards the center so that the perimeter becomes less scattered
-- Manage to overimpose Families keeping transparency and preserving colors correctly 
 
 - Create the concept of a Family "strength"
 

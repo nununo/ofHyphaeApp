@@ -13,10 +13,12 @@
 #include "IDrawable.h"
 #include "ConidiumDance.h"
 #include "DistortedCircle.h"
+#include "Settings.h"
 
 class Conidium : public IDrawable {
 private:
   ConidiumDance *dance;
+  ConidiumSettings settings;
   ofVec2f speed;
   ofVec3f pos;
   float size;
@@ -28,7 +30,7 @@ private:
   void growOlder() {this->lifespan--;}
 
 public:
-  Conidium(ofVec3f pos, float speed, int lifespan, ConidiumDance *dance);
+  Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, ConidiumDance *dance);
   bool isAlive() {return this->lifespan > 0;}
 
   // IDrawable

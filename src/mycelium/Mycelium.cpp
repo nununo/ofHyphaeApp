@@ -10,17 +10,14 @@
 
 #define HYPHAE_INK_TRANSPARENCY 10
 
-Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
-                   int conidiumLifespan, float conidiumDistance,
-                   float perimeterDistortion,
-                   int hyphaMaxLifespan, float hyphaDistortion,
+Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings,
                    ISpeciesFactory *danceFactory) {
   this->pos = pos;
-  this->conidia = new Conidia(danceFactory, conidiumLifespan);
+  this->conidia = new Conidia(danceFactory, settings.conidia);
   this->hyphaeInk = new InkColor(ofColor::black, HYPHAE_INK_TRANSPARENCY);
-  this->hyphae = new Hyphae(this->hyphaeInk, hyphaMaxLifespan, hyphaDistortion);
-  this->lifespan = lifespan;
-  this->perimeter = new Perimeter(growthSpeed, conidiumDistance, perimeterDistortion);
+  this->hyphae = new Hyphae(this->hyphaeInk, settings.hyphae);
+  this->lifespan = settings.lifespan;
+  this->perimeter = new Perimeter(settings.conidia);
 
   //conidia->add(ofVec3f(0,0,0));
   for(int i=0; i<10; i++) {

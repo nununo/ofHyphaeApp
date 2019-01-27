@@ -8,20 +8,18 @@
 #include "Hypha.h"
 #include "HyphaForkEventArgs.h"
 
-#define FORK_AGE_RATIO 2
-
-Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, int lifespan, float distortion) {
+Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings) {
   this->pos = pos;
   this->ink = ink;
+  this->settings = settings;
   this->vel = vel;
-  this->lifespan = lifespan;
-  this->distortion = distortion;
+  this->lifespan = ofRandom(0,settings.maxLifespan);
   this->noiseOffset = ofVec2f(ofRandom(1000), ofRandom(1000));
 }
 
 void Hypha::updateVelocity() {
-  float angle = ofNoise(pos.x*distortion+noiseOffset.x,
-                        pos.y*distortion+noiseOffset.y)-0.5f;
+  float angle = ofNoise(pos.x*settings.distortion+noiseOffset.x,
+                        pos.y*settings.distortion+noiseOffset.y)-0.5f;
   vel.rotate(angle);
 }
 
@@ -30,7 +28,7 @@ void Hypha::fork() {
   e.pos = this->pos;
   e.vel = this->vel.getRotated(90);
   ofNotifyEvent(this->forkEvent, e);
-  this->lifespan /= FORK_AGE_RATIO;
+  this->lifespan /= settings.forkAgeRatio;
 }
 
 void Hypha::update() {

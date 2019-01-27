@@ -11,12 +11,13 @@
 #include "ofMain.h"
 #include "Ink.h"
 #include "HyphaForkEventArgs.h"
+#include "Settings.h"
 
 class Hypha {
 private:
   ofVec2f pos;
   Ink *ink;
-  float distortion;
+  HyphaSettings settings;
   ofVec2f noiseOffset;
   ofVec2f vel;
   ofVec2f lastIntPos;
@@ -27,7 +28,7 @@ private:
   void fork();
 
 public:
-  Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, int lifespan, float distortion);
+  Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings);
   bool isAlive() {return this->lifespan>0;}
   void update();
   void draw();

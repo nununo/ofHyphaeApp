@@ -7,13 +7,13 @@
 
 #include "Conidium.h"
 
-Conidium::Conidium(ofVec3f pos, float speed, int lifespan, ConidiumDance *dance) {
+Conidium::Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, ConidiumDance *dance) {
   this->size = ofGetHeight()/2;
   this->dance = dance;
   this->pos = pos;
   this->angle = ofVec2f(1,0).angle(pos);
   this->speed = this->pos.getNormalized()*speed;
-  this->lifespan = lifespan;
+  this->lifespan = settings.lifespan;
 }
 
 void Conidium::update() {

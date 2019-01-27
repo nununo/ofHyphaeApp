@@ -10,20 +10,18 @@
 
 #include "Ink.h"
 #include "Hypha.h"
-
-#define CREATION_AREA_SIZE 40
+#include "Settings.h"
 
 class Hyphae {
 private:
   Ink *ink;
   std::list<Hypha> elements;
-  float hyphaDistortion;
-  int hyphaMaxLifespan;
+  HyphaeSettings settings;
   
   void addAtPosition(ofVec2f pos, ofVec2f vel);
 
 public:
-  Hyphae(Ink *ink, int hyphaMaxLifespan, float hyphaDistortion); 
+  Hyphae(Ink *ink, const HyphaeSettings settings); 
   void update();
   void draw();
   void add(ofVec2f vel);

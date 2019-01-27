@@ -27,6 +27,7 @@
 		7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31021FCEE8A0034502C /* Hypha.cpp */; };
 		7DF3E31521FD0B9A0034502C /* Conidia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31321FD0B9A0034502C /* Conidia.cpp */; };
 		7DF3E31821FD123C0034502C /* Hyphae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31621FD123C0034502C /* Hyphae.cpp */; };
+		7DF3E31C21FE1AD60034502C /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31A21FE1AD60034502C /* Settings.cpp */; };
 		7DFEC78821E7D06E009DC9DD /* Conidium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEC78621E7D06E009DC9DD /* Conidium.cpp */; };
 		86E7B2E9A54542BCD06C455E /* ofxColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB7B57F3BD101DF858A341BA /* ofxColorPicker.cpp */; };
 		8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */; };
@@ -97,6 +98,8 @@
 		7DF3E31621FD123C0034502C /* Hyphae.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hyphae.cpp; sourceTree = "<group>"; };
 		7DF3E31721FD123C0034502C /* Hyphae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hyphae.h; sourceTree = "<group>"; };
 		7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaForkEventArgs.h; sourceTree = "<group>"; };
+		7DF3E31A21FE1AD60034502C /* Settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
+		7DF3E31B21FE1AD60034502C /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		7DFEC78621E7D06E009DC9DD /* Conidium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidium.cpp; sourceTree = "<group>"; };
 		7DFEC78721E7D06E009DC9DD /* Conidium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidium.h; sourceTree = "<group>"; };
 		7DFEC78A21E7D1F0009DC9DD /* InkColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkColor.h; sourceTree = "<group>"; };
@@ -409,6 +412,8 @@
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				7DF3E31A21FE1AD60034502C /* Settings.cpp */,
+				7DF3E31B21FE1AD60034502C /* Settings.h */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -893,6 +898,7 @@
 				7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */,
 				6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */,
 				7DB0F23D21FA7F1C001A8E3E /* ConidiumRandomDance.cpp in Sources */,
+				7DF3E31C21FE1AD60034502C /* Settings.cpp in Sources */,
 				7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */,
 				7D2691D521F7E03E001483D8 /* Hole.cpp in Sources */,
 				21C28723F7D8CA1BB84F3F3F /* tinyxmlparser.cpp in Sources */,

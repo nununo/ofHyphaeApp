@@ -7,10 +7,10 @@
 
 #include "Rings.h"
 
-Rings::Rings(float space) {
-  this->space = space;
-  for (int r=0; r<MAX_RINGS; r++) {
-    rings[r] = new Ring(this->space, r*this->space);
+Rings::Rings(ConidiaSettings settings) {
+  this->settings = settings;
+  for (int r=0; r<settings.maxRings; r++) {
+    rings[r] = new Ring(settings.space, r*settings.space);
   }
 }
 

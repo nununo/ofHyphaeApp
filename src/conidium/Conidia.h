@@ -10,15 +10,16 @@
 
 #include "Conidium.h"
 #include "ISpeciesFactory.h"
+#include "Settings.h"
 
 class Conidia {
 private:
   std::list<Conidium> elements;
   ISpeciesFactory *speciesFactory;
-  int conidiumLifespan;
+  ConidiaSettings settings;
 
 public:
-  Conidia(ISpeciesFactory *speciesFactory, int conidiumLifespan);
+  Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings);
   ~Conidia();
   void add(ofVec3f p);
   void update();

@@ -2,10 +2,12 @@
 
 #include "ofMain.h"
 #include "MaskedSurface.h"
+#include "Settings.h"
 
 class ofApp : public ofBaseApp{
 
 private:
+  Settings *settings;
   Surface *s;
   //MaskedSurface *ms;
   

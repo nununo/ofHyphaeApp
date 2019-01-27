@@ -9,17 +9,18 @@
 #define Rings_h
 
 #include "Ring.h"
+#include "Settings.h"
 
 #define MAX_RINGS 200
 
 class Rings {
 private:
   Ring *rings[MAX_RINGS];
-  float space;
+  ConidiaSettings settings;
 
 public:
-  Rings(float space);
-  int getRing(float radius) {return (int)(radius/this->space);}
+  Rings(ConidiaSettings settings);
+  int getRing(float radius) {return (int)(radius/settings.space);}
   ofVec2f fill(int ring, float angle);
   void draw();
 };

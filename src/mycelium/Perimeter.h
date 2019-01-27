@@ -12,20 +12,20 @@
 #include "DistortedCircle.h"
 #include "Rings.h"
 #include "EmptyHoleReachedEvent.h"
+#include "Settings.h"
 
 class Perimeter {
   
 private:
   DistortedCircle *dc;
+  ConidiaSettings settings;
   Rings *rings;
-  float space;
-  float growthSpeed;
   float cursors[360];
 
   void drawCursor();
 
 public:
-  Perimeter(float growthSpeed, float space, float distortion);
+  Perimeter(ConidiaSettings settings);
   ~Perimeter();
   void update();
   void draw();

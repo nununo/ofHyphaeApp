@@ -5,7 +5,9 @@
 #include "SpeciesGravityFactory.h"
 
 void ofApp::setup(){
-  //ofSetFrameRate(120); ofSetVerticalSync(true);
+  settings = new Settings("settings/settings.xml");
+  ofSetFrameRate(settings->framerate);
+  ofSetVerticalSync(true);
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   addFamily();
@@ -17,15 +19,8 @@ void ofApp::addFamily() {
     Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
     ISpeciesFactory *danceFactory = new SpeciesRandomFactory(ink);
     s->addPart(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
-                          700,     // Size
-                          0.025f,  // Growth speed
-                          100000,  // Lifespan
-                          1000,    // Conidium lifespan
-                          5,       // Conidium distance
-                          0.0025f, // Perimeter distortion
-                          100000,  // Hypha max lifespan
-                          1.0f,  // Hypha distortion
-                          danceFactory));
+                            settings->mycelium,
+                            danceFactory));
   }
 }
 

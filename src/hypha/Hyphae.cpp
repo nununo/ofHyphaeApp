@@ -7,11 +7,9 @@
 
 #include "Hyphae.h"
 
-Hyphae::Hyphae(Ink *ink, int hyphaMaxLifespan, float hyphaDistortion) {
+Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings) {
   this->ink = ink;
-  this->hyphaMaxLifespan = hyphaMaxLifespan;
-  this->hyphaDistortion = hyphaDistortion;
-  
+  this->settings = settings;  
 }
 
 void Hyphae::update() {
@@ -36,14 +34,15 @@ void Hyphae::draw() {
 }
 
 void Hyphae::addAtPosition(ofVec2f pos, ofVec2f vel) {
-  int lifespan = ofRandom(0,this->hyphaMaxLifespan);
-  Hypha *newHypha = new Hypha(pos, this->ink, vel, lifespan, this->hyphaDistortion);
+  Hypha *newHypha = new Hypha(pos, this->ink, vel, settings.hypha);
   ofAddListener(newHypha->forkEvent, this, &Hyphae::onHyphaFork);
   elements.push_back(*newHypha);
 }
 
 void Hyphae::add(ofVec2f vel) {
-  ofVec2f pos = ofVec2f(ofRandom(-CREATION_AREA_SIZE/2,CREATION_AREA_SIZE/2), ofRandom(-CREATION_AREA_SIZE/2,CREATION_AREA_SIZE/2));
+  float half = settings.creationAreaSize/2;
+  ofVec2f pos = ofVec2f(ofRandom(-half/2,half/2),
+                        ofRandom(-half/2,half/2));
   addAtPosition(pos, vel);
 }
 

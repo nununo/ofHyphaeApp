@@ -7,11 +7,10 @@
 
 #include "Perimeter.h"
 
-Perimeter::Perimeter(float growthSpeed, float space, float distortion) {
-  this->space = space;
-  this->dc = new DistortedCircle(distortion);
-  this->rings = new Rings(space);
-  this->growthSpeed = growthSpeed;
+Perimeter::Perimeter(ConidiaSettings settings) {
+  this->settings = settings;
+  this->dc = new DistortedCircle(settings.perimeterDistortion);
+  this->rings = new Rings(settings);
   
   for(int i=0; i<360;i++) {
     cursors[i] = 0;
@@ -25,7 +24,7 @@ Perimeter::~Perimeter() {
 
 void Perimeter::update() {
   for(int i=0; i<360; i++) {
-    cursors[i] += dc->get(i, cursors[i]) * this->growthSpeed;
+    cursors[i] += dc->get(i, cursors[i]) * this->settings.growthSpeed;
     int ring = rings->getRing(cursors[i]);
     ofVec2f pos = rings->fill(ring, i);
     if (pos.x != 0 || pos.y != 0) {

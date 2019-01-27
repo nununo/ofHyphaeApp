@@ -7,9 +7,9 @@
 
 #include "Conidia.h"
 
-Conidia::Conidia(ISpeciesFactory *speciesFactory, int conidiumLifespan) {
+Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings) {
   this->speciesFactory = speciesFactory;
-  this->conidiumLifespan = conidiumLifespan;
+  this->settings = settings;
 }
 
 Conidia::~Conidia() {
@@ -20,7 +20,7 @@ Conidia::~Conidia() {
 
 void Conidia::add(ofVec3f p) {
   ConidiumDance *dance = this->speciesFactory->getConidiumDanceInstance(p);
-  this->elements.push_back( Conidium(p, 0.00f, this->conidiumLifespan, dance) );
+  this->elements.push_back( Conidium(p, 0.00f, this->settings.conidium, dance) );
 }
 
 void Conidia::update() {

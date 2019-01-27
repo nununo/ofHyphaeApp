@@ -15,6 +15,7 @@
 #include "Perimeter.h"
 #include "EmptyHoleReachedEvent.h"
 #include "ISpeciesFactory.h"
+#include "Settings.h"
 
 class Mycelium : public IDrawable {
 
@@ -30,10 +31,7 @@ private:
   void grow();
 
 public:
-  Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
-           int elementLifespan, float elementDistance,
-           float perimeterDistortion,
-           int hyphaMaxLifespan, float hyphaDistortion,
+  Mycelium(ofVec3f pos, const MyceliumSettings settings,
            ISpeciesFactory *danceFactory);
   ~Mycelium();
 
