@@ -23,7 +23,7 @@ Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
   this->perimeter = new Perimeter(growthSpeed, conidiumDistance, perimeterDistortion);
 
   //conidia->add(ofVec3f(0,0,0));
-  for(int i=0; i<1; i++) {
+  for(int i=0; i<10; i++) {
     addHypha();
   }
 
