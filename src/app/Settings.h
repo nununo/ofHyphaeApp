@@ -19,6 +19,7 @@ struct HyphaSettings {
 struct HyphaeSettings {
   int creationAreaSize;
   HyphaSettings hypha;
+  int initHyphaCount;
 };
 
 struct ConidiumSettings {

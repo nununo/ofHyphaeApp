@@ -12,6 +12,7 @@ Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings
   this->settings = settings;
   this->perimeter = new Perimeter(settings);
   ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Conidia::onEmptyHoleReachedEvent);
+  add(ofVec2f(0,0));
 }
 
 Conidia::~Conidia() {

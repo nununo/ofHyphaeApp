@@ -23,8 +23,6 @@ private:
   Ink *hyphaeInk;
   Hyphae *hyphae;
   int lifespan;
-  
-  void addHypha();
 
 public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);

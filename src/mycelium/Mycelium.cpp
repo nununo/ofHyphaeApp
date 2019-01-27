@@ -16,11 +16,6 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
   this->hyphaeInk = new InkColor(ofColor::black, HYPHAE_INK_TRANSPARENCY);
   this->hyphae = new Hyphae(this->hyphaeInk, settings.hyphae);
   this->lifespan = settings.lifespan;
-
-  conidia->add(ofVec3f(0,0,0));
-  for(int i=0; i<10; i++) {
-    addHypha();
-  }
 }
 
 Mycelium::~Mycelium() {
@@ -32,7 +27,7 @@ Mycelium::~Mycelium() {
 void Mycelium::update() {
   if (isAlive()) {
     this->lifespan--;
-    conidia->update();
+    //conidia->update();
     hyphae->update();
   }
 }
@@ -45,9 +40,4 @@ void Mycelium::draw() {
     conidia->draw();
     ofPopMatrix();
   }
-}
-
-void Mycelium::addHypha() {
-  ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
-  hyphae->add(vel);
 }

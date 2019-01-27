@@ -10,6 +10,11 @@
 Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings) {
   this->ink = ink;
   this->settings = settings;  
+
+  for(int i=0; i<settings.initHyphaCount; i++) {
+    ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
+    add(vel);
+  }
 }
 
 void Hyphae::update() {
