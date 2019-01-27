@@ -3,6 +3,7 @@
 - Rings: Remove hard coded 200 in the array allocation
 - Rings: Replace array with std::vector<*Ring> https://stackoverflow.com/questions/21387670/pointer-to-array-of-pointers-dynamic-allocation
 - Holes: Remove hard coded ANGLE_RESOLUTION 10
+- Mycelium.cpp remove hard codede HYPHAE_INK_TRANSPARENCY
 - Holes: Replace array with std::vector<*Hole> https://stackoverflow.com/questions/21387670/pointer-to-array-of-pointers-dynamic-allocation
 - Perimeter event args are currently static and probably should not be. Also the ofRemoveListener is missing
 - Hypha: trident at its tip?
