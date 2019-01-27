@@ -8,13 +8,15 @@
 #include "Hypha.h"
 #include "HyphaForkEventArgs.h"
 
+#define OFFSET_MAX 1000
+
 Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings) {
   this->pos = pos;
   this->ink = ink;
   this->settings = settings;
   this->vel = vel;
   this->lifespan = ofRandom(0,settings.maxLifespan);
-  this->noiseOffset = ofVec2f(ofRandom(1000), ofRandom(1000));
+  this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
 }
 
 void Hypha::updateVelocity() {
