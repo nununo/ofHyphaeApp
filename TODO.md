@@ -1,4 +1,7 @@
-- Implement hyphae
+- Hypha: each one must start from a different position in a central area of the Mycelium
+- Hypha: implement forks
+- Hypha: it must die
+
 - Implement collision detection between families
 - Consider 2-phased design: 1st hyphae, 2nd spores 
 
@@ -7,7 +10,6 @@
 
 - Create the concept of a Family "strength"
 
-- Experiment with new Dances (filaments moviment away)
 - How to avoid drawing outside the visible area. Use a polygon and the isInsideOf() method (not sure it is called like this)
 - Try Retina mode again with the hack suggested in the OF forum
 
