@@ -8,6 +8,8 @@
 #include "Hypha.h"
 #include "HyphaForkEventArgs.h"
 
+#define FORK_AGE_RATIO 2
+
 Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, int lifespan, float distortion) {
   this->pos = pos;
   this->ink = ink;
@@ -28,6 +30,7 @@ void Hypha::fork() {
   e.pos = this->pos;
   e.vel = this->vel.getRotated(90);
   ofNotifyEvent(this->forkEvent, e);
+  this->lifespan /= FORK_AGE_RATIO;
 }
 
 void Hypha::update() {
