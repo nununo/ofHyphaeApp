@@ -31,9 +31,10 @@ private:
 
 public:
   Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
-         int elementLifespan, float elementDistance,
-         float perimeterDistortion,
-         ISpeciesFactory *danceFactory);
+           int elementLifespan, float elementDistance,
+           float perimeterDistortion,
+           float hyphaDistortion,
+           ISpeciesFactory *danceFactory);
   ~Mycelium();
 
   void onNewConidiumEvent(NewConidiumEvent &e);

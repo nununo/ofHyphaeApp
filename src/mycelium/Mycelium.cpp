@@ -8,19 +8,24 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
+#define HYPHAE_INK_TRANSPARENCY 40
+
 Mycelium::Mycelium(ofVec3f pos, int size, float growthSpeed, int lifespan,
-               int conidiumLifespan, float conidiumDistance,
-               float perimeterDistortion,
-               ISpeciesFactory *danceFactory) {
+                   int conidiumLifespan, float conidiumDistance,
+                   float perimeterDistortion,
+                   float hyphaDistortion,
+                   ISpeciesFactory *danceFactory) {
   this->pos = pos;
   this->conidia = new Conidia(danceFactory, conidiumLifespan);
-  this->hyphaeInk = new InkColor(ofColor::black, 20); // ofColor::fromHsb(ofRandom(0,255), 255, 255)
-  this->hyphae = new Hyphae(this->hyphaeInk);
+  this->hyphaeInk = new InkColor(ofColor::black, HYPHAE_INK_TRANSPARENCY);
+  this->hyphae = new Hyphae(this->hyphaeInk, hyphaDistortion);
   this->lifespan = lifespan;
   this->perimeter = new Perimeter(growthSpeed, conidiumDistance, perimeterDistortion);
 
   //conidia->add(ofVec3f(0,0,0));
-  addHypha();
+  for(int i=0; i<100; i++) {
+    addHypha();
+  }
 
   //ofAddListener(this->perimeter->newConidiumEvent, this, &Mycelium::onNewConidiumEvent);
 }

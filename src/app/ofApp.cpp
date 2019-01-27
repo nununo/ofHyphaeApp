@@ -5,7 +5,7 @@
 #include "SpeciesGravityFactory.h"
 
 void ofApp::setup(){
-  ofSetFrameRate(120); ofSetVerticalSync(true);
+  //ofSetFrameRate(120); ofSetVerticalSync(true);
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
   addFamily();
@@ -22,7 +22,8 @@ void ofApp::addFamily() {
                           100000,  // Lifespan
                           1000,    // Conidium lifespan
                           5,       // Conidium distance
-                          0.0025f,  // Perimeter distortion
+                          0.0025f, // Perimeter distortion
+                          1.0f,  // Hypha distortion
                           danceFactory));
   }
 }

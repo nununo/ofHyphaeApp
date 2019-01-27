@@ -15,12 +15,16 @@ class Hypha {
 private:
   ofVec2f pos;
   Ink *ink;
+  float distortion;
+  ofVec2f noiseOffset;
   ofVec2f vel;
   ofVec2f lastIntPos;
   bool posIsNewPixel;
+  
+  void updateVelocity();
 
 public:
-  Hypha(ofVec2f pos, Ink *ink, ofVec2f vel);
+  Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, float distortion);
   void update();
   void draw();
 };

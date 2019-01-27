@@ -24,5 +24,5 @@ void Hyphae::draw() {
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f vel) {
-  elements.push_back( Hypha(pos, this->ink, vel) );
+  elements.push_back( Hypha(pos, this->ink, vel, this->hyphaDistortion) );
 }
