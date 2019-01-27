@@ -26,7 +26,8 @@ void Hypha::updateVelocity() {
 void Hypha::fork() {
   HyphaForkEventArgs e;
   e.pos = this->pos;
-  e.vel = this->vel.getRotated(90);
+  float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
+  e.vel = this->vel.getRotated(angle);
   ofNotifyEvent(this->forkEvent, e);
   this->lifespan /= settings.forkAgeRatio;
 }

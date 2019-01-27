@@ -14,6 +14,7 @@ struct HyphaSettings {
   int maxLifespan;
   float distortion;
   float forkAgeRatio;
+  float maxForkAngle;
 };
 
 struct HyphaeSettings {

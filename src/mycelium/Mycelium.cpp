@@ -8,7 +8,7 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
-#define HYPHAE_INK_TRANSPARENCY 10
+#define HYPHAE_INK_TRANSPARENCY 50
 
 Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory) {
   this->pos = pos;
