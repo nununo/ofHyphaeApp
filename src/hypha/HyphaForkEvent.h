@@ -14,6 +14,7 @@ class HyphaForkEvent : public ofEventArgs {
   
 public:
   ofVec3f pos;
+  ofVec3f vel;
   
   ofEvent<HyphaForkEvent> events;
 };
