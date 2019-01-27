@@ -30,7 +30,6 @@ private:
 public:
   Conidium(ofVec3f pos, float speed, int lifespan, ConidiumDance *dance);
   bool isAlive() {return this->lifespan > 0;}
-  void kill() {this->lifespan = 0;}
 
   // IDrawable
   void update();
