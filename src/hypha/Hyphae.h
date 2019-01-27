@@ -21,7 +21,7 @@ public:
   Hyphae(Ink *ink, float hyphaDistortion) {this->ink = ink; this->hyphaDistortion = hyphaDistortion;}
   void update();
   void draw();
-  void add(ofVec2f pos, ofVec2f vel);
+  void add(ofVec2f vel);
 };
 
 #endif /* Hyphae_h */

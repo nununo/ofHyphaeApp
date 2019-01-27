@@ -23,6 +23,7 @@ void Hyphae::draw() {
   ofPopStyle();
 }
 
-void Hyphae::add(ofVec2f pos, ofVec2f vel) {
+void Hyphae::add(ofVec2f vel) {
+  ofVec2f pos = ofVec2f(ofRandom(-20,20), ofRandom(-20,20));
   elements.push_back( Hypha(pos, this->ink, vel, this->hyphaDistortion) );
 }

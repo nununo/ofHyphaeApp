@@ -62,7 +62,7 @@ void Mycelium::draw() {
 
 void Mycelium::addHypha() {
   ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
-  hyphae->add(ofVec2f(0,0), vel);
+  hyphae->add(vel);
 }
 
 void Mycelium::grow() {
