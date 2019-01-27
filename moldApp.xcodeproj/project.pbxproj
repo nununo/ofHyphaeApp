@@ -71,7 +71,7 @@
 		7D2691D921F7F340001483D8 /* Rings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rings.h; sourceTree = "<group>"; };
 		7D2691DA21F7F340001483D8 /* Rings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rings.cpp; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
-		7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyHoleReachedEvent.h; sourceTree = "<group>"; };
+		7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyHoleReachedEventArgs.h; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EA21E404270063F045 /* MaskedSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskedSurface.h; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
 				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
 				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
-				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEvent.h */,
+				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */,
 				7DEA87C821FC087C003BD184 /* SpeciesRandomFactory.h */,
 				7DEA87CB21FC0F5D003BD184 /* SpeciesGravityFactory.h */,
 				7DEA87C621FC0806003BD184 /* ISpeciesFactory.h */,

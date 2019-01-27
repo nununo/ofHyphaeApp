@@ -11,7 +11,7 @@
 #include "ofMain.h"
 #include "DistortedCircle.h"
 #include "Rings.h"
-#include "EmptyHoleReachedEvent.h"
+#include "EmptyHoleReachedEventArgs.h"
 #include "Settings.h"
 
 class Perimeter {
@@ -30,7 +30,7 @@ public:
   void update();
   void draw();
   
-  ofEvent<EmptyHoleReachedEvent> newConidiumEvent;
+  ofEvent<EmptyHoleReachedEventArgs> emptyHoleReachedEvent;
 };
 
 #endif /* Perimeter_hpp */

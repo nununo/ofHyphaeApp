@@ -13,7 +13,7 @@
 #include "Conidia.h"
 #include "Hyphae.h"
 #include "Perimeter.h"
-#include "EmptyHoleReachedEvent.h"
+#include "EmptyHoleReachedEventArgs.h"
 #include "ISpeciesFactory.h"
 #include "Settings.h"
 
@@ -34,7 +34,7 @@ public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);
   ~Mycelium();
 
-  void onNewConidiumEvent(EmptyHoleReachedEvent &e);
+  void onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e);
   
   // IDrawable
   void update();

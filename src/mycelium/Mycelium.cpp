@@ -23,7 +23,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
     addHypha();
   }
 
-  //ofAddListener(this->perimeter->newConidiumEvent, this, &Mycelium::onNewConidiumEvent);
+  //ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
 }
 
 Mycelium::~Mycelium() {
@@ -33,7 +33,7 @@ Mycelium::~Mycelium() {
   delete this->perimeter;
 }
 
-void Mycelium::onNewConidiumEvent(EmptyHoleReachedEvent &e) {
+void Mycelium::onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e) {
   conidia->add(e.pos);
 }
 
