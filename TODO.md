@@ -1,3 +1,4 @@
+- Perimeter probably belongs inside Conidia
 - Hyphae: Get rid of the bold cross that appears at the xy axis
 - Rings: Remove hard coded 200 in the array allocation
 - Rings: Replace array with std::vector<*Ring> https://stackoverflow.com/questions/21387670/pointer-to-array-of-pointers-dynamic-allocation
