@@ -10,7 +10,7 @@
 
 #include "Ring.h"
 
-#define MAX_RINGS 100
+#define MAX_RINGS 200
 
 class Rings {
 private:
