@@ -19,12 +19,16 @@ private:
   std::list<Hypha> elements;
   float hyphaDistortion;
   int hyphaMaxLifespan;
+  
+  void addAtPosition(ofVec2f pos, ofVec2f vel);
 
 public:
   Hyphae(Ink *ink, int hyphaMaxLifespan, float hyphaDistortion); 
   void update();
   void draw();
   void add(ofVec2f vel);
+
+  void onHyphaFork(HyphaForkEventArgs &e);
 };
 
 #endif /* Hyphae_h */

@@ -96,7 +96,7 @@
 		7DF3E31421FD0B9A0034502C /* Conidia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidia.h; sourceTree = "<group>"; };
 		7DF3E31621FD123C0034502C /* Hyphae.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hyphae.cpp; sourceTree = "<group>"; };
 		7DF3E31721FD123C0034502C /* Hyphae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hyphae.h; sourceTree = "<group>"; };
-		7DF3E31921FD24820034502C /* HyphaForkEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaForkEvent.h; sourceTree = "<group>"; };
+		7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaForkEventArgs.h; sourceTree = "<group>"; };
 		7DFEC78621E7D06E009DC9DD /* Conidium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidium.cpp; sourceTree = "<group>"; };
 		7DFEC78721E7D06E009DC9DD /* Conidium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidium.h; sourceTree = "<group>"; };
 		7DFEC78A21E7D1F0009DC9DD /* InkColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkColor.h; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 				7DF3E31121FCEE8A0034502C /* Hypha.h */,
 				7DF3E31621FD123C0034502C /* Hyphae.cpp */,
 				7DF3E31721FD123C0034502C /* Hyphae.h */,
-				7DF3E31921FD24820034502C /* HyphaForkEvent.h */,
+				7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */,
 			);
 			path = hypha;
 			sourceTree = "<group>";

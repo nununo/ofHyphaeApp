@@ -1,3 +1,4 @@
+- Perimeter event args are currently static and probably should not be. Also the ofRemoveListener is missing
 - Hypha: each one must start from a different position in a central area of the Mycelium
 - Hypha: implement forks
 - Hypha: it must die

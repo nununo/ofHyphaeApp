@@ -6,6 +6,7 @@
 //
 
 #include "Hypha.h"
+#include "HyphaForkEventArgs.h"
 
 Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, int lifespan, float distortion) {
   this->pos = pos;
@@ -22,6 +23,13 @@ void Hypha::updateVelocity() {
   vel.rotate(angle);
 }
 
+void Hypha::fork() {
+  HyphaForkEventArgs e;
+  e.pos = this->pos;
+  e.vel = this->vel.getRotated(90);
+  ofNotifyEvent(this->forkEvent, e);
+}
+
 void Hypha::update() {
   if (isAlive()) {
     lifespan--;
@@ -32,6 +40,9 @@ void Hypha::update() {
     if (newIntPos != this->lastIntPos) {
       this->lastIntPos = newIntPos;
       this->posIsNewPixel = true;
+      if ((int)(ofRandom(0,100)+0.5f)==1) {
+        fork();
+      }
     }
   }
 }

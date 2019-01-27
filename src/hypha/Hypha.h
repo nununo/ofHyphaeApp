@@ -10,6 +10,7 @@
 
 #include "ofMain.h"
 #include "Ink.h"
+#include "HyphaForkEventArgs.h"
 
 class Hypha {
 private:
@@ -23,12 +24,15 @@ private:
   int lifespan;
   
   void updateVelocity();
+  void fork();
 
 public:
   Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, int lifespan, float distortion);
   bool isAlive() {return this->lifespan>0;}
   void update();
   void draw();
+
+  ofEvent<HyphaForkEventArgs> forkEvent;
 };
 
 #endif /* Hypha_h */
