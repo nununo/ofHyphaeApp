@@ -15,7 +15,7 @@ class EmptyHoleReachedEvent : public ofEventArgs {
 public:
   ofVec3f pos;
   
-  ofEvent<EmptyHoleReachedEvent> events;
+  //ofEvent<EmptyHoleReachedEvent> events;
 };
 
 #endif /* EmptyHoleReachedEvent_h */
