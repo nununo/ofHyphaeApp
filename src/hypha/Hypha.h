@@ -23,8 +23,10 @@ private:
   ofVec2f lastIntPos;
   bool posIsNewPixel;
   int lifespan;
+  int nextForkDistance;
   
   void updateVelocity();
+  void calcNextForkDistance();
   void fork();
 
 public:

@@ -30,4 +30,5 @@ Settings::Settings(const string& xmlFile) {
   mycelium.hyphae.hypha.forkAgeRatio = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:forkAgeRatio", 10000.0f); // 2.0f
   mycelium.hyphae.hypha.maxForkAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxForkAngle", 1.0f); // 90
   mycelium.hyphae.hypha.maxBendAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxBendAngle", 10.0f); // 1
+  mycelium.hyphae.hypha.maxForkDistance = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxForkDistance", 1000); // 100
 }

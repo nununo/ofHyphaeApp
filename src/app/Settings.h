@@ -16,6 +16,7 @@ struct HyphaSettings {
   float forkAgeRatio;
   float maxForkAngle;
   float maxBendAngle;
+  int maxForkDistance;
 };
 
 struct HyphaeSettings {

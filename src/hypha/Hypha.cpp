@@ -17,6 +17,7 @@ Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings) {
   this->vel = vel;
   this->lifespan = ofRandom(0,settings.maxLifespan);
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
+  calcNextForkDistance();
 }
 
 void Hypha::updateVelocity() {
@@ -25,13 +26,19 @@ void Hypha::updateVelocity() {
   vel.rotate(bendAngle);
 }
 
+void Hypha::calcNextForkDistance() {
+  this->nextForkDistance =  (int)(ofRandom(0,settings.maxForkDistance)+0.5f);
+}
+
 void Hypha::fork() {
   HyphaForkEventArgs e;
   e.pos = this->pos;
   float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
   e.vel = this->vel.getRotated(angle);
   ofNotifyEvent(this->forkEvent, e);
+
   this->lifespan /= settings.forkAgeRatio;
+  calcNextForkDistance();
 }
 
 void Hypha::update() {
@@ -44,7 +51,8 @@ void Hypha::update() {
     if (newIntPos != this->lastIntPos) {
       this->lastIntPos = newIntPos;
       this->posIsNewPixel = true;
-      if ((int)(ofRandom(0,100)+0.5f)==1) {
+      this->nextForkDistance--;
+      if (this->nextForkDistance==0) {
         fork();
       }
     }
