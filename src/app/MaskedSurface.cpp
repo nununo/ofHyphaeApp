@@ -16,24 +16,18 @@ MaskedSurface::MaskedSurface(IDrawable *surface,
 
   shader.setupShaderFromFile(GL_FRAGMENT_SHADER, "shaders/alphamask.frag");
   shader.linkProgram();
-
-  fbo.allocate(getWidth(), getHeight());
 }
 
 void MaskedSurface::update() {
   surface->update();
+}
 
-  fbo.begin();
+void MaskedSurface::draw() {
+  ofPushStyle();
+  ofSetColor(255,255,255);
   shader.begin();
   shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
   surface->draw();
   shader.end();
-  fbo.end();
-}
-
-void MaskedSurface::draw() {
-  ofSetColor(255,0,0);
-  ofDrawRectangle(0, 0, getWidth(), getHeight());
-  ofSetColor(255,255,255);
-  fbo.draw(0,0, getWidth(), getHeight());
+  ofPopStyle();
 }

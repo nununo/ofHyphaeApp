@@ -15,7 +15,6 @@ class MaskedSurface: public IDrawable {
 private:
   IDrawable *surface;
   ofImage mask;
-  ofFbo fbo;
   ofShader shader;
 
 public:
