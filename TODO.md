@@ -7,8 +7,6 @@
 
 - Change Element cursor algorithm to tend towards the center so that the perimeter becomes less scattered
 
-- Create the concept of a Family "strength"
-
 - Rings: Remove hard coded 200 in the array allocation
 - Holes: Remove hard coded ANGLE_RESOLUTION 10
 - Mycelium.cpp remove hard codede HYPHAE_INK_TRANSPARENCY
