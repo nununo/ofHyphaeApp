@@ -15,6 +15,7 @@ class HyphaForkEventArgs : public ofEventArgs {
 public:
   ofVec3f pos;
   ofVec3f vel;
+  int generation;
 };
 
 #endif /* HyphaForkEventArgs_h */

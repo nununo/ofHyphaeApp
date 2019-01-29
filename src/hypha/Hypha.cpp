@@ -10,11 +10,12 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings) {
+Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings, int generation) {
   this->pos = pos;
   this->ink = ink;
   this->settings = settings;
   this->vel = vel;
+  this->generation = generation;
   this->lifespan = ofRandom(0,settings.maxLifespan);
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
@@ -32,6 +33,7 @@ void Hypha::calcNextForkDistance() {
 
 void Hypha::fork() {
   HyphaForkEventArgs e;
+  e.generation = this->generation + 1;
   e.pos = this->pos;
   float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
   e.vel = this->vel.getRotated(angle);

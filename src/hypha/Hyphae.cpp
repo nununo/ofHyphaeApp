@@ -13,7 +13,7 @@ Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings) {
 
   for(int i=0; i<settings.initHyphaCount; i++) {
     ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
-    add(vel);
+    addGeneration0(vel);
   }
 }
 
@@ -38,19 +38,19 @@ void Hyphae::draw() {
   ofPopStyle();
 }
 
-void Hyphae::addAtPosition(ofVec2f pos, ofVec2f vel) {
-  Hypha *newHypha = new Hypha(pos, this->ink, vel, settings.hypha);
+void Hyphae::addAtPosition(ofVec2f pos, ofVec2f vel, int generation) {
+  Hypha *newHypha = new Hypha(pos, this->ink, vel, settings.hypha, generation);
   ofAddListener(newHypha->forkEvent, this, &Hyphae::onHyphaFork);
   elements.push_back(*newHypha);
 }
 
-void Hyphae::add(ofVec2f vel) {
+void Hyphae::addGeneration0(ofVec2f vel) {
   float half = settings.creationAreaSize/2;
   ofVec2f pos = ofVec2f(ofRandom(-half/2,half/2),
                         ofRandom(-half/2,half/2));
-  addAtPosition(pos, vel);
+  addAtPosition(pos, vel, 0);
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  addAtPosition(e.pos, e.vel);
+  addAtPosition(e.pos, e.vel, e.generation);
 }

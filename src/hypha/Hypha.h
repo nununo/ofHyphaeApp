@@ -24,13 +24,14 @@ private:
   bool posIsNewPixel;
   int lifespan;
   int nextForkDistance;
+  int generation;
   
   void updateVelocity();
   void calcNextForkDistance();
   void fork();
 
 public:
-  Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings);
+  Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings, int generation=0);
   bool isAlive() {return this->lifespan>0;}
   void update();
   void draw();

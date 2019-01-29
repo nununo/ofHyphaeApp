@@ -18,13 +18,13 @@ private:
   std::list<Hypha> elements;
   HyphaeSettings settings;
   
-  void addAtPosition(ofVec2f pos, ofVec2f vel);
+  void addAtPosition(ofVec2f pos, ofVec2f vel, int generation);
+  void addGeneration0(ofVec2f vel);
 
 public:
   Hyphae(Ink *ink, const HyphaeSettings settings); 
   void update();
   void draw();
-  void add(ofVec2f vel);
 
   void onHyphaFork(HyphaForkEventArgs &e);
 };
