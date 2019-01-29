@@ -10,7 +10,8 @@
 ###########################
 
 /bin/*
-!/bin/data/images
+!/bin/data/
+/bin/data/images/
 
 #########
 # general
