@@ -16,6 +16,7 @@ Hypha::Hypha(ofVec2f pos, Ink *ink, ofVec2f vel, const HyphaSettings settings, i
   this->settings = settings;
   this->vel = vel;
   this->generation = generation;
+  this->forkCount = 0;
   this->lifespan = ofRandom(0,settings.maxLifespan);
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
@@ -28,7 +29,8 @@ void Hypha::updateVelocity() {
 }
 
 void Hypha::calcNextForkDistance() {
-  this->nextForkDistance =  (int)(ofRandom(0,settings.maxForkDistance)+0.5f);
+  int fertilityRate = pow(this->generation+this->forkCount,2)+1;
+  this->nextForkDistance =  (int)(ofRandom(1,3*(fertilityRate))+0.5f);
 }
 
 void Hypha::fork() {
@@ -40,6 +42,8 @@ void Hypha::fork() {
   ofNotifyEvent(this->forkEvent, e);
 
   this->lifespan /= settings.forkAgeRatio;
+  this->forkCount++;
+
   calcNextForkDistance();
 }
 

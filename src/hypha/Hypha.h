@@ -25,6 +25,7 @@ private:
   int lifespan;
   int nextForkDistance;
   int generation;
+  int forkCount;
   
   void updateVelocity();
   void calcNextForkDistance();
