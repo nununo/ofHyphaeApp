@@ -1,0 +1,30 @@
+<mycelia>
+  <framerate>1200</framerate>
+  <mycelium>
+    <lifespan>99999</lifespan>
+    <conidia>
+      <growthSpeed>0.02</growthSpeed>
+      <space>5</space>
+      <maxRings>200</maxRings>
+      <perimeterDistortion>0.0025</perimeterDistortion>
+      <angleResolution>10</angleResolution>
+      <conidium>
+        <lifespan>2000</lifespan>
+      </conidium>
+    </conidia>
+    <hyphae>
+      <creationAreaSize>80</creationAreaSize>
+      <initHyphaCount>100</initHyphaCount>
+      <hypha>
+        <maxLifespan>100000</maxLifespan>
+        <distortion>1.0</distortion>
+        <forkAgeRatio>2</forkAgeRatio>
+        <maxForkAngle>30</maxForkAngle>
+        <maxBendAngle>0.3</maxBendAngle>
+        <maxForkDistance>40</maxForkDistance>
+        <fertilityRateRacio>5</fertilityRateRacio>
+        <fertilityRatePower>3</fertilityRatePower>
+      </hypha>
+    </hyphae>
+  </mycelium>
+</mycelia>
