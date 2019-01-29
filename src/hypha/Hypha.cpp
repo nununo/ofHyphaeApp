@@ -29,7 +29,7 @@ void Hypha::updateVelocity() {
 }
 
 float Hypha::getFertilityRate() {
-  return settings.fertilityRateRacio*(pow(generation+forkCount,settings.fertilityRatePower)+1);
+  return settings.fertilityRateRatio*(pow(generation+forkCount,settings.fertilityRatePower)+1);
 }
 
 void Hypha::calcNextForkDistance() {

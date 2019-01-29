@@ -22,7 +22,7 @@
         <maxForkAngle>30</maxForkAngle>
         <maxBendAngle>0.3</maxBendAngle>
         <maxForkDistance>40</maxForkDistance>
-        <fertilityRateRacio>5</fertilityRateRacio>
+        <fertilityRateRatio>5</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>
         <transparency>3</transparency>
       </hypha>

@@ -17,7 +17,7 @@ struct HyphaSettings {
   float maxForkAngle;
   float maxBendAngle;
   int maxForkDistance;
-  float fertilityRateRacio;
+  float fertilityRateRatio;
   float fertilityRatePower;
   int transparency;
 };
