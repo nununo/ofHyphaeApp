@@ -8,12 +8,10 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
-#define HYPHAE_INK_TRANSPARENCY 20 //3
-
 Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory) {
   this->pos = pos;
   this->conidia = new Conidia(danceFactory, settings.conidia);
-  this->hyphaeInk = new InkColor(ofColor::black, HYPHAE_INK_TRANSPARENCY);
+  this->hyphaeInk = new InkColor(ofColor::black);
   this->hyphae = new Hyphae(this->hyphaeInk, settings.hyphae);
   this->lifespan = settings.lifespan;
 }

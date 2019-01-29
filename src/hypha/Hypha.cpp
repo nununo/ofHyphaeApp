@@ -73,6 +73,7 @@ void Hypha::draw() {
     ofPushStyle();
     ofEnableAlphaBlending();
     ofColor color = ink->getColor(this->pos);
+    color.a = settings.transparency;
     ofSetColor(color);
     ofDrawRectangle(this->lastIntPos, 1, 1);
     ofPopStyle();

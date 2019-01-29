@@ -24,6 +24,7 @@
         <maxForkDistance>40</maxForkDistance>
         <fertilityRateRacio>5</fertilityRateRacio>
         <fertilityRatePower>3</fertilityRatePower>
+        <transparency>3</transparency>
       </hypha>
     </hyphae>
   </mycelium>
