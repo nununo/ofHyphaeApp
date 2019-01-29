@@ -1,3 +1,4 @@
+- Hypha: Use Perlin noise to change speed according to position
 - Hyphae: Get rid of the bold cross that appears at the xy axis
 - Perimeter event args are currently static and probably should not be. Also the ofRemoveListener is missing
 - Hypha: trident at its tip?
