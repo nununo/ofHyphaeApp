@@ -28,6 +28,7 @@ private:
   int forkCount;
   
   void updateVelocity();
+  float getFertilityRate();
   void calcNextForkDistance();
   void fork();
 

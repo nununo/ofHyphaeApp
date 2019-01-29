@@ -28,9 +28,12 @@ void Hypha::updateVelocity() {
   vel.rotate(bendAngle);
 }
 
+float Hypha::getFertilityRate() {
+  return 5*(pow(this->generation+this->forkCount,3.0f)+1);
+}
+
 void Hypha::calcNextForkDistance() {
-  int fertilityRate = pow(this->generation+this->forkCount,2)+1;
-  this->nextForkDistance =  (int)(ofRandom(1,3*(fertilityRate))+0.5f);
+  this->nextForkDistance = (int)(ofRandom(1,(getFertilityRate()))+0.5f);
 }
 
 void Hypha::fork() {
