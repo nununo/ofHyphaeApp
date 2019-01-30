@@ -55,7 +55,7 @@ void Hypha::update() {
   if (isAlive()) {
     lifespan--;
     updateVelocity();
-    pos += vel * dc->get(pos);
+    pos += vel; // * dc->get(pos);
     ofVec2f newIntPos = ofVec2f((int)(pos.x+0.5f),
                                 (int)(pos.y+0.5f));
     if (newIntPos != lastIntPos) {
@@ -76,7 +76,7 @@ void Hypha::draw() {
     ofColor color = ink->getColor(this->pos);
     color.a = settings.transparency;
     ofSetColor(color);
-    ofDrawRectangle(this->lastIntPos, 1, 1);
+    ofDrawRectangle(this->pos, 1, 1);
     ofPopStyle();
     this->posIsNewPixel = false;
   }
