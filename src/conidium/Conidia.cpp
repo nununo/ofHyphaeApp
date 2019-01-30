@@ -7,10 +7,10 @@
 
 #include "Conidia.h"
 
-Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings) {
+Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings, DistortedCircle *dc) {
   this->speciesFactory = speciesFactory;
   this->settings = settings;
-  this->perimeter = new Perimeter(settings);
+  this->perimeter = new Perimeter(settings, dc);
   ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Conidia::onEmptyHoleReachedEvent);
   add(ofVec2f(0,0));
 }

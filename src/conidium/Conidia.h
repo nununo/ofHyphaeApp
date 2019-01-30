@@ -21,7 +21,7 @@ private:
   Perimeter *perimeter;
 
 public:
-  Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings);
+  Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings, DistortedCircle *dc);
   ~Conidia();
   void add(ofVec3f p);
   void update();

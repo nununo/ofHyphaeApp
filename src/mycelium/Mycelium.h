@@ -8,9 +8,9 @@
 #ifndef Mycelium_h
 #define Mycelium_h
 
-#include <list>
 #include "ofMain.h"
 #include "Conidia.h"
+#include "DistortedCircle.h"
 #include "Hyphae.h"
 #include "ISpeciesFactory.h"
 #include "Settings.h"
@@ -21,6 +21,7 @@ private:
   ofVec2f pos;
   Conidia *conidia;
   Ink *hyphaeInk;
+  DistortedCircle *dc;
   Hyphae *hyphae;
   int lifespan;
 

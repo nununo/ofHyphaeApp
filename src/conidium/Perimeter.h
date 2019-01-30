@@ -25,7 +25,7 @@ private:
   void drawCursor();
 
 public:
-  Perimeter(ConidiaSettings settings);
+  Perimeter(ConidiaSettings settings, DistortedCircle *dc);
   ~Perimeter();
   void update();
   void draw();

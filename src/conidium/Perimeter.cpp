@@ -7,10 +7,10 @@
 
 #include "Perimeter.h"
 
-Perimeter::Perimeter(ConidiaSettings settings) {
+Perimeter::Perimeter(ConidiaSettings settings, DistortedCircle *dc) {
   this->settings = settings;
-  this->dc = new DistortedCircle(settings.perimeterDistortion);
   this->rings = new Rings(settings);
+  this->dc = dc;
   
   for(int i=0; i<360;i++) {
     cursors[i] = 0;
@@ -18,7 +18,6 @@ Perimeter::Perimeter(ConidiaSettings settings) {
 }
 
 Perimeter::~Perimeter() {
-  delete this->dc;
   delete this->rings;
 }
 
