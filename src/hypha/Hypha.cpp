@@ -55,14 +55,14 @@ void Hypha::update() {
   if (isAlive()) {
     lifespan--;
     updateVelocity();
-    this->pos += vel;
-    ofVec2f newIntPos = ofVec2f((int)(this->pos.x+0.5f),
-                                (int)(this->pos.y+0.5f));
-    if (newIntPos != this->lastIntPos) {
-      this->lastIntPos = newIntPos;
-      this->posIsNewPixel = true;
-      this->nextForkDistance--;
-      if (this->nextForkDistance==0) {
+    pos += vel * dc->get(pos);
+    ofVec2f newIntPos = ofVec2f((int)(pos.x+0.5f),
+                                (int)(pos.y+0.5f));
+    if (newIntPos != lastIntPos) {
+      lastIntPos = newIntPos;
+      posIsNewPixel = true;
+      nextForkDistance--;
+      if (nextForkDistance==0) {
         fork();
       }
     }
