@@ -8,13 +8,12 @@
 #ifndef Hyphae_h
 #define Hyphae_h
 
-#include "Ink.h"
 #include "Hypha.h"
-#include "Settings.h"
 
 class Hyphae {
 private:
   Ink *ink;
+  DistortedCircle *dc;
   std::list<Hypha> elements;
   HyphaeSettings settings;
   
@@ -22,7 +21,7 @@ private:
   void addGeneration0(ofVec2f vel);
 
 public:
-  Hyphae(Ink *ink, const HyphaeSettings settings); 
+  Hyphae(Ink *ink, const HyphaeSettings settings, DistortedCircle *dc); 
   void update();
   void draw();
 

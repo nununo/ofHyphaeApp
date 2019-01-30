@@ -7,9 +7,10 @@
 
 #include "Hyphae.h"
 
-Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings) {
+Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings, DistortedCircle *dc) {
   this->ink = ink;
-  this->settings = settings;  
+  this->dc = dc;
+  this->settings = settings;
 
   for(int i=0; i<settings.initHyphaCount; i++) {
     ofVec2f vel = ofVec2f(0.01f,.01f).rotate(ofRandom(0,360));
@@ -39,7 +40,7 @@ void Hyphae::draw() {
 }
 
 void Hyphae::addAtPosition(ofVec2f pos, ofVec2f vel, int generation) {
-  Hypha *newHypha = new Hypha(pos, this->ink, vel, settings.hypha, generation);
+  Hypha *newHypha = new Hypha(pos, this->ink, this->dc, vel, settings.hypha, generation);
   ofAddListener(newHypha->forkEvent, this, &Hyphae::onHyphaFork);
   elements.push_back(*newHypha);
 }
