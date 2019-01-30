@@ -13,7 +13,7 @@
       </conidium>
     </conidia>
     <hyphae>
-      <creationAreaSize>80</creationAreaSize>
+      <creationAreaSize>40</creationAreaSize>
       <initHyphaCount>100</initHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>

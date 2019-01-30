@@ -47,8 +47,8 @@ void Hyphae::addAtPosition(ofVec2f pos, ofVec2f vel, int generation) {
 
 void Hyphae::addGeneration0(ofVec2f vel) {
   float half = settings.creationAreaSize/2;
-  ofVec2f pos = ofVec2f(ofRandom(-half/2,half/2),
-                        ofRandom(-half/2,half/2));
+  ofVec2f pos = ofVec2f(ofRandom(-half,half),
+                        ofRandom(-half,half));
   addAtPosition(pos, vel, 0);
 }
 
