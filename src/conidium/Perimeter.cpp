@@ -24,7 +24,7 @@ Perimeter::~Perimeter() {
 
 void Perimeter::update() {
   for(int i=0; i<360; i++) {
-    cursors[i] += dc->get(i, cursors[i]) * this->settings.growthSpeed;
+    cursors[i] += dc->getForAngle(i, cursors[i]) * this->settings.growthSpeed;
     int ring = rings->getRing(cursors[i]);
     ofVec2f pos = rings->fill(ring, i);
     if (pos.x != 0 || pos.y != 0) {

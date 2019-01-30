@@ -18,7 +18,8 @@ private:
   
 public:
   DistortedCircle(float scale);
-  float get(float angle, float radius);
+  float get(ofVec2f p);
+  float getForAngle(float angle, float radius);
 };
 
 #endif /* DistortedCircle_hpp */

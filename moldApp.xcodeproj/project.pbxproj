@@ -362,6 +362,8 @@
 		7DF3E30C21FCE9300034502C /* mycelium */ = {
 			isa = PBXGroup;
 			children = (
+				7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */,
+				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
 				7D20814F21E4C267007DE176 /* Ink.h */,
 				7D20815121E4C332007DE176 /* InkImage.h */,
 				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
@@ -392,8 +394,6 @@
 				7D2691D921F7F340001483D8 /* Rings.h */,
 				7D2691D621F7EFE5001483D8 /* Ring.cpp */,
 				7D2691D721F7EFE5001483D8 /* Ring.h */,
-				7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */,
-				7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */,
 				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
 				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
 				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */,
