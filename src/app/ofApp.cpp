@@ -46,6 +46,10 @@ void ofApp::keyPressed(int key) {
       // this is just for convenience
       addFamily();
       break;
+    
+    case 'f':
+      ofToggleFullscreen();
+      break;
       
     default:
       break;
