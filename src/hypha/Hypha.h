@@ -39,6 +39,7 @@ public:
   bool isAlive() {return this->lifespan>0;}
   void update();
   void draw();
+  void die() {this->lifespan=0;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
 };

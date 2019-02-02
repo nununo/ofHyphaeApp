@@ -27,6 +27,13 @@ void Hyphae::update() {
       itr->update();
     }
   }
+  int tooMany = elements.size() - settings.maxHyphaCount;
+  for( list<Hypha>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+    if (tooMany-- > 0) {
+      itr->die();
+    }
+  }
+  ofLog() << "hypha count" << elements.size();
 }
 
 void Hyphae::draw() {

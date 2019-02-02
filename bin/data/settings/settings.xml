@@ -15,6 +15,7 @@
     <hyphae>
       <creationAreaSize>40</creationAreaSize>
       <initHyphaCount>100</initHyphaCount>
+      <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
         <distortion>1.0</distortion>
@@ -24,7 +25,7 @@
         <maxForkDistance>40</maxForkDistance>
         <fertilityRateRatio>5</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>
-        <transparency>3</transparency>
+        <transparency>10</transparency>
       </hypha>
     </hyphae>
   </mycelium>
