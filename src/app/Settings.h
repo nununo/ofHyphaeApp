@@ -54,6 +54,8 @@ private:
 
 public:
   int framerate;
+  int width;
+  int height;
   MyceliumSettings mycelium;
   Settings(const string& xmlFile);
 };

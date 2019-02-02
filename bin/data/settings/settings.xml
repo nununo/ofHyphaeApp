@@ -1,5 +1,7 @@
 <mycelia>
   <framerate>1200</framerate>
+  <width>1280</width>
+  <height>720</height>
   <mycelium>
     <lifespan>99999</lifespan>
     <conidia>

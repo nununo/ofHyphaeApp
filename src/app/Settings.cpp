@@ -11,9 +11,11 @@ Settings::Settings(const string& xmlFile) {
   xmlSettings.loadFile(xmlFile);
   
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
-  
-  mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
+  width = xmlSettings.getValue("mycelia:width", 1); // 1920
+  height = xmlSettings.getValue("mycelia:height", 1); // 1080
 
+  mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
+ 
   mycelium.conidia.space = xmlSettings.getValue("mycelia:mycelium:conidia:space", 100); // 5
   mycelium.conidia.perimeterDistortion = xmlSettings.getValue("mycelia:mycelium:conidia:perimeterDistortion", 10.0f); // 0.0026f
   mycelium.conidia.growthSpeed = xmlSettings.getValue("mycelia:mycelium:conidia:growthSpeed", 10.0f); // 0.0026f
