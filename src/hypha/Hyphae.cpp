@@ -18,11 +18,14 @@ void Hyphae::update() {
   removeAllDeadHypha();
   removeOlderHyphaIfOverpopulated();
   updateAllHypha();
+  if (ofGetFrameNum() % 500 == 0) {
+    ofLog() << "Hypha count: " << elements.size();
+  }
 }
 
 void Hyphae::generateZeroHypha() {
   if (zeroHyphaCount<settings.initHyphaCount && ofGetFrameNum()%settings.newHyphaPeriod == 0) {
-    float inclination = 60 * zeroHyphaCount/(float)settings.initHyphaCount;
+    float inclination = 60 * (settings.initHyphaCount - zeroHyphaCount)/(float)settings.initHyphaCount;
     addGeneration0(inclination);
     zeroHyphaCount++;
     ofLog() << "new Hypha: " << zeroHyphaCount << " inclination: "  << inclination;
@@ -65,10 +68,10 @@ void Hyphae::draw() {
   ofPopStyle();
 }
 
-ofVec3f Hyphae::calcVelocity(float speed, float angle, float inclination) {
-  ofVec3f vel = ofVec3f(speed,0,0).rotate(0,0,angle);
-  ofVec3f vel0 = vel.getNormalized().rotate(0,0,-90);
-  return vel.getRotated(inclination, vel0);
+ofVec3f Hyphae::calcDirection(float angle, float inclination) {
+  ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
+  ofVec3f dirPerp = dir.getNormalized().rotate(0,0,-90);
+  return dir.getRotated(inclination, dirPerp);
 }
 
 void Hyphae::add(Hypha *hypha) {
@@ -77,11 +80,11 @@ void Hyphae::add(Hypha *hypha) {
 }
 
 void Hyphae::addGeneration0(float inclination) {
-  ofVec3f vel = calcVelocity(settings.hypha.speed, ofRandom(0,360), inclination);
+  ofVec3f dir = calcDirection(ofRandom(0,360), inclination);
   ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-  add(new Hypha(pos, this->ink, this->dc, vel, settings.hypha));
+  add(new Hypha(pos, this->ink, this->dc, dir, settings.hypha));
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(new Hypha(e.pos, this->ink, this->dc, e.vel, settings.hypha, e.generation));
+  add(new Hypha(e.pos, this->ink, this->dc, e.dir, settings.hypha, e.generation));
 }

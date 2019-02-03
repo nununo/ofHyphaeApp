@@ -20,7 +20,7 @@ private:
   
   void add(Hypha *hypha);
   void addGeneration0(float inclination);
-  ofVec3f calcVelocity(float speed, float angle, float inclination);
+  ofVec3f calcDirection(float angle, float inclination);
   void generateZeroHypha();
   void removeAllDeadHypha();
   void removeOlderHyphaIfOverpopulated();

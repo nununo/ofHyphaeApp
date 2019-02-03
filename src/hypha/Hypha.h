@@ -37,10 +37,11 @@ private:
   void fork();
   void drawZ();
   
+  ofVec3f getInitialVelocity(ofVec3f dir);
   ofVec3f calcVelocity(float speed, float angle, float inclination);
 
 public:
-  Hypha(ofVec3f pos, Ink *ink, DistortedCircle *dc, ofVec3f vel, const HyphaSettings settings, int generation=0);
+  Hypha(ofVec3f pos, Ink *ink, DistortedCircle *dc, ofVec3f dir, const HyphaSettings settings, int generation=0);
   bool isAlive() {return (lifespan>0 && pos.z<settings.maxHeight);}
   void update();
   void draw();

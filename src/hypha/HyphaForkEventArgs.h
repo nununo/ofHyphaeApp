@@ -14,7 +14,7 @@ class HyphaForkEventArgs : public ofEventArgs {
   
 public:
   ofVec3f pos;
-  ofVec3f vel;
+  ofVec3f dir;
   int generation;
 };
 
