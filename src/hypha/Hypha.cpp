@@ -36,7 +36,7 @@ void Hypha::updateVelocity() {
 }
 
 float Hypha::getFertilityRate() {
-  return settings.fertilityRateRatio*(pow(generation+forkCount,settings.fertilityRatePower)+1);
+  return settings.fertilityRateRatio*(pow(generation/2.0f+forkCount,settings.fertilityRatePower)+1);
 }
 
 void Hypha::calcNextForkDistance() {
@@ -85,7 +85,7 @@ void Hypha::draw() {
       color.a = settings.transparency;
       ofSetColor(color);
       ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
-      drawZ();
+      //drawZ();
       ofPopStyle();
       this->posIsNewPixel = false;
     }
