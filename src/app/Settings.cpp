@@ -30,7 +30,8 @@ Settings::Settings(const string& xmlFile) {
   mycelium.hyphae.newHyphaPeriod = xmlSettings.getValue("mycelia:mycelium:hyphae:newHyphaPeriod", 0); // 100
 
   mycelium.hyphae.hypha.maxLifespan = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxLifespan", 1); // 100000
-  mycelium.hyphae.hypha.speed = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speed", 0.0f); // 0.015f
+  mycelium.hyphae.hypha.speed = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedRange", 0.0f); // 0.005f
+  mycelium.hyphae.hypha.speedRange = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedRange", 0.0f); // 0.0025f
   mycelium.hyphae.hypha.gravity = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:gravity", 0.0f); // 0.005f
   mycelium.hyphae.hypha.maxHeight = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxHeight", 0); // 20
   mycelium.hyphae.hypha.distortion = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:distortion", 1000.0f); // 1.0f
