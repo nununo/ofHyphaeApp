@@ -13,7 +13,6 @@
 class Hyphae {
 private:
   Ink *ink;
-  DistortedCircle *dc;
   std::list<Hypha> elements;
   HyphaeSettings settings;
   int zeroHyphaCount = 0;
@@ -27,7 +26,7 @@ private:
   void updateAllHypha();
 
 public:
-  Hyphae(Ink *ink, const HyphaeSettings settings, DistortedCircle *dc); 
+  Hyphae(Ink *ink, const HyphaeSettings settings); 
   void update();
   void draw();
 

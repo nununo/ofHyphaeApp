@@ -10,10 +10,9 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(ofVec3f pos, Ink *ink, DistortedCircle *dc, ofVec3f dir, const HyphaSettings settings, int generation) {
+Hypha::Hypha(ofVec3f pos, Ink *ink, ofVec3f dir, const HyphaSettings settings, int generation) {
   this->pos = pos;
   this->ink = ink;
-  this->dc = dc;
   this->settings = settings;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;

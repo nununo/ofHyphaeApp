@@ -7,9 +7,8 @@
 
 #include "Hyphae.h"
 
-Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings, DistortedCircle *dc) {
+Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings) {
   this->ink = ink;
-  this->dc = dc;
   this->settings = settings;
 }
 
@@ -82,9 +81,9 @@ void Hyphae::add(Hypha *hypha) {
 void Hyphae::addZeroHypha(float inclination) {
   ofVec3f dir = calcDirection(ofRandom(0,360), inclination);
   ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-  add(new Hypha(pos, this->ink, this->dc, dir, settings.hypha));
+  add(new Hypha(pos, this->ink, dir, settings.hypha));
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(new Hypha(e.pos, this->ink, this->dc, e.dir, settings.hypha, e.generation));
+  add(new Hypha(e.pos, this->ink, e.dir, settings.hypha, e.generation));
 }

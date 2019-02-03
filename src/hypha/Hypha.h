@@ -10,14 +10,12 @@
 
 #include "ofMain.h"
 #include "Ink.h"
-#include "DistortedCircle.h"
 #include "HyphaForkEventArgs.h"
 #include "Settings.h"
 
 class Hypha {
 private:
   Ink *ink;
-  DistortedCircle *dc;
   HyphaSettings settings;
   ofVec2f noiseOffset;
 
@@ -41,7 +39,7 @@ private:
   ofVec3f calcVelocity(float speed, float angle, float inclination);
 
 public:
-  Hypha(ofVec3f pos, Ink *ink, DistortedCircle *dc, ofVec3f dir, const HyphaSettings settings, int generation=0);
+  Hypha(ofVec3f pos, Ink *ink, ofVec3f dir, const HyphaSettings settings, int generation=0);
   bool isAlive() {return (lifespan>0 && pos.z<settings.maxHeight);}
   void update();
   void draw();
