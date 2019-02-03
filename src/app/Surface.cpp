@@ -11,7 +11,7 @@ Surface::Surface(ofVec2f size) {
   this->size = size;
   fbo.allocate(getWidth(), getHeight());
   fbo.begin();
-  ofClear(255,255,255);
+  ofClear(0,0,0);
   fbo.end();
 }
 
