@@ -17,7 +17,7 @@
     <hyphae>
       <creationAreaSize>5</creationAreaSize>
       <initHyphaCount>100</initHyphaCount>
-      <newHyphaPeriod>200</newHyphaPeriod>
+      <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
@@ -29,7 +29,7 @@
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>10</maxForkAngle>
         <maxBendAngle>0.1</maxBendAngle>
-        <fertilityRateRatio>10</fertilityRateRatio>
+        <fertilityRateRatio>5</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>
         <transparency>10</transparency>
       </hypha>
