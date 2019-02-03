@@ -13,6 +13,7 @@
 struct HyphaSettings {
   int maxLifespan;
   float speed;
+  float gravity;
   int maxHeight;
   float distortion;
   float forkAgeRatio;
