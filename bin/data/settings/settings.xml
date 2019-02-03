@@ -16,22 +16,21 @@
     </conidia>
     <hyphae>
       <creationAreaSize>5</creationAreaSize>
-      <initHyphaCount>10</initHyphaCount>
+      <initHyphaCount>100</initHyphaCount>
       <newHyphaPeriod>200</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
-        <speed>0.010</speed>
-        <speedRange>0.005</speedRange>
+        <speed>0.0125</speed>
+        <speedRange>0.0025</speedRange>
         <gravity>0.0001</gravity>
         <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>10</maxForkAngle>
         <maxBendAngle>0.1</maxBendAngle>
-        <maxForkDistance>20</maxForkDistance>
-        <fertilityRateRatio>5</fertilityRateRatio>
-        <fertilityRatePower>2</fertilityRatePower>
+        <fertilityRateRatio>10</fertilityRateRatio>
+        <fertilityRatePower>3</fertilityRatePower>
         <transparency>10</transparency>
       </hypha>
     </hyphae>

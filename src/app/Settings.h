@@ -20,7 +20,6 @@ struct HyphaSettings {
   float forkAgeRatio;
   float maxForkAngle;
   float maxBendAngle;
-  int maxForkDistance;
   float fertilityRateRatio;
   float fertilityRatePower;
   int transparency;
