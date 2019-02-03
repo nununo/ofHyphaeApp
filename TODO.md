@@ -1,6 +1,8 @@
+- Add Z-axis to hypha with gravity (and a normal distribution around the center)
 - Hypha: Use Perlin noise to change speed according to position
 - Perimeter event args are currently static and probably should not be. Also the ofRemoveListener is missing
 - Hypha: trident at its tip?
+- Add mask to Surface and get rid of MaskedSurface
 
 - Implement collision detection between families
 
@@ -16,4 +18,3 @@
 - Try Retina mode again with the hack suggested in the OF forum
 
 - ? Get rid of Surface FBO
-- ? Add mask to Surface and get rid of MaskedSurface
