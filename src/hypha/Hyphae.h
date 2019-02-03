@@ -19,7 +19,7 @@ private:
   int zeroHyphaCount = 0;
   
   void add(Hypha *hypha);
-  void addGeneration0(float inclination);
+  void addZeroHypha(float inclination);
   ofVec3f calcDirection(float angle, float inclination);
   void generateZeroHypha();
   void removeAllDeadHypha();
