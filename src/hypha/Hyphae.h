@@ -16,9 +16,15 @@ private:
   DistortedCircle *dc;
   std::list<Hypha> elements;
   HyphaeSettings settings;
+  int zeroHyphaCount = 0;
   
-  void addAtPosition(ofVec2f pos, ofVec2f vel, int generation);
-  void addGeneration0(ofVec2f vel);
+  void add(Hypha *hypha);
+  void addGeneration0(float inclination);
+  ofVec3f calcVelocity(float speed, float angle, float inclination);
+  void generateZeroHypha();
+  void removeAllDeadHypha();
+  void removeOlderHyphaIfOverpopulated();
+  void updateAllHypha();
 
 public:
   Hyphae(Ink *ink, const HyphaeSettings settings, DistortedCircle *dc); 

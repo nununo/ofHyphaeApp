@@ -10,7 +10,7 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(ofVec2f pos, Ink *ink, DistortedCircle *dc, ofVec2f vel, const HyphaSettings settings, int generation) {
+Hypha::Hypha(ofVec3f pos, Ink *ink, DistortedCircle *dc, ofVec3f vel, const HyphaSettings settings, int generation) {
   this->pos = pos;
   this->ink = ink;
   this->dc = dc;
@@ -26,7 +26,9 @@ Hypha::Hypha(ofVec2f pos, Ink *ink, DistortedCircle *dc, ofVec2f vel, const Hyph
 void Hypha::updateVelocity() {
   float bendAngle = 2*(ofNoise(pos.x*settings.distortion+noiseOffset.x,
                         pos.y*settings.distortion+noiseOffset.y)-0.5f)*settings.maxBendAngle;
-  vel.rotate(bendAngle);
+  vel.rotate(bendAngle, ofVec3f(0,0,1));
+  vel.z -= settings.gravity;
+  if (pos.z<0) {vel.z=0;}
 }
 
 float Hypha::getFertilityRate() {
@@ -42,7 +44,7 @@ void Hypha::fork() {
   e.generation = this->generation + 1;
   e.pos = this->pos;
   float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
-  e.vel = this->vel.getRotated(angle);
+  e.vel = this->vel.getRotated(angle, ofVec3f(0,0,1));
   ofNotifyEvent(this->forkEvent, e);
 
   this->lifespan /= settings.forkAgeRatio;
@@ -56,8 +58,9 @@ void Hypha::update() {
     lifespan--;
     updateVelocity();
     pos += vel; // * dc->get(pos);
-    ofVec2f newIntPos = ofVec2f((int)(pos.x+0.5f),
-                                (int)(pos.y+0.5f));
+    ofVec3f newIntPos = ofVec3f((int)(pos.x+0.5f),
+                                (int)(pos.y+0.5f),
+                                (int)(pos.z+0.5f));
     if (newIntPos != lastIntPos) {
       lastIntPos = newIntPos;
       posIsNewPixel = true;
@@ -70,14 +73,29 @@ void Hypha::update() {
 }
 
 void Hypha::draw() {
-  if (isAlive() && this->posIsNewPixel) {
-    ofPushStyle();
-    ofEnableAlphaBlending();
-    ofColor color = ink->getColor(this->pos);
-    color.a = settings.transparency;
-    ofSetColor(color);
-    ofDrawRectangle(this->pos, 1, 1);
-    ofPopStyle();
-    this->posIsNewPixel = false;
+  if (isAlive()) {
+    if (this->posIsNewPixel) {
+      ofPushStyle();
+      ofEnableAlphaBlending();
+      ofColor color = ink->getColor(this->pos);
+      color.a = settings.transparency;
+      ofSetColor(color);
+      ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
+      drawZ();
+      ofPopStyle();
+      this->posIsNewPixel = false;
+    }
+  } else {
+    //ofPushStyle();
+    //ofSetColor(0, 0, 255);
+    //ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
+    //ofPopStyle();
   }
+}
+
+void Hypha::drawZ() {
+  ofPushMatrix();
+  ofTranslate(0, -200);
+  ofDrawRectangle(pos.x, -pos.z, 1, 1);
+  ofPopMatrix();
 }
