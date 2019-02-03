@@ -20,7 +20,8 @@
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
-        <speed>0.015</speed>
+        <speed>0.15</speed>
+        <maxHeight>20</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>30</maxForkAngle>
@@ -28,7 +29,7 @@
         <maxForkDistance>40</maxForkDistance>
         <fertilityRateRatio>5</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>
-        <transparency>10</transparency>
+        <transparency>100</transparency>
       </hypha>
     </hyphae>
   </mycelium>
