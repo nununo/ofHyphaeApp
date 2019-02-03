@@ -16,10 +16,11 @@
     </conidia>
     <hyphae>
       <creationAreaSize>40</creationAreaSize>
-      <initHyphaCount>100</initHyphaCount>
+      <initHyphaCount>1</initHyphaCount>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
+        <speed>0.015</speed>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>30</maxForkAngle>
