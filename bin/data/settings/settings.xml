@@ -17,16 +17,17 @@
     <hyphae>
       <creationAreaSize>5</creationAreaSize>
       <initHyphaCount>1</initHyphaCount>
+      <newHyphaPeriod>100</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
         <speed>0.015</speed>
-        <gravity>0.005</gravity>
+        <gravity>0.000002</gravity>
         <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>10</maxForkAngle>
-        <maxBendAngle>0.3</maxBendAngle>
+        <maxBendAngle>0.1</maxBendAngle>
         <maxForkDistance>20</maxForkDistance>
         <fertilityRateRatio>5</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>

@@ -30,6 +30,7 @@ struct HyphaeSettings {
   HyphaSettings hypha;
   int initHyphaCount;
   int maxHyphaCount;
+  int newHyphaPeriod;
 };
 
 struct ConidiumSettings {
