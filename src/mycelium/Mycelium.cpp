@@ -16,12 +16,18 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
   this->hyphaeInk = hyphaeInk;
   this->conidia = new Conidia(danceFactory, settings.conidia, this->dc);
   this->hyphae = new Hyphae(this->hyphaeInk, settings.hyphae);
+  ofAddListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
 }
 
 Mycelium::~Mycelium() {
   delete this->conidia;
+  ofRemoveListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
   delete this->hyphae;
   delete this->dc;
+}
+
+void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
+  
 }
 
 void Mycelium::update() {

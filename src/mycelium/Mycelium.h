@@ -35,6 +35,9 @@ public:
   float getWidth() {return 0;}
   float getHeight() {return 0;}
   bool isAlive() {return this->lifespan > 0;}
+
+  void onHyphaDie(HyphaDieEventArgs &e);
+
 };
 
 #endif /* Mycelium_h */
