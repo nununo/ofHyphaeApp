@@ -9,6 +9,7 @@
 #define SpeciesRandomFactory_h
 
 #include "ConidiumRandomDance.h"
+#include "ISpeciesFactory.h"
 
 class SpeciesRandomFactory: public ISpeciesFactory {
 private:

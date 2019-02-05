@@ -9,6 +9,7 @@
 #define SpeciesGravityFactory_h
 
 #include "ConidiumGravityDance.h"
+#include "ISpeciesFactory.h"
 
 class SpeciesGravityFactory: public ISpeciesFactory {
 private:
