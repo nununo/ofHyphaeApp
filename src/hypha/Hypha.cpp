@@ -67,7 +67,7 @@ void Hypha::throwDieEvent() {
 }
 
 void Hypha::update() {
-  lifespan--;
+  growOlder();
   if (lifespan<=0 || pos.z>=settings.maxHeight) {
     this->dead = true;
     throwDieEvent();

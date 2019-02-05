@@ -31,6 +31,7 @@ private:
   int generation;
   int forkCount;
   
+  void growOlder() {this->lifespan--;}
   void updateVelocity();
   float getFertilityRate();
   void calcNextForkDistance();
