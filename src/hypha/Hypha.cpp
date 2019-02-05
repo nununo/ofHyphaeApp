@@ -43,12 +43,7 @@ void Hypha::calcNextForkDistance() {
 }
 
 void Hypha::fork() {
-  HyphaForkEventArgs e;
-  e.generation = this->generation + 1;
-  e.pos = this->pos;
-  float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
-  e.dir = this->vel.getRotated(angle, ofVec3f(0,0,1));
-  ofNotifyEvent(this->forkEvent, e);
+  throwForkEvent();
 
   this->lifespan /= settings.forkAgeRatio;
   this->forkCount++;
@@ -56,9 +51,28 @@ void Hypha::fork() {
   calcNextForkDistance();
 }
 
+void Hypha::throwForkEvent() {
+  HyphaForkEventArgs e;
+  e.generation = this->generation + 1;
+  e.pos = this->pos;
+  float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
+  e.dir = this->vel.getRotated(angle, ofVec3f(0,0,1));
+  ofNotifyEvent(this->forkEvent, e);
+}
+
+void Hypha::throwDieEvent() {
+  HyphaDieEventArgs e;
+  e.pos = this->pos;
+  ofNotifyEvent(this->dieEvent, e);
+}
+
 void Hypha::update() {
+  lifespan--;
+  if (lifespan<=0 || pos.z>=settings.maxHeight) {
+    this->dead = true;
+    throwDieEvent();
+  }
   if (isAlive()) {
-    lifespan--;
     pos += vel; // * dc->get(pos);
     ofVec3f newIntPos = ofVec3f((int)(pos.x+0.5f),
                                 (int)(pos.y+0.5f),
