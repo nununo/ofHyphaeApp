@@ -1,10 +1,8 @@
-- Add Z-axis to hypha with gravity (and a normal distribution around the center)
-- Hypha: Use Perlin noise to change speed according to position
+- Why does it start doing 350fps and then goes up to 700fps and then down again?
 - Perimeter event args are currently static and probably should not be. Also the ofRemoveListener is missing
 - Hypha: trident at its tip?
 - Add mask to Surface and get rid of MaskedSurface
 
-- Implement collision detection between families
 
 - Change Element cursor algorithm to tend towards the center so that the perimeter becomes less scattered
 
@@ -18,3 +16,4 @@
 - Try Retina mode again with the hack suggested in the OF forum
 
 - ? Get rid of Surface FBO
+- Implement collision detection between families
