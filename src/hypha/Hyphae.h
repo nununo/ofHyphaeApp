@@ -31,6 +31,9 @@ public:
   void draw();
 
   void onHyphaFork(HyphaForkEventArgs &e);
+  void onHyphaDie(HyphaDieEventArgs &e);
+
+  ofEvent<HyphaDieEventArgs> hyphaDieEvent;
 };
 
 #endif /* Hyphae_h */

@@ -35,6 +35,7 @@ void Hyphae::removeAllDeadHypha() {
   for( list<Hypha>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (!itr->isAlive()) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+      ofRemoveListener(itr->dieEvent, this, &Hyphae::onHyphaDie);
       itr = elements.erase(itr);
     } else {
       itr->update();
@@ -75,6 +76,7 @@ ofVec3f Hyphae::calcDirection(float angle, float inclination) {
 
 void Hyphae::add(Hypha *hypha) {
   ofAddListener(hypha->forkEvent, this, &Hyphae::onHyphaFork);
+  ofAddListener(hypha->dieEvent, this, &Hyphae::onHyphaDie);
   elements.push_back(*hypha);
 }
 
@@ -86,4 +88,8 @@ void Hyphae::addZeroHypha(float inclination) {
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   add(new Hypha(e.pos, this->ink, e.dir, settings.hypha, e.generation));
+}
+
+void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
+  ofNotifyEvent(this->hyphaDieEvent, e);
 }
