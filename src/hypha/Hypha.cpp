@@ -73,7 +73,7 @@ void Hypha::update() {
     throwDieEvent();
   }
   if (isAlive()) {
-    pos += vel; // * dc->get(pos);
+    pos += vel;
     ofVec3f newIntPos = ofVec3f((int)(pos.x+0.5f),
                                 (int)(pos.y+0.5f),
                                 (int)(pos.z+0.5f));
