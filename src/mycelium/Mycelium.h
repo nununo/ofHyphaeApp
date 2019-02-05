@@ -26,7 +26,7 @@ private:
   int lifespan;
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);
+  Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory, Ink *hyphaeInk);
   ~Mycelium();
   
   // IDrawable

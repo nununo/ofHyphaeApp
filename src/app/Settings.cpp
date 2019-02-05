@@ -13,7 +13,12 @@ Settings::Settings(const string& xmlFile) {
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
   width = xmlSettings.getValue("mycelia:width", 1); // 1920
   height = xmlSettings.getValue("mycelia:height", 1); // 1080
-
+  backgroundColor = ofColor(xmlSettings.getValue("mycelia:backgroundColor:r", 255),
+                                     xmlSettings.getValue("mycelia:backgroundColor:g", 0),
+                                     xmlSettings.getValue("mycelia:backgroundColor:b", 0));
+  foregroundColor = ofColor(xmlSettings.getValue("mycelia:foregroundColor:r", 0),
+                                     xmlSettings.getValue("mycelia:foregroundColor:g", 255),
+                                     xmlSettings.getValue("mycelia:foregroundColor:b", 0));
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
  
   mycelium.conidia.space = xmlSettings.getValue("mycelia:mycelium:conidia:space", 100); // 5

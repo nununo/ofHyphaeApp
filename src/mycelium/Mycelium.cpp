@@ -8,12 +8,12 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
-Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory) {
+Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory, Ink *hyphaeInk) {
   this->pos = pos;
   this->lifespan = settings.lifespan;
 
   this->dc = new DistortedCircle(settings.conidia.perimeterDistortion); // TODO
-  this->hyphaeInk = new InkColor(ofColor::white);
+  this->hyphaeInk = hyphaeInk;
   this->conidia = new Conidia(danceFactory, settings.conidia, this->dc);
   this->hyphae = new Hyphae(this->hyphaeInk, settings.hyphae);
 }
@@ -21,7 +21,6 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
 Mycelium::~Mycelium() {
   delete this->conidia;
   delete this->hyphae;
-  delete this->hyphaeInk;
   delete this->dc;
 }
 

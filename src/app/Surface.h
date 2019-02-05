@@ -14,12 +14,13 @@
 class Surface : public IDrawable {
 private:
   ofVec2f size;
+  ofColor backgroundColor;
   ofFbo fbo;
   std::list<IDrawable*> parts;
 
 
 public:
-  Surface(ofVec2f size);
+  Surface(const ofVec2f size, const ofColor backgroundColor);
   ~Surface();
   
   // ISurface

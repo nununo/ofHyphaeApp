@@ -7,11 +7,12 @@
 
 #include "Surface.h"
 
-Surface::Surface(ofVec2f size) {
+Surface::Surface(const ofVec2f size, const ofColor backgroundColor) {
   this->size = size;
+  this->backgroundColor = backgroundColor;
   fbo.allocate(getWidth(), getHeight());
   fbo.begin();
-  ofClear(0,0,0);
+  ofClear(backgroundColor);
   fbo.end();
 }
 

@@ -52,6 +52,7 @@ struct MyceliumSettings {
   HyphaeSettings hyphae;
 };
 
+
 class Settings {
 private:
   ofxXmlSettings xmlSettings;
@@ -60,7 +61,10 @@ public:
   int framerate;
   int width;
   int height;
+  ofColor backgroundColor;
+  ofColor foregroundColor;
   MyceliumSettings mycelium;
+
   Settings(const string& xmlFile);
 };
 

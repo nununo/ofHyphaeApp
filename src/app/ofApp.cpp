@@ -1,8 +1,5 @@
 #include "ofApp.h"
-#include "InkColor.h"
 #include "Mycelium.h"
-#include "SpeciesRandomFactory.h"
-#include "SpeciesGravityFactory.h"
 
 void ofApp::setup(){
   settings = new Settings("settings/settings.xml");
@@ -11,18 +8,28 @@ void ofApp::setup(){
   ofSetWindowPosition(10, 10);
   ofSetWindowShape(settings->width, settings->height);
   ofDisableAlphaBlending();
-  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()));
+  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->backgroundColor);
+  
+  conidiumDanceInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
+  conidiumDanceFactory = new SpeciesRandomFactory(conidiumDanceInk);
+  
+  hyphaeInk = new InkColor(settings->foregroundColor);
   addFamily();
   //ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 
+ofApp::~ofApp() {
+  //delete conidiumDanceFactory; // This yields a compiler warning which I still didn't investigate
+  delete conidiumDanceInk;
+  delete hyphaeInk;
+}
+
 void ofApp::addFamily() {
   for(int i=0; i<1; i++) {
-    Ink *ink = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
-    ISpeciesFactory *danceFactory = new SpeciesRandomFactory(ink);
     s->addPart(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
                             settings->mycelium,
-                            danceFactory));
+                            conidiumDanceFactory,
+                            hyphaeInk));
   }
 }
 
@@ -32,8 +39,12 @@ void ofApp::update(){
 
 void ofApp::draw(){
   s->draw();
+  drawOSD();
+}
+
+void ofApp::drawOSD() {
   ofPushStyle();
-  ofSetColor(0, 0, 0);
+  ofSetColor(settings->foregroundColor);
   string fpsStr = "frame rate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(fpsStr, 10,10);
   ofPopStyle();

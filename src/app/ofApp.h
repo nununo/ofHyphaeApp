@@ -3,6 +3,9 @@
 #include "ofMain.h"
 #include "MaskedSurface.h"
 #include "Settings.h"
+#include "InkColor.h"
+#include "SpeciesRandomFactory.h"
+#include "SpeciesGravityFactory.h"
 
 class ofApp : public ofBaseApp{
 
@@ -10,10 +13,16 @@ private:
   Settings *settings;
   Surface *s;
   //MaskedSurface *ms;
-  
+
+  Ink *conidiumDanceInk;
+  Ink *hyphaeInk;
+  ISpeciesFactory *conidiumDanceFactory;
+
+  void drawOSD();
   void addFamily();
 
 public:
+  ~ofApp();
   void setup();
   void update();
   void draw();
