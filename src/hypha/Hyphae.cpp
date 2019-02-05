@@ -25,7 +25,7 @@ void Hyphae::update() {
 void Hyphae::generateZeroHypha() {
   if (zeroHyphaCount<settings.initHyphaCount && ofGetFrameNum()%settings.newHyphaPeriod == 0) {
     float inclination = 60 * (settings.initHyphaCount - zeroHyphaCount)/(float)settings.initHyphaCount;
-    addZeroHypha(0);
+    addPrimalHypha(0);
     zeroHyphaCount++;
     ofLog() << "new Hypha: " << zeroHyphaCount << " inclination: "  << inclination;
   }
@@ -80,7 +80,7 @@ void Hyphae::add(Hypha *hypha) {
   elements.push_back(*hypha);
 }
 
-void Hyphae::addZeroHypha(float inclination) {
+void Hyphae::addPrimalHypha(float inclination) {
   ofVec3f dir = calcDirection(ofRandom(0,360), inclination);
   ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
   add(new Hypha(pos, this->ink, dir, settings.hypha));
