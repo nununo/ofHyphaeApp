@@ -42,5 +42,4 @@ void Conidia::draw() {
     itr->draw();
   }
   ofPopStyle();
-  //perimeter->draw();
 }
