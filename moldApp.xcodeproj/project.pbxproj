@@ -389,15 +389,6 @@
 				7DF3E31421FD0B9A0034502C /* Conidia.h */,
 				7DFEC78621E7D06E009DC9DD /* Conidium.cpp */,
 				7DFEC78721E7D06E009DC9DD /* Conidium.h */,
-				7D2691D321F7E03E001483D8 /* Hole.cpp */,
-				7D2691D421F7E03E001483D8 /* Hole.h */,
-				7D2691DA21F7F340001483D8 /* Rings.cpp */,
-				7D2691D921F7F340001483D8 /* Rings.h */,
-				7D2691D621F7EFE5001483D8 /* Ring.cpp */,
-				7D2691D721F7EFE5001483D8 /* Ring.h */,
-				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
-				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
-				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */,
 			);
 			path = conidium;
 			sourceTree = "<group>";
@@ -430,6 +421,22 @@
 				7DF46C3F220A4ADD007BB1CF /* HyphaDieEventArgs.h */,
 			);
 			path = hypha;
+			sourceTree = "<group>";
+		};
+		7DF46C40220A5ACF007BB1CF /* holes */ = {
+			isa = PBXGroup;
+			children = (
+				7D2691D321F7E03E001483D8 /* Hole.cpp */,
+				7D2691D421F7E03E001483D8 /* Hole.h */,
+				7D2691DA21F7F340001483D8 /* Rings.cpp */,
+				7D2691D921F7F340001483D8 /* Rings.h */,
+				7D2691D621F7EFE5001483D8 /* Ring.cpp */,
+				7D2691D721F7EFE5001483D8 /* Ring.h */,
+				7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */,
+				7DEF8B7221EBC8B1003E5F7E /* Perimeter.h */,
+				7D6EDC8D21ED113B00511B76 /* EmptyHoleReachedEventArgs.h */,
+			);
+			path = holes;
 			sourceTree = "<group>";
 		};
 		A763ED608B35AE3310251DEE /* src */ = {
@@ -768,6 +775,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7DF46C40220A5ACF007BB1CF /* holes */,
 				7DF3E30E21FCEC6C0034502C /* app */,
 				7DF3E30F21FCEE7C0034502C /* hypha */,
 				7DF3E30D21FCE9DD0034502C /* conidium */,
