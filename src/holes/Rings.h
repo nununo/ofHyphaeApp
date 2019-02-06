@@ -16,10 +16,10 @@
 class Rings {
 private:
   Ring *rings[MAX_RINGS];
-  ConidiaSettings settings;
+  HolesSettings settings;
 
 public:
-  Rings(ConidiaSettings settings);
+  Rings(HolesSettings settings);
   int getRing(float radius) {return (int)(radius/settings.space);}
   ofVec2f fill(int ring, float angle);
   void draw();

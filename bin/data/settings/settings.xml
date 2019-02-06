@@ -14,12 +14,14 @@
   </foregroundColor>
   <mycelium>
     <lifespan>99999</lifespan>
-    <conidia>
+    <holes>
       <growthSpeed>0.02</growthSpeed>
       <space>5</space>
       <maxRings>200</maxRings>
       <perimeterDistortion>0.0025</perimeterDistortion>
       <angleResolution>10</angleResolution>
+    </holes>
+    <conidia>
       <conidium>
         <lifespan>2000</lifespan>
       </conidium>

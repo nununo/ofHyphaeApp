@@ -18,14 +18,14 @@ class Perimeter {
   
 private:
   DistortedCircle *dc;
-  ConidiaSettings settings;
+  HolesSettings settings;
   Rings *rings;
   float cursors[360];
 
   void drawCursor();
 
 public:
-  Perimeter(ConidiaSettings settings, DistortedCircle *dc);
+  Perimeter(HolesSettings settings, DistortedCircle *dc);
   ~Perimeter();
   void update();
   void draw();

@@ -38,16 +38,20 @@ struct ConidiumSettings {
 };
 
 struct ConidiaSettings {
+  ConidiumSettings conidium;
+};
+
+struct HolesSettings {
   int space;
   float growthSpeed;
   float perimeterDistortion;
   int maxRings;
   int angleResolution;
-  ConidiumSettings conidium;
 };
 
 struct MyceliumSettings {
   int lifespan;
+  HolesSettings holes;
   ConidiaSettings conidia;
   HyphaeSettings hyphae;
 };

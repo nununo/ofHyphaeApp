@@ -7,7 +7,7 @@
 
 #include "Perimeter.h"
 
-Perimeter::Perimeter(ConidiaSettings settings, DistortedCircle *dc) {
+Perimeter::Perimeter(HolesSettings settings, DistortedCircle *dc) {
   this->settings = settings;
   this->rings = new Rings(settings);
   this->dc = dc;

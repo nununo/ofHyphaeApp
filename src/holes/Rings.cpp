@@ -7,7 +7,7 @@
 
 #include "Rings.h"
 
-Rings::Rings(ConidiaSettings settings) {
+Rings::Rings(HolesSettings settings) {
   this->settings = settings;
   for (int r=0; r<settings.maxRings; r++) {
     rings[r] = new Ring(settings.space, r*settings.space);
