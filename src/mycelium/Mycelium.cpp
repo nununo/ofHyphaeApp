@@ -43,8 +43,8 @@ void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
 void Mycelium::update() {
   if (isAlive()) {
     growOlder();
-    perimeter->update();
-    //conidia->update();
+    //perimeter->update();
+    conidia->update();
     hyphae->update();
   }
 }
@@ -54,7 +54,7 @@ void Mycelium::draw() {
     ofPushMatrix();
     ofTranslate(this->pos);
     hyphae->draw();
-    //conidia->draw();
+    conidia->draw();
     ofPopMatrix();
   }
 }

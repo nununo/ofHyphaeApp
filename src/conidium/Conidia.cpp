@@ -10,7 +10,6 @@
 Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings) {
   this->speciesFactory = speciesFactory;
   this->settings = settings;
-  add(ofVec2f(0,0));
 }
 
 Conidia::~Conidia() {
