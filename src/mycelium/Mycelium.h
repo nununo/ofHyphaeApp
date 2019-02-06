@@ -10,9 +10,8 @@
 
 #include "ofMain.h"
 #include "Conidia.h"
-#include "DistortedCircle.h"
+#include "Perimeter.h"
 #include "Hyphae.h"
-#include "ISpeciesFactory.h"
 #include "Settings.h"
 
 class Mycelium : public IDrawable {
@@ -22,8 +21,11 @@ private:
   Conidia *conidia;
   Ink *hyphaeInk;
   DistortedCircle *dc;
+  Perimeter *perimeter;
   Hyphae *hyphae;
   int lifespan;
+  
+  void growOlder() {lifespan--;}
 
 public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory, Ink *hyphaeInk);
@@ -36,6 +38,7 @@ public:
   float getHeight() {return 0;}
   bool isAlive() {return this->lifespan > 0;}
 
+  void onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e);
   void onHyphaDie(HyphaDieEventArgs &e);
 
 };

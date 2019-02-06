@@ -7,11 +7,9 @@
 
 #include "Conidia.h"
 
-Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings, DistortedCircle *dc) {
+Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings) {
   this->speciesFactory = speciesFactory;
   this->settings = settings;
-  this->perimeter = new Perimeter(settings, dc);
-  ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Conidia::onEmptyHoleReachedEvent);
   add(ofVec2f(0,0));
 }
 
@@ -19,7 +17,6 @@ Conidia::~Conidia() {
   for( list<Conidium>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr = elements.erase(itr);
   }
-  delete this->perimeter;
 }
 
 void Conidia::add(ofVec3f p) {
@@ -27,12 +24,7 @@ void Conidia::add(ofVec3f p) {
   this->elements.push_back( Conidium(p, 0.00f, this->settings.conidium, dance) );
 }
 
-void Conidia::onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e) {
-  add(e.pos);
-}
-
 void Conidia::update() {
-  perimeter->update();
   for( list<Conidium>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (!itr->isAlive()) {
       itr = elements.erase(itr);
