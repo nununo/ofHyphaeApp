@@ -37,7 +37,7 @@ void Mycelium::onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e) {
 }
 
 void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
-  
+  conidia->add(e.pos);
 }
 
 void Mycelium::update() {
