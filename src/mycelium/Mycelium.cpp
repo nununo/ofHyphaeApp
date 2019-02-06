@@ -54,7 +54,7 @@ void Mycelium::draw() {
     ofPushMatrix();
     ofTranslate(this->pos);
     hyphae->draw();
-    conidia->draw();
+    //conidia->draw();
     ofPopMatrix();
   }
 }
