@@ -948,7 +948,7 @@
 					../../of_v0.10.1_osx_release/addons/ofxXmlSettings/libs,
 					../../of_v0.10.1_osx_release/addons/ofxXmlSettings/src,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",
@@ -1018,7 +1018,7 @@
 					../../of_v0.10.1_osx_release/addons/ofxXmlSettings/libs,
 					../../of_v0.10.1_osx_release/addons/ofxXmlSettings/src,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
@@ -1056,7 +1056,7 @@
 					../../of_v0.10.1_osx_release/addons/ofxXmlSettings/libs,
 					../../of_v0.10.1_osx_release/addons/ofxXmlSettings/src,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",
