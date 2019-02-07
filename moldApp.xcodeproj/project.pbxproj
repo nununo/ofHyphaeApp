@@ -21,7 +21,6 @@
 		7D8903F021E413240063F045 /* Mycelium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EE21E413240063F045 /* Mycelium.cpp */; };
 		7DB0F23D21FA7F1C001A8E3E /* ConidiumRandomDance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0F23B21FA7F1C001A8E3E /* ConidiumRandomDance.cpp */; };
 		7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CE90C6D9EF6BB1529BE9E /* ofxToggle.cpp */; };
-		7DEA87CE21FC0F5D003BD184 /* ConidiumGravityDance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DEA87CC21FC0F5D003BD184 /* ConidiumGravityDance.cpp */; };
 		7DEF8B7021EBAAB1003E5F7E /* DistortedCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */; };
 		7DEF8B7321EBC8B1003E5F7E /* Perimeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */; };
 		7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31021FCEE8A0034502C /* Hypha.cpp */; };
@@ -84,9 +83,6 @@
 		7DB0F23C21FA7F1C001A8E3E /* ConidiumRandomDance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConidiumRandomDance.h; sourceTree = "<group>"; };
 		7DEA87C621FC0806003BD184 /* ISpeciesFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISpeciesFactory.h; sourceTree = "<group>"; };
 		7DEA87C821FC087C003BD184 /* SpeciesRandomFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeciesRandomFactory.h; sourceTree = "<group>"; };
-		7DEA87CB21FC0F5D003BD184 /* SpeciesGravityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeciesGravityFactory.h; sourceTree = "<group>"; };
-		7DEA87CC21FC0F5D003BD184 /* ConidiumGravityDance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConidiumGravityDance.cpp; sourceTree = "<group>"; };
-		7DEA87CD21FC0F5D003BD184 /* ConidiumGravityDance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConidiumGravityDance.h; sourceTree = "<group>"; };
 		7DEF8B6E21EBAAB1003E5F7E /* DistortedCircle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DistortedCircle.cpp; sourceTree = "<group>"; };
 		7DEF8B6F21EBAAB1003E5F7E /* DistortedCircle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistortedCircle.h; sourceTree = "<group>"; };
 		7DEF8B7121EBC8B1003E5F7E /* Perimeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Perimeter.cpp; sourceTree = "<group>"; };
@@ -371,7 +367,6 @@
 				7D8903EE21E413240063F045 /* Mycelium.cpp */,
 				7D8903EF21E413240063F045 /* Mycelium.h */,
 				7DEA87C821FC087C003BD184 /* SpeciesRandomFactory.h */,
-				7DEA87CB21FC0F5D003BD184 /* SpeciesGravityFactory.h */,
 				7DEA87C621FC0806003BD184 /* ISpeciesFactory.h */,
 			);
 			path = mycelium;
@@ -380,8 +375,6 @@
 		7DF3E30D21FCE9DD0034502C /* conidium */ = {
 			isa = PBXGroup;
 			children = (
-				7DEA87CC21FC0F5D003BD184 /* ConidiumGravityDance.cpp */,
-				7DEA87CD21FC0F5D003BD184 /* ConidiumGravityDance.h */,
 				7DB0F23B21FA7F1C001A8E3E /* ConidiumRandomDance.cpp */,
 				7DB0F23C21FA7F1C001A8E3E /* ConidiumRandomDance.h */,
 				7DB0F23A21FA7D87001A8E3E /* ConidiumDance.h */,
@@ -884,7 +877,6 @@
 			files = (
 				7DF3E31521FD0B9A0034502C /* Conidia.cpp in Sources */,
 				7D2691D821F7EFE5001483D8 /* Ring.cpp in Sources */,
-				7DEA87CE21FC0F5D003BD184 /* ConidiumGravityDance.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				7DFEC78821E7D06E009DC9DD /* Conidium.cpp in Sources */,

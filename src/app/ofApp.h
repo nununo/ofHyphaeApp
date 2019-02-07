@@ -5,7 +5,6 @@
 #include "Settings.h"
 #include "InkColor.h"
 #include "SpeciesRandomFactory.h"
-#include "SpeciesGravityFactory.h"
 
 class ofApp : public ofBaseApp{
 
