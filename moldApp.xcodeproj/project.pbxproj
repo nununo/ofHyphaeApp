@@ -768,8 +768,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				7DF46C40220A5ACF007BB1CF /* holes */,
 				7DF3E30E21FCEC6C0034502C /* app */,
+				7DF46C40220A5ACF007BB1CF /* holes */,
 				7DF3E30F21FCEE7C0034502C /* hypha */,
 				7DF3E30D21FCE9DD0034502C /* conidium */,
 				7DF3E30C21FCE9300034502C /* mycelium */,
