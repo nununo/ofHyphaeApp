@@ -10,7 +10,7 @@
 void ConidiumRandomDance::update() {
   ofVec2f cursorDir = ofVec2f(ofRandom(-1,1),
                               ofRandom(-1,1));
-  cursor = cursor + cursorDir;
+  cursor = (cursor + cursorDir) * 0.95f;
 }
 
 void ConidiumRandomDance::draw() {

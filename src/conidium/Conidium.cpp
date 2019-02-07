@@ -12,7 +12,7 @@ Conidium::Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Co
   this->dance = dance;
   this->pos = pos;
   this->angle = ofVec2f(1,0).angle(pos);
-  this->speed = this->pos.getNormalized()*speed;
+  this->speed = this->pos.getNormalized()*speed; // TODO: Get rid of this?
   this->lifespan = settings.lifespan;
 }
 
