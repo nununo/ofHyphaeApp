@@ -10,8 +10,8 @@
 
 #include "ofMain.h"
 
-class Ink
-{
+class Ink {
+private:
   int transparency;
   
 public:

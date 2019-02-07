@@ -8,7 +8,7 @@
 #ifndef InkImage_hpp
 #define InkImage_hpp
 
-#include "Ink.hpp"
+#include "Ink.h"
 
 class InkImage : public Ink {
   

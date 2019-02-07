@@ -8,24 +8,29 @@
 #ifndef Surface_hpp
 #define Surface_hpp
 
-#include "Family.hpp"
+#include "ofMain.h"
 #include "IDrawable.h"
 
 class Surface : public IDrawable {
 private:
-  Family *family;
   ofVec2f size;
-  ofImage image;
+  ofColor backgroundColor;
   ofFbo fbo;
+  std::list<IDrawable*> parts;
+
 
 public:
-  Surface(Family *family, const std::filesystem::path imageFilename, ofVec2f size);
+  Surface(const ofVec2f size, const ofColor backgroundColor);
+  ~Surface();
   
   // ISurface
   float getWidth() {return size.x;}
   float getHeight() {return size.y;}
   void update();
   void draw();
+  bool isAlive() {return true;}
+
+  void addPart(IDrawable *d) {parts.push_back(d);}
 };
 
 #endif /* Surface_hpp */

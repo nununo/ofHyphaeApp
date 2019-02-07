@@ -9,13 +9,12 @@
 #define MaskedSurface_hpp
 
 #include "ofMain.h"
-#include "Surface.hpp"
+#include "Surface.h"
 
 class MaskedSurface: public IDrawable {
 private:
   IDrawable *surface;
   ofImage mask;
-  ofFbo fbo;
   ofShader shader;
 
 public:
@@ -27,5 +26,6 @@ public:
   float getHeight() {return surface->getHeight();}
   void update();
   void draw();
+  bool isAlive() {return true;}
 };
 #endif /* MaskedSurface_hpp */

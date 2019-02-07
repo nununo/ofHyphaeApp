@@ -15,5 +15,6 @@ public:
   virtual void draw() = 0;
   virtual float getWidth() = 0;
   virtual float getHeight() = 0;
+  virtual bool isAlive() = 0;
 };
 #endif /* IDrawable_h */

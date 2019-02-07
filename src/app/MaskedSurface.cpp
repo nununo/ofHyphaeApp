@@ -5,7 +5,7 @@
 //  Created by Nuno on 07/01/2019.
 //
 
-#include "MaskedSurface.hpp"
+#include "MaskedSurface.h"
 
 MaskedSurface::MaskedSurface(IDrawable *surface,
                              const std::filesystem::path maskFilename) {
@@ -16,23 +16,18 @@ MaskedSurface::MaskedSurface(IDrawable *surface,
 
   shader.setupShaderFromFile(GL_FRAGMENT_SHADER, "shaders/alphamask.frag");
   shader.linkProgram();
-
-  fbo.allocate(getWidth(), getHeight());
 }
 
 void MaskedSurface::update() {
   surface->update();
+}
 
-  fbo.begin();
-  ofClear(0, 0, 0, 0);
+void MaskedSurface::draw() {
+  ofPushStyle();
+  ofSetColor(255,255,255);
   shader.begin();
   shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
   surface->draw();
   shader.end();
-  fbo.end();
-}
-
-void MaskedSurface::draw() {
-  ofSetColor(255,255);
-  fbo.draw(0,0, getWidth(), getHeight());
+  ofPopStyle();
 }
