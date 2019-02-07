@@ -27,8 +27,11 @@ Settings::Settings(const string& xmlFile) {
   mycelium.holes.maxRings = xmlSettings.getValue("mycelia:mycelium:holes:maxRings", 1); // 200f
   mycelium.holes.angleResolution = xmlSettings.getValue("mycelia:mycelium:holes:angleResolution", 1); // 10
 
+  mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
+
   mycelium.conidia.conidium.lifespan = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:lifespan", 1); // 1000
 
+  mycelium.hyphae.active = xmlSettings.getValue("mycelia:mycelium:hyphae:active", 0); // 1
   mycelium.hyphae.creationAreaSize = xmlSettings.getValue("mycelia:mycelium:hyphae:creationAreaSize", 1000); // 40
   mycelium.hyphae.initHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:initHyphaCount", 0); // 10
   mycelium.hyphae.maxHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:maxHyphaCount", 0); // 10000

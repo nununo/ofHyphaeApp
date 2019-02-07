@@ -18,6 +18,7 @@ class Mycelium : public IDrawable {
 
 private:
   ofVec2f pos;
+  MyceliumSettings settings;
   Conidia *conidia;
   Ink *hyphaeInk;
   DistortedCircle *dc;

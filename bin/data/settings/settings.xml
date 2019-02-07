@@ -22,11 +22,13 @@
       <angleResolution>10</angleResolution>
     </holes>
     <conidia>
+      <active>1</active>
       <conidium>
         <lifespan>2000</lifespan>
       </conidium>
     </conidia>
     <hyphae>
+      <active>1</active>
       <creationAreaSize>5</creationAreaSize>
       <initHyphaCount>100</initHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>

@@ -26,6 +26,7 @@ struct HyphaSettings {
 };
 
 struct HyphaeSettings {
+  bool active;
   int creationAreaSize;
   HyphaSettings hypha;
   int initHyphaCount;
@@ -38,6 +39,7 @@ struct ConidiumSettings {
 };
 
 struct ConidiaSettings {
+  bool active;
   ConidiumSettings conidium;
 };
 
