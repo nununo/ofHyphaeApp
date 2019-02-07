@@ -10,7 +10,7 @@ void ofApp::setup(){
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->backgroundColor);
   
-  conidiumDanceInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 5);
+  conidiumDanceInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 2);
   conidiumDanceFactory = new SpeciesRandomFactory(conidiumDanceInk);
   
   hyphaeInk = new InkColor(settings->foregroundColor);
