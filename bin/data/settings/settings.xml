@@ -22,13 +22,19 @@
       <angleResolution>10</angleResolution>
     </holes>
     <conidia>
-      <active>1</active>
+      <active>0</active>
       <conidium>
         <lifespan>2000</lifespan>
       </conidium>
     </conidia>
     <hyphae>
       <active>1</active>
+      <color>
+        <r>255</r>
+        <g>255</g>
+        <b>255</b>
+        <a>10</a>
+      </color>
       <creationAreaSize>5</creationAreaSize>
       <initHyphaCount>100</initHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
@@ -45,7 +51,6 @@
         <maxBendAngle>0.1</maxBendAngle>
         <fertilityRateRatio>5</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>
-        <transparency>10</transparency>
       </hypha>
     </hyphae>
   </mycelium>

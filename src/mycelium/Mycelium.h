@@ -20,7 +20,6 @@ private:
   ofVec2f pos;
   MyceliumSettings settings;
   Conidia *conidia;
-  Ink *hyphaeInk;
   Perimeter *perimeter;
   Hyphae *hyphae;
   int lifespan;
@@ -28,7 +27,7 @@ private:
   void growOlder() {lifespan--;}
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory, Ink *hyphaeInk);
+  Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);
   ~Mycelium();
   
   // IDrawable

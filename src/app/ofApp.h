@@ -14,7 +14,6 @@ private:
   //MaskedSurface *ms;
 
   Ink *conidiumDanceInk;
-  Ink *hyphaeInk;
   ISpeciesFactory *conidiumDanceFactory;
 
   void drawOSD();

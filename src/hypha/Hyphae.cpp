@@ -6,10 +6,15 @@
 //
 
 #include "Hyphae.h"
+#include "InkColor.h"
 
-Hyphae::Hyphae(Ink *ink, const HyphaeSettings settings) {
-  this->ink = ink;
+Hyphae::Hyphae(const HyphaeSettings settings) {
+  this->ink = new InkColor(settings.color);
   this->settings = settings;
+}
+
+Hyphae::~Hyphae() {
+  delete ink;
 }
 
 void Hyphae::update() {

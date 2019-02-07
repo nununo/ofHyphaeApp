@@ -95,7 +95,6 @@ void Hypha::draw() {
       ofPushStyle();
       ofEnableAlphaBlending();
       ofColor color = ink->getColor(this->pos);
-      color.a = settings.transparency;
       ofSetColor(color);
       ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
       //drawZ();

@@ -32,6 +32,10 @@ Settings::Settings(const string& xmlFile) {
   mycelium.conidia.conidium.lifespan = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:lifespan", 1); // 1000
 
   mycelium.hyphae.active = xmlSettings.getValue("mycelia:mycelium:hyphae:active", 0); // 1
+  mycelium.hyphae.color = ofColor(xmlSettings.getValue("mycelia:mycelium:hyphae:color:r", 255),
+                                  xmlSettings.getValue("mycelia:mycelium:hyphae:color:g", 0),
+                                  xmlSettings.getValue("mycelia:mycelium:hyphae:color:b", 0),
+                                  xmlSettings.getValue("mycelia:mycelium:hyphae:color:a", 255));
   mycelium.hyphae.creationAreaSize = xmlSettings.getValue("mycelia:mycelium:hyphae:creationAreaSize", 1000); // 40
   mycelium.hyphae.initHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:initHyphaCount", 0); // 10
   mycelium.hyphae.maxHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:maxHyphaCount", 0); // 10000
@@ -48,5 +52,4 @@ Settings::Settings(const string& xmlFile) {
   mycelium.hyphae.hypha.maxBendAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxBendAngle", 10.0f); // 1
   mycelium.hyphae.hypha.fertilityRateRatio = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:fertilityRateRatio", 0.0f); // 5
   mycelium.hyphae.hypha.fertilityRatePower = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:fertilityRatePower", 0.0f); // 3
-  mycelium.hyphae.hypha.transparency = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:transparency", 255); // 3
 }

@@ -22,11 +22,11 @@ struct HyphaSettings {
   float maxBendAngle;
   float fertilityRateRatio;
   float fertilityRatePower;
-  int transparency;
 };
 
 struct HyphaeSettings {
   bool active;
+  ofColor color;
   int creationAreaSize;
   HyphaSettings hypha;
   int initHyphaCount;

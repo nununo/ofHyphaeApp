@@ -26,7 +26,8 @@ private:
   void updateAllHypha();
 
 public:
-  Hyphae(Ink *ink, const HyphaeSettings settings); 
+  Hyphae(const HyphaeSettings settings);
+  ~Hyphae();
   void update();
   void draw();
 
