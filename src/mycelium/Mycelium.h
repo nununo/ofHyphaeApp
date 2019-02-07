@@ -21,7 +21,6 @@ private:
   MyceliumSettings settings;
   Conidia *conidia;
   Ink *hyphaeInk;
-  DistortedCircle *dc;
   Perimeter *perimeter;
   Hyphae *hyphae;
   int lifespan;

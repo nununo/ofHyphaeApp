@@ -25,7 +25,7 @@ private:
   void drawCursor();
 
 public:
-  Perimeter(HolesSettings settings, DistortedCircle *dc);
+  Perimeter(HolesSettings settings);
   ~Perimeter();
   void update();
   void draw();

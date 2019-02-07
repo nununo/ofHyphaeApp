@@ -15,8 +15,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
   this->hyphaeInk = hyphaeInk;
 
   if (settings.conidia.active) {
-    this->dc = new DistortedCircle(settings.holes.perimeterDistortion); // TODO
-    this->perimeter = new Perimeter(settings.holes, dc);
+    this->perimeter = new Perimeter(settings.holes);
     ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
     this->conidia = new Conidia(danceFactory, settings.conidia);
   }
@@ -36,7 +35,6 @@ Mycelium::~Mycelium() {
     ofRemoveListener(perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
     delete conidia;
     delete perimeter;
-    delete dc;
   }
 }
 

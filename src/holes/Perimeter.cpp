@@ -7,18 +7,19 @@
 
 #include "Perimeter.h"
 
-Perimeter::Perimeter(HolesSettings settings, DistortedCircle *dc) {
+Perimeter::Perimeter(HolesSettings settings) {
   this->settings = settings;
   this->rings = new Rings(settings);
-  this->dc = dc;
-  
+  this->dc = new DistortedCircle(settings.perimeterDistortion); // TODO
+
   for(int i=0; i<360;i++) {
     cursors[i] = 0;
   }
 }
 
 Perimeter::~Perimeter() {
-  delete this->rings;
+  delete rings;
+  delete dc;
 }
 
 void Perimeter::update() {
