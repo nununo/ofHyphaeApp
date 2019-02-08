@@ -12,7 +12,6 @@
 #include "Ink.h"
 #include "IDrawable.h"
 #include "ConidiumDance.h"
-#include "DistortedCircle.h"
 #include "Settings.h"
 
 class Conidium : public IDrawable {

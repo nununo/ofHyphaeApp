@@ -14,8 +14,6 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->lifespan = settings.lifespan;
 
   if (settings.conidia.active) {
-    this->perimeter = new Perimeter(settings.holes);
-    ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
     this->conidia = new Conidia(conidiaInk, settings.conidia);
   }
   
@@ -31,15 +29,7 @@ Mycelium::~Mycelium() {
     delete hyphae;
   }
   if (settings.conidia.active) {
-    ofRemoveListener(perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
     delete conidia;
-    delete perimeter;
-  }
-}
-
-void Mycelium::onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e) {
-  if (settings.conidia.active) {
-    conidia->add(e.pos);
   }
 }
 
