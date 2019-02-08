@@ -20,12 +20,6 @@ Settings::Settings(const string& xmlFile) {
                                      xmlSettings.getValue("mycelia:foregroundColor:g", 255),
                                      xmlSettings.getValue("mycelia:foregroundColor:b", 0));
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
- 
-  mycelium.holes.space = xmlSettings.getValue("mycelia:mycelium:holes:space", 100); // 5
-  mycelium.holes.perimeterDistortion = xmlSettings.getValue("mycelia:mycelium:holes:perimeterDistortion", 10.0f); // 0.0026f
-  mycelium.holes.growthSpeed = xmlSettings.getValue("mycelia:mycelium:holes:growthSpeed", 10.0f); // 0.0026f
-  mycelium.holes.maxRings = xmlSettings.getValue("mycelia:mycelium:holes:maxRings", 1); // 200f
-  mycelium.holes.angleResolution = xmlSettings.getValue("mycelia:mycelium:holes:angleResolution", 1); // 10
 
   mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
 

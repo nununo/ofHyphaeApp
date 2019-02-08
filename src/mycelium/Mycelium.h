@@ -10,7 +10,6 @@
 
 #include "ofMain.h"
 #include "Conidia.h"
-#include "Perimeter.h"
 #include "Hyphae.h"
 #include "Settings.h"
 
@@ -20,7 +19,6 @@ private:
   ofVec2f pos;
   MyceliumSettings settings;
   Conidia *conidia;
-  Perimeter *perimeter;
   Hyphae *hyphae;
   int lifespan;
   
@@ -37,9 +35,7 @@ public:
   float getHeight() {return 0;}
   bool isAlive() {return this->lifespan > 0;}
 
-  void onEmptyHoleReachedEvent(EmptyHoleReachedEventArgs &e);
   void onHyphaDie(HyphaDieEventArgs &e);
-
 };
 
 #endif /* Mycelium_h */

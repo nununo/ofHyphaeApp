@@ -22,7 +22,7 @@
       <angleResolution>10</angleResolution>
     </holes>
     <conidia>
-      <active>0</active>
+      <active>1</active>
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>
