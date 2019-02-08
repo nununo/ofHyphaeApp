@@ -1,3 +1,6 @@
+- Find a solution for the Hyphae to have less empty areas
+  - Increase bendAngle but then tend towards outside
+  - Increase fertility rate (because it tends to stop and have more and more free space)
 - Add override identifier everywhere
 - Add const and &const wherever possible
 - Add final identifier everywhere
