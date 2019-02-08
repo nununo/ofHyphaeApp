@@ -6,11 +6,10 @@
 //
 
 #include "Hypha.h"
-#include "HyphaForkEventArgs.h"
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(ofVec3f pos, Ink *ink, ofVec3f dir, const HyphaSettings settings, int generation) {
+Hypha::Hypha(const ofVec3f pos, Ink *ink, const ofVec3f dir, const HyphaSettings settings, const int generation) {
   this->pos = pos;
   this->ink = ink;
   this->settings = settings;
@@ -30,7 +29,7 @@ void Hypha::growOlder() {
   }
 }
 
-ofVec3f Hypha::getInitialVelocity(ofVec3f dir) {
+ofVec3f Hypha::getInitialVelocity(ofVec3f dir) const {
    return dir.getNormalized() * ofRandom(settings.speed-settings.speedRange/2, settings.speed+settings.speedRange/2);
 }
 
@@ -42,7 +41,7 @@ void Hypha::updateVelocity() {
   if (pos.z<0) {vel.z=0;}
 }
 
-float Hypha::getFertilityRate() {
+float Hypha::getFertilityRate() const {
   return settings.fertilityRateRatio*(pow(generation/2.0f+forkCount,settings.fertilityRatePower)+1);
 }
 
@@ -113,7 +112,7 @@ void Hypha::draw() {
   }
 }
 
-void Hypha::drawZ() {
+void Hypha::drawZ() const {
   ofPushMatrix();
   ofTranslate(0, -200);
   ofDrawRectangle(pos.x, -pos.z, 1, 1);

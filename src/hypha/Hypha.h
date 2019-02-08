@@ -32,19 +32,18 @@ private:
 
   void growOlder();
   void updateVelocity();
-  float getFertilityRate();
+  float getFertilityRate() const;
   void calcNextForkDistance();
   void fork();
-  void drawZ();
+  void drawZ() const;
   
-  ofVec3f getInitialVelocity(ofVec3f dir);
-  ofVec3f calcVelocity(float speed, float angle, float inclination);
+  ofVec3f getInitialVelocity(const ofVec3f dir) const;
   void throwForkEvent();
   void throwDieEvent();
 
 public:
-  Hypha(ofVec3f pos, Ink *ink, ofVec3f dir, const HyphaSettings settings, int generation=0);
-  bool isAlive() {return !dead;}
+  Hypha(const ofVec3f pos, Ink *ink, const ofVec3f dir, const HyphaSettings settings, const int generation=0);
+  bool isAlive() const {return !dead;}
   void update();
   void draw();
   void die() {this->lifespan=1; growOlder();}
