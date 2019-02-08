@@ -19,19 +19,18 @@ private:
   Ink *ink;
   HyphaSettings settings;
   ofVec2f noiseOffset;
-  bool dead;
+  int generation;
 
   ofVec3f pos;
   ofVec3f vel;
   ofVec3f lastIntPos;
   bool posIsNewPixel;
-
   int lifespan;
   int nextForkDistance;
-  int generation;
   int forkCount;
-  
-  void growOlder() {this->lifespan--;}
+  bool dead;
+
+  void growOlder();
   void updateVelocity();
   float getFertilityRate();
   void calcNextForkDistance();
@@ -48,7 +47,7 @@ public:
   bool isAlive() {return !dead;}
   void update();
   void draw();
-  void die() {this->lifespan=0;}
+  void die() {this->lifespan=1; growOlder();}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
   ofEvent<HyphaDieEventArgs> dieEvent;

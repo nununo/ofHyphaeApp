@@ -22,6 +22,14 @@ Hypha::Hypha(ofVec3f pos, Ink *ink, ofVec3f dir, const HyphaSettings settings, i
   calcNextForkDistance();
 }
 
+void Hypha::growOlder() {
+  lifespan--;
+  if (lifespan<=0 || pos.z>=settings.maxHeight) {
+    this->dead = true;
+    throwDieEvent();
+  }
+}
+
 ofVec3f Hypha::getInitialVelocity(ofVec3f dir) {
    return dir.getNormalized() * ofRandom(settings.speed-settings.speedRange/2, settings.speed+settings.speedRange/2);
 }
@@ -68,10 +76,6 @@ void Hypha::throwDieEvent() {
 
 void Hypha::update() {
   growOlder();
-  if (lifespan<=0 || pos.z>=settings.maxHeight) {
-    this->dead = true;
-    throwDieEvent();
-  }
   if (isAlive()) {
     pos += vel;
     ofVec3f newIntPos = ofVec3f((int)(pos.x+0.5f),
