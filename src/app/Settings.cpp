@@ -33,7 +33,7 @@ Settings::Settings(const string& xmlFile) {
                                   xmlSettings.getValue("mycelia:mycelium:hyphae:color:b", 0),
                                   xmlSettings.getValue("mycelia:mycelium:hyphae:color:a", 255));
   mycelium.hyphae.creationAreaSize = xmlSettings.getValue("mycelia:mycelium:hyphae:creationAreaSize", 1000); // 40
-  mycelium.hyphae.initHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:initHyphaCount", 0); // 10
+  mycelium.hyphae.primalHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:primalHyphaCount", 0); // 10
   mycelium.hyphae.maxHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:maxHyphaCount", 0); // 10000
   mycelium.hyphae.newHyphaPeriod = xmlSettings.getValue("mycelia:mycelium:hyphae:newHyphaPeriod", 0); // 100
 

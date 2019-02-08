@@ -38,7 +38,7 @@
         <a>10</a>
       </color>
       <creationAreaSize>5</creationAreaSize>
-      <initHyphaCount>100</initHyphaCount>
+      <primalHyphaCount>100</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>

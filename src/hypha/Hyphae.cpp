@@ -45,8 +45,8 @@ void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
 }
 
 void Hyphae::generatePrimalHypha() {
-  if (primalHyphaCount<settings.initHyphaCount && ofGetFrameNum()%settings.newHyphaPeriod == 0) {
-    float inclination = 60 * (settings.initHyphaCount - primalHyphaCount)/(float)settings.initHyphaCount;
+  if (primalHyphaCount<settings.primalHyphaCount && ofGetFrameNum()%settings.newHyphaPeriod == 0) {
+    float inclination = 60 * (settings.primalHyphaCount - primalHyphaCount)/(float)settings.primalHyphaCount;
     addPrimalHypha(0);
     ofLog() << "new Hypha: " << primalHyphaCount << " inclination: "  << inclination;
   }

@@ -29,7 +29,7 @@ struct HyphaeSettings {
   ofColor color;
   int creationAreaSize;
   HyphaSettings hypha;
-  int initHyphaCount;
+  int primalHyphaCount;
   int maxHyphaCount;
   int newHyphaPeriod;
 };
