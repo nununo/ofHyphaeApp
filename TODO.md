@@ -1,4 +1,6 @@
-- Why does it start doing 350fps and then goes up to 700fps and then down again?
+- Add override identifier everywhere
+- Add const and &const wherever possible
+- Add final identifier everywhere
 - Add mask to Surface and get rid of MaskedSurface
 - Create ink that reads a random color from an image (regardless of its position)
 - Get rid of SpeciesRandomFactory
