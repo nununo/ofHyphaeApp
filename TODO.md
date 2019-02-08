@@ -1,6 +1,7 @@
 - Why does it start doing 350fps and then goes up to 700fps and then down again?
 - Add mask to Surface and get rid of MaskedSurface
 - Create ink that reads a random color from an image (regardless of its position)
+- Get rid of SpeciesRandomFactory
 
 - How to avoid drawing outside the visible area. Use a polygon and the isInsideOf() method (not sure it is called like this)
 
