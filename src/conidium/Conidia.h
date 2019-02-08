@@ -9,17 +9,16 @@
 #define Conidia_h
 
 #include "Conidium.h"
-#include "ISpeciesFactory.h"
 #include "Settings.h"
 
 class Conidia {
 private:
   std::list<Conidium> elements;
-  ISpeciesFactory *speciesFactory;
+  Ink *ink;
   ConidiaSettings settings;
 
 public:
-  Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings);
+  Conidia(Ink *ink, const ConidiaSettings settings);
   ~Conidia();
   void add(ofVec3f p);
   void update();

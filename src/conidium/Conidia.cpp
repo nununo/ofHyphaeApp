@@ -7,8 +7,8 @@
 
 #include "Conidia.h"
 
-Conidia::Conidia(ISpeciesFactory *speciesFactory, const ConidiaSettings settings) {
-  this->speciesFactory = speciesFactory;
+Conidia::Conidia(Ink *ink, const ConidiaSettings settings) {
+  this->ink = ink;
   this->settings = settings;
 }
 
@@ -19,8 +19,8 @@ Conidia::~Conidia() {
 }
 
 void Conidia::add(ofVec3f p) {
-  ConidiumDance *dance = this->speciesFactory->getConidiumDanceInstance(p);
-  this->elements.push_back( Conidium(p, 0.00f, this->settings.conidium, dance) );
+  Conidium *conidium = new Conidium(p, 0.00f, this->settings.conidium, ink);
+  this->elements.push_back( *conidium );
 }
 
 void Conidia::update() {

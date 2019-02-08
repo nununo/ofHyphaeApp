@@ -7,14 +7,18 @@
 
 #include "Conidium.h"
 
-Conidium::Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, ConidiumDance *dance) {
+Conidium::Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Ink *ink) {
   this->size = ofGetHeight()/2;
-  this->dance = dance;
+  this->dance = new ConidiumDance(ink, settings.recenterRatio);
   this->pos = pos;
   this->angle = ofVec2f(1,0).angle(pos);
   this->speed = this->pos.getNormalized()*speed; // TODO: Get rid of this?
   this->lifespan = settings.lifespan;
   this->sleepFrames = ofGetFrameRate() * settings.delay;
+}
+
+Conidium::~Conidium() {
+  delete dance;
 }
 
 void Conidium::growOlder() {
@@ -26,11 +30,11 @@ void Conidium::growOlder() {
 }
 
 void Conidium::update() {
+  growOlder();
   if (!isStillSleeping() && isAlive()) {
     updatePosition();
     this->dance->update();
   }
-  growOlder();
 }
 
 void Conidium::draw() {

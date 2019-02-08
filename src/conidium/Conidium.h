@@ -33,7 +33,8 @@ private:
   bool isStillSleeping() {return sleepFrames>0;}
 
 public:
-  Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, ConidiumDance *dance);
+  Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Ink *ink);
+  ~Conidium();
   bool isAlive() {return lifespan > 0;}
 
   // IDrawable

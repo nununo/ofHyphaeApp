@@ -26,6 +26,7 @@
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>
+        <recenterRatio>0.98</recenterRatio>
       </conidium>
     </conidia>
     <hyphae>
