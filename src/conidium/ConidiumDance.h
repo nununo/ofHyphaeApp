@@ -9,18 +9,18 @@
 #define ConidiumDance_h
 
 #include "ofMain.h"
+#include "Ink.h"
 
 class ConidiumDance {
 private:
-  ofVec2f pos;
-  
-protected:
-  ofVec2f getPosition() {return this->pos;}
+  Ink *ink;
+  ofVec2f cursor;
+  float recenterRatio;
 
 public:
-  ConidiumDance(ofVec2f pos) {this->pos = pos;}
-  virtual void update() = 0;
-  virtual void draw() = 0;
+  ConidiumDance(Ink *ink, float recenterRatio);
+  void update();
+  void draw();
 };
 
 #endif /* ConidiumDance_h */

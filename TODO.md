@@ -1,6 +1,12 @@
-- Why does it start doing 350fps and then goes up to 700fps and then down again?
+- Find a solution for the Hyphae to have less empty areas
+  - Increase bendAngle but then tend towards outside
+  - Increase fertility rate (because it tends to stop and have more and more free space)
+- Add override identifier everywhere
+- Add const and &const wherever possible
+- Add final identifier everywhere
 - Add mask to Surface and get rid of MaskedSurface
 - Create ink that reads a random color from an image (regardless of its position)
+- Get rid of SpeciesRandomFactory
 
 - How to avoid drawing outside the visible area. Use a polygon and the isInsideOf() method (not sure it is called like this)
 

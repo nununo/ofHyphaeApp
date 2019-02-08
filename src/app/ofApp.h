@@ -4,7 +4,6 @@
 #include "MaskedSurface.h"
 #include "Settings.h"
 #include "InkColor.h"
-#include "SpeciesRandomFactory.h"
 
 class ofApp : public ofBaseApp{
 
@@ -13,8 +12,7 @@ private:
   Surface *s;
   //MaskedSurface *ms;
 
-  Ink *conidiumDanceInk;
-  ISpeciesFactory *conidiumDanceFactory;
+  Ink *conidiaInk;
 
   void drawOSD();
   void addFamily();

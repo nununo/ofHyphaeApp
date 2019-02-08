@@ -8,7 +8,7 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
-Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory) {
+Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk) {
   this->pos = pos;
   this->settings = settings;
   this->lifespan = settings.lifespan;
@@ -16,7 +16,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory
   if (settings.conidia.active) {
     this->perimeter = new Perimeter(settings.holes);
     ofAddListener(this->perimeter->emptyHoleReachedEvent, this, &Mycelium::onEmptyHoleReachedEvent);
-    this->conidia = new Conidia(danceFactory, settings.conidia);
+    this->conidia = new Conidia(conidiaInk, settings.conidia);
   }
   
   if (settings.hyphae.active) {

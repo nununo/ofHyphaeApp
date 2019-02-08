@@ -24,14 +24,18 @@ private:
   float size;
   int lifespan;
   float angle;
+  int sleepFrames;
   
+
   void updateCursor();
   void updatePosition() {this->pos += this->speed; }
-  void growOlder() {this->lifespan--;}
+  void growOlder();
+  bool isStillSleeping() {return sleepFrames>0;}
 
 public:
-  Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, ConidiumDance *dance);
-  bool isAlive() {return this->lifespan > 0;}
+  Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Ink *ink);
+  ~Conidium();
+  bool isAlive() {return lifespan > 0;}
 
   // IDrawable
   void update();

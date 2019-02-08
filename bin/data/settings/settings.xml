@@ -22,9 +22,11 @@
       <angleResolution>10</angleResolution>
     </holes>
     <conidia>
-      <active>1</active>
+      <active>0</active>
       <conidium>
         <lifespan>2000</lifespan>
+        <delay>10</delay>
+        <recenterRatio>0.98</recenterRatio>
       </conidium>
     </conidia>
     <hyphae>

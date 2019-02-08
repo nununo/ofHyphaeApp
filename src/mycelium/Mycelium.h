@@ -27,7 +27,7 @@ private:
   void growOlder() {lifespan--;}
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings, ISpeciesFactory *danceFactory);
+  Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk);
   ~Mycelium();
   
   // IDrawable
