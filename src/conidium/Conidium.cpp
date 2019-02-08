@@ -14,18 +14,27 @@ Conidium::Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Co
   this->angle = ofVec2f(1,0).angle(pos);
   this->speed = this->pos.getNormalized()*speed; // TODO: Get rid of this?
   this->lifespan = settings.lifespan;
+  this->sleepFrames = ofGetFrameRate() * settings.delay;
 }
 
-void Conidium::update() {
-  if (isAlive()) {
-    updatePosition();
-    this->dance->update();
-    growOlder();
+void Conidium::growOlder() {
+  if (isStillSleeping()) {
+    sleepFrames--;
+  } else {
+    lifespan--;
   }
 }
 
+void Conidium::update() {
+  if (!isStillSleeping() && isAlive()) {
+    updatePosition();
+    this->dance->update();
+  }
+  growOlder();
+}
+
 void Conidium::draw() {
-  if (isAlive()) {
+  if (!isStillSleeping() && isAlive()) {
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);
     ofRotateZDeg(this->angle);

@@ -30,6 +30,7 @@ Settings::Settings(const string& xmlFile) {
   mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
 
   mycelium.conidia.conidium.lifespan = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:lifespan", 1); // 1000
+  mycelium.conidia.conidium.delay = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:delay", 0.0f); // 10.0f
 
   mycelium.hyphae.active = xmlSettings.getValue("mycelia:mycelium:hyphae:active", 0); // 1
   mycelium.hyphae.color = ofColor(xmlSettings.getValue("mycelia:mycelium:hyphae:color:r", 255),

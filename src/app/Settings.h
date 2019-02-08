@@ -36,6 +36,7 @@ struct HyphaeSettings {
 
 struct ConidiumSettings {
   int lifespan;
+  float delay;
 };
 
 struct ConidiaSettings {
