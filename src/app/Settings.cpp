@@ -11,15 +11,18 @@ Settings::Settings(const string& xmlFile) {
   xmlSettings.loadFile(xmlFile);
   
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
-  width = xmlSettings.getValue("mycelia:width", 1); // 1920
-  height = xmlSettings.getValue("mycelia:height", 1); // 1080
-  shaderFilename = xmlSettings.getValue("mycelia:shaderFilename", "?"); // shaders/alphamask.frag
-  backgroundColor = ofColor(xmlSettings.getValue("mycelia:backgroundColor:r", 255),
-                                     xmlSettings.getValue("mycelia:backgroundColor:g", 0),
-                                     xmlSettings.getValue("mycelia:backgroundColor:b", 0));
-  foregroundColor = ofColor(xmlSettings.getValue("mycelia:foregroundColor:r", 0),
-                                     xmlSettings.getValue("mycelia:foregroundColor:g", 255),
-                                     xmlSettings.getValue("mycelia:foregroundColor:b", 0));
+  osdColor = ofColor(xmlSettings.getValue("mycelia:osdColor:r", 0),
+                     xmlSettings.getValue("mycelia:osdColor:g", 255),
+                    xmlSettings.getValue("mycelia:osdColor:b", 0));
+
+  canvas.width = xmlSettings.getValue("mycelia:canvas:width", 1); // 1920
+  canvas.height = xmlSettings.getValue("mycelia:canvas:height", 1); // 1080
+  canvas.shaderFilename = xmlSettings.getValue("mycelia:canvas:shaderFilename", "?"); // shaders/alphamask.frag
+  canvas.maskFilename = xmlSettings.getValue("mycelia:canvas:maskFilename", "?"); // shaders/alphamask.frag
+  canvas.backgroundColor = ofColor(xmlSettings.getValue("mycelia:canvas:backgroundColor:r", 255),
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
+
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
 
   mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1

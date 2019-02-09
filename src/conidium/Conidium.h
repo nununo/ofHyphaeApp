@@ -10,17 +10,15 @@
 
 #include "ofMain.h"
 #include "Ink.h"
-#include "IDrawable.h"
 #include "ConidiumDance.h"
 #include "Settings.h"
 
-class Conidium : public IDrawable {
+class Conidium {
 private:
   ConidiumDance *dance;
   ConidiumSettings settings;
   ofVec2f speed;
   ofVec3f pos;
-  float size;
   int lifespan;
   float angle;
   int sleepFrames;
@@ -35,12 +33,8 @@ public:
   Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Ink *ink);
   ~Conidium();
   bool isAlive() {return lifespan > 0;}
-
-  // IDrawable
   void update();
   void draw();
-  float getWidth() {return this->size;}
-  float getHeight() {return this->size;}
 };
 
 #endif /* Conidium_h */

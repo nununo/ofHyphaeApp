@@ -13,7 +13,7 @@
 #include "Hyphae.h"
 #include "Settings.h"
 
-class Mycelium : public IDrawable {
+class Mycelium {
 
 private:
   ofVec2f pos;
@@ -31,8 +31,6 @@ public:
   // IDrawable
   void update();
   void draw();
-  float getWidth() {return 0;}
-  float getHeight() {return 0;}
   bool isAlive() {return this->lifespan > 0;}
 
   void onHyphaDie(HyphaDieEventArgs &e);

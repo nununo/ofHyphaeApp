@@ -1,16 +1,15 @@
 #pragma once
 
 #include "ofMain.h"
-#include "MaskedSurface.h"
 #include "Settings.h"
 #include "InkColor.h"
+#include "Surface.h"
 
 class ofApp : public ofBaseApp{
 
 private:
   Settings *settings;
   Surface *s;
-  //MaskedSurface *ms;
 
   Ink *conidiaInk;
 

@@ -1,18 +1,21 @@
 <mycelia>
   <framerate>1200</framerate>
-  <width>1280</width>
-  <height>720</height>
-  <shaderFilename>shaders/alphamask.frag</shaderFilename>
-  <backgroundColor>
-    <r>0</r>
-    <g>50</g>
-    <b>0</b>
-  </backgroundColor>
-  <foregroundColor>
+  <osdColor>
     <r>255</r>
     <g>255</g>
     <b>255</b>
-  </foregroundColor>
+  </osdColor>
+  <canvas>
+    <width>1280</width>
+    <height>720</height>
+    <shaderFilename>shaders/alphamask.frag</shaderFilename>
+    <maskFilename>images/bread_profile_mask.png</maskFilename>
+      <backgroundColor>
+      <r>0</r>
+      <g>50</g>
+      <b>0</b>
+    </backgroundColor>
+  </canvas>
   <mycelium>
     <lifespan>99999</lifespan>
     <holes>
