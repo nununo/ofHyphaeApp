@@ -13,7 +13,8 @@ Settings::Settings(const string& xmlFile) {
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
   osdColor = ofColor(xmlSettings.getValue("mycelia:osdColor:r", 0),
                      xmlSettings.getValue("mycelia:osdColor:g", 255),
-                    xmlSettings.getValue("mycelia:osdColor:b", 0));
+                     xmlSettings.getValue("mycelia:osdColor:b", 0),
+                     xmlSettings.getValue("mycelia:osdColor:a", 255));
 
   canvas.width = xmlSettings.getValue("mycelia:canvas:width", 1); // 1920
   canvas.height = xmlSettings.getValue("mycelia:canvas:height", 1); // 1080
@@ -21,7 +22,8 @@ Settings::Settings(const string& xmlFile) {
   canvas.maskFilename = xmlSettings.getValue("mycelia:canvas:maskFilename", "?"); // shaders/alphamask.frag
   canvas.backgroundColor = ofColor(xmlSettings.getValue("mycelia:canvas:backgroundColor:r", 255),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
-                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0),
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:a", 0));
 
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
 
