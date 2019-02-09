@@ -12,19 +12,12 @@
     <maskFilename>images/bread_profile_mask.png</maskFilename>
       <backgroundColor>
       <r>0</r>
-      <g>50</g>
+      <g>20</g>
       <b>0</b>
     </backgroundColor>
   </canvas>
   <mycelium>
     <lifespan>99999</lifespan>
-    <holes>
-      <growthSpeed>0.02</growthSpeed>
-      <space>5</space>
-      <maxRings>200</maxRings>
-      <perimeterDistortion>0.0025</perimeterDistortion>
-      <angleResolution>10</angleResolution>
-    </holes>
     <conidia>
       <active>0</active>
       <conidium>
