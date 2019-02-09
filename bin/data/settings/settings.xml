@@ -1,5 +1,5 @@
 <mycelia>
-  <framerate>1200</framerate>
+  <framerate>60</framerate>
   <osdColor>
     <r>255</r>
     <g>255</g>
@@ -12,7 +12,7 @@
     <maskFilename>images/bread_profile_mask.png</maskFilename>
       <backgroundColor>
       <r>0</r>
-      <g>20</g>
+      <g>10</g>
       <b>0</b>
     </backgroundColor>
   </canvas>
@@ -35,13 +35,13 @@
         <a>10</a>
       </color>
       <creationAreaSize>5</creationAreaSize>
-      <primalHyphaCount>200</primalHyphaCount>
+      <primalHyphaCount>1</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
         <speed>0.0425</speed>
-        <speedRange>0.0020</speedRange>
+        <speedVariation>10</speedVariation> <!--%-->
         <gravity>0.0001</gravity>
         <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>

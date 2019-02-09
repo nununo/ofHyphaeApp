@@ -30,7 +30,8 @@ void Hypha::growOlder() {
 }
 
 ofVec3f Hypha::getInitialVelocity(ofVec3f dir) const {
-   return dir.getNormalized() * ofRandom(settings.speed-settings.speedRange/2, settings.speed+settings.speedRange/2);
+   return dir.getNormalized() * ofRandom(settings.speed*(1-settings.speedVariation/100),
+                                         settings.speed*(1+settings.speedVariation/100));
 }
 
 void Hypha::updateVelocity() {
