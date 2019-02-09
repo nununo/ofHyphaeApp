@@ -1,5 +1,3 @@
-- Add mask to Surface and get rid of MaskedSurface
-
 - Find a solution for the Hyphae to have less empty areas
   - Increase bendAngle but then tend towards outside
   - Increase fertility rate (because it tends to stop and have more and more free space)
