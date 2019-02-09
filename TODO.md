@@ -3,7 +3,6 @@
   - Increase fertility rate (because it tends to stop and have more and more free space)
 - Use realistic Conidia colors
 
-- Replace explicit types with auto
 - Add override identifier everywhere
 - Add const and &const wherever possible
 - Create ink that reads a random color from an image (regardless of its position)
