@@ -8,7 +8,6 @@
 #include "Conidium.h"
 
 Conidium::Conidium(ofVec3f pos, float speed, const ConidiumSettings settings, Ink *ink) {
-  this->size = ofGetHeight()/2;
   this->dance = new ConidiumDance(ink, settings.recenterRatio);
   this->pos = pos;
   this->angle = ofVec2f(1,0).angle(pos);

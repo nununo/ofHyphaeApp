@@ -13,7 +13,7 @@ Conidia::Conidia(Ink *ink, const ConidiaSettings settings) {
 }
 
 Conidia::~Conidia() {
-  for( list<Conidium>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr = elements.erase(itr);
   }
 }
@@ -24,7 +24,7 @@ void Conidia::add(ofVec3f p) {
 }
 
 void Conidia::update() {
-  for( list<Conidium>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (!itr->isAlive()) {
       itr = elements.erase(itr);
     } else {
@@ -37,8 +37,8 @@ void Conidia::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);
-  for( list<Conidium>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->draw();
+  for(auto &itr: elements) {
+    itr.draw();
   }
   ofPopStyle();
 }

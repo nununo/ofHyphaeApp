@@ -23,6 +23,7 @@ public:
   void add(ofVec3f p);
   void update();
   void draw();
+  int count() const {return elements.size();}
 };
 
 #endif /* Conidia_h */

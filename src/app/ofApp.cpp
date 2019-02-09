@@ -6,14 +6,13 @@ void ofApp::setup(){
   ofSetFrameRate(settings->framerate);
   //ofSetVerticalSync(true);
   ofSetWindowPosition(10, 10);
-  ofSetWindowShape(settings->width, settings->height);
+  ofSetWindowShape(settings->canvas.width, settings->canvas.height);
   ofDisableAlphaBlending();
-  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->backgroundColor);
+  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->canvas);
   
   this->conidiaInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 2);
 
   addFamily();
-  //ms = new MaskedSurface(s, "images/bread_profile_mask.png");
 }
 
 ofApp::~ofApp() {
@@ -22,9 +21,9 @@ ofApp::~ofApp() {
 
 void ofApp::addFamily() {
   for(int i=0; i<1; i++) {
-    s->addPart(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
-                            settings->mycelium,
-                            conidiaInk));
+    s->addMycelium(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
+                                settings->mycelium,
+                                conidiaInk));
   }
 }
 
@@ -39,9 +38,19 @@ void ofApp::draw(){
 
 void ofApp::drawOSD() {
   ofPushStyle();
-  ofSetColor(settings->foregroundColor);
-  string fpsStr = "frame rate: "+ofToString(ofGetFrameRate(), 2);
-  ofDrawBitmapString(fpsStr, 10,10);
+  ofSetColor(settings->osdColor);
+
+  string str = "frame rate: "+ofToString(ofGetFrameRate(), 2);
+  ofDrawBitmapString(str, 10,10);
+
+  MyceliumStats stats = s->getMyceliaStats();
+
+  str = "hyphae: "+ofToString(stats.hyphaCount);
+  ofDrawBitmapString(str, 10,25);
+
+  str = "conidia: "+ofToString(stats.conidiumCount);
+  ofDrawBitmapString(str, 10,40);
+
   ofPopStyle();
 }
 

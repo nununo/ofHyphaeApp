@@ -15,12 +15,12 @@ private:
   Ink *ink;
   std::list<Hypha> elements;
   HyphaeSettings settings;
-  int zeroHyphaCount = 0;
+  int primalHyphaCount = 0;
   
   void add(Hypha *hypha);
-  void addPrimalHypha(float inclination);
-  ofVec3f calcDirection(float angle, float inclination);
-  void generateZeroHypha();
+  void addPrimalHypha(const float inclination);
+  ofVec3f calcDirection(const float angle, const float inclination) const;
+  void generatePrimalHyphas();
   void removeAllDeadHypha();
   void removeOlderHyphaIfOverpopulated();
   void updateAllHypha();
@@ -30,6 +30,8 @@ public:
   ~Hyphae();
   void update();
   void draw();
+  int count() const {return elements.size();}
+  bool isAlive() const {return count() > 0;}
 
   void onHyphaFork(HyphaForkEventArgs &e);
   void onHyphaDie(HyphaDieEventArgs &e);

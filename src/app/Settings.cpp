@@ -11,14 +11,18 @@ Settings::Settings(const string& xmlFile) {
   xmlSettings.loadFile(xmlFile);
   
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
-  width = xmlSettings.getValue("mycelia:width", 1); // 1920
-  height = xmlSettings.getValue("mycelia:height", 1); // 1080
-  backgroundColor = ofColor(xmlSettings.getValue("mycelia:backgroundColor:r", 255),
-                                     xmlSettings.getValue("mycelia:backgroundColor:g", 0),
-                                     xmlSettings.getValue("mycelia:backgroundColor:b", 0));
-  foregroundColor = ofColor(xmlSettings.getValue("mycelia:foregroundColor:r", 0),
-                                     xmlSettings.getValue("mycelia:foregroundColor:g", 255),
-                                     xmlSettings.getValue("mycelia:foregroundColor:b", 0));
+  osdColor = ofColor(xmlSettings.getValue("mycelia:osdColor:r", 0),
+                     xmlSettings.getValue("mycelia:osdColor:g", 255),
+                    xmlSettings.getValue("mycelia:osdColor:b", 0));
+
+  canvas.width = xmlSettings.getValue("mycelia:canvas:width", 1); // 1920
+  canvas.height = xmlSettings.getValue("mycelia:canvas:height", 1); // 1080
+  canvas.shaderFilename = xmlSettings.getValue("mycelia:canvas:shaderFilename", "?"); // shaders/alphamask.frag
+  canvas.maskFilename = xmlSettings.getValue("mycelia:canvas:maskFilename", "?"); // shaders/alphamask.frag
+  canvas.backgroundColor = ofColor(xmlSettings.getValue("mycelia:canvas:backgroundColor:r", 255),
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
+
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
 
   mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
@@ -33,13 +37,13 @@ Settings::Settings(const string& xmlFile) {
                                   xmlSettings.getValue("mycelia:mycelium:hyphae:color:b", 0),
                                   xmlSettings.getValue("mycelia:mycelium:hyphae:color:a", 255));
   mycelium.hyphae.creationAreaSize = xmlSettings.getValue("mycelia:mycelium:hyphae:creationAreaSize", 1000); // 40
-  mycelium.hyphae.initHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:initHyphaCount", 0); // 10
+  mycelium.hyphae.primalHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:primalHyphaCount", 0); // 10
   mycelium.hyphae.maxHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:maxHyphaCount", 0); // 10000
   mycelium.hyphae.newHyphaPeriod = xmlSettings.getValue("mycelia:mycelium:hyphae:newHyphaPeriod", 0); // 100
 
   mycelium.hyphae.hypha.maxLifespan = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxLifespan", 1); // 100000
-  mycelium.hyphae.hypha.speed = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedRange", 0.0f); // 0.005f
-  mycelium.hyphae.hypha.speedRange = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedRange", 0.0f); // 0.0025f
+  mycelium.hyphae.hypha.speed = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speed", 0.0f); // 0.005f
+  mycelium.hyphae.hypha.speedVariation = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedVariation", 0.0f); // 10.0f
   mycelium.hyphae.hypha.gravity = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:gravity", 0.0f); // 0.005f
   mycelium.hyphae.hypha.maxHeight = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxHeight", 0); // 20
   mycelium.hyphae.hypha.distortion = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:distortion", 1000.0f); // 1.0f

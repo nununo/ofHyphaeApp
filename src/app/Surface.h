@@ -9,28 +9,32 @@
 #define Surface_hpp
 
 #include "ofMain.h"
-#include "IDrawable.h"
+#include "Mycelium.h"
+#include "Settings.h"
 
-class Surface : public IDrawable {
+class Surface {
 private:
   ofVec2f size;
-  ofColor backgroundColor;
+  CanvasSettings settings;
+  ofImage mask;
   ofFbo fbo;
-  std::list<IDrawable*> parts;
+  ofShader shader;
+  std::list<Mycelium*> mycelia;
 
+  void drawPartsToFbo();
 
 public:
-  Surface(const ofVec2f size, const ofColor backgroundColor);
+  Surface(const ofVec2f size, const CanvasSettings settings);
   ~Surface();
   
-  // ISurface
-  float getWidth() {return size.x;}
-  float getHeight() {return size.y;}
+  float getWidth() const {return size.x;}
+  float getHeight() const {return size.y;}
   void update();
   void draw();
-  bool isAlive() {return true;}
+  bool isAlive() const {return true;}
 
-  void addPart(IDrawable *d) {parts.push_back(d);}
+  void addMycelium(Mycelium *m) {mycelia.push_back(m);}
+  MyceliumStats getMyceliaStats();
 };
 
 #endif /* Surface_hpp */

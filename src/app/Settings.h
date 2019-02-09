@@ -10,10 +10,19 @@
 
 #include "ofxXmlSettings.h"
 
+struct CanvasSettings {
+  int width;
+  int height;
+  std::filesystem::path shaderFilename;
+  std::filesystem::path maskFilename;
+  ofColor backgroundColor;
+  ofColor foregroundColor;
+};
+
 struct HyphaSettings {
   int maxLifespan;
   float speed;
-  float speedRange;
+  float speedVariation;
   float gravity;
   int maxHeight;
   float distortion;
@@ -29,7 +38,7 @@ struct HyphaeSettings {
   ofColor color;
   int creationAreaSize;
   HyphaSettings hypha;
-  int initHyphaCount;
+  int primalHyphaCount;
   int maxHyphaCount;
   int newHyphaPeriod;
 };
@@ -58,10 +67,8 @@ private:
 
 public:
   int framerate;
-  int width;
-  int height;
-  ofColor backgroundColor;
-  ofColor foregroundColor;
+  ofColor osdColor;
+  CanvasSettings canvas;
   MyceliumSettings mycelium;
 
   Settings(const string& xmlFile);

@@ -7,37 +7,66 @@
 
 #include "Surface.h"
 
-Surface::Surface(const ofVec2f size, const ofColor backgroundColor) {
+Surface::Surface(const ofVec2f size, const CanvasSettings settings) {
   this->size = size;
-  this->backgroundColor = backgroundColor;
+  this->settings = settings;
+  
+  mask.load(settings.maskFilename);
+  mask.resize(getWidth(), getHeight());
+
+  shader.setupShaderFromFile(GL_FRAGMENT_SHADER, settings.shaderFilename);
+  shader.linkProgram();
+
   fbo.allocate(getWidth(), getHeight());
   fbo.begin();
-  ofClear(backgroundColor);
+  ofClear(settings.backgroundColor);
   fbo.end();
 }
 
 Surface::~Surface() {
-  for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
-    itr = parts.erase(itr);
+  for(auto itr = mycelia.begin(); itr != mycelia.end(); ++itr ) {
+    itr = mycelia.erase(itr);
   }
 }
 
+MyceliumStats Surface::getMyceliaStats() {
+  MyceliumStats globalStats;
+  for(auto &itr: mycelia) {
+    auto stats = itr->getStats();
+    globalStats.hyphaCount += stats.hyphaCount;
+    globalStats.conidiumCount += stats.conidiumCount;
+  }
+  return globalStats;
+}
+
 void Surface::update() {
-  for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
+  for(auto itr = mycelia.begin(); itr != mycelia.end(); ++itr ) {
     if ((*itr)->isAlive()) {
       (*itr)->update();
     } else {
-      itr = parts.erase(itr);
+      itr = mycelia.erase(itr);
     }
   }
 }
 
-void Surface::draw() {
+void Surface::drawPartsToFbo() {
   fbo.begin();
-  for( list<IDrawable*>::iterator itr = parts.begin(); itr != parts.end(); ++itr ) {
-    (*itr)->draw();
+  for(auto &itr: mycelia) {
+    itr->draw();
   }
   fbo.end();
+}
 
-  fbo.draw(0,0);
+void Surface::draw() {
+  drawPartsToFbo();
+
+  ofPushStyle();
+  ofClear(0,0,0);
+  ofEnableAlphaBlending();
+  shader.begin();
+  shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
+  fbo.draw(0, 0);
+  shader.end();
+  ofDisableAlphaBlending();
+  ofPopStyle();
 }

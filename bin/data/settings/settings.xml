@@ -1,28 +1,25 @@
 <mycelia>
-  <framerate>1200</framerate>
-  <width>1280</width>
-  <height>720</height>
-  <backgroundColor>
-    <r>0</r>
-    <g>0</g>
-    <b>0</b>
-  </backgroundColor>
-  <foregroundColor>
+  <framerate>60</framerate>
+  <osdColor>
     <r>255</r>
     <g>255</g>
     <b>255</b>
-  </foregroundColor>
+  </osdColor>
+  <canvas>
+    <width>1280</width>
+    <height>720</height>
+    <shaderFilename>shaders/alphamask.frag</shaderFilename>
+    <maskFilename>images/bread_profile_mask.png</maskFilename>
+      <backgroundColor>
+      <r>0</r>
+      <g>10</g>
+      <b>0</b>
+    </backgroundColor>
+  </canvas>
   <mycelium>
     <lifespan>99999</lifespan>
-    <holes>
-      <growthSpeed>0.02</growthSpeed>
-      <space>5</space>
-      <maxRings>200</maxRings>
-      <perimeterDistortion>0.0025</perimeterDistortion>
-      <angleResolution>10</angleResolution>
-    </holes>
     <conidia>
-      <active>1</active>
+      <active>0</active>
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>
@@ -38,20 +35,20 @@
         <a>10</a>
       </color>
       <creationAreaSize>5</creationAreaSize>
-      <initHyphaCount>100</initHyphaCount>
+      <primalHyphaCount>20</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <maxLifespan>100000</maxLifespan>
-        <speed>0.0425</speed>
-        <speedRange>0.0020</speedRange>
+        <speed>0.01</speed>
+        <speedVariation>10</speedVariation> <!--%-->
         <gravity>0.0001</gravity>
         <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>15</maxForkAngle>
         <maxBendAngle>0.1</maxBendAngle>
-        <fertilityRateRatio>5</fertilityRateRatio>
+        <fertilityRateRatio>3</fertilityRateRatio>
         <fertilityRatePower>3</fertilityRatePower>
       </hypha>
     </hyphae>
