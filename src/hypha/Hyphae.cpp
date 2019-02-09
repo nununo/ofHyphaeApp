@@ -53,7 +53,7 @@ void Hyphae::generatePrimalHypha() {
 }
 
 void Hyphae::removeAllDeadHypha() {
-  for( list<Hypha>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (!itr->isAlive()) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
       ofRemoveListener(itr->dieEvent, this, &Hyphae::onHyphaDie);
@@ -65,16 +65,16 @@ void Hyphae::removeAllDeadHypha() {
 }
 
 void Hyphae::updateAllHypha() {
-  for( list<Hypha>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     itr->update();
   }
 }
 
 void Hyphae::removeOlderHyphaIfOverpopulated() {
   int tooMany = elements.size() - settings.maxHyphaCount;
-  for( list<Hypha>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
+  for(auto &itr: elements) {
     if (tooMany-- > 0) {
-      itr->die();
+      itr.die();
     }
   }
 }
@@ -93,8 +93,8 @@ void Hyphae::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,255);
-  for( list<Hypha>::iterator itr = elements.begin(); itr != elements.end(); ++itr ) {
-    itr->draw();
+  for(auto &itr: elements) {
+    itr.draw();
   }
   ofPopStyle();
 }
