@@ -13,6 +13,7 @@ Settings::Settings(const string& xmlFile) {
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
   width = xmlSettings.getValue("mycelia:width", 1); // 1920
   height = xmlSettings.getValue("mycelia:height", 1); // 1080
+  shaderFilename = xmlSettings.getValue("mycelia:shaderFilename", "?"); // shaders/alphamask.frag
   backgroundColor = ofColor(xmlSettings.getValue("mycelia:backgroundColor:r", 255),
                                      xmlSettings.getValue("mycelia:backgroundColor:g", 0),
                                      xmlSettings.getValue("mycelia:backgroundColor:b", 0));

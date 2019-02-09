@@ -60,6 +60,7 @@ public:
   int framerate;
   int width;
   int height;
+  string shaderFilename;
   ofColor backgroundColor;
   ofColor foregroundColor;
   MyceliumSettings mycelium;

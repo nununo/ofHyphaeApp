@@ -2,9 +2,10 @@
   <framerate>1200</framerate>
   <width>1280</width>
   <height>720</height>
+  <shaderFilename>shaders/alphamask.frag</shaderFilename>
   <backgroundColor>
     <r>0</r>
-    <g>0</g>
+    <g>50</g>
     <b>0</b>
   </backgroundColor>
   <foregroundColor>
@@ -22,7 +23,7 @@
       <angleResolution>10</angleResolution>
     </holes>
     <conidia>
-      <active>1</active>
+      <active>0</active>
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>
@@ -38,7 +39,7 @@
         <a>10</a>
       </color>
       <creationAreaSize>5</creationAreaSize>
-      <primalHyphaCount>100</primalHyphaCount>
+      <primalHyphaCount>200</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
