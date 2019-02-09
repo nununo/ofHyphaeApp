@@ -30,6 +30,7 @@ public:
   ~Hyphae();
   void update();
   void draw();
+  bool isAlive() const {return elements.size() > 0;}
 
   void onHyphaFork(HyphaForkEventArgs &e);
   void onHyphaDie(HyphaDieEventArgs &e);

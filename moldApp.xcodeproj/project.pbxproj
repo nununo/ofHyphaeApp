@@ -350,10 +350,10 @@
 			children = (
 				7DB0F23B21FA7F1C001A8E3E /* ConidiumDance.cpp */,
 				7DB0F23A21FA7D87001A8E3E /* ConidiumDance.h */,
-				7DF3E31321FD0B9A0034502C /* Conidia.cpp */,
-				7DF3E31421FD0B9A0034502C /* Conidia.h */,
 				7DFEC78621E7D06E009DC9DD /* Conidium.cpp */,
 				7DFEC78721E7D06E009DC9DD /* Conidium.h */,
+				7DF3E31321FD0B9A0034502C /* Conidia.cpp */,
+				7DF3E31421FD0B9A0034502C /* Conidia.h */,
 			);
 			path = conidium;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 Hyphae::Hyphae(const HyphaeSettings settings) {
   this->ink = new InkColor(settings.color);
   this->settings = settings;
+  addPrimalHypha(0);
 }
 
 Hyphae::~Hyphae() {
