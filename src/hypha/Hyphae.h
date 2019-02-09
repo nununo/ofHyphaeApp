@@ -15,10 +15,8 @@ private:
   Ink *ink;
   std::list<Hypha> elements;
   HyphaeSettings settings;
-  int primalHyphaCount = 0;
   
   void add(Hypha *hypha);
-  void addPrimalHypha(const float inclination);
   ofVec3f calcDirection(const float angle, const float inclination) const;
   void generatePrimalHyphas();
   void removeAllDeadHypha();
