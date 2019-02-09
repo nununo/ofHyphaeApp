@@ -27,7 +27,6 @@ public:
   Surface(const ofVec2f size, const CanvasSettings settings);
   ~Surface();
   
-  // ISurface
   float getWidth() const {return size.x;}
   float getHeight() const {return size.y;}
   void update();
@@ -35,6 +34,7 @@ public:
   bool isAlive() const {return true;}
 
   void addMycelium(Mycelium *m) {mycelia.push_back(m);}
+  MyceliumStats getMyceliaStats();
 };
 
 #endif /* Surface_hpp */

@@ -29,6 +29,16 @@ Surface::~Surface() {
   }
 }
 
+MyceliumStats Surface::getMyceliaStats() {
+  MyceliumStats globalStats;
+  for(auto &itr: mycelia) {
+    auto stats = itr->getStats();
+    globalStats.hyphaCount += stats.hyphaCount;
+    globalStats.conidiumCount += stats.conidiumCount;
+  }
+  return globalStats;
+}
+
 void Surface::update() {
   for(auto itr = mycelia.begin(); itr != mycelia.end(); ++itr ) {
     if ((*itr)->isAlive()) {

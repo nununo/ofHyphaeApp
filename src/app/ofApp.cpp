@@ -39,8 +39,18 @@ void ofApp::draw(){
 void ofApp::drawOSD() {
   ofPushStyle();
   ofSetColor(settings->osdColor);
-  string fpsStr = "frame rate: "+ofToString(ofGetFrameRate(), 2);
-  ofDrawBitmapString(fpsStr, 10,10);
+
+  string str = "frame rate: "+ofToString(ofGetFrameRate(), 2);
+  ofDrawBitmapString(str, 10,10);
+
+  MyceliumStats stats = s->getMyceliaStats();
+
+  str = "hyphae: "+ofToString(stats.hyphaCount);
+  ofDrawBitmapString(str, 10,25);
+
+  str = "conidia: "+ofToString(stats.conidiumCount);
+  ofDrawBitmapString(str, 10,40);
+
   ofPopStyle();
 }
 

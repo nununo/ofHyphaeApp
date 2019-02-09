@@ -11,7 +11,7 @@
 Hyphae::Hyphae(const HyphaeSettings settings) {
   this->ink = new InkColor(settings.color);
   this->settings = settings;
-  addPrimalHypha(0);
+  generatePrimalHyphas();
 }
 
 Hyphae::~Hyphae() {
@@ -45,11 +45,9 @@ void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
   ofNotifyEvent(this->hyphaDieEvent, e);
 }
 
-void Hyphae::generatePrimalHypha() {
-  if (primalHyphaCount<settings.primalHyphaCount && ofGetFrameNum()%settings.newHyphaPeriod == 0) {
-    float inclination = 60 * (settings.primalHyphaCount - primalHyphaCount)/(float)settings.primalHyphaCount;
+void Hyphae::generatePrimalHyphas() {
+  while (primalHyphaCount<settings.primalHyphaCount) {
     addPrimalHypha(0);
-    ofLog() << "new Hypha: " << primalHyphaCount << " inclination: "  << inclination;
   }
 }
 
@@ -81,13 +79,9 @@ void Hyphae::removeOlderHyphaIfOverpopulated() {
 }
 
 void Hyphae::update() {
-  generatePrimalHypha();
   removeAllDeadHypha();
   removeOlderHyphaIfOverpopulated();
   updateAllHypha();
-  if (ofGetFrameNum() % 500 == 0) {
-    ofLog() << "Hypha count: " << elements.size();
-  }
 }
 
 void Hyphae::draw() {

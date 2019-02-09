@@ -20,7 +20,7 @@ private:
   void add(Hypha *hypha);
   void addPrimalHypha(const float inclination);
   ofVec3f calcDirection(const float angle, const float inclination) const;
-  void generatePrimalHypha();
+  void generatePrimalHyphas();
   void removeAllDeadHypha();
   void removeOlderHyphaIfOverpopulated();
   void updateAllHypha();
@@ -30,7 +30,8 @@ public:
   ~Hyphae();
   void update();
   void draw();
-  bool isAlive() const {return elements.size() > 0;}
+  int count() const {return elements.size();}
+  bool isAlive() const {return count() > 0;}
 
   void onHyphaFork(HyphaForkEventArgs &e);
   void onHyphaDie(HyphaDieEventArgs &e);

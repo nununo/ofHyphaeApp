@@ -33,6 +33,13 @@ Mycelium::~Mycelium() {
   }
 }
 
+MyceliumStats Mycelium::getStats() {
+  MyceliumStats stats;
+  if (settings.hyphae.active) {stats.hyphaCount = hyphae->count();}
+  if (settings.conidia.active) {stats.conidiumCount = conidia->count();}
+  return stats;
+}
+
 void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
   if (settings.conidia.active) {
     conidia->add(e.pos);

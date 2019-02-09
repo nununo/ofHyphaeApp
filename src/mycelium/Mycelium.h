@@ -13,6 +13,11 @@
 #include "Hyphae.h"
 #include "Settings.h"
 
+struct MyceliumStats {
+  int hyphaCount = 0;
+  int conidiumCount = 0;
+};
+
 class Mycelium {
 
 private:
@@ -28,10 +33,10 @@ public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk);
   ~Mycelium();
   
-  // IDrawable
   void update();
   void draw();
   bool isAlive() {return this->lifespan > 0;}
+  MyceliumStats getStats();
 
   void onHyphaDie(HyphaDieEventArgs &e);
 };
