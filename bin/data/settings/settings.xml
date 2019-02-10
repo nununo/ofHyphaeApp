@@ -20,7 +20,7 @@
   <mycelium>
     <lifespan>99999</lifespan>
     <conidia>
-      <active>0</active>
+      <active>1</active>
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>

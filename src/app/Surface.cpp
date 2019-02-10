@@ -18,17 +18,7 @@ Surface::Surface(const ofVec2f size, const CanvasSettings settings) {
   shader.linkProgram();
 
   initializeFbo(&fboHyphae, settings.backgroundColor);
-  initializeFbo(&fboConidia, ofColor(0,0,0,0));
-
-  fboConidia.begin();
-  ofPushStyle();
-  ofEnableAlphaBlending();
-  for(int i=0; i<255; i++) {
-    ofSetColor(ofColor::red, i);
-    ofDrawRectangle(550+i, 300, 1, 100);
-  }
-  ofPopStyle();
-  fboConidia.end();
+  initializeFbo(&fboConidia, ofColor(0,0,0,255));
 }
 
 Surface::~Surface() {
