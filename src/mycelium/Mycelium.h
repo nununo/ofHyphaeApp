@@ -34,8 +34,9 @@ public:
   ~Mycelium();
   
   void update();
-  void draw();
-  bool isAlive() {return this->lifespan > 0;}
+  void drawConidia() const;
+  void drawHyphae() const;
+  bool isAlive() const {return this->lifespan > 0;}
   MyceliumStats getStats();
 
   void onHyphaDie(HyphaDieEventArgs &e);

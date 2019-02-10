@@ -4,6 +4,7 @@
     <r>255</r>
     <g>255</g>
     <b>255</b>
+    <a>255</a>
   </osdColor>
   <canvas>
     <width>1280</width>
@@ -19,7 +20,7 @@
   <mycelium>
     <lifespan>99999</lifespan>
     <conidia>
-      <active>0</active>
+      <active>1</active>
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>
@@ -35,7 +36,7 @@
         <a>10</a>
       </color>
       <creationAreaSize>5</creationAreaSize>
-      <primalHyphaCount>20</primalHyphaCount>
+      <primalHyphaCount>50</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>

@@ -13,7 +13,8 @@ Settings::Settings(const string& xmlFile) {
   framerate = xmlSettings.getValue("mycelia:framerate", 1); // 120
   osdColor = ofColor(xmlSettings.getValue("mycelia:osdColor:r", 0),
                      xmlSettings.getValue("mycelia:osdColor:g", 255),
-                    xmlSettings.getValue("mycelia:osdColor:b", 0));
+                     xmlSettings.getValue("mycelia:osdColor:b", 0),
+                     xmlSettings.getValue("mycelia:osdColor:a", 255));
 
   canvas.width = xmlSettings.getValue("mycelia:canvas:width", 1); // 1920
   canvas.height = xmlSettings.getValue("mycelia:canvas:height", 1); // 1080
