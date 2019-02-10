@@ -22,8 +22,7 @@ Settings::Settings(const string& xmlFile) {
   canvas.maskFilename = xmlSettings.getValue("mycelia:canvas:maskFilename", "?"); // shaders/alphamask.frag
   canvas.backgroundColor = ofColor(xmlSettings.getValue("mycelia:canvas:backgroundColor:r", 255),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
-                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0),
-                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:a", 0));
+                                   xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
 
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
 
