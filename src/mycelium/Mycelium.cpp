@@ -59,16 +59,20 @@ void Mycelium::update() {
   }
 }
 
-void Mycelium::draw() {
-  if (isAlive()) {
+void Mycelium::drawHyphae() const {
+  if (isAlive() && settings.hyphae.active) {
     ofPushMatrix();
     ofTranslate(this->pos);
-    if (settings.hyphae.active) {
-      hyphae->draw();
-    }
-    if (settings.conidia.active) {
-      conidia->draw();
-    }
+    hyphae->draw();
+    ofPopMatrix();
+  }
+}
+
+void Mycelium::drawConidia() const {
+  if (isAlive() && settings.conidia.active) {
+    ofPushMatrix();
+    ofTranslate(this->pos);
+    conidia->draw();
     ofPopMatrix();
   }
 }

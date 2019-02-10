@@ -17,11 +17,13 @@ private:
   ofVec2f size;
   CanvasSettings settings;
   ofImage mask;
-  ofFbo fbo;
+  ofFbo fboHyphae;
+  ofFbo fboConidia;
   ofShader shader;
   std::list<Mycelium*> mycelia;
 
   void drawPartsToFbo();
+  void initializeFbo(ofFbo *fbo, ofColor backgroundColor);
 
 public:
   Surface(const ofVec2f size, const CanvasSettings settings);

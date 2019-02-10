@@ -17,16 +17,33 @@ Surface::Surface(const ofVec2f size, const CanvasSettings settings) {
   shader.setupShaderFromFile(GL_FRAGMENT_SHADER, settings.shaderFilename);
   shader.linkProgram();
 
-  fbo.allocate(getWidth(), getHeight());
-  fbo.begin();
-  ofClear(settings.backgroundColor);
-  fbo.end();
+  initializeFbo(&fboHyphae, settings.backgroundColor);
+  initializeFbo(&fboConidia, ofColor(0,0,0,0));
+
+  fboConidia.begin();
+  ofPushStyle();
+  ofEnableAlphaBlending();
+  for(int i=0; i<255; i++) {
+    ofSetColor(ofColor::red, i);
+    ofDrawRectangle(550+i, 300, 1, 100);
+  }
+  ofPopStyle();
+  fboConidia.end();
 }
 
 Surface::~Surface() {
   for(auto itr = mycelia.begin(); itr != mycelia.end(); ++itr ) {
     itr = mycelia.erase(itr);
   }
+}
+
+void Surface::initializeFbo(ofFbo *fbo, ofColor backgroundColor) {
+  fbo->allocate(getWidth(), getHeight());
+  fbo->begin();
+  ofPushStyle();
+  ofClear(backgroundColor);
+  ofPopStyle();
+  fbo->end();
 }
 
 MyceliumStats Surface::getMyceliaStats() {
@@ -50,11 +67,17 @@ void Surface::update() {
 }
 
 void Surface::drawPartsToFbo() {
-  fbo.begin();
+  fboHyphae.begin();
   for(auto &itr: mycelia) {
-    itr->draw();
+    itr->drawHyphae();
   }
-  fbo.end();
+  fboHyphae.end();
+
+  fboConidia.begin();
+  for(auto &itr: mycelia) {
+    itr->drawConidia();
+  }
+  fboConidia.end();
 }
 
 void Surface::draw() {
@@ -65,7 +88,8 @@ void Surface::draw() {
   ofEnableAlphaBlending();
   shader.begin();
   shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
-  fbo.draw(0, 0);
+  shader.setUniformTexture("conidiaTex", fboConidia.getTexture(), 2 );
+  fboHyphae.draw(0, 0);
   shader.end();
   ofDisableAlphaBlending();
   ofPopStyle();
