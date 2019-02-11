@@ -1,3 +1,5 @@
+- Hyphae: make transparency proportional to velocity/position angle 
+- Move from github to git@barril
 - Use realistic Conidia colors
 - Conidia: use 3D perlin noise to move between 3 colors (2 seems poor)
 - How to avoid drawing outside the visible area. Use a polygon and the isInsideOf() method (not sure it is called like this)
