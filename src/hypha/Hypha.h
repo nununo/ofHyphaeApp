@@ -19,10 +19,11 @@ private:
   HyphaSettings settings;
   ofVec2f noiseOffset;
   int generation;
+  ofColor color;
 
-  ofVec3f pos;
-  ofVec3f vel;
-  ofVec3f lastIntPos;
+  ofVec2f pos;
+  ofVec2f vel;
+  ofVec2f lastIntPos;
   bool posIsNewPixel;
   int lifespan;
   int nextForkDistance;
@@ -34,14 +35,16 @@ private:
   float getFertilityRate() const;
   void calcNextForkDistance();
   void fork();
-  void drawZ() const;
+  float getAngle(ofVec2f p, ofVec2f d) const {return ofClamp(abs(pos.angle(vel)),0.0f,90.0f);} // absolute and clamped
+  float getMaxLifespan(float angle) const {return ofLerp(1.0f, 0.01f, angle/90.0f)*settings.maxLifespan;}
+  ofColor calcColor(float angle) const;
   
-  ofVec3f getInitialVelocity(const ofVec3f dir) const;
+  ofVec3f getInitialVelocity(const ofVec2f dir) const;
   void throwForkEvent();
   void throwDieEvent();
 
 public:
-  Hypha(const ofVec3f pos, const ofVec3f dir, const HyphaSettings settings, const int generation=0);
+  Hypha(const ofVec2f pos, const ofVec2f dir, const HyphaSettings settings, const int generation=0);
   bool isAlive() const {return !dead;}
   void update();
   void draw();

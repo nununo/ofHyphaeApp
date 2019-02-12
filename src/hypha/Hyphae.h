@@ -16,7 +16,6 @@ private:
   HyphaeSettings settings;
   
   void add(Hypha *hypha);
-  ofVec3f calcDirection(const float angle, const float inclination) const;
   void generatePrimalHyphas();
   void removeAllDeadHypha();
   void removeOlderHyphaIfOverpopulated();

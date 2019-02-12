@@ -9,26 +9,36 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(const ofVec3f pos, const ofVec3f dir, const HyphaSettings settings, const int generation) {
+Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, const HyphaSettings settings, const int generation) {
   this->pos = pos;
   this->settings = settings;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
+  
   this->forkCount = 0;
-  this->lifespan = ofRandom(0,settings.maxLifespan);
+  float angle = getAngle(this->pos, this->vel);
+  this->lifespan = ofRandom(1,getMaxLifespan(angle));
+  this->color = calcColor(angle);
+  ofLog() << "angle: " << angle << " alpha: " << (float)this->color.a;
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
 }
 
+ofColor Hypha::calcColor(float angle) const {
+  ofColor c = settings.color;
+  c.a = c.a * glm::pow(ofLerp(5.0f, 0.1f, angle/90.0f),2);
+  return c;
+}
+
 void Hypha::growOlder() {
   lifespan--;
-  if (lifespan<=0 || pos.z>=settings.maxHeight) {
+  if (lifespan<=0) {
     this->dead = true;
     throwDieEvent();
   }
 }
 
-ofVec3f Hypha::getInitialVelocity(ofVec3f dir) const {
+ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
    return dir.getNormalized() * ofRandom(settings.speed*(1-settings.speedVariation/100),
                                          settings.speed*(1+settings.speedVariation/100));
 }
@@ -37,8 +47,6 @@ void Hypha::updateVelocity() {
   float bendAngle = 2*(ofNoise(pos.x*settings.distortion+noiseOffset.x,
                         pos.y*settings.distortion+noiseOffset.y)-0.5f)*settings.maxBendAngle;
   vel.rotate(bendAngle, ofVec3f(0,0,1));
-  vel.z -= settings.gravity;
-  if (pos.z<0) {vel.z=0;}
 }
 
 float Hypha::getFertilityRate() const {
@@ -74,13 +82,12 @@ void Hypha::throwDieEvent() {
 }
 
 void Hypha::update() {
-  growOlder();
   if (isAlive()) {
     pos += vel;
-    ofVec3f newIntPos = ofVec3f((int)(pos.x+0.5f),
-                                (int)(pos.y+0.5f),
-                                (int)(pos.z+0.5f));
+    ofVec2f newIntPos = ofVec3f((int)(pos.x+0.5f),
+                                (int)(pos.y+0.5f));
     if (newIntPos != lastIntPos) {
+      growOlder();
       updateVelocity();
       lastIntPos = newIntPos;
       posIsNewPixel = true;
@@ -94,14 +101,14 @@ void Hypha::update() {
 
 void Hypha::draw() {
   if (isAlive()) {
-    if (this->posIsNewPixel) {
+    if (posIsNewPixel) {
       ofPushStyle();
       ofEnableAlphaBlending();
-      ofSetColor(settings.color);
+      ofSetColor(color);
       ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
       //drawZ();
       ofPopStyle();
-      this->posIsNewPixel = false;
+      posIsNewPixel = false;
     }
   } else {
     //ofPushStyle();
@@ -111,9 +118,3 @@ void Hypha::draw() {
   }
 }
 
-void Hypha::drawZ() const {
-  ofPushMatrix();
-  ofTranslate(0, -200);
-  ofDrawRectangle(pos.x, -pos.z, 1, 1);
-  ofPopMatrix();
-}
