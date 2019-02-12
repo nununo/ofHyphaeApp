@@ -9,9 +9,8 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(const ofVec3f pos, Ink *ink, const ofVec3f dir, const HyphaSettings settings, const int generation) {
+Hypha::Hypha(const ofVec3f pos, const ofVec3f dir, const HyphaSettings settings, const int generation) {
   this->pos = pos;
-  this->ink = ink;
   this->settings = settings;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
@@ -98,8 +97,7 @@ void Hypha::draw() {
     if (this->posIsNewPixel) {
       ofPushStyle();
       ofEnableAlphaBlending();
-      ofColor color = ink->getColor(this->pos);
-      ofSetColor(color);
+      ofSetColor(settings.color);
       ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
       //drawZ();
       ofPopStyle();

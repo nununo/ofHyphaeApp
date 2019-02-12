@@ -9,13 +9,8 @@
 #include "InkColor.h"
 
 Hyphae::Hyphae(const HyphaeSettings settings) {
-  this->ink = new InkColor(settings.color);
   this->settings = settings;
   generatePrimalHyphas();
-}
-
-Hyphae::~Hyphae() {
-  delete ink;
 }
 
 ofVec3f Hyphae::calcDirection(const float angle, const float inclination) const {
@@ -36,7 +31,7 @@ void Hyphae::generatePrimalHyphas() {
   while (primalHyphaCount<settings.primalHyphaCount) {
     ofVec3f dir = calcDirection(primalHyphaCount*angleIncrement, 0);
     ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-    add(new Hypha(pos, this->ink, dir, settings.hypha));
+    add(new Hypha(pos, dir, settings.hypha));
     primalHyphaCount++;
   }
 }
@@ -69,7 +64,7 @@ void Hyphae::updateAllHypha() {
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(new Hypha(e.pos, this->ink, e.dir, settings.hypha, e.generation));
+  add(new Hypha(e.pos, e.dir, settings.hypha, e.generation));
 }
 
 void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {

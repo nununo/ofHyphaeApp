@@ -16,7 +16,6 @@
 
 class Hypha {
 private:
-  Ink *ink;
   HyphaSettings settings;
   ofVec2f noiseOffset;
   int generation;
@@ -42,7 +41,7 @@ private:
   void throwDieEvent();
 
 public:
-  Hypha(const ofVec3f pos, Ink *ink, const ofVec3f dir, const HyphaSettings settings, const int generation=0);
+  Hypha(const ofVec3f pos, const ofVec3f dir, const HyphaSettings settings, const int generation=0);
   bool isAlive() const {return !dead;}
   void update();
   void draw();

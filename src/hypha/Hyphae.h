@@ -12,7 +12,6 @@
 
 class Hyphae {
 private:
-  Ink *ink;
   std::list<Hypha> elements;
   HyphaeSettings settings;
   
@@ -25,7 +24,6 @@ private:
 
 public:
   Hyphae(const HyphaeSettings settings);
-  ~Hyphae();
   void update();
   void draw();
   int count() const {return elements.size();}

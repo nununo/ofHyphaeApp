@@ -21,6 +21,7 @@ struct CanvasSettings {
 
 struct HyphaSettings {
   int maxLifespan;
+  ofColor color;
   float speed;
   float speedVariation;
   float gravity;
@@ -35,7 +36,6 @@ struct HyphaSettings {
 
 struct HyphaeSettings {
   bool active;
-  ofColor color;
   int creationAreaSize;
   HyphaSettings hypha;
   int primalHyphaCount;
