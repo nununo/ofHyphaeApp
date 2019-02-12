@@ -12,12 +12,10 @@
 
 class Hyphae {
 private:
-  Ink *ink;
   std::list<Hypha> elements;
   HyphaeSettings settings;
   
   void add(Hypha *hypha);
-  ofVec3f calcDirection(const float angle, const float inclination) const;
   void generatePrimalHyphas();
   void removeAllDeadHypha();
   void removeOlderHyphaIfOverpopulated();
@@ -25,7 +23,6 @@ private:
 
 public:
   Hyphae(const HyphaeSettings settings);
-  ~Hyphae();
   void update();
   void draw();
   int count() const {return elements.size();}

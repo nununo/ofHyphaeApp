@@ -9,19 +9,8 @@
 #include "InkColor.h"
 
 Hyphae::Hyphae(const HyphaeSettings settings) {
-  this->ink = new InkColor(settings.color);
   this->settings = settings;
   generatePrimalHyphas();
-}
-
-Hyphae::~Hyphae() {
-  delete ink;
-}
-
-ofVec3f Hyphae::calcDirection(const float angle, const float inclination) const {
-  ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
-  ofVec3f dirPerp = dir.getNormalized().rotate(0,0,-90);
-  return dir.getRotated(inclination, dirPerp);
 }
 
 void Hyphae::add(Hypha *hypha) {
@@ -31,13 +20,11 @@ void Hyphae::add(Hypha *hypha) {
 }
 
 void Hyphae::generatePrimalHyphas() {
-  int primalHyphaCount = 0;
   float angleIncrement = 360/(float)settings.primalHyphaCount;
-  while (primalHyphaCount<settings.primalHyphaCount) {
-    ofVec3f dir = calcDirection(primalHyphaCount*angleIncrement, 0);
+  for(int i=0; i<settings.primalHyphaCount; i++) {
+    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,i*angleIncrement);
     ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-    add(new Hypha(pos, this->ink, dir, settings.hypha));
-    primalHyphaCount++;
+    add(new Hypha(pos, dir, settings.hypha));
   }
 }
 
@@ -69,7 +56,7 @@ void Hyphae::updateAllHypha() {
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(new Hypha(e.pos, this->ink, e.dir, settings.hypha, e.generation));
+  add(new Hypha(e.pos, e.dir, settings.hypha, e.generation));
 }
 
 void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {

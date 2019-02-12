@@ -1,11 +1,12 @@
-- Render conidia and hyphae to independent FBO and mix them in the shader
-- Find a solution for the Hyphae to have less empty areas
-  - Increase bendAngle but then tend towards outside
-  - Increase fertility rate (because it tends to stop and have more and more free space)
-- Use realistic Conidia colors
+- Hypha: make transparency proportional to velocity/position angle 
+- Hypha: replace lifespan with death around a certain distance + maybe sudden death?
+- Hypha: review fertilityRate because it currently is really sterilityRate. Rethink it.
 
-- Create ink that reads a random color from an image (regardless of its position)
+- Move from github to git@barril
+
+- Use realistic Conidia colors
+- Conidia: use 3D perlin noise to move between 3 colors (2 seems poor)
 
 - How to avoid drawing outside the visible area. Use a polygon and the isInsideOf() method (not sure it is called like this)
 
-- ? Get rid of Surface FBO
+- Kill Mycelium once Hyphae reaches a given size

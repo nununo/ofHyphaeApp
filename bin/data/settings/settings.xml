@@ -20,7 +20,7 @@
   <mycelium>
     <lifespan>99999</lifespan>
     <conidia>
-      <active>1</active>
+      <active>0</active>
       <conidium>
         <lifespan>2000</lifespan>
         <delay>10</delay>
@@ -29,28 +29,28 @@
     </conidia>
     <hyphae>
       <active>1</active>
-      <color>
-        <r>255</r>
-        <g>255</g>
-        <b>255</b>
-        <a>10</a>
-      </color>
-      <creationAreaSize>5</creationAreaSize>
-      <primalHyphaCount>50</primalHyphaCount>
+      <creationAreaSize>0</creationAreaSize>
+      <primalHyphaCount>10</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
-        <maxLifespan>100000</maxLifespan>
-        <speed>0.01</speed>
+        <color>
+          <r>255</r>
+          <g>255</g>
+          <b>255</b>
+          <a>2</a>
+        </color>
+        <maxLifespan>200</maxLifespan>
+        <speed>0.1</speed>
         <speedVariation>10</speedVariation> <!--%-->
         <gravity>0.0001</gravity>
         <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
-        <maxForkAngle>15</maxForkAngle>
-        <maxBendAngle>0.1</maxBendAngle>
-        <fertilityRateRatio>3</fertilityRateRatio>
-        <fertilityRatePower>3</fertilityRatePower>
+        <maxForkAngle>90</maxForkAngle>
+        <maxBendAngle>10</maxBendAngle>
+        <fertilityRateRatio>1</fertilityRateRatio>
+        <fertilityRatePower>2</fertilityRatePower>
       </hypha>
     </hyphae>
   </mycelium>
