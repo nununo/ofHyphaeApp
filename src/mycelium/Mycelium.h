@@ -22,6 +22,7 @@ class Mycelium {
 
 private:
   ofVec2f pos;
+  float radius;
   MyceliumSettings settings;
   Conidia *conidia;
   Hyphae *hyphae;

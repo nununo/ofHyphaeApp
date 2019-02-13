@@ -12,8 +12,9 @@
 
 class Hyphae {
 private:
-  std::list<Hypha> elements;
   HyphaeSettings settings;
+  float radius;
+  std::list<Hypha> elements;
   
   void add(Hypha *hypha);
   void generatePrimalHyphas();
@@ -22,7 +23,7 @@ private:
   void updateAllHypha();
 
 public:
-  Hyphae(const HyphaeSettings settings);
+  Hyphae(const HyphaeSettings settings, float radius);
   void update();
   void draw();
   int count() const {return elements.size();}

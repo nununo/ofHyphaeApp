@@ -12,13 +12,14 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->pos = pos;
   this->settings = settings;
   this->lifespan = settings.lifespan;
+  this->radius = ofRandom(settings.radiusRange.x, settings.radiusRange.y);
 
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);
   }
   
   if (settings.hyphae.active) {
-    this->hyphae = new Hyphae(settings.hyphae);
+    this->hyphae = new Hyphae(settings.hyphae, this->radius);
     ofAddListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
   }
 }

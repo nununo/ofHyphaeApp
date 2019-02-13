@@ -24,6 +24,10 @@
   </canvas>
   <mycelium>
     <lifespan>99999</lifespan>
+    <radiusRange>
+      <min>20</min>
+      <max>100</max>
+    </radiusRange>
     <conidia>
       <active>0</active>
       <conidium>

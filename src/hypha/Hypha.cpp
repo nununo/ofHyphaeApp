@@ -9,9 +9,10 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, const HyphaSettings settings, const int generation) {
+Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSettings settings, const int generation) {
   this->pos = pos;
   this->settings = settings;
+  this->radius = radius;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
   

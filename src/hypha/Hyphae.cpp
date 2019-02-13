@@ -8,8 +8,9 @@
 #include "Hyphae.h"
 #include "InkColor.h"
 
-Hyphae::Hyphae(const HyphaeSettings settings) {
+Hyphae::Hyphae(const HyphaeSettings settings, float radius) {
   this->settings = settings;
+  this->radius = radius;
   generatePrimalHyphas();
 }
 
@@ -25,7 +26,7 @@ void Hyphae::generatePrimalHyphas() {
   for(int i=0; i<settings.primalHyphaCount; i++) {
     ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,i*angleIncrement+offset);
     ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-    add(new Hypha(pos, dir, settings.hypha));
+    add(new Hypha(pos, dir, this->radius, settings.hypha));
   }
 }
 
@@ -57,7 +58,7 @@ void Hyphae::updateAllHypha() {
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(new Hypha(e.pos, e.dir, settings.hypha, e.generation));
+  add(new Hypha(e.pos, e.dir, radius, settings.hypha, e.generation));
 }
 
 void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
