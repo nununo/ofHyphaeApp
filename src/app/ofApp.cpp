@@ -12,16 +12,19 @@ void ofApp::setup(){
   
   this->conidiaInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 2);
 
-  addFamily();
+  addMycelium();
 }
 
 ofApp::~ofApp() {
   delete conidiaInk;
 }
 
-void ofApp::addFamily() {
+void ofApp::addMycelium() {
   for(int i=0; i<1; i++) {
-    s->addMycelium(new Mycelium(ofVec2f(ofGetWidth()/2, ofGetHeight()/2), /* ofRandom(250,600),ofRandom(250,600)*/
+    s->addMycelium(new Mycelium(
+//                                ofVec2f(ofGetWidth()/2, ofGetHeight()/2),
+                                ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
+                                        ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)),
                                 settings->mycelium,
                                 conidiaInk));
   }
@@ -59,7 +62,7 @@ void ofApp::keyPressed(int key) {
     case ' ':
       // Space adds a new family (currently hiding the previous one because for now
       // this is just for convenience
-      addFamily();
+      addMycelium();
       break;
     
     case 'f':

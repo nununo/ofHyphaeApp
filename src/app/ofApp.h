@@ -14,7 +14,7 @@ private:
   Ink *conidiaInk;
 
   void drawOSD();
-  void addFamily();
+  void addMycelium();
 
 public:
   ~ofApp();
