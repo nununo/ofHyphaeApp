@@ -21,8 +21,9 @@ void Hyphae::add(Hypha *hypha) {
 
 void Hyphae::generatePrimalHyphas() {
   float angleIncrement = 360/(float)settings.primalHyphaCount;
+  float offset = ofRandom(0,360);
   for(int i=0; i<settings.primalHyphaCount; i++) {
-    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,i*angleIncrement);
+    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,i*angleIncrement+offset);
     ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(new Hypha(pos, dir, settings.hypha));
   }
