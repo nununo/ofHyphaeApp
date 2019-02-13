@@ -10,6 +10,7 @@
 Surface::Surface(const ofVec2f size, const CanvasSettings settings) {
   this->size = size;
   this->settings = settings;
+  this->settings.maskColor /= 255.0f; // Convert color from 0-255 to 0-1 which is what the shader needs
   
   mask.load(settings.maskFilename);
   mask.resize(getWidth(), getHeight());
@@ -77,6 +78,7 @@ void Surface::draw() {
   ofClear(0,0,0);
   ofEnableAlphaBlending();
   shader.begin();
+  shader.setUniform3f("maskColor", settings.maskColor.r, settings.maskColor.g, settings.maskColor.b );
   shader.setUniformTexture("maskTex", mask.getTexture(), 1 );
   shader.setUniformTexture("conidiaTex", fboConidia.getTexture(), 2 );
   fboHyphae.draw(0, 0);

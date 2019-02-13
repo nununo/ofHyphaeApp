@@ -1,9 +1,9 @@
 <mycelia>
   <framerate>60</framerate>
   <osdColor>
-    <r>255</r>
-    <g>255</g>
-    <b>255</b>
+    <r>0</r>
+    <g>0</g>
+    <b>0</b>
     <a>255</a>
   </osdColor>
   <canvas>
@@ -11,10 +11,15 @@
     <height>720</height>
     <shaderFilename>shaders/alphamask.frag</shaderFilename>
     <maskFilename>images/bread_profile_mask.png</maskFilename>
-      <backgroundColor>
-      <r>0</r>
-      <g>10</g>
-      <b>0</b>
+    <maskColor>
+      <r>255</r>
+      <g>255</g>
+      <b>255</b>
+    </maskColor>
+    <backgroundColor>
+      <r>255</r>
+      <g>255</g>
+      <b>255</b>
     </backgroundColor>
   </canvas>
   <mycelium>
@@ -30,15 +35,15 @@
     <hyphae>
       <active>1</active>
       <creationAreaSize>0</creationAreaSize>
-      <primalHyphaCount>10</primalHyphaCount>
+      <primalHyphaCount>1</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
         <color>
-          <r>255</r>
-          <g>255</g>
-          <b>255</b>
-          <a>2</a>
+          <r>0</r>
+          <g>0</g>
+          <b>0</b>
+          <a>1</a>
         </color>
         <maxLifespan>200</maxLifespan>
         <speed>0.1</speed>

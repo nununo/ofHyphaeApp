@@ -23,6 +23,9 @@ Settings::Settings(const string& xmlFile) {
   canvas.backgroundColor = ofColor(xmlSettings.getValue("mycelia:canvas:backgroundColor:r", 255),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
+  canvas.maskColor = ofColor(xmlSettings.getValue("mycelia:canvas:maskColor:r", 0),
+                             xmlSettings.getValue("mycelia:canvas:maskColor:g", 255),
+                             xmlSettings.getValue("mycelia:canvas:maskColor:b", 0));
 
   mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
 
