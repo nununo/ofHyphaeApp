@@ -5,8 +5,6 @@ void ofApp::setup(){
   settings = new Settings("settings/settings.xml");
   ofSetFrameRate(settings->framerate);
   //ofSetVerticalSync(true);
-  ofSetWindowPosition(10, 10);
-  ofSetWindowShape(settings->canvas.width, settings->canvas.height);
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->canvas);
   
