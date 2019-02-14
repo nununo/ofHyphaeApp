@@ -29,6 +29,7 @@ private:
   int lifespan;
   int nextForkDistance;
   int forkCount;
+  float nextDeathRadius;
   bool dead;
 
   void growOlder();
@@ -39,6 +40,7 @@ private:
   float getAngle(ofVec2f p, ofVec2f d) const {return ofClamp(abs(pos.angle(vel)),0.0f,90.0f);} // absolute and clamped
   float getMaxLifespan(float angle) const {return ofLerp(1.0f, 0.01f, angle/90.0f)*settings.maxLifespan;}
   ofColor calcColor(float angle) const;
+  float calcDeathRadius();
   
   ofVec3f getInitialVelocity(const ofVec2f dir) const;
   void throwForkEvent();

@@ -15,12 +15,12 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSett
   this->radius = radius;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
+  this->nextDeathRadius = calcDeathRadius();
   
   this->forkCount = 0;
   float angle = getAngle(this->pos, this->vel);
   this->lifespan = ofRandom(1,getMaxLifespan(angle));
   this->color = calcColor(angle);
-  ofLog() << "angle: " << angle << " alpha: " << (float)this->color.a;
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
 }
@@ -31,10 +31,16 @@ ofColor Hypha::calcColor(float angle) const {
   return c;
 }
 
+float Hypha::calcDeathRadius() {
+  float tolerance = radius*settings.radiusTolerance/200.0f; // Divide by 100 to get percentage and then by 2 to create range
+  return ofRandom(radius-tolerance, radius+tolerance);
+}
+
 void Hypha::growOlder() {
   lifespan--;
-  if (lifespan<=0 || pos.length() > radius) {
-    this->dead = true;
+  if (lifespan<=0 || pos.length() > nextDeathRadius) {
+    dead = true;
+    nextDeathRadius = calcDeathRadius();
     throwDieEvent();
   }
 }
