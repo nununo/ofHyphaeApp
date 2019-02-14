@@ -39,7 +39,7 @@
     <hyphae>
       <active>1</active>
       <creationAreaSize>0</creationAreaSize>
-      <primalHyphaCount>1</primalHyphaCount>
+      <primalHyphaCount>20</primalHyphaCount>
       <newHyphaPeriod>20</newHyphaPeriod>
       <maxHyphaCount>10000</maxHyphaCount>
       <hypha>
@@ -60,6 +60,7 @@
         <maxBendAngle>10</maxBendAngle>
         <fertilityRateRatio>1</fertilityRateRatio>
         <fertilityRatePower>2</fertilityRatePower>
+        <radiusTolerance>10</radiusTolerance> <!--%-->
       </hypha>
     </hyphae>
   </mycelium>
