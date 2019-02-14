@@ -32,8 +32,7 @@ ofColor Hypha::calcColor(float angle) const {
 }
 
 float Hypha::calcDeathRadius() {
-  float tolerance = radius*settings.radiusTolerance/200.0f; // Divide by 100 to get percentage and then by 2 to create range
-  return ofRandom(radius-tolerance, radius+tolerance);
+  return ofRandom(radius-radius*settings.radiusTolerance/100.0f, radius);
 }
 
 void Hypha::growOlder() {

@@ -25,8 +25,8 @@
   <mycelium>
     <lifespan>99999</lifespan>
     <radiusRange>
-      <min>20</min>
-      <max>100</max>
+      <min>30</min>
+      <max>200</max>
     </radiusRange>
     <conidia>
       <active>0</active>
