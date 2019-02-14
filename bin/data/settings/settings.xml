@@ -49,10 +49,9 @@
           <b>0</b>
           <a>1</a>
         </color>
-        <maxLifespan>200</maxLifespan>
+        <maxLifespan>100</maxLifespan>
         <speed>0.1</speed>
         <speedVariation>10</speedVariation> <!--%-->
-        <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
         <maxForkAngle>90</maxForkAngle>
