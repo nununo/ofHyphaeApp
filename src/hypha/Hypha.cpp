@@ -33,7 +33,7 @@ ofColor Hypha::calcColor(float angle) const {
 
 void Hypha::growOlder() {
   lifespan--;
-  if (lifespan<=0) {
+  if (lifespan<=0 || pos.length() > radius) {
     this->dead = true;
     throwDieEvent();
   }
