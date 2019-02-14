@@ -52,7 +52,6 @@
         <maxLifespan>200</maxLifespan>
         <speed>0.1</speed>
         <speedVariation>10</speedVariation> <!--%-->
-        <gravity>0.0001</gravity>
         <maxHeight>100</maxHeight>
         <distortion>1.0</distortion>
         <forkAgeRatio>2</forkAgeRatio>
