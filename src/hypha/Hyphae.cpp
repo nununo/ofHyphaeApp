@@ -73,11 +73,7 @@ void Hyphae::update() {
 }
 
 void Hyphae::draw() {
-  ofPushStyle();
-  ofEnableAlphaBlending();
-  ofSetColor(255,255,255,255);
   for(auto &itr: elements) {
     itr.draw();
   }
-  ofPopStyle();
 }
