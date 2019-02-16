@@ -20,8 +20,8 @@ ofApp::~ofApp() {
 void ofApp::addMycelium() {
   for(int i=0; i<1; i++) {
     s->addMycelium(ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
-                                        ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)),
-                                conidiaInk);
+                           ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)),
+                   conidiaInk);
   }
 }
 
