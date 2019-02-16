@@ -57,7 +57,6 @@
 		796F3C930E9F094E76752F24 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSlider.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		7B7822AD98C03F9EB207427D /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSliderGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
 		7D20814F21E4C267007DE176 /* Ink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ink.h; sourceTree = "<group>"; };
-		7D20815121E4C332007DE176 /* InkImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkImage.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D5F17FF2218394700705116 /* Mycelia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelia.cpp; sourceTree = "<group>"; };
 		7D5F18002218394700705116 /* Mycelia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mycelia.h; sourceTree = "<group>"; };
@@ -340,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				7D20814F21E4C267007DE176 /* Ink.h */,
-				7D20815121E4C332007DE176 /* InkImage.h */,
 				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
 				7D8903EE21E413240063F045 /* Mycelium.cpp */,
 				7D8903EF21E413240063F045 /* Mycelium.h */,
