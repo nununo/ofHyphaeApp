@@ -60,6 +60,23 @@
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D5F17FF2218394700705116 /* Mycelia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelia.cpp; sourceTree = "<group>"; };
 		7D5F18002218394700705116 /* Mycelia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mycelia.h; sourceTree = "<group>"; };
+		7D5F18042218528700705116 /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = settings.xml; sourceTree = "<group>"; };
+		7D5F18062218528700705116 /* bread_profile_mask_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread_profile_mask_retina.png; sourceTree = "<group>"; };
+		7D5F18072218528700705116 /* mold01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mold01.jpg; sourceTree = "<group>"; };
+		7D5F18082218528700705116 /* bread_profile_mask_negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread_profile_mask_negative.png; sourceTree = "<group>"; };
+		7D5F180A2218528700705116 /* sample07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample07.png; sourceTree = "<group>"; };
+		7D5F180B2218528700705116 /* sample06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample06.png; sourceTree = "<group>"; };
+		7D5F180C2218528700705116 /* sample10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample10.png; sourceTree = "<group>"; };
+		7D5F180D2218528700705116 /* sample04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample04.png; sourceTree = "<group>"; };
+		7D5F180E2218528700705116 /* sample05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample05.png; sourceTree = "<group>"; };
+		7D5F180F2218528700705116 /* sample01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample01.png; sourceTree = "<group>"; };
+		7D5F18102218528700705116 /* sample02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample02.png; sourceTree = "<group>"; };
+		7D5F18112218528700705116 /* sample03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample03.png; sourceTree = "<group>"; };
+		7D5F18122218528700705116 /* sample08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample08.png; sourceTree = "<group>"; };
+		7D5F18132218528700705116 /* sample09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample09.png; sourceTree = "<group>"; };
+		7D5F18142218528700705116 /* bread_profile_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread_profile_mask.png; sourceTree = "<group>"; };
+		7D5F18152218528700705116 /* empty_profile_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_profile_mask.png; sourceTree = "<group>"; };
+		7D5F18182218528700705116 /* alphamask.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = alphamask.frag; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Mycelium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelium.cpp; sourceTree = "<group>"; };
@@ -333,6 +350,63 @@
 				FFD54A340812C0BC71AFC0D5 /* ofxXmlSettings.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		7D5F18022218528700705116 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				7D5F18032218528700705116 /* settings */,
+				7D5F18052218528700705116 /* images */,
+				7D5F18172218528700705116 /* shaders */,
+			);
+			name = data;
+			path = bin/data;
+			sourceTree = "<group>";
+		};
+		7D5F18032218528700705116 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				7D5F18042218528700705116 /* settings.xml */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		7D5F18052218528700705116 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7D5F18062218528700705116 /* bread_profile_mask_retina.png */,
+				7D5F18072218528700705116 /* mold01.jpg */,
+				7D5F18082218528700705116 /* bread_profile_mask_negative.png */,
+				7D5F18092218528700705116 /* samples */,
+				7D5F18142218528700705116 /* bread_profile_mask.png */,
+				7D5F18152218528700705116 /* empty_profile_mask.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		7D5F18092218528700705116 /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				7D5F180A2218528700705116 /* sample07.png */,
+				7D5F180B2218528700705116 /* sample06.png */,
+				7D5F180C2218528700705116 /* sample10.png */,
+				7D5F180D2218528700705116 /* sample04.png */,
+				7D5F180E2218528700705116 /* sample05.png */,
+				7D5F180F2218528700705116 /* sample01.png */,
+				7D5F18102218528700705116 /* sample02.png */,
+				7D5F18112218528700705116 /* sample03.png */,
+				7D5F18122218528700705116 /* sample08.png */,
+				7D5F18132218528700705116 /* sample09.png */,
+			);
+			path = samples;
+			sourceTree = "<group>";
+		};
+		7D5F18172218528700705116 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				7D5F18182218528700705116 /* alphamask.frag */,
+			);
+			path = shaders;
 			sourceTree = "<group>";
 		};
 		7DF3E30C21FCE9300034502C /* mycelium */ = {
@@ -713,6 +787,7 @@
 				7D4908F321EA7A4700D2B263 /* TODO.md */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				7D5F18022218528700705116 /* data */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E42962AA2163EDD300A6A9E2 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
