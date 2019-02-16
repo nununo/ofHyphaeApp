@@ -16,9 +16,8 @@ Surface::Surface(const ofVec2f size, const CanvasSettings settings, const Myceli
   shader.setupShaderFromFile(GL_FRAGMENT_SHADER, settings.shaderFilename);
   shader.linkProgram();
 
-  initializeFbo(&fboHyphae, settings.backgroundColor);
+  initializeFbo(&fboHyphae, ofColor(0,0,0,0));
   initializeFbo(&fboConidia, ofColor(0,0,0,255));
-
 }
 
 Surface::~Surface() {
@@ -51,6 +50,7 @@ void Surface::drawPartsToFbo() {
 void Surface::draw() {
   drawPartsToFbo();
 
+  ofClear(settings.backgroundColor);
   ofPushStyle();
   ofEnableAlphaBlending();
   shader.begin();

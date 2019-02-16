@@ -109,10 +109,11 @@ void Hypha::draw() {
   if (isAlive()) {
     if (posIsNewPixel) {
       ofPushStyle();
-      ofEnableAlphaBlending();
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_ONE, GL_ONE);
       ofSetColor(color);
       ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
-      //drawZ();
+      glDisable(GL_BLEND);
       ofPopStyle();
       posIsNewPixel = false;
     }
