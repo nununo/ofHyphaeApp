@@ -1,5 +1,4 @@
 - Hypha: make transparency proportional to velocity/position angle 
-- Hypha: replace lifespan with death around a certain distance + maybe sudden death?
 - Hypha: review fertilityRate because it currently is really sterilityRate. Rethink it.
 
 - Move from github to git@barril
