@@ -14,6 +14,8 @@ class Hyphae {
 private:
   HyphaeSettings settings;
   float radius;
+  int newPrimalHyphaFramesPeriod;
+  int primalHyphaCount;
   std::list<Hypha> elements;
   
   void add(Hypha *hypha);

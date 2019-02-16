@@ -29,8 +29,8 @@ struct HyphaeSettings {
   int creationAreaSize;
   HyphaSettings hypha;
   int primalHyphaCount;
+  float newPrimalHyphaPeriod;
   int maxHyphaCount;
-  int newHyphaPeriod;
 };
 
 struct ConidiumSettings {

@@ -11,7 +11,8 @@
 Hyphae::Hyphae(const HyphaeSettings settings, float radius) {
   this->settings = settings;
   this->radius = radius;
-  generatePrimalHyphas();
+  this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * settings.newPrimalHyphaPeriod;
+  this->primalHyphaCount = 0;
 }
 
 void Hyphae::add(Hypha *hypha) {
@@ -21,12 +22,11 @@ void Hyphae::add(Hypha *hypha) {
 }
 
 void Hyphae::generatePrimalHyphas() {
-  float angleIncrement = 360/(float)settings.primalHyphaCount;
-  float offset = ofRandom(0,360);
-  for(int i=0; i<settings.primalHyphaCount; i++) {
-    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,i*angleIncrement+offset);
+  if (primalHyphaCount < settings.primalHyphaCount && ofGetFrameNum() % newPrimalHyphaFramesPeriod == 0) {
+    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,ofRandom(0,360));
     ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(new Hypha(pos, dir, this->radius, settings.hypha));
+    primalHyphaCount++;
   }
 }
 
@@ -68,6 +68,7 @@ void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
 void Hyphae::update() {
   removeAllDeadHypha();
   removeOlderHyphaIfOverpopulated();
+  generatePrimalHyphas();
   updateAllHypha();
 }
 
