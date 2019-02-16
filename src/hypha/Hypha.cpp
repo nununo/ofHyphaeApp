@@ -27,7 +27,7 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSett
 
 ofColor Hypha::calcColor(float angle) const {
   ofColor c = settings.color;
-  c.a = c.a * glm::pow(ofLerp(5.0f, 0.1f, angle/90.0f),2);
+  //c.a = c.a * glm::pow(ofLerp(5.0f, 0.1f, angle/90.0f),2);
   return c;
 }
 
