@@ -13,6 +13,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->settings = settings;
   this->lifespan = settings.lifespan;
   this->radius = ofRandom(settings.radiusRange.x, settings.radiusRange.y);
+  this->wasAlreadyAlive = false;
 
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);
@@ -36,8 +37,8 @@ Mycelium::~Mycelium() {
 
 MyceliumStats Mycelium::getStats() {
   MyceliumStats stats;
-  if (settings.hyphae.active) {stats.hyphaCount = hyphae->count();}
-  if (settings.conidia.active) {stats.conidiumCount = conidia->count();}
+  stats.hyphaCount = hyphaeCount();
+  stats.conidiumCount = conidiaCount();
   return stats;
 }
 
@@ -47,16 +48,27 @@ void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
   }
 }
 
-void Mycelium::update() {
+void Mycelium::growOlder() {
+  lifespan--;
+  // It can only die after it was alive (at least one conidium or hypha existed)
+  if (!wasAlreadyAlive) {
+    if (conidiaCount() > 0 || hyphaeCount() > 0) {
+      wasAlreadyAlive = true;
+    }
+  } else if (conidiaCount() == 0 && hyphaeCount() == 0) {
+    die();
+  }
+}
+
+void Mycelium::update() {  
   if (isAlive()) {
-    growOlder();
     if (settings.conidia.active) {
-      //perimeter->update();
       conidia->update();
     }
     if (settings.hyphae.active) {
       hyphae->update();
     }
+    growOlder();
   }
 }
 
