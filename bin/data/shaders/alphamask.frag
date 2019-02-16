@@ -3,7 +3,6 @@
 
 uniform sampler2DRect tex0;
 uniform sampler2DRect conidiaTex;
-uniform vec3 maskColor;
 
 void main (void){
   vec2 pos = gl_TexCoord[0].st;
