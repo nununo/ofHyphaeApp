@@ -6,7 +6,7 @@ void ofApp::setup(){
   ofSetFrameRate(settings->framerate);
   //ofSetVerticalSync(true);
   ofDisableAlphaBlending();
-  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->canvas);
+  s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->canvas, settings->mycelium);
   
   this->conidiaInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 2);
 
@@ -19,12 +19,9 @@ ofApp::~ofApp() {
 
 void ofApp::addMycelium() {
   for(int i=0; i<1; i++) {
-    s->addMycelium(new Mycelium(
-//                                ofVec2f(ofGetWidth()/2, ofGetHeight()/2),
-                                ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
+    s->addMycelium(ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
                                         ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)),
-                                settings->mycelium,
-                                conidiaInk));
+                                conidiaInk);
   }
 }
 
@@ -44,7 +41,7 @@ void ofApp::drawOSD() {
   string str = "frame rate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(str, 10,10);
 
-  SurfaceStats stats = s->getStats();
+  MyceliaStats stats = s->getMyceliaStats();
 
   str = "mycelia: "+ofToString(stats.myceliaCount);
   ofDrawBitmapString(str, 10,25);

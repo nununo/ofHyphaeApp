@@ -10,13 +10,6 @@
 
 #include "ofxXmlSettings.h"
 
-struct CanvasSettings {
-  int width;
-  int height;
-  std::filesystem::path shaderFilename;
-  ofColor backgroundColor;
-};
-
 struct HyphaSettings {
   int maxLifespan;
   ofColor color;
@@ -58,6 +51,12 @@ struct MyceliumSettings {
   HyphaeSettings hyphae;
 };
 
+struct CanvasSettings {
+  int width;
+  int height;
+  std::filesystem::path shaderFilename;
+  ofColor backgroundColor;
+};
 
 class Settings {
 private:

@@ -7,25 +7,26 @@
 
 #include "Surface.h"
 
-Surface::Surface(const ofVec2f size, const CanvasSettings settings) {
+Surface::Surface(const ofVec2f size, const CanvasSettings settings, const MyceliumSettings myceliumSettings) {
   this->size = size;
   this->settings = settings;
+
+  this->mycelia = new Mycelia(myceliumSettings);
 
   shader.setupShaderFromFile(GL_FRAGMENT_SHADER, settings.shaderFilename);
   shader.linkProgram();
 
   initializeFbo(&fboHyphae, settings.backgroundColor);
   initializeFbo(&fboConidia, ofColor(0,0,0,255));
+
 }
 
 Surface::~Surface() {
-  for(auto itr = mycelia.begin(); itr != mycelia.end(); ++itr ) {
-    itr = mycelia.erase(itr);
-  }
+  delete mycelia;
 }
 
 void Surface::initializeFbo(ofFbo *fbo, ofColor backgroundColor) {
-  fbo->allocate(getWidth(), getHeight());
+  fbo->allocate(size.x, size.y);
   fbo->begin();
   ofPushStyle();
   ofClear(backgroundColor);
@@ -33,38 +34,17 @@ void Surface::initializeFbo(ofFbo *fbo, ofColor backgroundColor) {
   fbo->end();
 }
 
-SurfaceStats Surface::getStats() {
-  SurfaceStats stats;
-  for(auto &itr: mycelia) {
-    auto myceliaStats = itr->getStats();
-    stats.hyphaCount += myceliaStats.hyphaCount;
-    stats.conidiumCount += myceliaStats.conidiumCount;
-  }
-  stats.myceliaCount = mycelia.size();
-  return stats;
-}
-
 void Surface::update() {
-  for(auto itr = mycelia.begin(); itr != mycelia.end(); ++itr ) {
-    if ((*itr)->isAlive()) {
-      (*itr)->update();
-    } else {
-      itr = mycelia.erase(itr);
-    }
-  }
+  mycelia->update();
 }
 
 void Surface::drawPartsToFbo() {
   fboHyphae.begin();
-  for(auto &itr: mycelia) {
-    itr->drawHyphae();
-  }
+  mycelia->drawHyphae();
   fboHyphae.end();
 
   fboConidia.begin();
-  for(auto &itr: mycelia) {
-    itr->drawConidia();
-  }
+  mycelia->drawConidia();
   fboConidia.end();
 }
 
@@ -72,7 +52,6 @@ void Surface::draw() {
   drawPartsToFbo();
 
   ofPushStyle();
-  ofClear(0,0,0);
   ofEnableAlphaBlending();
   shader.begin();
   shader.setUniformTexture("conidiaTex", fboConidia.getTexture(), 2 );

@@ -9,14 +9,8 @@
 #define Surface_hpp
 
 #include "ofMain.h"
-#include "Mycelium.h"
+#include "Mycelia.h"
 #include "Settings.h"
-
-struct SurfaceStats {
-  int myceliaCount = 0;
-  int hyphaCount = 0;
-  int conidiumCount = 0;
-};
 
 class Surface {
 private:
@@ -25,23 +19,20 @@ private:
   ofFbo fboHyphae;
   ofFbo fboConidia;
   ofShader shader;
-  std::list<Mycelium*> mycelia;
+  Mycelia *mycelia;
 
   void drawPartsToFbo();
   void initializeFbo(ofFbo *fbo, ofColor backgroundColor);
 
 public:
-  Surface(const ofVec2f size, const CanvasSettings settings);
+  Surface(const ofVec2f size, const CanvasSettings settings, const MyceliumSettings myceliumSettings);
   ~Surface();
   
-  float getWidth() const {return size.x;}
-  float getHeight() const {return size.y;}
   void update();
   void draw();
-  bool isAlive() const {return true;}
 
-  void addMycelium(Mycelium *m) {mycelia.push_back(m);}
-  SurfaceStats getStats();
+  void addMycelium(ofVec3f pos, Ink *conidiaInk) {mycelia->add(pos, conidiaInk);}
+  MyceliaStats getMyceliaStats() {return mycelia->getStats();}
 };
 
 #endif /* Surface_hpp */
