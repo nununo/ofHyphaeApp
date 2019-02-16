@@ -44,13 +44,16 @@ void ofApp::drawOSD() {
   string str = "frame rate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(str, 10,10);
 
-  MyceliumStats stats = s->getMyceliaStats();
+  SurfaceStats stats = s->getStats();
 
-  str = "hyphae: "+ofToString(stats.hyphaCount);
+  str = "mycelia: "+ofToString(stats.myceliaCount);
   ofDrawBitmapString(str, 10,25);
 
-  str = "conidia: "+ofToString(stats.conidiumCount);
+  str = "hyphae: "+ofToString(stats.hyphaCount);
   ofDrawBitmapString(str, 10,40);
+
+  str = "conidia: "+ofToString(stats.conidiumCount);
+  ofDrawBitmapString(str, 10,55);
 
   ofPopStyle();
 }

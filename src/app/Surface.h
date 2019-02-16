@@ -12,6 +12,12 @@
 #include "Mycelium.h"
 #include "Settings.h"
 
+struct SurfaceStats {
+  int myceliaCount = 0;
+  int hyphaCount = 0;
+  int conidiumCount = 0;
+};
+
 class Surface {
 private:
   ofVec2f size;
@@ -35,7 +41,7 @@ public:
   bool isAlive() const {return true;}
 
   void addMycelium(Mycelium *m) {mycelia.push_back(m);}
-  MyceliumStats getMyceliaStats();
+  SurfaceStats getStats();
 };
 
 #endif /* Surface_hpp */

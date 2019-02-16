@@ -33,14 +33,15 @@ void Surface::initializeFbo(ofFbo *fbo, ofColor backgroundColor) {
   fbo->end();
 }
 
-MyceliumStats Surface::getMyceliaStats() {
-  MyceliumStats globalStats;
+SurfaceStats Surface::getStats() {
+  SurfaceStats stats;
   for(auto &itr: mycelia) {
-    auto stats = itr->getStats();
-    globalStats.hyphaCount += stats.hyphaCount;
-    globalStats.conidiumCount += stats.conidiumCount;
+    auto myceliaStats = itr->getStats();
+    stats.hyphaCount += myceliaStats.hyphaCount;
+    stats.conidiumCount += myceliaStats.conidiumCount;
   }
-  return globalStats;
+  stats.myceliaCount = mycelia.size();
+  return stats;
 }
 
 void Surface::update() {
