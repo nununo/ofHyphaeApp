@@ -10,12 +10,6 @@
     <width>1280</width>
     <height>720</height>
     <shaderFilename>shaders/alphamask.frag</shaderFilename>
-    <maskFilename>images/bread_profile_mask.png</maskFilename>
-    <maskColor>
-      <r>255</r>
-      <g>255</g>
-      <b>255</b>
-    </maskColor>
     <backgroundColor>
       <r>255</r>
       <g>255</g>

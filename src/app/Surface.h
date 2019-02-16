@@ -16,7 +16,6 @@ class Surface {
 private:
   ofVec2f size;
   CanvasSettings settings;
-  ofImage mask;
   ofFbo fboHyphae;
   ofFbo fboConidia;
   ofShader shader;

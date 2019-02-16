@@ -14,9 +14,7 @@ struct CanvasSettings {
   int width;
   int height;
   std::filesystem::path shaderFilename;
-  std::filesystem::path maskFilename;
   ofColor backgroundColor;
-  ofColor maskColor;
 };
 
 struct HyphaSettings {
