@@ -69,8 +69,8 @@ void Mycelium::drawHyphae() const {
     ofPushMatrix();
     ofTranslate(this->pos);
     hyphae->draw();
-    border->draw();
-    rings->draw();
+    //border->draw();
+    //rings->draw();
     ofPopMatrix();
   }
 }
