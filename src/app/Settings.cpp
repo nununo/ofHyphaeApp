@@ -23,6 +23,7 @@ Settings::Settings(const string& xmlFile) {
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
 
+  mycelium.borderDistortion = xmlSettings.getValue("mycelia:mycelium:borderDistortion", 0.0f); // 0.3f
   mycelium.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:radiusRange:min", 10),
                                    xmlSettings.getValue("mycelia:mycelium:radiusRange:max", 10));
 

@@ -21,6 +21,7 @@
       <min>50</min>
       <max>100</max>
     </radiusRange>
+    <borderDistortion>0.3</borderDistortion>
     <conidia>
       <active>0</active>
       <conidium>

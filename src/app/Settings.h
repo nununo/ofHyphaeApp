@@ -41,6 +41,7 @@ struct ConidiaSettings {
 
 struct MyceliumSettings {
   ofVec2f radiusRange;
+  float borderDistortion;
   ConidiaSettings conidia;
   HyphaeSettings hyphae;
 };
