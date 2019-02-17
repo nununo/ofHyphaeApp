@@ -14,7 +14,6 @@ struct HyphaSettings {
   ofColor color;
   float speed;
   float speedVariation;
-  float distortion;
   float maxForkAngle;
   float maxBendAngle;
   float radiusTolerance;

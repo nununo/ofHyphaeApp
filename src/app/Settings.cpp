@@ -44,7 +44,6 @@ Settings::Settings(const string& xmlFile) {
                                         xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:color:a", 255));
   mycelium.hyphae.hypha.speed = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speed", 0.0f); // 0.005f
   mycelium.hyphae.hypha.speedVariation = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedVariation", 0.0f); // 10%
-  mycelium.hyphae.hypha.distortion = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:distortion", 1000.0f); // 1.0f
   mycelium.hyphae.hypha.maxForkAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxForkAngle", 1.0f); // 90
   mycelium.hyphae.hypha.maxBendAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxBendAngle", 10.0f); // 1
   mycelium.hyphae.hypha.radiusTolerance = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:radiusTolerance", 0.0f); // 10%

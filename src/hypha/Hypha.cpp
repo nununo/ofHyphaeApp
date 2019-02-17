@@ -38,8 +38,8 @@ ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
 }
 
 void Hypha::updateVelocity() {
-  float bendAngle = 2*(ofNoise(pos.x*settings.distortion+noiseOffset.x,
-                        pos.y*settings.distortion+noiseOffset.y)-0.5f)*settings.maxBendAngle;
+  float bendAngle = 2*(ofNoise(pos.x+noiseOffset.x,
+                        pos.y+noiseOffset.y)-0.5f)*settings.maxBendAngle;
   vel.rotate(bendAngle, ofVec3f(0,0,1));
 }
 

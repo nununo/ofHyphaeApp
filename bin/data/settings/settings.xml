@@ -44,7 +44,6 @@
         </color>
         <speed>0.4</speed>
         <speedVariation>20</speedVariation> <!--%-->
-        <distortion>1.0</distortion>
         <maxForkAngle>10</maxForkAngle>
         <maxBendAngle>3</maxBendAngle>
         <radiusTolerance>10</radiusTolerance> <!--%-->
