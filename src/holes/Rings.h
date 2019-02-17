@@ -22,6 +22,7 @@ private:
 
 public:
   Rings(HolesSettings settings);
+  ~Rings();
   void fill(ofVec2f pos);
   void draw();
   void onHoleFilled(PositionEventArgs &e);

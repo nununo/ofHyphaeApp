@@ -17,6 +17,13 @@ Rings::Rings(HolesSettings settings) {
   }
 }
 
+Rings::~Rings() {
+  for (int i=0; i<settings.maxRings; i++) {
+    ofRemoveListener(rings[i]->holeFilledEvent, this, &Rings::onHoleFilled);
+    delete rings[i];
+  }
+}
+
 void Rings::onHoleFilled(PositionEventArgs &e) {
   ofNotifyEvent(this->holeFilledEvent, e);
 }
