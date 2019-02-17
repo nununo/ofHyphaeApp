@@ -1,3 +1,4 @@
+- Make Conidium create more pixels per frame (since we now have 10fps)
 - Add circle mask
 - Detect other hyphae?
 
