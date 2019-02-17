@@ -14,6 +14,7 @@
 		6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E58DA97D3CAF3F74578F88 /* tinyxmlerror.cpp */; };
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
 		7D5F18012218394700705116 /* Mycelia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F17FF2218394700705116 /* Mycelia.cpp */; };
+		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
 		7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903E721E3C0C80063F045 /* Surface.cpp */; };
 		7D8903F021E413240063F045 /* Mycelium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EE21E413240063F045 /* Mycelium.cpp */; };
 		7DB0F23D21FA7F1C001A8E3E /* ConidiumDance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0F23B21FA7F1C001A8E3E /* ConidiumDance.cpp */; };
@@ -62,6 +63,8 @@
 		7D5F18002218394700705116 /* Mycelia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mycelia.h; sourceTree = "<group>"; };
 		7D5F18042218528700705116 /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = settings.xml; sourceTree = "<group>"; };
 		7D5F18182218528700705116 /* alphamask.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = alphamask.frag; sourceTree = "<group>"; };
+		7D5F181C2219985700705116 /* Border.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Border.cpp; sourceTree = "<group>"; };
+		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Mycelium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelium.cpp; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 		7DF3E30C21FCE9300034502C /* mycelium */ = {
 			isa = PBXGroup;
 			children = (
+				7D5F181C2219985700705116 /* Border.cpp */,
+				7D5F181D2219985700705116 /* Border.h */,
 				7D20814F21E4C267007DE176 /* Ink.h */,
 				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
 				7D8903EE21E413240063F045 /* Mycelium.cpp */,
@@ -870,6 +875,7 @@
 				F3DDAE2AA1D070E91A537EBC /* ofxGuiGroup.cpp in Sources */,
 				0ECC7B14C8561DF0F89CF3E6 /* ofxInputField.cpp in Sources */,
 				204A1C84FA14E65FA63D95C4 /* ofxLabel.cpp in Sources */,
+				7D5F181E2219985700705116 /* Border.cpp in Sources */,
 				DCDC2010C94095DC6E6D23BE /* ofxPanel.cpp in Sources */,
 				A315B62461489292F81EDB04 /* ofxSlider.cpp in Sources */,
 				7D8903F021E413240063F045 /* Mycelium.cpp in Sources */,
