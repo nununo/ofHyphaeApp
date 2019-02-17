@@ -34,8 +34,10 @@ public:
 
   void onHyphaFork(HyphaForkEventArgs &e);
   void onHyphaDie(PositionEventArgs &e);
+  void onHyphaPosition(PositionEventArgs &e);
 
   ofEvent<PositionEventArgs> hyphaDieEvent;
+  ofEvent<PositionEventArgs> hyphaPositionEvent;
 };
 
 #endif /* Hyphae_h */

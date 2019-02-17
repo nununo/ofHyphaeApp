@@ -74,6 +74,12 @@ void Hypha::throwDieEvent() {
   ofNotifyEvent(this->dieEvent, e);
 }
 
+void Hypha::throwPositionEvent() {
+  PositionEventArgs e;
+  e.pos = this->pos;
+  ofNotifyEvent(this->positionEvent, e);
+}
+
 void Hypha::update() {
   if (isAlive()) {
     pos += vel;
@@ -90,6 +96,7 @@ void Hypha::update() {
         if (--nextForkDistance==0) {
           fork();
         }
+        throwPositionEvent();
       }
     }
   }

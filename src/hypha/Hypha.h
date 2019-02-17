@@ -41,6 +41,7 @@ private:
   ofVec3f getInitialVelocity(const ofVec2f dir) const;
   void throwForkEvent();
   void throwDieEvent();
+  void throwPositionEvent();
 
 public:
   Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSettings settings, const int generation=0);
@@ -51,6 +52,7 @@ public:
 
   ofEvent<HyphaForkEventArgs> forkEvent;
   ofEvent<PositionEventArgs> dieEvent;
+  ofEvent<PositionEventArgs> positionEvent;
 };
 
 #endif /* Hypha_h */
