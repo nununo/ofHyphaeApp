@@ -36,7 +36,6 @@ void Conidia::update() {
 void Conidia::draw() {
   ofPushStyle();
   ofEnableAlphaBlending();
-  ofSetColor(255,255,255,255);
   for(auto &itr: elements) {
     itr.draw();
   }
