@@ -6,8 +6,8 @@
 //
 
 #include "Border.h"
-
 #include "ofMain.h"
+#include "Tools.h"
 
 Border::Border(BorderSettings settings) {
   this->settings = settings;
@@ -28,7 +28,7 @@ float Border::calcRadiusForAngle(float angle, float seed) const {
 }
 
 float Border::getRatio(float angle) const {
-  int i = ((int)(angle+360+0.5)%360)*settings.resolution;
+  int i = Tools::angleToInt(angle, settings.resolution);
   return radiuses[i];
 }
 
