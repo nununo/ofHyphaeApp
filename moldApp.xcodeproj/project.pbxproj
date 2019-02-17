@@ -15,6 +15,10 @@
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
 		7D5F18012218394700705116 /* Mycelia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F17FF2218394700705116 /* Mycelia.cpp */; };
 		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
+		7D5F182B2219BCE900705116 /* Perimeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18202219B76400705116 /* Perimeter.cpp */; };
+		7D5F182C2219BCF600705116 /* Rings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18242219B76400705116 /* Rings.cpp */; };
+		7D5F182D2219BCFB00705116 /* Ring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18232219B76400705116 /* Ring.cpp */; };
+		7D5F182E2219BCFE00705116 /* Hole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18252219B76400705116 /* Hole.cpp */; };
 		7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903E721E3C0C80063F045 /* Surface.cpp */; };
 		7D8903F021E413240063F045 /* Mycelium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EE21E413240063F045 /* Mycelium.cpp */; };
 		7DB0F23D21FA7F1C001A8E3E /* ConidiumDance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0F23B21FA7F1C001A8E3E /* ConidiumDance.cpp */; };
@@ -65,6 +69,15 @@
 		7D5F18182218528700705116 /* alphamask.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = alphamask.frag; sourceTree = "<group>"; };
 		7D5F181C2219985700705116 /* Border.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Border.cpp; sourceTree = "<group>"; };
 		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
+		7D5F18202219B76400705116 /* Perimeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Perimeter.cpp; sourceTree = "<group>"; };
+		7D5F18222219B76400705116 /* Ring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ring.h; sourceTree = "<group>"; };
+		7D5F18232219B76400705116 /* Ring.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ring.cpp; sourceTree = "<group>"; };
+		7D5F18242219B76400705116 /* Rings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rings.cpp; sourceTree = "<group>"; };
+		7D5F18252219B76400705116 /* Hole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hole.cpp; sourceTree = "<group>"; };
+		7D5F18262219B76400705116 /* Perimeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Perimeter.h; sourceTree = "<group>"; };
+		7D5F18272219B76400705116 /* Rings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rings.h; sourceTree = "<group>"; };
+		7D5F18282219B76400705116 /* Hole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
+		7D5F18292219B76400705116 /* EmptyHoleReachedEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyHoleReachedEventArgs.h; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Mycelium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelium.cpp; sourceTree = "<group>"; };
@@ -364,6 +377,22 @@
 				7D5F18182218528700705116 /* alphamask.frag */,
 			);
 			path = shaders;
+			sourceTree = "<group>";
+		};
+		7D5F181F2219B76400705116 /* holes */ = {
+			isa = PBXGroup;
+			children = (
+				7D5F18262219B76400705116 /* Perimeter.h */,
+				7D5F18202219B76400705116 /* Perimeter.cpp */,
+				7D5F18272219B76400705116 /* Rings.h */,
+				7D5F18242219B76400705116 /* Rings.cpp */,
+				7D5F18222219B76400705116 /* Ring.h */,
+				7D5F18232219B76400705116 /* Ring.cpp */,
+				7D5F18282219B76400705116 /* Hole.h */,
+				7D5F18252219B76400705116 /* Hole.cpp */,
+				7D5F18292219B76400705116 /* EmptyHoleReachedEventArgs.h */,
+			);
+			path = holes;
 			sourceTree = "<group>";
 		};
 		7DF3E30C21FCE9300034502C /* mycelium */ = {
@@ -759,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				7DF3E30E21FCEC6C0034502C /* app */,
+				7D5F181F2219B76400705116 /* holes */,
 				7DF3E30F21FCEE7C0034502C /* hypha */,
 				7DF3E30D21FCE9DD0034502C /* conidium */,
 				7DF3E30C21FCE9300034502C /* mycelium */,
@@ -864,6 +894,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D5F182B2219BCE900705116 /* Perimeter.cpp in Sources */,
+				7D5F182C2219BCF600705116 /* Rings.cpp in Sources */,
+				7D5F182D2219BCFB00705116 /* Ring.cpp in Sources */,
+				7D5F182E2219BCFE00705116 /* Hole.cpp in Sources */,
 				7DF3E31521FD0B9A0034502C /* Conidia.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
