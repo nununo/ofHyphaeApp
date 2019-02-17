@@ -14,12 +14,12 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->wasAlreadyAlive = false;
 
   this->border = new Border(settings.border);
-  
+  this->perimeter = new Perimeter(settings.holes);
+
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);
-    this->perimeter = new Perimeter(settings.holes);
   }
-  
+
   if (settings.hyphae.active) {
     this->hyphae = new Hyphae(settings.hyphae, border);
     ofAddListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
@@ -65,6 +65,7 @@ void Mycelium::drawHyphae() const {
     ofTranslate(this->pos);
     hyphae->draw();
     border->draw();
+    perimeter->draw();
     ofPopMatrix();
   }
 }
