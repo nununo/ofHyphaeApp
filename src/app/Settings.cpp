@@ -23,7 +23,7 @@ Settings::Settings(const string& xmlFile) {
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
 
-  mycelium.holes.space = xmlSettings.getValue("mycelia:mycelium:holes:space", 10); // 10
+  mycelium.holes.space = xmlSettings.getValue("mycelia:mycelium:holes:space", 10.0f); // 10
   mycelium.holes.resolution = xmlSettings.getValue("mycelia:mycelium:holes:resolution", 1); // 10
   mycelium.holes.maxRings = xmlSettings.getValue("mycelia:mycelium:holes:maxRings", 3); // 10
 

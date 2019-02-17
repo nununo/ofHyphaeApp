@@ -20,14 +20,14 @@
     <holes>
       <space>10</space>
       <resolution>10</resolution>
-      <maxRings>50</maxRings>
+      <maxRings>30</maxRings>
     </holes>
     <border>
       <resolution>10</resolution>
       <distortion>0.3</distortion>
       <radiusRange>
-        <min>50</min>
-        <max>100</max>
+        <min>100</min>
+        <max>200</max>
       </radiusRange>
     </border>
     <conidia>

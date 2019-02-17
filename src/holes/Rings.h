@@ -15,14 +15,18 @@
 
 class Rings {
 private:
-  Ring *rings[MAX_RINGS];
   HolesSettings settings;
+  std::array<Ring*, MAX_RINGS> rings;
+
+  int getRing(float radius) {return (int)(radius/settings.space);}
 
 public:
   Rings(HolesSettings settings);
-  int getRing(float radius) {return (int)(radius/settings.space);}
-  ofVec2f fill(int ring, float angle);
+  void fill(ofVec2f pos);
   void draw();
+  void onHoleFilled(HoleFilledEventArgs &e);
+
+  ofEvent<HoleFilledEventArgs> holeFilledEvent;
 };
 
 #endif /* Rings_h */

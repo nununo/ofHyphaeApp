@@ -9,13 +9,21 @@
 
 Rings::Rings(HolesSettings settings) {
   this->settings = settings;
-  for (int r=0; r<settings.maxRings; r++) {
-    rings[r] = new Ring(settings.space, r*settings.space);
+  for (int i=0; i<settings.maxRings; i++) {
+    Ring *r = new Ring(settings.space, i*settings.space);
+    rings[i] = r;
+    ofAddListener(r->holeFilledEvent, this, &Rings::onHoleFilled);
   }
 }
 
-ofVec2f Rings::fill(int ring, float angle) {
-  return rings[ring]->fill(angle);
+void Rings::onHoleFilled(HoleFilledEventArgs &e) {
+  ofNotifyEvent(this->holeFilledEvent, e);
+}
+
+void Rings::fill(ofVec2f pos) {
+  float angle = ofVec2f(1,0).angle(pos);
+  int i = getRing(pos.length());
+  rings[i]->fill(angle);
 }
 
 void Rings::draw() {

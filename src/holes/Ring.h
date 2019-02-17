@@ -9,6 +9,7 @@
 #define Ring_h
 
 #include "Hole.h"
+#include "HoleFilledEventArgs.h"
 
 #define ANGLE_RESOLUTION 10
 
@@ -20,11 +21,14 @@ private:
 
   int getNumElements(float space, int radius);
   int getAngleIndex(float angle) {return (int)(angle*ANGLE_RESOLUTION +0.5f);}
+  void throwHoleFilledEvent(ofVec2f pos);
 
 public:
   Ring(float space, int radius);
-  ofVec2f fill(float angle);
+  void fill(float angle);
   void draw();
+
+  ofEvent<HoleFilledEventArgs> holeFilledEvent;
 };
 
 #endif /* Ring_h */

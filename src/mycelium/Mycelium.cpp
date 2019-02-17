@@ -14,7 +14,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->wasAlreadyAlive = false;
 
   this->border = new Border(settings.border);
-  this->perimeter = new Perimeter(settings.holes);
+  this->rings = new Rings(settings.holes);
 
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);
@@ -35,6 +35,7 @@ Mycelium::~Mycelium() {
     delete conidia;
   }
   delete border;
+  delete rings;
 }
 
 MyceliumStats Mycelium::getStats() {
@@ -65,7 +66,7 @@ void Mycelium::drawHyphae() const {
     ofTranslate(this->pos);
     hyphae->draw();
     border->draw();
-    perimeter->draw();
+    rings->draw();
     ofPopMatrix();
   }
 }

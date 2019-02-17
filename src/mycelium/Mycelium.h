@@ -11,7 +11,7 @@
 #include "ofMain.h"
 #include "Conidia.h"
 #include "Hyphae.h"
-#include "Perimeter.h"
+#include "Rings.h"
 #include "Settings.h"
 
 struct MyceliumStats {
@@ -27,7 +27,7 @@ private:
   MyceliumSettings settings;
   Hyphae *hyphae = NULL;
   Conidia *conidia = NULL;
-  Perimeter *perimeter = NULL;
+  Rings *rings = NULL;
   bool wasAlreadyAlive = false;
   
   int conidiaCount() const {return (conidia? conidia->count() : 0);}

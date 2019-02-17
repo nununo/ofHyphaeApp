@@ -46,7 +46,7 @@ struct BorderSettings {
 };
 
 struct HolesSettings {
-  int space;
+  float space;
   int resolution;
   int maxRings;
 };
