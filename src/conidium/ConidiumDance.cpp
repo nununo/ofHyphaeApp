@@ -20,6 +20,5 @@ void ConidiumDance::update() {
 
 void ConidiumDance::draw() {
   ofSetColor(ink->getColor(cursor));
-  ofFill();
   ofDrawRectangle(cursor.x, cursor.y, 1, 1);
 }
