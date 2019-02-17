@@ -17,7 +17,7 @@ Surface::Surface(const ofVec2f size, const CanvasSettings settings, const Myceli
   shader.linkProgram();
 
   initializeFbo(&fboHyphae, ofColor(0,0,0,0));
-  initializeFbo(&fboConidia, ofColor(0,0,0,255));
+  initializeFbo(&fboConidia, ofColor(0,0,0,0));
 }
 
 Surface::~Surface() {
@@ -57,6 +57,5 @@ void Surface::draw() {
   shader.setUniformTexture("conidiaTex", fboConidia.getTexture(), 2 );
   fboHyphae.draw(0, 0);
   shader.end();
-  ofDisableAlphaBlending();
   ofPopStyle();
 }
