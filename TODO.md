@@ -1,6 +1,5 @@
-- Hyphae: why does the color stall at grey?
-- Hypha: make transparency proportional to velocity/position angle 
-- Hypha: review fertilityRate because it currently is really sterilityRate. Rethink it.
+- Distort circle
+- Detect other hyphae?
 
 - Move from github to git@barril
 
