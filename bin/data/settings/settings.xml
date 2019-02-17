@@ -31,10 +31,10 @@
       </radiusRange>
     </border>
     <conidia>
-      <active>0</active>
+      <active>1</active>
       <conidium>
         <lifespan>2000</lifespan>
-        <delay>10</delay>
+        <delay>0</delay>
         <recenterRatio>0.98</recenterRatio>
       </conidium>
     </conidia>

@@ -14,30 +14,30 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->wasAlreadyAlive = false;
 
   this->border = new Border(settings.border);
-  this->rings = new Rings(settings.holes);
-
-  if (settings.conidia.active) {
-    this->conidia = new Conidia(conidiaInk, settings.conidia);
-  }
 
   if (settings.hyphae.active) {
     this->hyphae = new Hyphae(settings.hyphae, border);
-    ofAddListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
+  }
+
+  if (settings.conidia.active) {
+    this->conidia = new Conidia(conidiaInk, settings.conidia);
+    this->rings = new Rings(settings.holes);
     ofAddListener(this->hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
+    ofAddListener(this->rings->holeFilledEvent, this, &Mycelium::onRingsHoleFilled);
   }
 }
 
 Mycelium::~Mycelium() {
   if (settings.hyphae.active) {
-    ofRemoveListener(hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
-    ofRemoveListener(hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
     delete hyphae;
   }
   if (settings.conidia.active) {
+    ofRemoveListener(hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
+    ofRemoveListener(rings->holeFilledEvent, this, &Mycelium::onRingsHoleFilled);
     delete conidia;
+    delete rings;
   }
   delete border;
-  delete rings;
 }
 
 MyceliumStats Mycelium::getStats() {
@@ -47,11 +47,12 @@ MyceliumStats Mycelium::getStats() {
   return stats;
 }
 
-void Mycelium::onHyphaDie(PositionEventArgs &e) {
-}
-
 void Mycelium::onHyphaPosition(PositionEventArgs &e) {
   rings->fill(e.pos);
+}
+
+void Mycelium::onRingsHoleFilled(PositionEventArgs &e) {
+  conidia->add(e.pos);
 }
 
 void Mycelium::update() {  
