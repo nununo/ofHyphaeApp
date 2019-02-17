@@ -45,7 +45,14 @@ struct BorderSettings {
   ofVec2f radiusRange;
 };
 
+struct HolesSettings {
+  int space;
+  int resolution;
+  int maxRings;
+};
+
 struct MyceliumSettings {
+  HolesSettings holes;
   BorderSettings border;
   ConidiaSettings conidia;
   HyphaeSettings hyphae;

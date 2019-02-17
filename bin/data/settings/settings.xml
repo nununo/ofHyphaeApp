@@ -17,6 +17,11 @@
     </backgroundColor>
   </canvas>
   <mycelium>
+    <holes>
+      <space>10</space>
+      <resolution>10</resolution>
+      <maxRings>10</maxRings>
+    </holes>
     <border>
       <resolution>10</resolution>
       <distortion>0.3</distortion>
