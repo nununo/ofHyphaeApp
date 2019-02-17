@@ -13,12 +13,13 @@
 #include "HyphaForkEventArgs.h"
 #include "HyphaDieEventArgs.h"
 #include "Settings.h"
+#include "Border.h"
 
 class Hypha {
 private:
   HyphaSettings settings;
   int generation;
-  float radius;
+  Border *border;
   ofVec2f noiseOffset;
   ofColor color;
 
@@ -35,14 +36,14 @@ private:
   void updateVelocity();
   void calcNextForkDistance();
   void fork();
-  float calcDeathRadius();
+  float calcDeathRadius() const;
   
   ofVec3f getInitialVelocity(const ofVec2f dir) const;
   void throwForkEvent();
   void throwDieEvent();
 
 public:
-  Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSettings settings, const int generation=0);
+  Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSettings settings, const int generation=0);
   bool isAlive() const {return !dead;}
   void update();
   void draw();

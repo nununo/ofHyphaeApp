@@ -9,10 +9,10 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSettings settings, const int generation) {
+Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSettings settings, const int generation) {
   this->pos = pos;
   this->settings = settings;
-  this->radius = radius;
+  this->border = border;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
   this->deathRadius = calcDeathRadius();
@@ -23,8 +23,10 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSett
   calcNextForkDistance();
 }
 
-float Hypha::calcDeathRadius() {
-  return ofRandom(radius-radius*settings.radiusTolerance/100.0f, radius);
+float Hypha::calcDeathRadius() const {
+  float angle = ofVec2f(1,0).angle(vel);
+  return border->getRadius(angle);
+  //return ofRandom(radius-radius*settings.radiusTolerance/100.0f, radius);
 }
 
 void Hypha::die() {

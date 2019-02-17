@@ -11,15 +11,16 @@
 Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk) {
   this->pos = pos;
   this->settings = settings;
-  this->radius = ofRandom(settings.radiusRange.x, settings.radiusRange.y);
   this->wasAlreadyAlive = false;
 
+  this->border = new Border(ofRandom(settings.radiusRange.x, settings.radiusRange.y), 10, 0.3);
+  
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);
   }
   
   if (settings.hyphae.active) {
-    this->hyphae = new Hyphae(settings.hyphae, this->radius);
+    this->hyphae = new Hyphae(settings.hyphae, border);
     ofAddListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
   }
 }
@@ -32,6 +33,7 @@ Mycelium::~Mycelium() {
   if (settings.conidia.active) {
     delete conidia;
   }
+  delete border;
 }
 
 MyceliumStats Mycelium::getStats() {
@@ -61,6 +63,7 @@ void Mycelium::drawHyphae() const {
     ofPushMatrix();
     ofTranslate(this->pos);
     hyphae->draw();
+    border->draw();
     ofPopMatrix();
   }
 }

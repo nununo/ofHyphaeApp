@@ -13,7 +13,7 @@
 class Hyphae {
 private:
   HyphaeSettings settings;
-  float radius;
+  Border *border;
   int newPrimalHyphaFramesPeriod;
   int primalHyphaCount;
   std::list<Hypha> elements;
@@ -26,7 +26,7 @@ private:
   void updateAllHypha();
 
 public:
-  Hyphae(const HyphaeSettings settings, float radius);
+  Hyphae(const HyphaeSettings settings, Border *border);
   void update();
   void draw();
   int count() const {return elements.size();}

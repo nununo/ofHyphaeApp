@@ -18,8 +18,8 @@
   </canvas>
   <mycelium>
     <radiusRange>
-      <min>300</min>
-      <max>1000</max>
+      <min>50</min>
+      <max>100</max>
     </radiusRange>
     <conidia>
       <active>0</active>
