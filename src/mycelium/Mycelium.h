@@ -11,6 +11,7 @@
 #include "ofMain.h"
 #include "Conidia.h"
 #include "Hyphae.h"
+#include "Perimeter.h"
 #include "Settings.h"
 
 struct MyceliumStats {
@@ -24,8 +25,9 @@ private:
   ofVec2f pos;
   Border *border;
   MyceliumSettings settings;
-  Conidia *conidia = NULL;
   Hyphae *hyphae = NULL;
+  Conidia *conidia = NULL;
+  Perimeter *perimeter = NULL;
   bool wasAlreadyAlive = false;
   
   int conidiaCount() const {return (conidia? conidia->count() : 0);}

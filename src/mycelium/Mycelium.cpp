@@ -17,6 +17,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);
+    this->perimeter = new Perimeter(settings.holes);
   }
   
   if (settings.hyphae.active) {

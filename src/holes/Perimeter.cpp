@@ -27,7 +27,7 @@ void Perimeter::update(ofVec2f pos) {
   int ring = rings->getRing(cursors[i]);
   ofVec2f ringPos = rings->fill(ring, i);
   if (ringPos.x != 0 || ringPos.y != 0) {
-    static EmptyHoleReachedEventArgs event;
+    EmptyHoleReachedEventArgs event;
     event.pos = ringPos;
     ofNotifyEvent(this->emptyHoleReachedEvent, event);
   }
