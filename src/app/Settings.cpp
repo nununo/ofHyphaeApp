@@ -23,7 +23,6 @@ Settings::Settings(const string& xmlFile) {
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
 
-  mycelium.lifespan = xmlSettings.getValue("mycelia:mycelium:lifespan", 1); // 10000
   mycelium.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:radiusRange:min", 10),
                                    xmlSettings.getValue("mycelia:mycelium:radiusRange:max", 10));
 

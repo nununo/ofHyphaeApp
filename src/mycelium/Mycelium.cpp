@@ -11,7 +11,6 @@
 Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk) {
   this->pos = pos;
   this->settings = settings;
-  this->lifespan = settings.lifespan;
   this->radius = ofRandom(settings.radiusRange.x, settings.radiusRange.y);
   this->wasAlreadyAlive = false;
 
@@ -48,32 +47,17 @@ void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
   }
 }
 
-void Mycelium::growOlder() {
-  lifespan--;
-  // It can only die after it was alive (at least one conidium or hypha existed)
-  if (!wasAlreadyAlive) {
-    if (conidiaCount() > 0 || hyphaeCount() > 0) {
-      wasAlreadyAlive = true;
-    }
-  } else if (conidiaCount() == 0 && hyphaeCount() == 0) {
-    die();
-  }
-}
-
 void Mycelium::update() {  
-  if (isAlive()) {
-    if (settings.conidia.active) {
-      conidia->update();
-    }
-    if (settings.hyphae.active) {
-      hyphae->update();
-    }
-    growOlder();
+  if (settings.conidia.active) {
+    conidia->update();
+  }
+  if (settings.hyphae.active) {
+    hyphae->update();
   }
 }
 
 void Mycelium::drawHyphae() const {
-  if (isAlive() && settings.hyphae.active) {
+  if (settings.hyphae.active) {
     ofPushMatrix();
     ofTranslate(this->pos);
     hyphae->draw();
@@ -82,7 +66,7 @@ void Mycelium::drawHyphae() const {
 }
 
 void Mycelium::drawConidia() const {
-  if (isAlive() && settings.conidia.active) {
+  if (settings.conidia.active) {
     ofPushMatrix();
     ofTranslate(this->pos);
     conidia->draw();

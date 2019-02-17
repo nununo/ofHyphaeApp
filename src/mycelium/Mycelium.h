@@ -24,15 +24,12 @@ private:
   ofVec2f pos;
   float radius;
   MyceliumSettings settings;
-  int lifespan;
   Conidia *conidia = NULL;
   Hyphae *hyphae = NULL;
   bool wasAlreadyAlive = false;
   
-  void growOlder();
-  void die() {lifespan = 0;};
-  int conidiaCount() {return (conidia? conidia->count() : 0);}
-  int hyphaeCount() {return (hyphae? hyphae->count() : 0);}
+  int conidiaCount() const {return (conidia? conidia->count() : 0);}
+  int hyphaeCount() const {return (hyphae? hyphae->count() : 0);}
 
 public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk);
@@ -41,7 +38,7 @@ public:
   void update();
   void drawConidia() const;
   void drawHyphae() const;
-  bool isAlive() const {return lifespan > 0;}
+  bool isAlive() const {return (!wasAlreadyAlive || conidiaCount() > 0 || hyphaeCount() > 0);}
   MyceliumStats getStats();
 
   void onHyphaDie(HyphaDieEventArgs &e);

@@ -41,7 +41,6 @@ struct ConidiaSettings {
 };
 
 struct MyceliumSettings {
-  int lifespan;
   ofVec2f radiusRange;
   ConidiaSettings conidia;
   HyphaeSettings hyphae;

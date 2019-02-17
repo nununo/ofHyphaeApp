@@ -17,7 +17,6 @@
     </backgroundColor>
   </canvas>
   <mycelium>
-    <lifespan>99999</lifespan>
     <radiusRange>
       <min>300</min>
       <max>1000</max>
