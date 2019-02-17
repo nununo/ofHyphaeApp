@@ -21,6 +21,7 @@ private:
   std::array<float, 360> cursors;
 
   void drawCursor();
+  void throwEmptyHoleReachedEvent(ofVec2f pos);
 
 public:
   Perimeter(HolesSettings settings);

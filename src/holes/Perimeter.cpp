@@ -24,17 +24,22 @@ void Perimeter::update(ofVec2f pos) {
   float angle = ofVec2f(1,0).angle(pos);
   int i = ((int)(angle+0.5f)+360)%360;
   cursors[i] = pos.length();
+
   int ring = rings->getRing(cursors[i]);
   ofVec2f ringPos = rings->fill(ring, i);
   if (ringPos.x != 0 || ringPos.y != 0) {
-    EmptyHoleReachedEventArgs event;
-    event.pos = ringPos;
-    ofNotifyEvent(this->emptyHoleReachedEvent, event);
+    throwEmptyHoleReachedEvent(ringPos);
   }
 }
 
+void Perimeter::throwEmptyHoleReachedEvent(ofVec2f pos) {
+  EmptyHoleReachedEventArgs event;
+  event.pos = pos;
+  ofNotifyEvent(this->emptyHoleReachedEvent, event);
+}
+
 void Perimeter::draw() {
-  drawCursor();
+  //drawCursor();
   rings->draw();
 }
 
