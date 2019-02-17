@@ -6,6 +6,7 @@
 //
 
 #include "Rings.h"
+#include "Tools.h"
 
 Rings::Rings(HolesSettings settings) {
   this->settings = settings;
@@ -21,7 +22,7 @@ void Rings::onHoleFilled(PositionEventArgs &e) {
 }
 
 void Rings::fill(ofVec2f pos) {
-  float angle = ofVec2f(1,0).angle(pos);
+  float angle = Tools::posToAngle(pos);
   int i = getRing(pos.length());
   rings[i]->fill(angle);
 }
