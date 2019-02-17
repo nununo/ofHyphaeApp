@@ -74,7 +74,13 @@ void Hyphae::update() {
 }
 
 void Hyphae::draw() {
+  ofPushStyle();
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_ONE, GL_ONE);
+  ofSetColor(settings.hypha.color);
   for(auto &itr: elements) {
     itr.draw();
   }
+  glDisable(GL_BLEND);
+  ofPopStyle();
 }

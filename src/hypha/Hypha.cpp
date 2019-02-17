@@ -19,7 +19,6 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSe
   this->deathRadius = calcDeathRadius();
   
   this->forkCount = 0;
-  this->color = settings.color;
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
 }
@@ -104,13 +103,7 @@ void Hypha::update() {
 
 void Hypha::draw() {
   if (isAlive() && posIsNewPixel) {
-    ofPushStyle();
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_ONE, GL_ONE);
-    ofSetColor(color);
     ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
-    glDisable(GL_BLEND);
-    ofPopStyle();
     posIsNewPixel = false;
   }
 }

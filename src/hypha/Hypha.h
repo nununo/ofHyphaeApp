@@ -21,7 +21,6 @@ private:
   int generation;
   Border *border;
   ofVec2f noiseOffset;
-  ofColor color;
 
   ofVec2f pos;
   ofVec2f vel;
