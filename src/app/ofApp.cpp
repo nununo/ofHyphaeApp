@@ -8,7 +8,8 @@ void ofApp::setup(){
   ofDisableAlphaBlending();
   s = new Surface(ofVec2f(ofGetWidth(), ofGetHeight()), settings->canvas, settings->mycelium);
   
-  this->conidiaInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 2);
+  //this->conidiaInk = new InkColor(ofColor::fromHsb(ofRandom(0,255), 255, 255), 20);
+  this->conidiaInk = new InkColor(ofColor::red, 3);
 
   addMycelium();
 }
