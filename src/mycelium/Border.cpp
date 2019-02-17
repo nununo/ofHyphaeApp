@@ -9,7 +9,8 @@
 
 #include "ofMain.h"
 
-Border::Border(int resolution, float distortion) {
+Border::Border(float radius, int resolution, float distortion) {
+  this->radius = radius;
   this->resolution = resolution;
   generateRadiuses(distortion);
 }
@@ -26,12 +27,12 @@ float Border::calcRadiusForAngle(float angle, float distortion, float seed) cons
   return 1+ofNoise(p.x*distortion+seed, p.y*distortion+seed);
 }
 
-float Border::getRadius(float angle) const {
+float Border::getRatio(float angle) const {
   int i = (int)(angle*resolution+0.5);
   return radiuses[i];
 }
 
-void Border::draw(float radius) const {
+void Border::draw() const {
   ofPushStyle();
   ofSetColor(255, 0, 0);
   for(int i=0; i<resolution*360; i++) {

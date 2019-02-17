@@ -13,14 +13,16 @@
 class Border {
 private:
   int resolution;
+  float radius;
   std::vector<float> radiuses;
   
   void generateRadiuses(float distortion);
   float calcRadiusForAngle(float angle, float distortion, float seed) const;
 public:
-  Border(int resolution, float distortion);
-  float getRadius(float angle) const;
-  void draw(float radius) const;
+  Border(float radius, int resolution, float distortion);
+  float getRatio(float angle) const;
+  float getRadius(float angle) const {getRatio(angle)*radius;}
+  void draw() const;
   
 };
 
