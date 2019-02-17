@@ -78,6 +78,7 @@
 		7D5F18272219B76400705116 /* Rings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rings.h; sourceTree = "<group>"; };
 		7D5F18282219B76400705116 /* Hole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
 		7D5F18292219B76400705116 /* EmptyHoleReachedEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyHoleReachedEventArgs.h; sourceTree = "<group>"; };
+		7D5F182F2219C48200705116 /* HoleFilledEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoleFilledEventArgs.h; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Mycelium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelium.cpp; sourceTree = "<group>"; };
@@ -391,6 +392,7 @@
 				7D5F18282219B76400705116 /* Hole.h */,
 				7D5F18252219B76400705116 /* Hole.cpp */,
 				7D5F18292219B76400705116 /* EmptyHoleReachedEventArgs.h */,
+				7D5F182F2219C48200705116 /* HoleFilledEventArgs.h */,
 			);
 			path = holes;
 			sourceTree = "<group>";
