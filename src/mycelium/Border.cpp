@@ -28,7 +28,7 @@ float Border::calcRadiusForAngle(float angle, float distortion, float seed) cons
 }
 
 float Border::getRatio(float angle) const {
-  int i = (int)(angle*resolution+0.5);
+  int i = ((int)(angle+360+0.5)%360)*resolution;
   return radiuses[i];
 }
 

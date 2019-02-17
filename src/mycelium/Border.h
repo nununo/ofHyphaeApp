@@ -21,7 +21,7 @@ private:
 public:
   Border(float radius, int resolution, float distortion);
   float getRatio(float angle) const;
-  float getRadius(float angle) const {getRatio(angle)*radius;}
+  float getRadius(float angle) const {return getRatio(angle)*radius;}
   void draw() const;
   
 };
