@@ -44,6 +44,7 @@ public:
   MyceliumStats getStats();
 
   void onHyphaDie(PositionEventArgs &e);
+  void onHyphaPosition(PositionEventArgs &e);
 };
 
 #endif /* Mycelium_h */

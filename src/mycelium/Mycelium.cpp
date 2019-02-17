@@ -23,12 +23,14 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   if (settings.hyphae.active) {
     this->hyphae = new Hyphae(settings.hyphae, border);
     ofAddListener(this->hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
+    ofAddListener(this->hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
   }
 }
 
 Mycelium::~Mycelium() {
   if (settings.hyphae.active) {
     ofRemoveListener(hyphae->hyphaDieEvent, this, &Mycelium::onHyphaDie);
+    ofRemoveListener(hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
     delete hyphae;
   }
   if (settings.conidia.active) {
@@ -46,9 +48,10 @@ MyceliumStats Mycelium::getStats() {
 }
 
 void Mycelium::onHyphaDie(PositionEventArgs &e) {
-  if (settings.conidia.active) {
-    conidia->add(e.pos);
-  }
+}
+
+void Mycelium::onHyphaPosition(PositionEventArgs &e) {
+  rings->fill(e.pos);
 }
 
 void Mycelium::update() {  
