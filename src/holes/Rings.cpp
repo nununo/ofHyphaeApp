@@ -19,7 +19,7 @@ ofVec2f Rings::fill(int ring, float angle) {
 }
 
 void Rings::draw() {
-  for(int ring=1; ring<30; ring++) {
+  for(int ring=1; ring<settings.maxRings; ring++) {
     rings[ring]->draw();
   }
 }
