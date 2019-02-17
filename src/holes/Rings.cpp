@@ -31,7 +31,9 @@ void Rings::onHoleFilled(PositionEventArgs &e) {
 void Rings::fill(ofVec2f pos) {
   float angle = Tools::posToAngle(pos);
   int i = getRing(pos.length());
-  rings[i]->fill(angle);
+  if (i<settings.maxRings) {
+    rings[i]->fill(angle);
+  }
 }
 
 void Rings::draw() {
