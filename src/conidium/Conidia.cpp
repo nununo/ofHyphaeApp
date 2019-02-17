@@ -34,10 +34,7 @@ void Conidia::update() {
 }
 
 void Conidia::draw() {
-  ofPushStyle();
-  ofEnableAlphaBlending();
   for(auto &itr: elements) {
     itr.draw();
   }
-  ofPopStyle();
 }

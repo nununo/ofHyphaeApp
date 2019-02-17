@@ -41,12 +41,7 @@ void Conidium::draw() {
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);
     ofRotateZDeg(this->angle);
-    ofPushStyle();
     this->dance->draw();
-    ofPopStyle();
-    //ofSetColor(255,255,255);
-    //ofDrawRectangle(0, 5, 1, -10);
-    //ofDrawRectangle(0, 0, 1, 1);
     ofPopMatrix();
   }
 }

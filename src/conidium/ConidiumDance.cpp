@@ -19,6 +19,11 @@ void ConidiumDance::update() {
 }
 
 void ConidiumDance::draw() {
+  ofPushStyle();
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_ONE, GL_ONE);
   ofSetColor(ink->getColor(cursor));
   ofDrawRectangle(cursor.x, cursor.y, 1, 1);
+  glDisable(GL_BLEND);
+  ofPopStyle();
 }
