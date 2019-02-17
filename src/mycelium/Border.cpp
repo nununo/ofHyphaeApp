@@ -9,34 +9,34 @@
 
 #include "ofMain.h"
 
-Border::Border(float radius, int resolution, float distortion) {
-  this->radius = radius;
-  this->resolution = resolution;
-  generateRadiuses(distortion);
+Border::Border(BorderSettings settings) {
+  this->settings = settings;
+  this->radius = ofRandom(settings.radiusRange.x, settings.radiusRange.y);
+  generateRadiuses();
 }
 
-void Border::generateRadiuses(float distortion) {
+void Border::generateRadiuses() {
   float seed = ofRandom(0,1000);
-  for (int i=0; i<resolution*360; i++) {
-    radiuses.push_back(calcRadiusForAngle(i/(float)resolution, distortion, seed));
+  for (int i=0; i<settings.resolution*360; i++) {
+    radiuses.push_back(calcRadiusForAngle(i/(float)settings.resolution, seed));
   }
 }
 
-float Border::calcRadiusForAngle(float angle, float distortion, float seed) const {
+float Border::calcRadiusForAngle(float angle, float seed) const {
   ofVec2f p = ofVec2f(1,0).rotate(angle);
-  return 1+ofNoise(p.x*distortion+seed, p.y*distortion+seed);
+  return 1+ofNoise(p.x*settings.distortion+seed, p.y*settings.distortion+seed);
 }
 
 float Border::getRatio(float angle) const {
-  int i = ((int)(angle+360+0.5)%360)*resolution;
+  int i = ((int)(angle+360+0.5)%360)*settings.resolution;
   return radiuses[i];
 }
 
 void Border::draw() const {
   ofPushStyle();
   ofSetColor(255, 0, 0);
-  for(int i=0; i<resolution*360; i++) {
-    ofVec2f p = ofVec2f(radius*radiuses[i],0).rotate(i/(float)resolution);
+  for(int i=0; i<settings.resolution*360; i++) {
+    ofVec2f p = ofVec2f(radius*radiuses[i],0).rotate(i/(float)settings.resolution);
     ofDrawRectangle(p.x, p.y, 1, 1);
   }
   ofPopStyle();

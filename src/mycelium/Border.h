@@ -9,17 +9,18 @@
 #define Border_h
 
 #include <vector>
+#include "Settings.h"
 
 class Border {
 private:
-  int resolution;
+  BorderSettings settings;
   float radius;
   std::vector<float> radiuses;
   
-  void generateRadiuses(float distortion);
-  float calcRadiusForAngle(float angle, float distortion, float seed) const;
+  void generateRadiuses();
+  float calcRadiusForAngle(float angle, float seed) const;
 public:
-  Border(float radius, int resolution, float distortion);
+  Border(BorderSettings settings);
   float getRatio(float angle) const;
   float getRadius(float angle) const {return getRatio(angle)*radius;}
   void draw() const;

@@ -23,9 +23,10 @@ Settings::Settings(const string& xmlFile) {
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
 
-  mycelium.borderDistortion = xmlSettings.getValue("mycelia:mycelium:borderDistortion", 0.0f); // 0.3f
-  mycelium.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:radiusRange:min", 10),
-                                   xmlSettings.getValue("mycelia:mycelium:radiusRange:max", 10));
+  mycelium.border.resolution = xmlSettings.getValue("mycelia:mycelium:border:resolution", 1); // 10
+  mycelium.border.distortion = xmlSettings.getValue("mycelia:mycelium:border:distortion", 0.0f); // 0.3f
+  mycelium.border.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:border:radiusRange:min", 10),
+                                        xmlSettings.getValue("mycelia:mycelium:border:radiusRange:max", 10));
 
   mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
 

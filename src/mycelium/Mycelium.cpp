@@ -13,7 +13,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->settings = settings;
   this->wasAlreadyAlive = false;
 
-  this->border = new Border(ofRandom(settings.radiusRange.x, settings.radiusRange.y), 10, 0.3);
+  this->border = new Border(settings.border);
   
   if (settings.conidia.active) {
     this->conidia = new Conidia(conidiaInk, settings.conidia);

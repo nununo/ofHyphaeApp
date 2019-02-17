@@ -39,9 +39,14 @@ struct ConidiaSettings {
   ConidiumSettings conidium;
 };
 
-struct MyceliumSettings {
+struct BorderSettings {
+  int resolution;
+  float distortion;
   ofVec2f radiusRange;
-  float borderDistortion;
+};
+
+struct MyceliumSettings {
+  BorderSettings border;
   ConidiaSettings conidia;
   HyphaeSettings hyphae;
 };

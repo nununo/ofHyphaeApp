@@ -17,11 +17,14 @@
     </backgroundColor>
   </canvas>
   <mycelium>
-    <radiusRange>
-      <min>50</min>
-      <max>100</max>
-    </radiusRange>
-    <borderDistortion>0.3</borderDistortion>
+    <border>
+      <resolution>10</resolution>
+      <distortion>0.3</distortion>
+      <radiusRange>
+        <min>50</min>
+        <max>100</max>
+      </radiusRange>
+    </border>
     <conidia>
       <active>0</active>
       <conidium>

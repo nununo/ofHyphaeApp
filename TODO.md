@@ -1,5 +1,4 @@
 - Add circle mask
-- Distort circle
 - Detect other hyphae?
 
 - Reintroduce Conidia
