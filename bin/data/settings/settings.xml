@@ -18,9 +18,9 @@
   </canvas>
   <mycelium>
     <holes>
-      <space>10</space>
+      <space>5</space>
       <resolution>10</resolution>
-      <maxRings>30</maxRings>
+      <maxRings>100</maxRings>
     </holes>
     <border>
       <resolution>10</resolution>
@@ -35,7 +35,7 @@
       <conidium>
         <lifespan>2000</lifespan>
         <delay>0</delay>
-        <recenterRatio>0.98</recenterRatio>
+        <recenterRatio>0.99</recenterRatio>
       </conidium>
     </conidia>
     <hyphae>
