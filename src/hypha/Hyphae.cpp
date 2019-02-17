@@ -13,6 +13,7 @@ Hyphae::Hyphae(const HyphaeSettings settings, float radius) {
   this->radius = radius;
   this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * settings.newPrimalHyphaPeriod;
   this->primalHyphaCount = 0;
+  this->sterile = false;
 }
 
 void Hyphae::add(Hypha *hypha) {
@@ -22,8 +23,10 @@ void Hyphae::add(Hypha *hypha) {
 }
 
 void Hyphae::generatePrimalHyphas() {
-  if (primalHyphaCount < settings.primalHyphaCount && ofGetFrameNum() % newPrimalHyphaFramesPeriod == 0) {
-    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,ofRandom(0,360));
+  if (primalHyphaCount < settings.primalHyphaCount &&
+      (newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % newPrimalHyphaFramesPeriod == 0)) {
+    float angle = ofRandom(0,360);
+    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
     ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(new Hypha(pos, dir, this->radius, settings.hypha));
     primalHyphaCount++;
@@ -42,23 +45,16 @@ void Hyphae::removeAllDeadHypha() {
   }
 }
 
-void Hyphae::removeOlderHyphaIfOverpopulated() {
-  int tooMany = elements.size() - settings.maxHyphaCount;
-  for(auto &itr: elements) {
-    if (tooMany-- > 0) {
-      itr.die();
-    }
-  }
-}
-
-void Hyphae::updateAllHypha() {
-  for(auto &itr: elements) {
-    itr.update();
+void Hyphae::sterilizeIfFull() {
+  if (elements.size() >= settings.maxHyphaCount) {
+    sterile = true;
   }
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(new Hypha(e.pos, e.dir, radius, settings.hypha, e.generation));
+  if (!sterile) {
+    add(new Hypha(e.pos, e.dir, radius, settings.hypha, e.generation));
+  }
 }
 
 void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
@@ -66,10 +62,9 @@ void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
 }
 
 void Hyphae::update() {
+  sterilizeIfFull();
   removeAllDeadHypha();
-  removeOlderHyphaIfOverpopulated();
   generatePrimalHyphas();
-  updateAllHypha();
 }
 
 void Hyphae::draw() {

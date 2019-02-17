@@ -1,5 +1,5 @@
 <mycelia>
-  <framerate>60</framerate>
+  <framerate>10</framerate>
   <osdColor>
     <r>0</r>
     <g>0</g>
@@ -19,8 +19,8 @@
   <mycelium>
     <lifespan>99999</lifespan>
     <radiusRange>
-      <min>200</min>
-      <max>600</max>
+      <min>300</min>
+      <max>1000</max>
     </radiusRange>
     <conidia>
       <active>0</active>
@@ -32,26 +32,22 @@
     </conidia>
     <hyphae>
       <active>1</active>
-      <creationAreaSize>0</creationAreaSize>
+      <creationAreaSize>3</creationAreaSize>
       <primalHyphaCount>100</primalHyphaCount>
-      <newPrimalHyphaPeriod>0.1</newPrimalHyphaPeriod> <!--seconds-->
-      <maxHyphaCount>10000</maxHyphaCount>
+      <newPrimalHyphaPeriod>0.01</newPrimalHyphaPeriod> <!--seconds-->
+      <maxHyphaCount>20000</maxHyphaCount>
       <hypha>
         <color>
           <r>0</r>
           <g>0</g>
           <b>0</b>
-          <a>1</a>
+          <a>2</a>
         </color>
-        <maxLifespan>300</maxLifespan>
-        <speed>0.1</speed>
-        <speedVariation>10</speedVariation> <!--%-->
+        <speed>0.4</speed>
+        <speedVariation>20</speedVariation> <!--%-->
         <distortion>1.0</distortion>
-        <forkAgeRatio>10</forkAgeRatio>
         <maxForkAngle>10</maxForkAngle>
-        <maxBendAngle>1</maxBendAngle>
-        <fertilityRateRatio>2</fertilityRateRatio>
-        <fertilityRatePower>1</fertilityRatePower>
+        <maxBendAngle>3</maxBendAngle>
         <radiusTolerance>10</radiusTolerance> <!--%-->
       </hypha>
     </hyphae>

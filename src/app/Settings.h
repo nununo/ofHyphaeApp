@@ -11,16 +11,12 @@
 #include "ofxXmlSettings.h"
 
 struct HyphaSettings {
-  int maxLifespan;
   ofColor color;
   float speed;
   float speedVariation;
   float distortion;
-  float forkAgeRatio;
   float maxForkAngle;
   float maxBendAngle;
-  float fertilityRateRatio;
-  float fertilityRatePower;
   float radiusTolerance;
 };
 

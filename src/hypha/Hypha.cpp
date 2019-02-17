@@ -15,33 +15,21 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, float radius, const HyphaSett
   this->radius = radius;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
-  this->nextDeathRadius = calcDeathRadius();
+  this->deathRadius = calcDeathRadius();
   
   this->forkCount = 0;
-  float angle = getAngle(this->pos, this->vel);
-  this->lifespan = ofRandom(1,getMaxLifespan(angle));
-  this->color = calcColor(angle);
+  this->color = settings.color;
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
-}
-
-ofColor Hypha::calcColor(float angle) const {
-  ofColor c = settings.color;
-  //c.a = c.a * glm::pow(ofLerp(5.0f, 0.1f, angle/90.0f),2);
-  return c;
 }
 
 float Hypha::calcDeathRadius() {
   return ofRandom(radius-radius*settings.radiusTolerance/100.0f, radius);
 }
 
-void Hypha::growOlder() {
-  lifespan--;
-  if (lifespan<=0 || pos.length() > nextDeathRadius) {
-    dead = true;
-    nextDeathRadius = calcDeathRadius();
-    throwDieEvent();
-  }
+void Hypha::die() {
+  dead = true;
+  throwDieEvent();
 }
 
 ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
@@ -55,18 +43,15 @@ void Hypha::updateVelocity() {
   vel.rotate(bendAngle, ofVec3f(0,0,1));
 }
 
-float Hypha::getFertilityRate() const {
-  return settings.fertilityRateRatio*(pow(generation/2.0f+forkCount,settings.fertilityRatePower)+1);
-}
-
 void Hypha::calcNextForkDistance() {
-  this->nextForkDistance = (int)(ofRandom(1,(getFertilityRate()))+0.5f);
+  float length = pos.length();
+  this->nextForkDistance = (int)(ofRandom(length,length)+0.5f);
 }
 
 void Hypha::fork() {
   throwForkEvent();
 
-  this->lifespan /= settings.forkAgeRatio;
+  //this->lifespan /= settings.forkAgeRatio;
   this->forkCount++;
 
   calcNextForkDistance();
@@ -90,38 +75,34 @@ void Hypha::throwDieEvent() {
 void Hypha::update() {
   if (isAlive()) {
     pos += vel;
-    ofVec2f newIntPos = ofVec3f((int)(pos.x+0.5f),
-                                (int)(pos.y+0.5f));
-    if (newIntPos != lastIntPos) {
-      growOlder();
-      updateVelocity();
-      lastIntPos = newIntPos;
-      posIsNewPixel = true;
-      nextForkDistance--;
-      if (nextForkDistance==0) {
-        fork();
+    if (pos.length() > deathRadius) {
+      die();
+    } else {
+      ofVec2f newIntPos = ofVec3f((int)(pos.x+0.5f),
+                                  (int)(pos.y+0.5f));
+      if (newIntPos != lastIntPos) {
+
+        updateVelocity();
+        lastIntPos = newIntPos;
+        posIsNewPixel = true;
+        if (--nextForkDistance==0) {
+          fork();
+        }
       }
     }
   }
 }
 
 void Hypha::draw() {
-  if (isAlive()) {
-    if (posIsNewPixel) {
-      ofPushStyle();
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_ONE, GL_ONE);
-      ofSetColor(color);
-      ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
-      glDisable(GL_BLEND);
-      ofPopStyle();
-      posIsNewPixel = false;
-    }
-  } else {
-    //ofPushStyle();
-    //ofSetColor(0, 0, 255);
-    //ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
-    //ofPopStyle();
+  if (isAlive() && posIsNewPixel) {
+    ofPushStyle();
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, GL_ONE);
+    ofSetColor(color);
+    ofDrawRectangle(this->pos.x, this->pos.y, 1, 1);
+    glDisable(GL_BLEND);
+    ofPopStyle();
+    posIsNewPixel = false;
   }
 }
 

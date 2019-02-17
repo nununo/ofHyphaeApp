@@ -39,7 +39,6 @@ Settings::Settings(const string& xmlFile) {
   mycelium.hyphae.newPrimalHyphaPeriod = xmlSettings.getValue("mycelia:mycelium:hyphae:newPrimalHyphaPeriod", 0.0f); // 100
   mycelium.hyphae.maxHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:maxHyphaCount", 0); // 10000
 
-  mycelium.hyphae.hypha.maxLifespan = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxLifespan", 1); // 100000
   mycelium.hyphae.hypha.color = ofColor(xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:color:r", 255),
                                         xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:color:g", 0),
                                         xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:color:b", 0),
@@ -47,10 +46,7 @@ Settings::Settings(const string& xmlFile) {
   mycelium.hyphae.hypha.speed = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speed", 0.0f); // 0.005f
   mycelium.hyphae.hypha.speedVariation = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:speedVariation", 0.0f); // 10%
   mycelium.hyphae.hypha.distortion = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:distortion", 1000.0f); // 1.0f
-  mycelium.hyphae.hypha.forkAgeRatio = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:forkAgeRatio", 10000.0f); // 2.0f
   mycelium.hyphae.hypha.maxForkAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxForkAngle", 1.0f); // 90
   mycelium.hyphae.hypha.maxBendAngle = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:maxBendAngle", 10.0f); // 1
-  mycelium.hyphae.hypha.fertilityRateRatio = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:fertilityRateRatio", 0.0f); // 5
-  mycelium.hyphae.hypha.fertilityRatePower = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:fertilityRatePower", 0.0f); // 3
   mycelium.hyphae.hypha.radiusTolerance = xmlSettings.getValue("mycelia:mycelium:hyphae:hypha:radiusTolerance", 0.0f); // 10%
 }

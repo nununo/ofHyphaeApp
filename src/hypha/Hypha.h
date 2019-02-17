@@ -26,20 +26,15 @@ private:
   ofVec2f vel;
   ofVec2f lastIntPos;
   bool posIsNewPixel;
-  int lifespan;
   int nextForkDistance;
   int forkCount;
-  float nextDeathRadius;
+  float deathRadius;
   bool dead;
 
   void growOlder();
   void updateVelocity();
-  float getFertilityRate() const;
   void calcNextForkDistance();
   void fork();
-  float getAngle(ofVec2f p, ofVec2f d) const {return ofClamp(abs(pos.angle(vel)),0.0f,90.0f);} // absolute and clamped
-  float getMaxLifespan(float angle) const {return ofLerp(1.0f, 0.01f, angle/90.0f)*settings.maxLifespan;}
-  ofColor calcColor(float angle) const;
   float calcDeathRadius();
   
   ofVec3f getInitialVelocity(const ofVec2f dir) const;
@@ -51,7 +46,7 @@ public:
   bool isAlive() const {return !dead;}
   void update();
   void draw();
-  void die() {this->lifespan=1; growOlder();}
+  void die();
 
   ofEvent<HyphaForkEventArgs> forkEvent;
   ofEvent<HyphaDieEventArgs> dieEvent;

@@ -17,11 +17,12 @@ private:
   int newPrimalHyphaFramesPeriod;
   int primalHyphaCount;
   std::list<Hypha> elements;
+  bool sterile;
   
   void add(Hypha *hypha);
   void generatePrimalHyphas();
   void removeAllDeadHypha();
-  void removeOlderHyphaIfOverpopulated();
+  void sterilizeIfFull();
   void updateAllHypha();
 
 public:
