@@ -9,7 +9,7 @@
 #define Ring_h
 
 #include "Hole.h"
-#include "HoleFilledEventArgs.h"
+#include "PositionEventArgs.h"
 
 #define ANGLE_RESOLUTION 10
 
@@ -28,7 +28,7 @@ public:
   void fill(float angle);
   void draw();
 
-  ofEvent<HoleFilledEventArgs> holeFilledEvent;
+  ofEvent<PositionEventArgs> holeFilledEvent;
 };
 
 #endif /* Ring_h */

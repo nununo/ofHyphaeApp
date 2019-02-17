@@ -11,7 +11,7 @@
 #include "ofMain.h"
 #include "Ink.h"
 #include "HyphaForkEventArgs.h"
-#include "HyphaDieEventArgs.h"
+#include "PositionEventArgs.h"
 #include "Settings.h"
 #include "Border.h"
 
@@ -50,7 +50,7 @@ public:
   void die();
 
   ofEvent<HyphaForkEventArgs> forkEvent;
-  ofEvent<HyphaDieEventArgs> dieEvent;
+  ofEvent<PositionEventArgs> dieEvent;
 };
 
 #endif /* Hypha_h */

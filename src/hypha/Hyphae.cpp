@@ -57,7 +57,7 @@ void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   }
 }
 
-void Hyphae::onHyphaDie(HyphaDieEventArgs &e) {
+void Hyphae::onHyphaDie(PositionEventArgs &e) {
   ofNotifyEvent(this->hyphaDieEvent, e);
 }
 

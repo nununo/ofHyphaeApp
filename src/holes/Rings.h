@@ -24,9 +24,9 @@ public:
   Rings(HolesSettings settings);
   void fill(ofVec2f pos);
   void draw();
-  void onHoleFilled(HoleFilledEventArgs &e);
+  void onHoleFilled(PositionEventArgs &e);
 
-  ofEvent<HoleFilledEventArgs> holeFilledEvent;
+  ofEvent<PositionEventArgs> holeFilledEvent;
 };
 
 #endif /* Rings_h */

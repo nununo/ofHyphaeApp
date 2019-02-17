@@ -43,7 +43,7 @@ public:
   bool isAlive() const {return (!wasAlreadyAlive || conidiaCount() > 0 || hyphaeCount() > 0);}
   MyceliumStats getStats();
 
-  void onHyphaDie(HyphaDieEventArgs &e);
+  void onHyphaDie(PositionEventArgs &e);
 };
 
 #endif /* Mycelium_h */

@@ -69,7 +69,7 @@ void Hypha::throwForkEvent() {
 }
 
 void Hypha::throwDieEvent() {
-  HyphaDieEventArgs e;
+  PositionEventArgs e;
   e.pos = this->pos;
   ofNotifyEvent(this->dieEvent, e);
 }

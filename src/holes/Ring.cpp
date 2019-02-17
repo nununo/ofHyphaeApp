@@ -39,9 +39,9 @@ void Ring::fill(float angle) {
 }
 
 void Ring::throwHoleFilledEvent(ofVec2f pos) {
-  HoleFilledEventArgs args;
-  args.pos = pos;
-  ofNotifyEvent(this->holeFilledEvent, args);
+  PositionEventArgs e;
+  e.pos = pos;
+  ofNotifyEvent(this->holeFilledEvent, e);
 }
 
 void Ring::draw() {

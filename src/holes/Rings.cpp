@@ -16,7 +16,7 @@ Rings::Rings(HolesSettings settings) {
   }
 }
 
-void Rings::onHoleFilled(HoleFilledEventArgs &e) {
+void Rings::onHoleFilled(PositionEventArgs &e) {
   ofNotifyEvent(this->holeFilledEvent, e);
 }
 

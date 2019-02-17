@@ -74,7 +74,7 @@
 		7D5F18252219B76400705116 /* Hole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hole.cpp; sourceTree = "<group>"; };
 		7D5F18272219B76400705116 /* Rings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rings.h; sourceTree = "<group>"; };
 		7D5F18282219B76400705116 /* Hole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
-		7D5F182F2219C48200705116 /* HoleFilledEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoleFilledEventArgs.h; sourceTree = "<group>"; };
+		7D5F18302219D57100705116 /* PositionEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PositionEventArgs.h; sourceTree = "<group>"; };
 		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
 		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Mycelium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelium.cpp; sourceTree = "<group>"; };
@@ -90,7 +90,6 @@
 		7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaForkEventArgs.h; sourceTree = "<group>"; };
 		7DF3E31A21FE1AD60034502C /* Settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
 		7DF3E31B21FE1AD60034502C /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		7DF46C3F220A4ADD007BB1CF /* HyphaDieEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaDieEventArgs.h; sourceTree = "<group>"; };
 		7DFEC78621E7D06E009DC9DD /* Conidium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidium.cpp; sourceTree = "<group>"; };
 		7DFEC78721E7D06E009DC9DD /* Conidium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidium.h; sourceTree = "<group>"; };
 		7DFEC78A21E7D1F0009DC9DD /* InkColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkColor.h; sourceTree = "<group>"; };
@@ -385,7 +384,6 @@
 				7D5F18232219B76400705116 /* Ring.cpp */,
 				7D5F18282219B76400705116 /* Hole.h */,
 				7D5F18252219B76400705116 /* Hole.cpp */,
-				7D5F182F2219C48200705116 /* HoleFilledEventArgs.h */,
 			);
 			path = holes;
 			sourceTree = "<group>";
@@ -428,6 +426,7 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				7DF3E31A21FE1AD60034502C /* Settings.cpp */,
 				7DF3E31B21FE1AD60034502C /* Settings.h */,
+				7D5F18302219D57100705116 /* PositionEventArgs.h */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -440,7 +439,6 @@
 				7DF3E31621FD123C0034502C /* Hyphae.cpp */,
 				7DF3E31721FD123C0034502C /* Hyphae.h */,
 				7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */,
-				7DF46C3F220A4ADD007BB1CF /* HyphaDieEventArgs.h */,
 			);
 			path = hypha;
 			sourceTree = "<group>";

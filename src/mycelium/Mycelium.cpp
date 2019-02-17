@@ -45,7 +45,7 @@ MyceliumStats Mycelium::getStats() {
   return stats;
 }
 
-void Mycelium::onHyphaDie(HyphaDieEventArgs &e) {
+void Mycelium::onHyphaDie(PositionEventArgs &e) {
   if (settings.conidia.active) {
     conidia->add(e.pos);
   }
