@@ -6,6 +6,7 @@
 //
 
 #include "Hypha.h"
+#include "Tools.h"
 
 #define OFFSET_MAX 1000
 
@@ -24,9 +25,8 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSe
 }
 
 float Hypha::calcDeathRadius() const {
-  float angle = ofVec2f(1,0).angle(vel);
+  float angle = Tools::posToAngle(vel);
   return border->getRadius(angle);
-  //return ofRandom(radius-radius*settings.radiusTolerance/100.0f, radius);
 }
 
 void Hypha::die() {
