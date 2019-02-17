@@ -20,6 +20,7 @@ private:
 public:
   Border(int resolution, float distortion);
   float getRadius(float angle) const;
+  void draw(float radius) const;
   
 };
 
