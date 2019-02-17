@@ -20,7 +20,7 @@
     <holes>
       <space>10</space>
       <resolution>10</resolution>
-      <maxRings>10</maxRings>
+      <maxRings>50</maxRings>
     </holes>
     <border>
       <resolution>10</resolution>
