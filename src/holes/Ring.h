@@ -20,7 +20,6 @@ private:
   Hole holes[360*ANGLE_RESOLUTION];
 
   int getNumElements(float space, int radius);
-  int getAngleIndex(float angle) {return (int)(angle*ANGLE_RESOLUTION +0.5f);}
   void throwHoleFilledEvent(ofVec2f pos);
 
 public:

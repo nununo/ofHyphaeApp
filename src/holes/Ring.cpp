@@ -6,6 +6,7 @@
 //
 
 #include "Ring.h"
+#include "Tools.h"
 
 Ring::Ring(float space, int radius) {
   if (radius > 0) {
@@ -28,7 +29,7 @@ int Ring::getNumElements(float space, int radius) {
 }
 
 void Ring::fill(float angle) {
-  int angleIndex = getAngleIndex(angle);
+  int angleIndex = Tools::angleToInt(angle, ANGLE_RESOLUTION);
   bool result;
   for (int i=angleIndex; i<angleIndex+ANGLE_RESOLUTION; i++) {
     if (holes[i].fill()) {
