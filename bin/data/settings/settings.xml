@@ -26,8 +26,8 @@
       <resolution>10</resolution>
       <distortion>0.3</distortion>
       <radiusRange>
-        <min>100</min>
-        <max>200</max>
+        <min>50</min>
+        <max>150</max>
       </radiusRange>
     </border>
     <conidia>
@@ -39,10 +39,9 @@
       </conidium>
     </conidia>
     <hyphae>
-      <active>1</active>
       <creationAreaSize>3</creationAreaSize>
       <primalHyphaCount>100</primalHyphaCount>
-      <newPrimalHyphaPeriod>0.01</newPrimalHyphaPeriod> <!--seconds-->
+      <newPrimalHyphaPeriod>0.02</newPrimalHyphaPeriod> <!--seconds-->
       <maxHyphaCount>20000</maxHyphaCount>
       <hypha>
         <color>
@@ -51,7 +50,7 @@
           <b>0</b>
           <a>2</a>
         </color>
-        <speed>0.4</speed>
+        <speed>0.8</speed>
         <speedVariation>20</speedVariation> <!--%-->
         <maxForkAngle>10</maxForkAngle>
         <maxBendAngle>3</maxBendAngle>

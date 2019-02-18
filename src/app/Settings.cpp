@@ -38,7 +38,6 @@ Settings::Settings(const string& xmlFile) {
   mycelium.conidia.conidium.delay = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:delay", 0.0f); // 10.0f
   mycelium.conidia.conidium.recenterRatio = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:recenterRatio", 0.0f); // 0.98f
 
-  mycelium.hyphae.active = xmlSettings.getValue("mycelia:mycelium:hyphae:active", 0); // 1
   mycelium.hyphae.creationAreaSize = xmlSettings.getValue("mycelia:mycelium:hyphae:creationAreaSize", 1000); // 40
   mycelium.hyphae.primalHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:primalHyphaCount", 0); // 10
   mycelium.hyphae.newPrimalHyphaPeriod = xmlSettings.getValue("mycelia:mycelium:hyphae:newPrimalHyphaPeriod", 0.0f); // 100

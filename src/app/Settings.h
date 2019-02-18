@@ -20,7 +20,6 @@ struct HyphaSettings {
 };
 
 struct HyphaeSettings {
-  bool active;
   int creationAreaSize;
   HyphaSettings hypha;
   int primalHyphaCount;
