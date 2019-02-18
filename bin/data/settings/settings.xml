@@ -30,14 +30,6 @@
         <max>150</max>
       </radiusRange>
     </border>
-    <conidia>
-      <active>1</active>
-      <conidium>
-        <lifespan>2000</lifespan>
-        <delay>0</delay>
-        <recenterRatio>0.99</recenterRatio>
-      </conidium>
-    </conidia>
     <hyphae>
       <creationAreaSize>3</creationAreaSize>
       <primalHyphaCount>100</primalHyphaCount>
@@ -48,14 +40,22 @@
           <r>0</r>
           <g>0</g>
           <b>0</b>
-          <a>2</a>
+          <a>50</a>
         </color>
-        <speed>0.8</speed>
+        <speed>4</speed> <!--pixels/s-->
         <speedVariation>20</speedVariation> <!--%-->
         <maxForkAngle>10</maxForkAngle>
         <maxBendAngle>3</maxBendAngle>
         <radiusTolerance>10</radiusTolerance> <!--%-->
       </hypha>
+      <conidia>
+        <active>0</active>
+        <conidium>
+          <lifespan>2000</lifespan>
+          <delay>0</delay>
+          <recenterRatio>0.99</recenterRatio>
+        </conidium>
+      </conidia>
     </hyphae>
   </mycelium>
 </mycelia>
