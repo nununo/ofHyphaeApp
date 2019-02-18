@@ -33,10 +33,8 @@ public:
   bool isAlive() const {return count() > 0;}
 
   void onHyphaFork(HyphaForkEventArgs &e);
-  void onHyphaDie(PositionEventArgs &e);
   void onHyphaPosition(PositionEventArgs &e);
 
-  ofEvent<PositionEventArgs> hyphaDieEvent;
   ofEvent<PositionEventArgs> hyphaPositionEvent;
 };
 

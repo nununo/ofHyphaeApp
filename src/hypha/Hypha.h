@@ -50,7 +50,6 @@ public:
   void die();
 
   ofEvent<HyphaForkEventArgs> forkEvent;
-  ofEvent<PositionEventArgs> dieEvent;
   ofEvent<PositionEventArgs> positionEvent;
 };
 

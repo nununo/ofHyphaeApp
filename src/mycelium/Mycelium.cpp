@@ -14,11 +14,10 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->wasAlreadyAlive = false;
 
   this->border = new Border(settings.border);
-
   this->hyphae = new Hyphae(settings.hyphae, border);
-
   this->conidia = new Conidia(conidiaInk, settings.conidia);
   this->rings = new Rings(settings.holes);
+
   if (settings.conidia.active) {
     ofAddListener(this->hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
     ofAddListener(this->rings->holeFilledEvent, this, &Mycelium::onRingsHoleFilled);

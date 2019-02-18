@@ -18,7 +18,6 @@ Hyphae::Hyphae(const HyphaeSettings settings, Border *border) {
 
 void Hyphae::add(Hypha *hypha) {
   ofAddListener(hypha->forkEvent, this, &Hyphae::onHyphaFork);
-  ofAddListener(hypha->dieEvent, this, &Hyphae::onHyphaDie);
   ofAddListener(hypha->positionEvent, this, &Hyphae::onHyphaPosition);
   elements.push_back(*hypha);
 }
@@ -38,7 +37,6 @@ void Hyphae::removeAllDeadHypha() {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (!itr->isAlive()) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-      ofRemoveListener(itr->dieEvent, this, &Hyphae::onHyphaDie);
       ofRemoveListener(itr->positionEvent, this, &Hyphae::onHyphaPosition);
       itr = elements.erase(itr);
     } else {
@@ -57,10 +55,6 @@ void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   if (!sterile) {
     add(new Hypha(e.pos, e.dir, border, settings.hypha, e.generation));
   }
-}
-
-void Hyphae::onHyphaDie(PositionEventArgs &e) {
-  ofNotifyEvent(this->hyphaDieEvent, e);
 }
 
 void Hyphae::onHyphaPosition(PositionEventArgs &e) {

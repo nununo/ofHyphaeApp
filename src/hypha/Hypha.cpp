@@ -30,7 +30,6 @@ float Hypha::calcDeathRadius() const {
 
 void Hypha::die() {
   dead = true;
-  throwDieEvent();
 }
 
 ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
@@ -51,10 +50,7 @@ void Hypha::calcNextForkDistance() {
 
 void Hypha::fork() {
   throwForkEvent();
-
-  //this->lifespan /= settings.forkAgeRatio;
   this->forkCount++;
-
   calcNextForkDistance();
 }
 
@@ -65,12 +61,6 @@ void Hypha::throwForkEvent() {
   float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
   e.dir = this->vel.getRotated(angle, ofVec3f(0,0,1));
   ofNotifyEvent(this->forkEvent, e);
-}
-
-void Hypha::throwDieEvent() {
-  PositionEventArgs e;
-  e.pos = this->pos;
-  ofNotifyEvent(this->dieEvent, e);
 }
 
 void Hypha::throwPositionEvent() {
