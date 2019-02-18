@@ -33,8 +33,8 @@ void Hypha::die() {
 }
 
 ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
-   return dir.getNormalized() * ofRandom(settings.speed*(1-settings.speedVariation/100),
-                                         settings.speed*(1+settings.speedVariation/100));
+   return dir.getNormalized() * ofRandom(settings.speed*(1-settings.speedVariation/100.0f),
+                                         settings.speed*(1+settings.speedVariation/100.0f));
 }
 
 void Hypha::updateVelocity() {
