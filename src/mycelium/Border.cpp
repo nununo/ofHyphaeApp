@@ -24,7 +24,7 @@ void Border::generateRadiuses() {
 
 float Border::calcRadiusForAngle(float angle, float seed) const {
   ofVec2f p = ofVec2f(1,0).rotate(angle);
-  return 1+ofNoise(p.x*settings.distortion+seed, p.y*settings.distortion+seed);
+  return ofLerp(settings.ratioRange.x, settings.ratioRange.y, ofNoise(p.x*settings.distortion+seed, p.y*settings.distortion+seed));
 }
 
 float Border::getRatio(float angle) const {

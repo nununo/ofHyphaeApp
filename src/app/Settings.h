@@ -41,6 +41,7 @@ struct ConidiaSettings {
 struct BorderSettings {
   int resolution;
   float distortion;
+  ofVec2f ratioRange;
   ofVec2f radiusRange;
 };
 

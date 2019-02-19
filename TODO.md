@@ -1,3 +1,6 @@
+- Make set of parameters which can be fed into a Mycelia besides the settings
+- Save set of parameters to file
+- Load set of parameters from file
 - Review Hypha nextForkDistance
 - Try to make Hyphae looks not depend on its growth speed
 - Make Conidium create more pixels per frame (since we now have 10fps)

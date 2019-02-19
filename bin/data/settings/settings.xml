@@ -1,5 +1,5 @@
 <mycelia>
-  <framerate>60</framerate>
+  <framerate>30</framerate>
   <osdColor>
     <r>0</r>
     <g>0</g>
@@ -25,23 +25,27 @@
     </holes>
     <border>
       <resolution>10</resolution>
-      <distortion>0.35</distortion>
+      <distortion>0.7</distortion>
+      <ratioRange>
+        <min>1</min>
+        <max>2</max>
+      </ratioRange>
       <radiusRange>
-        <min>50</min>
-        <max>150</max>
+        <min>400</min>
+        <max>800</max>
       </radiusRange>
     </border>
     <hyphae>
-      <creationAreaSize>3</creationAreaSize>
+      <creationAreaSize>30</creationAreaSize>
       <primalHyphaCount>100</primalHyphaCount>
       <newPrimalHyphaPeriod>0.02</newPrimalHyphaPeriod> <!--seconds-->
-      <maxHyphaCount>20000</maxHyphaCount>
+      <maxHyphaCount>100000</maxHyphaCount>
       <hypha>
         <color>
           <r>0</r>
           <g>0</g>
           <b>0</b>
-          <a>2</a>
+          <a>10</a>
         </color>
         <speed>4</speed> <!--pixels/s-->
         <speedVariation>20</speedVariation> <!--%-->
@@ -51,9 +55,9 @@
       </hypha>
     </hyphae>
     <conidia>
-      <active>1</active>
+      <active>0</active>
       <conidium>
-        <lifespan>2000</lifespan>
+        <lifespan>1000</lifespan>
         <delay>0</delay>
         <recenterRatio>0.99</recenterRatio>
       </conidium>

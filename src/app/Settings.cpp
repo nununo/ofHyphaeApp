@@ -32,6 +32,8 @@ Settings::Settings(const string& xmlFile) {
   mycelium.border.distortion = xmlSettings.getValue("mycelia:mycelium:border:distortion", 0.0f); // 0.3f
   mycelium.border.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:border:radiusRange:min", 10),
                                         xmlSettings.getValue("mycelia:mycelium:border:radiusRange:max", 10));
+  mycelium.border.ratioRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:border:ratioRange:min", 1),
+                                       xmlSettings.getValue("mycelia:mycelium:border:ratioRange:max", 1));
 
   mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
 
