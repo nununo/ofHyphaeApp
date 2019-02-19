@@ -16,7 +16,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk
   this->border = new Border(settings.border);
   this->hyphae = new Hyphae(settings.hyphae, border);
   this->conidia = new Conidia(conidiaInk, settings.conidia);
-  this->rings = new Rings(settings.holes);
+  this->rings = new Rings(settings.holes, border);
 
   if (settings.conidia.active) {
     ofAddListener(this->hyphae->hyphaPositionEvent, this, &Mycelium::onHyphaPosition);
@@ -61,8 +61,8 @@ void Mycelium::drawHyphae() const {
   ofPushMatrix();
   ofTranslate(this->pos);
   hyphae->draw();
-  //border->draw();
-  //rings->draw();
+  border->draw();
+  rings->draw();
   ofPopMatrix();
 }
 

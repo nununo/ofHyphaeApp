@@ -10,6 +10,7 @@
 
 #include "Hole.h"
 #include "PositionEventArgs.h"
+#include "Border.h"
 
 #define ANGLE_RESOLUTION 10
 
@@ -23,7 +24,7 @@ private:
   void throwHoleFilledEvent(ofVec2f pos);
 
 public:
-  Ring(float space, int radius);
+  Ring(float space, int radius, Border *border);
   void fill(float angle);
   void draw();
 

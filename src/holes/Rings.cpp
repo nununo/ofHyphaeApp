@@ -8,10 +8,10 @@
 #include "Rings.h"
 #include "Tools.h"
 
-Rings::Rings(HolesSettings settings) {
+Rings::Rings(HolesSettings settings, Border *border) {
   this->settings = settings;
   for (int i=0; i<settings.maxRings; i++) {
-    Ring *r = new Ring(settings.space, i*settings.space);
+    Ring *r = new Ring(settings.space, i*settings.space, border);
     rings[i] = r;
     ofAddListener(r->holeFilledEvent, this, &Rings::onHoleFilled);
   }

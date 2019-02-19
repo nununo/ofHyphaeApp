@@ -21,7 +21,7 @@ private:
   int getRing(float radius) {return (int)(radius/settings.space);}
 
 public:
-  Rings(HolesSettings settings);
+  Rings(HolesSettings settings, Border *border);
   ~Rings();
   void fill(ofVec2f pos);
   void draw();
