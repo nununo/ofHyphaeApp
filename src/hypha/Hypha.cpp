@@ -25,7 +25,7 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSe
 
 float Hypha::calcDeathRadius() const {
   float angle = Tools::posToAngle(vel);
-  return border->getRadius(angle);
+  return border->getRadius(angle) * ofRandom(1, 1+settings.radiusTolerance/100.0f);
 }
 
 void Hypha::die() {
