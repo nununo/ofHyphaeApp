@@ -32,12 +32,12 @@ private:
   bool dead;
 
   void growOlder();
-  void updateVelocity();
+  ofVec3f getInitialVelocity(const ofVec2f dir) const;
+  void updateDirection();
   void calcNextForkDistance();
   void fork();
   float calcDeathRadius() const;
   
-  ofVec3f getInitialVelocity(const ofVec2f dir) const;
   void throwForkEvent();
   void throwDieEvent();
   void throwPositionEvent();

@@ -37,7 +37,7 @@ ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
                                          settings.speed*(1+settings.speedVariation/100.0f));
 }
 
-void Hypha::updateVelocity() {
+void Hypha::updateDirection() {
   float bendAngle = 2*(ofNoise(pos.x+noiseOffset.x,
                         pos.y+noiseOffset.y)-0.5f)*settings.maxBendAngle;
   vel.rotate(bendAngle, ofVec3f(0,0,1));
@@ -79,7 +79,7 @@ void Hypha::update() {
                                   (int)(pos.y+0.5f));
       if (newIntPos != lastIntPos) {
         posIsNewPixel = true;
-        updateVelocity();
+        updateDirection();
         lastIntPos = newIntPos;
         if (--nextForkDistance==0) {
           fork();
