@@ -9,7 +9,6 @@
 #define Rings_h
 
 #include "Ring.h"
-#include "Settings.h"
 
 #define MAX_RINGS 200
 

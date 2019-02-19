@@ -21,6 +21,7 @@
       <space>5</space>
       <resolution>10</resolution>
       <maxRings>100</maxRings>
+      <radiusTolerance>-20</radiusTolerance>
     </holes>
     <border>
       <resolution>10</resolution>

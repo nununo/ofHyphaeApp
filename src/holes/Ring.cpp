@@ -8,14 +8,15 @@
 #include "Ring.h"
 #include "Tools.h"
 
-Ring::Ring(float space, int radius, Border *border) {
+Ring::Ring(HolesSettings settings, int ringNum, Border *border) {
+  float radius = settings.space * ringNum;
   if (radius > 0) {
-    numElements = getNumElements(space, radius);
+    numElements = getNumElements(settings.space, radius);
     this->angleIndexIncrement = 360*ANGLE_RESOLUTION / numElements;
     ofVec2f pos = ofVec2f(radius,0);
     for (int angleIndex=0; angleIndex<360*ANGLE_RESOLUTION; angleIndex+=this->angleIndexIncrement) {
       float angle = angleIndex/(ANGLE_RESOLUTION*1.0f);
-      if (radius < border->getRadius(angle)) {
+      if (radius < border->getRadius(angle) * (1 + settings.radiusTolerance/100.0f)) {
         holes[angleIndex].setPosition(pos.getRotated(angle));
       }
     }

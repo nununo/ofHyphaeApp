@@ -48,6 +48,7 @@ struct HolesSettings {
   float space;
   int resolution;
   int maxRings;
+  float radiusTolerance;
 };
 
 struct MyceliumSettings {
