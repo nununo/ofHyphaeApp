@@ -45,7 +45,7 @@ void Hypha::updateVelocity() {
 
 void Hypha::calcNextForkDistance() {
   float length = pos.length();
-  this->nextForkDistance = (int)(ofRandom(length,length*1.1)+0.5f);
+  this->nextForkDistance = 1+(int)(ofRandom(length,length*1.1)+0.5f);
 }
 
 void Hypha::fork() {
@@ -78,10 +78,9 @@ void Hypha::update() {
       ofVec2f newIntPos = ofVec3f((int)(pos.x+0.5f),
                                   (int)(pos.y+0.5f));
       if (newIntPos != lastIntPos) {
-
+        posIsNewPixel = true;
         updateVelocity();
         lastIntPos = newIntPos;
-        posIsNewPixel = true;
         if (--nextForkDistance==0) {
           fork();
         }
