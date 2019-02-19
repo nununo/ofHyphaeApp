@@ -33,8 +33,10 @@ void Hypha::die() {
 }
 
 ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
-   return dir.getNormalized() * ofRandom(settings.speed*(1-settings.speedVariation/100.0f),
-                                         settings.speed*(1+settings.speedVariation/100.0f));
+   return dir.getNormalized() *
+          ofRandom(settings.speed*(1-settings.speedVariation/100.0f),
+                   settings.speed*(1+settings.speedVariation/100.0f)) *
+          border->getRatio(Tools::posToAngle(dir));
 }
 
 void Hypha::updateDirection() {
