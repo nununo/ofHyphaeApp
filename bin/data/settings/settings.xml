@@ -1,5 +1,5 @@
 <mycelia>
-  <framerate>10</framerate>
+  <framerate>30</framerate>
   <osdColor>
     <r>0</r>
     <g>0</g>
@@ -40,7 +40,7 @@
           <r>0</r>
           <g>0</g>
           <b>0</b>
-          <a>50</a>
+          <a>2</a>
         </color>
         <speed>4</speed> <!--pixels/s-->
         <speedVariation>20</speedVariation> <!--%-->
