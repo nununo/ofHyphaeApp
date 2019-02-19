@@ -13,6 +13,7 @@
 #include "Hyphae.h"
 #include "Rings.h"
 #include "Settings.h"
+#include "MyceliumParams.h"
 
 struct MyceliumStats {
   int hyphaCount = 0;
@@ -25,6 +26,7 @@ private:
   ofVec2f pos;
   Border *border;
   MyceliumSettings settings;
+  MyceliumParams params;
   Hyphae *hyphae = NULL;
   Conidia *conidia = NULL;
   Rings *rings = NULL;
@@ -34,7 +36,7 @@ private:
   int hyphaeCount() const {return (hyphae? hyphae->count() : 0);}
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk);
+  Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params, Ink *conidiaInk);
   ~Mycelium();
   
   void update();

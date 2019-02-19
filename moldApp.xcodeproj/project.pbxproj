@@ -13,6 +13,7 @@
 		38BB2209DB529AACA60431DB /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC23ADD796DD593D355583B9 /* ofxBaseGui.cpp */; };
 		6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01E58DA97D3CAF3F74578F88 /* tinyxmlerror.cpp */; };
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
+		7D0F2D0D221CCAB20016A25D /* MyceliumParamsBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F2D0B221CCAB20016A25D /* MyceliumParamsBuilder.cpp */; };
 		7D5F18012218394700705116 /* Mycelia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F17FF2218394700705116 /* Mycelia.cpp */; };
 		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
 		7D5F182C2219BCF600705116 /* Rings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18242219B76400705116 /* Rings.cpp */; };
@@ -61,6 +62,9 @@
 		5F73E80E6C5FEADD0A9B0FF1 /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxPanel.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
 		796F3C930E9F094E76752F24 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSlider.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		7B7822AD98C03F9EB207427D /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSliderGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
+		7D0F2D0A221CC8C40016A25D /* MyceliumParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyceliumParams.h; sourceTree = "<group>"; };
+		7D0F2D0B221CCAB20016A25D /* MyceliumParamsBuilder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyceliumParamsBuilder.cpp; sourceTree = "<group>"; };
+		7D0F2D0C221CCAB20016A25D /* MyceliumParamsBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyceliumParamsBuilder.h; sourceTree = "<group>"; };
 		7D20814F21E4C267007DE176 /* Ink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ink.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D5F17FF2218394700705116 /* Mycelia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelia.cpp; sourceTree = "<group>"; };
@@ -402,6 +406,9 @@
 				7D8903EF21E413240063F045 /* Mycelium.h */,
 				7D5F17FF2218394700705116 /* Mycelia.cpp */,
 				7D5F18002218394700705116 /* Mycelia.h */,
+				7D0F2D0A221CC8C40016A25D /* MyceliumParams.h */,
+				7D0F2D0B221CCAB20016A25D /* MyceliumParamsBuilder.cpp */,
+				7D0F2D0C221CCAB20016A25D /* MyceliumParamsBuilder.h */,
 			);
 			path = mycelium;
 			sourceTree = "<group>";
@@ -909,6 +916,7 @@
 				204A1C84FA14E65FA63D95C4 /* ofxLabel.cpp in Sources */,
 				7D5F181E2219985700705116 /* Border.cpp in Sources */,
 				DCDC2010C94095DC6E6D23BE /* ofxPanel.cpp in Sources */,
+				7D0F2D0D221CCAB20016A25D /* MyceliumParamsBuilder.cpp in Sources */,
 				A315B62461489292F81EDB04 /* ofxSlider.cpp in Sources */,
 				7D8903F021E413240063F045 /* Mycelium.cpp in Sources */,
 				8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */,

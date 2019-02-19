@@ -6,6 +6,7 @@
 //
 
 #include "Mycelia.h"
+#include "MyceliumParamsBuilder.h"
 
 Mycelia::Mycelia(const MyceliumSettings settings) {
   this->settings = settings;
@@ -18,7 +19,8 @@ Mycelia::~Mycelia() {
 }
 
 void Mycelia::add(ofVec3f pos, Ink *conidiaInk)  {
-  elements.push_back(new Mycelium(pos, settings, conidiaInk));
+  MyceliumParams params = MyceliumParamsBuilder(settings).create();
+  elements.push_back(new Mycelium(pos, settings, params, conidiaInk));
 }
 
 MyceliaStats Mycelia::getStats() {

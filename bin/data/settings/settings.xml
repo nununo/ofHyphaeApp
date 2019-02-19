@@ -36,10 +36,10 @@
       </radiusRange>
     </border>
     <hyphae>
-      <creationAreaSize>30</creationAreaSize>
+      <creationAreaSize>10</creationAreaSize>
       <primalHyphaCount>100</primalHyphaCount>
       <newPrimalHyphaPeriod>0.02</newPrimalHyphaPeriod> <!--seconds-->
-      <maxHyphaCount>100000</maxHyphaCount>
+      <maxHyphaCount>20000</maxHyphaCount>
       <hypha>
         <color>
           <r>0</r>

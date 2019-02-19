@@ -1,3 +1,4 @@
+- The Hypha deathBorder must be calculated based on its actual position and only on its initial direction (or we'll end up with a circle anyway)
 - Make set of parameters which can be fed into a Mycelia besides the settings
 - Save set of parameters to file
 - Load set of parameters from file

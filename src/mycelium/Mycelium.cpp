@@ -8,9 +8,10 @@
 #include "Mycelium.h"
 #include "InkColor.h"
 
-Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, Ink *conidiaInk) {
+Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params, Ink *conidiaInk) {
   this->pos = pos;
   this->settings = settings;
+  this->params = params;
   this->wasAlreadyAlive = false;
 
   this->border = new Border(settings.border);
@@ -61,8 +62,8 @@ void Mycelium::drawHyphae() const {
   ofPushMatrix();
   ofTranslate(this->pos);
   hyphae->draw();
-  //border->draw();
-  //rings->draw();
+  border->draw();
+  if (ofGetFrameNum() == 3 ) border->draw();
   ofPopMatrix();
 }
 
