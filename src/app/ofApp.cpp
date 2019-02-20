@@ -16,6 +16,7 @@ void ofApp::setup(){
 
 ofApp::~ofApp() {
   delete conidiaInk;
+  delete settings;
 }
 
 void ofApp::addMycelium() {
