@@ -2,16 +2,13 @@
 
 #include "ofMain.h"
 #include "Settings.h"
-#include "InkColor.h"
-#include "Surface.h"
+#include "Mycelia.h"
 
 class ofApp : public ofBaseApp{
 
 private:
   Settings *settings;
-  Surface *s;
-
-  Ink *conidiaInk;
+  Mycelia *mycelia;
 
   void drawOSD();
   void addMycelium();

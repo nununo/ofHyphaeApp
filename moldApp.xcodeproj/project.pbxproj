@@ -16,19 +16,12 @@
 		7D0F2D0D221CCAB20016A25D /* MyceliumParamsBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F2D0B221CCAB20016A25D /* MyceliumParamsBuilder.cpp */; };
 		7D5F18012218394700705116 /* Mycelia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F17FF2218394700705116 /* Mycelia.cpp */; };
 		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
-		7D5F182C2219BCF600705116 /* Rings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18242219B76400705116 /* Rings.cpp */; };
-		7D5F182D2219BCFB00705116 /* Ring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18232219B76400705116 /* Ring.cpp */; };
-		7D5F182E2219BCFE00705116 /* Hole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18252219B76400705116 /* Hole.cpp */; };
 		7D5F18362219E37600705116 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18342219E37600705116 /* Tools.cpp */; };
-		7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903E721E3C0C80063F045 /* Surface.cpp */; };
 		7D8903F021E413240063F045 /* Mycelium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8903EE21E413240063F045 /* Mycelium.cpp */; };
-		7DB0F23D21FA7F1C001A8E3E /* ConidiumDance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0F23B21FA7F1C001A8E3E /* ConidiumDance.cpp */; };
 		7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CE90C6D9EF6BB1529BE9E /* ofxToggle.cpp */; };
 		7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31021FCEE8A0034502C /* Hypha.cpp */; };
-		7DF3E31521FD0B9A0034502C /* Conidia.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31321FD0B9A0034502C /* Conidia.cpp */; };
 		7DF3E31821FD123C0034502C /* Hyphae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31621FD123C0034502C /* Hyphae.cpp */; };
 		7DF3E31C21FE1AD60034502C /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31A21FE1AD60034502C /* Settings.cpp */; };
-		7DFEC78821E7D06E009DC9DD /* Conidium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEC78621E7D06E009DC9DD /* Conidium.cpp */; };
 		86E7B2E9A54542BCD06C455E /* ofxColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB7B57F3BD101DF858A341BA /* ofxColorPicker.cpp */; };
 		8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */; };
 		A315B62461489292F81EDB04 /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796F3C930E9F094E76752F24 /* ofxSlider.cpp */; };
@@ -65,7 +58,6 @@
 		7D0F2D0A221CC8C40016A25D /* MyceliumParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyceliumParams.h; sourceTree = "<group>"; };
 		7D0F2D0B221CCAB20016A25D /* MyceliumParamsBuilder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyceliumParamsBuilder.cpp; sourceTree = "<group>"; };
 		7D0F2D0C221CCAB20016A25D /* MyceliumParamsBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyceliumParamsBuilder.h; sourceTree = "<group>"; };
-		7D20814F21E4C267007DE176 /* Ink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ink.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7D5F17FF2218394700705116 /* Mycelia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelia.cpp; sourceTree = "<group>"; };
 		7D5F18002218394700705116 /* Mycelia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mycelia.h; sourceTree = "<group>"; };
@@ -73,33 +65,17 @@
 		7D5F18182218528700705116 /* alphamask.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = alphamask.frag; sourceTree = "<group>"; };
 		7D5F181C2219985700705116 /* Border.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Border.cpp; sourceTree = "<group>"; };
 		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
-		7D5F18222219B76400705116 /* Ring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ring.h; sourceTree = "<group>"; };
-		7D5F18232219B76400705116 /* Ring.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ring.cpp; sourceTree = "<group>"; };
-		7D5F18242219B76400705116 /* Rings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rings.cpp; sourceTree = "<group>"; };
-		7D5F18252219B76400705116 /* Hole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hole.cpp; sourceTree = "<group>"; };
-		7D5F18272219B76400705116 /* Rings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rings.h; sourceTree = "<group>"; };
-		7D5F18282219B76400705116 /* Hole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
-		7D5F18302219D57100705116 /* PositionEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PositionEventArgs.h; sourceTree = "<group>"; };
 		7D5F18342219E37600705116 /* Tools.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tools.cpp; sourceTree = "<group>"; };
 		7D5F18352219E37600705116 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
-		7D8903E721E3C0C80063F045 /* Surface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
-		7D8903E821E3C0C80063F045 /* Surface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
 		7D8903EE21E413240063F045 /* Mycelium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mycelium.cpp; sourceTree = "<group>"; };
 		7D8903EF21E413240063F045 /* Mycelium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mycelium.h; sourceTree = "<group>"; };
-		7DB0F23A21FA7D87001A8E3E /* ConidiumDance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConidiumDance.h; sourceTree = "<group>"; };
-		7DB0F23B21FA7F1C001A8E3E /* ConidiumDance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConidiumDance.cpp; sourceTree = "<group>"; };
 		7DF3E31021FCEE8A0034502C /* Hypha.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hypha.cpp; sourceTree = "<group>"; };
 		7DF3E31121FCEE8A0034502C /* Hypha.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hypha.h; sourceTree = "<group>"; };
-		7DF3E31321FD0B9A0034502C /* Conidia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidia.cpp; sourceTree = "<group>"; };
-		7DF3E31421FD0B9A0034502C /* Conidia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidia.h; sourceTree = "<group>"; };
 		7DF3E31621FD123C0034502C /* Hyphae.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hyphae.cpp; sourceTree = "<group>"; };
 		7DF3E31721FD123C0034502C /* Hyphae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hyphae.h; sourceTree = "<group>"; };
 		7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaForkEventArgs.h; sourceTree = "<group>"; };
 		7DF3E31A21FE1AD60034502C /* Settings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
 		7DF3E31B21FE1AD60034502C /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		7DFEC78621E7D06E009DC9DD /* Conidium.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Conidium.cpp; sourceTree = "<group>"; };
-		7DFEC78721E7D06E009DC9DD /* Conidium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conidium.h; sourceTree = "<group>"; };
-		7DFEC78A21E7D1F0009DC9DD /* InkColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkColor.h; sourceTree = "<group>"; };
 		818C0C8F387E334BA95FDDDE /* ofxPanel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxPanel.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxPanel.cpp; sourceTree = SOURCE_ROOT; };
 		8DE51F6E85718A03C8A2B826 /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiGroup.h; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
 		ACEADA2F1C66895A5CF65999 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxSliderGroup.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
@@ -382,26 +358,11 @@
 			path = shaders;
 			sourceTree = "<group>";
 		};
-		7D5F181F2219B76400705116 /* holes */ = {
-			isa = PBXGroup;
-			children = (
-				7D5F18272219B76400705116 /* Rings.h */,
-				7D5F18242219B76400705116 /* Rings.cpp */,
-				7D5F18222219B76400705116 /* Ring.h */,
-				7D5F18232219B76400705116 /* Ring.cpp */,
-				7D5F18282219B76400705116 /* Hole.h */,
-				7D5F18252219B76400705116 /* Hole.cpp */,
-			);
-			path = holes;
-			sourceTree = "<group>";
-		};
 		7DF3E30C21FCE9300034502C /* mycelium */ = {
 			isa = PBXGroup;
 			children = (
 				7D5F181C2219985700705116 /* Border.cpp */,
 				7D5F181D2219985700705116 /* Border.h */,
-				7D20814F21E4C267007DE176 /* Ink.h */,
-				7DFEC78A21E7D1F0009DC9DD /* InkColor.h */,
 				7D8903EE21E413240063F045 /* Mycelium.cpp */,
 				7D8903EF21E413240063F045 /* Mycelium.h */,
 				7D5F17FF2218394700705116 /* Mycelia.cpp */,
@@ -413,30 +374,14 @@
 			path = mycelium;
 			sourceTree = "<group>";
 		};
-		7DF3E30D21FCE9DD0034502C /* conidium */ = {
-			isa = PBXGroup;
-			children = (
-				7DB0F23B21FA7F1C001A8E3E /* ConidiumDance.cpp */,
-				7DB0F23A21FA7D87001A8E3E /* ConidiumDance.h */,
-				7DFEC78621E7D06E009DC9DD /* Conidium.cpp */,
-				7DFEC78721E7D06E009DC9DD /* Conidium.h */,
-				7DF3E31321FD0B9A0034502C /* Conidia.cpp */,
-				7DF3E31421FD0B9A0034502C /* Conidia.h */,
-			);
-			path = conidium;
-			sourceTree = "<group>";
-		};
 		7DF3E30E21FCEC6C0034502C /* app */ = {
 			isa = PBXGroup;
 			children = (
-				7D8903E721E3C0C80063F045 /* Surface.cpp */,
-				7D8903E821E3C0C80063F045 /* Surface.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				7DF3E31A21FE1AD60034502C /* Settings.cpp */,
 				7DF3E31B21FE1AD60034502C /* Settings.h */,
-				7D5F18302219D57100705116 /* PositionEventArgs.h */,
 				7D5F18342219E37600705116 /* Tools.cpp */,
 				7D5F18352219E37600705116 /* Tools.h */,
 			);
@@ -793,9 +738,7 @@
 			isa = PBXGroup;
 			children = (
 				7DF3E30E21FCEC6C0034502C /* app */,
-				7D5F181F2219B76400705116 /* holes */,
 				7DF3E30F21FCEE7C0034502C /* hypha */,
-				7DF3E30D21FCE9DD0034502C /* conidium */,
 				7DF3E30C21FCE9300034502C /* mycelium */,
 			);
 			path = src;
@@ -900,13 +843,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D5F18362219E37600705116 /* Tools.cpp in Sources */,
-				7D5F182C2219BCF600705116 /* Rings.cpp in Sources */,
-				7D5F182D2219BCFB00705116 /* Ring.cpp in Sources */,
-				7D5F182E2219BCFE00705116 /* Hole.cpp in Sources */,
-				7DF3E31521FD0B9A0034502C /* Conidia.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
-				7DFEC78821E7D06E009DC9DD /* Conidium.cpp in Sources */,
 				38BB2209DB529AACA60431DB /* ofxBaseGui.cpp in Sources */,
 				7DF3E31821FD123C0034502C /* Hyphae.cpp in Sources */,
 				CAFB1448316E1452DFCB4D0A /* ofxButton.cpp in Sources */,
@@ -922,10 +860,8 @@
 				8A28B7C9467D313605D7395F /* ofxSliderGroup.cpp in Sources */,
 				7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */,
 				7D5F18012218394700705116 /* Mycelia.cpp in Sources */,
-				7D8903E921E3C0C80063F045 /* Surface.cpp in Sources */,
 				7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */,
 				6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */,
-				7DB0F23D21FA7F1C001A8E3E /* ConidiumDance.cpp in Sources */,
 				7DF3E31C21FE1AD60034502C /* Settings.cpp in Sources */,
 				7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */,
 				21C28723F7D8CA1BB84F3F3F /* tinyxmlparser.cpp in Sources */,

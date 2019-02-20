@@ -27,34 +27,14 @@ struct HyphaeSettings {
   int maxHyphaCount;
 };
 
-struct ConidiumSettings {
-  int lifespan;
-  float delay;
-  float recenterRatio;
-};
-
-struct ConidiaSettings {
-  bool active;
-  ConidiumSettings conidium;
-};
-
 struct BorderSettings {
   float distortion;
   ofVec2f ratioRange;
   ofVec2f radiusRange;
 };
 
-struct HolesSettings {
-  float space;
-  int resolution;
-  int maxRings;
-  float radiusTolerance;
-};
-
 struct MyceliumSettings {
-  HolesSettings holes;
   BorderSettings border;
-  ConidiaSettings conidia;
   HyphaeSettings hyphae;
 };
 

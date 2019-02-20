@@ -13,7 +13,6 @@
 struct MyceliaStats {
   int myceliaCount = 0;
   int hyphaCount = 0;
-  int conidiumCount = 0;
 };
 
 class Mycelia {
@@ -25,13 +24,12 @@ public:
   Mycelia(MyceliumSettings settings);
   ~Mycelia();
 
-  void drawHyphae();
-  void drawConidia();
+  void draw();
 
   void update();
   bool isAlive() const {return true;}
   
-  void add(ofVec3f pos, Ink *conidiaInk);
+  void add(ofVec3f pos);
   MyceliaStats getStats();
 };
 

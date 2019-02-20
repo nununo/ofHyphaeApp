@@ -17,12 +17,6 @@
     </backgroundColor>
   </canvas>
   <mycelium>
-    <holes>
-      <space>5</space>
-      <resolution>10</resolution>
-      <maxRings>100</maxRings>
-      <radiusTolerance>-20</radiusTolerance>
-    </holes>
     <border>
       <distortion>0.7</distortion>
       <ratioRange>
@@ -53,13 +47,5 @@
         <radiusTolerance>10</radiusTolerance> <!--%-->
       </hypha>
     </hyphae>
-    <conidia>
-      <active>0</active>
-      <conidium>
-        <lifespan>1000</lifespan>
-        <delay>0</delay>
-        <recenterRatio>0.99</recenterRatio>
-      </conidium>
-    </conidia>
   </mycelium>
 </mycelia>

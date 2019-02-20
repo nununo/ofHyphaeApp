@@ -9,15 +9,12 @@
 #define Mycelium_h
 
 #include "ofMain.h"
-#include "Conidia.h"
 #include "Hyphae.h"
-#include "Rings.h"
 #include "Settings.h"
 #include "MyceliumParams.h"
 
 struct MyceliumStats {
   int hyphaCount = 0;
-  int conidiumCount = 0;
 };
 
 class Mycelium {
@@ -28,25 +25,18 @@ private:
   MyceliumSettings settings;
   MyceliumParams params;
   Hyphae *hyphae = NULL;
-  Conidia *conidia = NULL;
-  Rings *rings = NULL;
   bool wasAlreadyAlive = false;
   
-  int conidiaCount() const {return (conidia? conidia->count() : 0);}
   int hyphaeCount() const {return (hyphae? hyphae->count() : 0);}
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params, Ink *conidiaInk);
+  Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params);
   ~Mycelium();
   
   void update();
-  void drawConidia() const;
-  void drawHyphae() const;
-  bool isAlive() const {return (!wasAlreadyAlive || conidiaCount() > 0 || hyphaeCount() > 0);}
+  void draw() const;
+  bool isAlive() const {return (!wasAlreadyAlive || hyphaeCount() > 0);}
   MyceliumStats getStats();
-
-  void onHyphaPosition(PositionEventArgs &e);
-  void onRingsHoleFilled(PositionEventArgs &e);
 };
 
 #endif /* Mycelium_h */

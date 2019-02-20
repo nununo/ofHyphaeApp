@@ -9,9 +9,7 @@
 #define Hypha_h
 
 #include "ofMain.h"
-#include "Ink.h"
 #include "HyphaForkEventArgs.h"
-#include "PositionEventArgs.h"
 #include "Settings.h"
 #include "Border.h"
 
@@ -50,7 +48,6 @@ public:
   void die();
 
   ofEvent<HyphaForkEventArgs> forkEvent;
-  ofEvent<PositionEventArgs> positionEvent;
 };
 
 #endif /* Hypha_h */

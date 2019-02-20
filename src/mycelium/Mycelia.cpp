@@ -18,9 +18,9 @@ Mycelia::~Mycelia() {
   }
 }
 
-void Mycelia::add(ofVec3f pos, Ink *conidiaInk)  {
+void Mycelia::add(ofVec3f pos)  {
   MyceliumParams params = MyceliumParamsBuilder(settings).create();
-  elements.push_back(new Mycelium(pos, settings, params, conidiaInk));
+  elements.push_back(new Mycelium(pos, settings, params));
 }
 
 MyceliaStats Mycelia::getStats() {
@@ -28,7 +28,6 @@ MyceliaStats Mycelia::getStats() {
   for(auto &itr: elements) {
     auto myceliumStats = itr->getStats();
     stats.hyphaCount += myceliumStats.hyphaCount;
-    stats.conidiumCount += myceliumStats.conidiumCount;
   }
   stats.myceliaCount = elements.size();
   return stats;
@@ -44,13 +43,8 @@ void Mycelia::update() {
   }
 }
 
-void Mycelia::drawHyphae() {
+void Mycelia::draw() {
   for(auto &itr: elements) {
-    itr->drawHyphae();
-  }}
-
-void Mycelia::drawConidia() {
-  for(auto &itr: elements) {
-    itr->drawConidia();
+    itr->draw();
   }
 }

@@ -6,7 +6,6 @@
 //
 
 #include "Hyphae.h"
-#include "InkColor.h"
 
 Hyphae::Hyphae(const HyphaeParams params, Border *border) {
   this->params = params;
@@ -18,7 +17,6 @@ Hyphae::Hyphae(const HyphaeParams params, Border *border) {
 
 void Hyphae::add(Hypha *hypha) {
   ofAddListener(hypha->forkEvent, this, &Hyphae::onHyphaFork);
-  ofAddListener(hypha->positionEvent, this, &Hyphae::onHyphaPosition);
   elements.push_back(*hypha);
 }
 
@@ -37,7 +35,6 @@ void Hyphae::removeAllDeadHypha() {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (!itr->isAlive()) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-      ofRemoveListener(itr->positionEvent, this, &Hyphae::onHyphaPosition);
       itr = elements.erase(itr);
     } else {
       itr->update();
@@ -57,10 +54,6 @@ void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   }
 }
 
-void Hyphae::onHyphaPosition(PositionEventArgs &e) {
-  ofNotifyEvent(this->hyphaPositionEvent, e);
-}
-
 void Hyphae::update() {
   sterilizeIfFull();
   removeAllDeadHypha();
@@ -69,12 +62,9 @@ void Hyphae::update() {
 
 void Hyphae::draw() {
   ofPushStyle();
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_ONE, GL_ONE);
   ofSetColor(params.hypha.color);
   for(auto &itr: elements) {
     itr.draw();
   }
-  glDisable(GL_BLEND);
   ofPopStyle();
 }

@@ -23,22 +23,11 @@ Settings::Settings(const string& xmlFile) {
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:g", 0),
                                    xmlSettings.getValue("mycelia:canvas:backgroundColor:b", 0));
 
-  mycelium.holes.space = xmlSettings.getValue("mycelia:mycelium:holes:space", 10.0f); // 10
-  mycelium.holes.resolution = xmlSettings.getValue("mycelia:mycelium:holes:resolution", 1); // 10
-  mycelium.holes.maxRings = xmlSettings.getValue("mycelia:mycelium:holes:maxRings", 3); // 10
-  mycelium.holes.radiusTolerance = xmlSettings.getValue("mycelia:mycelium:holes:radiusTolerance", 0.0f); // 10%
-
   mycelium.border.distortion = xmlSettings.getValue("mycelia:mycelium:border:distortion", 0.0f); // 0.3f
   mycelium.border.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:border:radiusRange:min", 10),
                                         xmlSettings.getValue("mycelia:mycelium:border:radiusRange:max", 10));
   mycelium.border.ratioRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:border:ratioRange:min", 1),
                                        xmlSettings.getValue("mycelia:mycelium:border:ratioRange:max", 1));
-
-  mycelium.conidia.active = xmlSettings.getValue("mycelia:mycelium:conidia:active", 0); // 1
-
-  mycelium.conidia.conidium.lifespan = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:lifespan", 1); // 1000
-  mycelium.conidia.conidium.delay = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:delay", 0.0f); // 10.0f
-  mycelium.conidia.conidium.recenterRatio = xmlSettings.getValue("mycelia:mycelium:conidia:conidium:recenterRatio", 0.0f); // 0.98f
 
   mycelium.hyphae.creationAreaSize = xmlSettings.getValue("mycelia:mycelium:hyphae:creationAreaSize", 1000); // 40
   mycelium.hyphae.primalHyphaCount = xmlSettings.getValue("mycelia:mycelium:hyphae:primalHyphaCount", 0); // 10
