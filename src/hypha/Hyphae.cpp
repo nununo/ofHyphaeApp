@@ -8,10 +8,11 @@
 #include "Hyphae.h"
 #include "InkColor.h"
 
-Hyphae::Hyphae(const HyphaeSettings settings, Border *border) {
+Hyphae::Hyphae(const HyphaeSettings settings, const HyphaeParams params, Border *border) {
   this->settings = settings;
+  this->params = params;
   this->border = border;
-  this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * settings.newPrimalHyphaPeriod;
+  this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * params.newPrimalHyphaPeriod;
   this->primalHyphaCount = 0;
   this->sterile = false;
 }
@@ -23,11 +24,11 @@ void Hyphae::add(Hypha *hypha) {
 }
 
 void Hyphae::generatePrimalHyphas() {
-  if (primalHyphaCount < settings.primalHyphaCount &&
+  if (primalHyphaCount < params.primalHyphaCount &&
       (newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % newPrimalHyphaFramesPeriod == 0)) {
     float angle = ofRandom(0,360);
     ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
-    ofVec2f pos = ofVec2f(settings.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
+    ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(new Hypha(pos, dir, border, settings.hypha));
     primalHyphaCount++;
   }
@@ -46,7 +47,7 @@ void Hyphae::removeAllDeadHypha() {
 }
 
 void Hyphae::sterilizeIfFull() {
-  if (elements.size() >= settings.maxHyphaCount) {
+  if (elements.size() >= params.maxHyphaCount) {
     sterile = true;
   }
 }
@@ -71,7 +72,7 @@ void Hyphae::draw() {
   ofPushStyle();
   glEnable(GL_BLEND);
   glBlendFunc(GL_ONE, GL_ONE);
-  ofSetColor(settings.hypha.color);
+  ofSetColor(params.hypha.color);
   for(auto &itr: elements) {
     itr.draw();
   }
