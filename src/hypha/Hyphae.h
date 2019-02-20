@@ -12,7 +12,6 @@
 
 class Hyphae {
 private:
-  HyphaeSettings settings;
   HyphaeParams params;
   Border *border;
   int newPrimalHyphaFramesPeriod;
@@ -27,7 +26,7 @@ private:
   void updateAllHypha();
 
 public:
-  Hyphae(const HyphaeSettings settings, const HyphaeParams params, Border *border);
+  Hyphae(const HyphaeParams params, Border *border);
   void update();
   void draw();
   int count() const {return elements.size();}

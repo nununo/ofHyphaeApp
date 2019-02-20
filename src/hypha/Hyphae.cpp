@@ -8,8 +8,7 @@
 #include "Hyphae.h"
 #include "InkColor.h"
 
-Hyphae::Hyphae(const HyphaeSettings settings, const HyphaeParams params, Border *border) {
-  this->settings = settings;
+Hyphae::Hyphae(const HyphaeParams params, Border *border) {
   this->params = params;
   this->border = border;
   this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * params.newPrimalHyphaPeriod;
@@ -29,7 +28,7 @@ void Hyphae::generatePrimalHyphas() {
     float angle = ofRandom(0,360);
     ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-    add(new Hypha(pos, dir, border, settings.hypha));
+    add(new Hypha(pos, dir, border, params.hypha));
     primalHyphaCount++;
   }
 }
@@ -54,7 +53,7 @@ void Hyphae::sterilizeIfFull() {
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   if (!sterile) {
-    add(new Hypha(e.pos, e.dir, border, settings.hypha, e.generation));
+    add(new Hypha(e.pos, e.dir, border, params.hypha, e.generation));
   }
 }
 

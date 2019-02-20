@@ -17,7 +17,7 @@
 
 class Hypha {
 private:
-  HyphaSettings settings;
+  HyphaParams params;
   int generation;
   Border *border;
   ofVec2f noiseOffset;
@@ -43,7 +43,7 @@ private:
   void throwPositionEvent();
 
 public:
-  Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSettings settings, const int generation=0);
+  Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation=0);
   bool isAlive() const {return !dead;}
   void update();
   void draw();

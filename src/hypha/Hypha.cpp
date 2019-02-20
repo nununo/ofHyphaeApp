@@ -10,9 +10,9 @@
 
 #define OFFSET_MAX 1000
 
-Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSettings settings, const int generation) {
+Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation) {
   this->pos = pos;
-  this->settings = settings;
+  this->params = params;
   this->border = border;
   this->vel = getInitialVelocity(dir);
   this->generation = generation;
@@ -25,7 +25,7 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaSe
 
 float Hypha::calcDeathRadius() const {
   float angle = Tools::posToAngle(vel);
-  return border->getRadius(angle) * ofRandom(1, 1+settings.radiusTolerance/100.0f);
+  return border->getRadius(angle) * ofRandom(1, 1+params.radiusTolerance/100.0f);
 }
 
 void Hypha::die() {
@@ -34,14 +34,14 @@ void Hypha::die() {
 
 ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
    return dir.getNormalized() *
-          ofRandom(settings.speed*(1-settings.speedVariation/100.0f),
-                   settings.speed*(1+settings.speedVariation/100.0f)) *
+          ofRandom(params.speed*(1-params.speedVariation/100.0f),
+                   params.speed*(1+params.speedVariation/100.0f)) *
           border->getRatio(Tools::posToAngle(dir));
 }
 
 void Hypha::updateDirection() {
   float bendAngle = 2*(ofNoise(pos.x+noiseOffset.x,
-                        pos.y+noiseOffset.y)-0.5f)*settings.maxBendAngle;
+                        pos.y+noiseOffset.y)-0.5f)*params.maxBendAngle;
   vel.rotate(bendAngle, ofVec3f(0,0,1));
 }
 
@@ -60,7 +60,7 @@ void Hypha::throwForkEvent() {
   HyphaForkEventArgs e;
   e.generation = this->generation + 1;
   e.pos = this->pos;
-  float angle = ofRandom(-settings.maxForkAngle, settings.maxForkAngle);
+  float angle = ofRandom(-params.maxForkAngle, params.maxForkAngle);
   e.dir = this->vel.getRotated(angle, ofVec3f(0,0,1));
   ofNotifyEvent(this->forkEvent, e);
 }
