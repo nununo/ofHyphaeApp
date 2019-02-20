@@ -28,7 +28,6 @@ Settings::Settings(const string& xmlFile) {
   mycelium.holes.maxRings = xmlSettings.getValue("mycelia:mycelium:holes:maxRings", 3); // 10
   mycelium.holes.radiusTolerance = xmlSettings.getValue("mycelia:mycelium:holes:radiusTolerance", 0.0f); // 10%
 
-  mycelium.border.resolution = xmlSettings.getValue("mycelia:mycelium:border:resolution", 1); // 10
   mycelium.border.distortion = xmlSettings.getValue("mycelia:mycelium:border:distortion", 0.0f); // 0.3f
   mycelium.border.radiusRange = ofVec2f(xmlSettings.getValue("mycelia:mycelium:border:radiusRange:min", 10),
                                         xmlSettings.getValue("mycelia:mycelium:border:radiusRange:max", 10));

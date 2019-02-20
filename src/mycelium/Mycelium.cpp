@@ -14,7 +14,7 @@ Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams 
   this->params = params;
   this->wasAlreadyAlive = false;
 
-  this->border = new Border(settings.border);
+  this->border = new Border(params.border);
   this->hyphae = new Hyphae(settings.hyphae, border);
   this->conidia = new Conidia(conidiaInk, settings.conidia);
   this->rings = new Rings(settings.holes, border);

@@ -10,19 +10,21 @@
 
 #include <vector>
 #include "Settings.h"
+#include "MyceliumParams.h"
+
+#define BORDER_ANGLE_RESOLUTION 10
 
 class Border {
 private:
-  BorderSettings settings;
-  float radius;
+  BorderParams params;
   std::vector<float> radiuses;
   
   void generateRadiuses();
   float calcRadiusForAngle(float angle, float seed) const;
 public:
-  Border(BorderSettings settings);
+  Border(const BorderParams params);
   float getRatio(float angle) const;
-  float getRadius(float angle) const {return getRatio(angle)*radius;}
+  float getRadius(float angle) const {return getRatio(angle)*params.radius;}
   void draw() const;
   
 };

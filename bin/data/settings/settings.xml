@@ -24,7 +24,6 @@
       <radiusTolerance>-20</radiusTolerance>
     </holes>
     <border>
-      <resolution>10</resolution>
       <distortion>0.7</distortion>
       <ratioRange>
         <min>1</min>
