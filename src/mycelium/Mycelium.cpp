@@ -62,7 +62,7 @@ void Mycelium::drawHyphae() const {
   ofPushMatrix();
   ofTranslate(this->pos);
   hyphae->draw();
-  border->draw();
+  //border->draw();
   if (ofGetFrameNum() == 3 ) border->draw();
   ofPopMatrix();
 }
