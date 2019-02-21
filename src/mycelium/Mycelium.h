@@ -15,6 +15,7 @@
 
 struct MyceliumStats {
   int hyphaCount = 0;
+  int primalHyphaCount = 0;
 };
 
 class Mycelium {
@@ -26,8 +27,6 @@ private:
   MyceliumParams params;
   Hyphae *hyphae = NULL;
   bool wasAlreadyAlive = false;
-  
-  int hyphaeCount() const {return (hyphae? hyphae->count() : 0);}
 
 public:
   Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params);
@@ -35,7 +34,7 @@ public:
   
   void update();
   void draw() const;
-  bool isAlive() const {return (!wasAlreadyAlive || hyphaeCount() > 0);}
+  bool isAlive() const {return (!wasAlreadyAlive || hyphae->count() > 0);}
   MyceliumStats getStats();
 };
 

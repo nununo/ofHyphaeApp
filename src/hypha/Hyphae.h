@@ -30,7 +30,9 @@ public:
   void update();
   void draw();
   int count() const {return elements.size();}
+  int primalCount() const {return primalHyphaCount;}
   bool isAlive() const {return count() > 0;}
+  HyphaeParams getParams() const {return params;}
 
   void onHyphaFork(HyphaForkEventArgs &e);
 };

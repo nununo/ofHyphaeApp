@@ -2,16 +2,16 @@
 
 #include "ofMain.h"
 #include "Settings.h"
-#include "Mycelia.h"
+#include "Mycelium.h"
 
 class ofApp : public ofBaseApp{
 
 private:
   Settings *settings;
-  Mycelia *mycelia;
+  Mycelium *mycelium;
 
   void drawOSD();
-  void addMycelium();
+  void newMycelium();
 
 public:
   ~ofApp();

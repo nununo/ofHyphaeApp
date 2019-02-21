@@ -24,7 +24,8 @@ Mycelium::~Mycelium() {
 
 MyceliumStats Mycelium::getStats() {
   MyceliumStats stats;
-  stats.hyphaCount = hyphaeCount();
+  stats.hyphaCount = hyphae->count();
+  stats.primalHyphaCount = hyphae->primalCount();
   return stats;
 }
 

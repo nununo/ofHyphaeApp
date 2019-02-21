@@ -1,32 +1,40 @@
 #include "ofApp.h"
 #include "Mycelium.h"
+#include "MyceliumParamsBuilder.h"
 
 void ofApp::setup(){
   settings = new Settings("settings/settings.xml");
   ofSetFrameRate(settings->framerate);
   //ofSetVerticalSync(true);
-  mycelia = new Mycelia(settings->mycelium);
-  addMycelium();
   ofSetBackgroundAuto(false);
   ofBackground(settings->canvas.backgroundColor);
+  newMycelium();
 }
 
 ofApp::~ofApp() {
-  delete mycelia;
+  delete mycelium;
   delete settings;
 }
 
-void ofApp::addMycelium() {
-  mycelia->add(ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
-                       ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)));
+void ofApp::newMycelium() {
+  if (mycelium) {
+    delete mycelium;
+  }
+
+  MyceliumParams params = MyceliumParamsBuilder(settings->mycelium).create();
+  mycelium = new Mycelium(ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
+                                  ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)),
+                          settings->mycelium, params);
+
+  ofBackground(settings->canvas.backgroundColor);
 }
 
 void ofApp::update(){
-  mycelia->update();
+  mycelium->update();
 }
 
 void ofApp::draw(){
-  mycelia->draw();
+  mycelium->draw();
   drawOSD();
 }
 
@@ -41,22 +49,21 @@ void ofApp::drawOSD() {
   string str = "frame rate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(str, 10,10);
 
-  MyceliaStats stats = mycelia->getStats();
-
-  str = "mycelia: "+ofToString(stats.myceliaCount);
-  ofDrawBitmapString(str, 10,25);
+  MyceliumStats stats = mycelium->getStats();
 
   str = "hyphae: "+ofToString(stats.hyphaCount);
-  ofDrawBitmapString(str, 10,40);
+  ofDrawBitmapString(str, 10,25);
 
+  str = "primalHyphae: "+ofToString(stats.primalHyphaCount);
+  ofDrawBitmapString(str, 10,40);
+  
   ofPopStyle();
 }
 
 void ofApp::keyPressed(int key) {
   switch (key) {
     case ' ':
-      ofBackground(settings->canvas.backgroundColor);
-      addMycelium();
+      newMycelium();
       break;
     
     case 'f':
