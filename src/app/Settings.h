@@ -43,10 +43,9 @@ struct CanvasSettings {
 };
 
 class Settings {
-private:
-  ofxXmlSettings xmlSettings;
-  
-  ofVec2f getRange(const string& xmlPath, const float defaultValue=0.0f) const;
+private:  
+  ofVec2f getRange(ofxXmlSettings &xmlSettings, const string& xmlPath, const float defaultValue=0.0f) const;
+  ofColor getColor(ofxXmlSettings &s, const string& xmlPath) const;
 
 public:
   CanvasSettings canvas;
