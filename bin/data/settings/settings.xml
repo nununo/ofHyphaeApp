@@ -24,8 +24,8 @@
         <max>2</max>
       </ratioRange>
       <radiusRange>
-        <min>400</min>
-        <max>800</max>
+        <min>100</min>
+        <max>500</max>
       </radiusRange>
     </border>
     <hyphae>
@@ -34,16 +34,16 @@
         <max>10</max>
       </creationAreaSize>
       <primalHyphaCount>
-        <min>100</min>
-        <max>100</max>
+        <min>1</min>
+        <max>5000</max>
       </primalHyphaCount>
       <newPrimalHyphaPeriod> <!--seconds-->
-        <min>0.02</min>
-        <max>0.02</max>
+        <min>0.0</min>
+        <max>0.2</max>
       </newPrimalHyphaPeriod>
       <maxHyphaCount>
-        <min>20000</min>
-        <max>20000</max>
+        <min>200</min>
+        <max>100000</max>
       </maxHyphaCount>
       <hypha>
         <color>
