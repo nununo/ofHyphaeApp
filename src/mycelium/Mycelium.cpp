@@ -7,8 +7,8 @@
 
 #include "Mycelium.h"
 
-Mycelium::Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params) {
-  this->pos = pos;
+Mycelium::Mycelium(const MyceliumSettings settings, MyceliumParams params) {
+  this->pos = params.hyphae.position;
   this->settings = settings;
   this->params = params;
   this->wasAlreadyAlive = false;

@@ -24,6 +24,7 @@ struct HyphaParams {
 };
 
 struct HyphaeParams {
+  ofVec2f position;
   int creationAreaSize;
   int primalHyphaCount;
   float newPrimalHyphaPeriod;

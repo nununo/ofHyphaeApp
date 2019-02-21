@@ -29,7 +29,7 @@ private:
   bool wasAlreadyAlive = false;
 
 public:
-  Mycelium(ofVec3f pos, const MyceliumSettings settings, MyceliumParams params);
+  Mycelium(const MyceliumSettings settings, MyceliumParams params);
   ~Mycelium();
   
   void update();

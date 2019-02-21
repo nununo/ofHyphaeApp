@@ -22,9 +22,7 @@ void ofApp::newMycelium() {
   }
 
   MyceliumParams params = MyceliumParamsBuilder(settings->mycelium).create();
-  mycelium = new Mycelium(ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
-                                  ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5)),
-                          settings->mycelium, params);
+  mycelium = new Mycelium(settings->mycelium, params);
 
   ofBackground(settings->canvas.backgroundColor);
 }

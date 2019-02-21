@@ -15,6 +15,8 @@ MyceliumParams MyceliumParamsBuilder::create() {
   params.border.radius = Tools::randomInRange(settings.border.radiusRange);
   params.border.ratioVariation = settings.border.ratioRange;
 
+  params.hyphae.position = ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
+                                   ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5));
   params.hyphae.creationAreaSize = Tools::randomInRange(settings.hyphae.creationAreaSize);
   params.hyphae.primalHyphaCount = (int)(Tools::randomInRange(settings.hyphae.primalHyphaCount)+0.5f);
   params.hyphae.newPrimalHyphaPeriod = Tools::randomInRange(settings.hyphae.newPrimalHyphaPeriod);
