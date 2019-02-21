@@ -342,18 +342,6 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
-		7DF3E30C21FCE9300034502C /* mycelium */ = {
-			isa = PBXGroup;
-			children = (
-				7D5F181C2219985700705116 /* Border.cpp */,
-				7D5F181D2219985700705116 /* Border.h */,
-				7D0F2D0A221CC8C40016A25D /* HyphaeParams.h */,
-				7D0F2D0B221CCAB20016A25D /* HyphaeParamsBuilder.cpp */,
-				7D0F2D0C221CCAB20016A25D /* HyphaeParamsBuilder.h */,
-			);
-			path = mycelium;
-			sourceTree = "<group>";
-		};
 		7DF3E30E21FCEC6C0034502C /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,11 +359,16 @@
 		7DF3E30F21FCEE7C0034502C /* hypha */ = {
 			isa = PBXGroup;
 			children = (
+				7D5F181C2219985700705116 /* Border.cpp */,
+				7D5F181D2219985700705116 /* Border.h */,
 				7DF3E31021FCEE8A0034502C /* Hypha.cpp */,
 				7DF3E31121FCEE8A0034502C /* Hypha.h */,
+				7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */,
 				7DF3E31621FD123C0034502C /* Hyphae.cpp */,
 				7DF3E31721FD123C0034502C /* Hyphae.h */,
-				7DF3E31921FD24820034502C /* HyphaForkEventArgs.h */,
+				7D0F2D0A221CC8C40016A25D /* HyphaeParams.h */,
+				7D0F2D0B221CCAB20016A25D /* HyphaeParamsBuilder.cpp */,
+				7D0F2D0C221CCAB20016A25D /* HyphaeParamsBuilder.h */,
 			);
 			path = hypha;
 			sourceTree = "<group>";
@@ -719,7 +712,6 @@
 			children = (
 				7DF3E30E21FCEC6C0034502C /* app */,
 				7DF3E30F21FCEE7C0034502C /* hypha */,
-				7DF3E30C21FCE9300034502C /* mycelium */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
