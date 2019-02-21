@@ -1,12 +1,12 @@
 //
-//  MyceliumParams.h
+//  HyphaeParams.h
 //  moldApp
 //
 //  Created by Nuno on 19/02/2019.
 //
 
-#ifndef MyceliumParams_h
-#define MyceliumParams_h
+#ifndef HyphaeParams_h
+#define HyphaeParams_h
 
 struct BorderParams {
   float distortion;
@@ -29,12 +29,8 @@ struct HyphaeParams {
   int primalHyphaCount;
   float newPrimalHyphaPeriod;
   int maxHyphaCount;
+  BorderParams border;
   HyphaParams hypha;
 };
 
-struct MyceliumParams {
-  BorderParams border;
-  HyphaeParams hyphae;
-};
-
-#endif /* MyceliumParams_h */
+#endif /* HyphaeParams_h */

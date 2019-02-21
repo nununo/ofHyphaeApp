@@ -7,12 +7,17 @@
 
 #include "Hyphae.h"
 
-Hyphae::Hyphae(const HyphaeParams params, Border *border) {
+Hyphae::Hyphae(const HyphaeParams params) {
   this->params = params;
-  this->border = border;
+  this->border = new Border(params.border);
   this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * params.newPrimalHyphaPeriod;
   this->primalHyphaCount = 0;
   this->sterile = false;
+}
+
+Hyphae::~Hyphae() {
+  removeAllHypha(false);
+  delete border;
 }
 
 void Hyphae::add(Hypha *hypha) {
@@ -31,9 +36,9 @@ void Hyphae::generatePrimalHyphas() {
   }
 }
 
-void Hyphae::removeAllDeadHypha() {
+void Hyphae::removeAllHypha(bool onlyDead) {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
-    if (!itr->isAlive()) {
+    if (onlyDead && !itr->isAlive()) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
       itr = elements.erase(itr);
     } else {
@@ -56,15 +61,18 @@ void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
 
 void Hyphae::update() {
   sterilizeIfFull();
-  removeAllDeadHypha();
+  removeAllHypha(true);
   generatePrimalHyphas();
 }
 
 void Hyphae::draw() {
+  ofPushMatrix();
+  ofTranslate(params.position);
   ofPushStyle();
   ofSetColor(params.hypha.color);
   for(auto &itr: elements) {
     itr.draw();
   }
   ofPopStyle();
+  ofPopMatrix();
 }

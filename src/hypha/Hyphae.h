@@ -9,6 +9,7 @@
 #define Hyphae_h
 
 #include "Hypha.h"
+#include "Border.h"
 
 class Hyphae {
 private:
@@ -21,12 +22,13 @@ private:
   
   void add(Hypha *hypha);
   void generatePrimalHyphas();
-  void removeAllDeadHypha();
+  void removeAllHypha(bool onlyDead);
   void sterilizeIfFull();
   void updateAllHypha();
 
 public:
-  Hyphae(const HyphaeParams params, Border *border);
+  Hyphae(const HyphaeParams params);
+  ~Hyphae();
   void update();
   void draw();
   int count() const {return elements.size();}

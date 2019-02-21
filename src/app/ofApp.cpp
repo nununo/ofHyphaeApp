@@ -1,38 +1,36 @@
 #include "ofApp.h"
-#include "Mycelium.h"
-#include "MyceliumParamsBuilder.h"
+#include "HyphaeParamsBuilder.h"
 
 void ofApp::setup(){
-  settings = new Settings("settings/settings.xml");
-  ofSetFrameRate(settings->framerate);
+  this->settings = new Settings("settings/settings.xml");
+  ofSetFrameRate(settings->canvas.framerate);
+  this->builder = new HyphaeParamsBuilder(settings->hyphae);
   //ofSetVerticalSync(true);
   ofSetBackgroundAuto(false);
   ofBackground(settings->canvas.backgroundColor);
-  newMycelium();
+  restart();
 }
 
 ofApp::~ofApp() {
-  delete mycelium;
+  delete hyphae;
   delete settings;
+  delete builder;
 }
 
-void ofApp::newMycelium() {
-  if (mycelium) {
-    delete mycelium;
+void ofApp::restart() {
+  if (hyphae) {
+    delete hyphae;
   }
-
-  MyceliumParams params = MyceliumParamsBuilder(settings->mycelium).create();
-  mycelium = new Mycelium(settings->mycelium, params);
-
+  hyphae = new Hyphae(builder->create());
   ofBackground(settings->canvas.backgroundColor);
 }
 
 void ofApp::update(){
-  mycelium->update();
+  hyphae->update();
 }
 
 void ofApp::draw(){
-  mycelium->draw();
+  hyphae->draw();
   drawOSD();
 }
 
@@ -42,17 +40,15 @@ void ofApp::drawOSD() {
   ofSetColor(settings->canvas.backgroundColor);
   ofDrawRectangle(0, 0, 180, 50);
 
-  ofSetColor(settings->osdColor);
+  ofSetColor(settings->canvas.osdColor);
 
-  string str = "frame rate: "+ofToString(ofGetFrameRate(), 2);
+  string str = "framerate: "+ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(str, 10,10);
 
-  MyceliumStats stats = mycelium->getStats();
-
-  str = "hyphae: "+ofToString(stats.hyphaCount);
+  str = "hyphae: "+ofToString(hyphae->count());
   ofDrawBitmapString(str, 10,25);
 
-  str = "primalHyphae: "+ofToString(stats.primalHyphaCount);
+  str = "primalHyphae: "+ofToString(hyphae->primalCount());
   ofDrawBitmapString(str, 10,40);
   
   ofPopStyle();
@@ -61,7 +57,7 @@ void ofApp::drawOSD() {
 void ofApp::keyPressed(int key) {
   switch (key) {
     case ' ':
-      newMycelium();
+      restart();
       break;
     
     case 'f':

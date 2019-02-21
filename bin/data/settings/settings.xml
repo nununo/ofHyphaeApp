@@ -1,12 +1,12 @@
-<mycelia>
-  <framerate>30</framerate>
-  <osdColor>
-    <r>0</r>
-    <g>0</g>
-    <b>0</b>
-    <a>255</a>
-  </osdColor>
+<rhizopus>
   <canvas>
+    <framerate>30</framerate>
+    <osdColor>
+      <r>0</r>
+      <g>0</g>
+      <b>0</b>
+      <a>255</a>
+    </osdColor>
     <width>1280</width>
     <height>720</height>
     <shaderFilename>shaders/alphamask.frag</shaderFilename>
@@ -16,7 +16,23 @@
       <b>255</b>
     </backgroundColor>
   </canvas>
-  <mycelium>
+  <hyphae>
+    <creationAreaSize>
+      <min>10</min>
+      <max>10</max>
+    </creationAreaSize>
+    <primalHyphaCount>
+      <min>1</min>
+      <max>5000</max>
+    </primalHyphaCount>
+    <newPrimalHyphaPeriod> <!--seconds-->
+      <min>0.0</min>
+      <max>0.2</max>
+    </newPrimalHyphaPeriod>
+    <maxHyphaCount>
+      <min>200</min>
+      <max>100000</max>
+    </maxHyphaCount>
     <border>
       <distortion>0.7</distortion>
       <ratioRange>
@@ -28,51 +44,33 @@
         <max>500</max>
       </radiusRange>
     </border>
-    <hyphae>
-      <creationAreaSize>
+    <hypha>
+      <color>
+        <r>0</r>
+        <g>0</g>
+        <b>0</b>
+        <a>10</a>
+      </color>
+      <speed> <!--pixels/s-->
+        <min>4</min>
+        <max>4</max>
+      </speed>
+      <speedVariation> <!--%-->
+        <min>20</min>
+        <max>20</max>
+      </speedVariation>
+      <maxForkAngle>
         <min>10</min>
         <max>10</max>
-      </creationAreaSize>
-      <primalHyphaCount>
-        <min>1</min>
-        <max>5000</max>
-      </primalHyphaCount>
-      <newPrimalHyphaPeriod> <!--seconds-->
-        <min>0.0</min>
-        <max>0.2</max>
-      </newPrimalHyphaPeriod>
-      <maxHyphaCount>
-        <min>200</min>
-        <max>100000</max>
-      </maxHyphaCount>
-      <hypha>
-        <color>
-          <r>0</r>
-          <g>0</g>
-          <b>0</b>
-          <a>10</a>
-        </color>
-        <speed> <!--pixels/s-->
-          <min>4</min>
-          <max>4</max>
-        </speed>
-        <speedVariation> <!--%-->
-          <min>20</min>
-          <max>20</max>
-        </speedVariation>
-        <maxForkAngle>
-          <min>10</min>
-          <max>10</max>
-        </maxForkAngle>
-        <maxBendAngle>
-          <min>3</min>
-          <max>3</max>
-        </maxBendAngle>
-        <radiusTolerance> <!--%-->
-          <min>10</min>
-          <max>10</max>
-        </radiusTolerance>
-      </hypha>
-    </hyphae>
-  </mycelium>
-</mycelia>
+      </maxForkAngle>
+      <maxBendAngle>
+        <min>3</min>
+        <max>3</max>
+      </maxBendAngle>
+      <radiusTolerance> <!--%-->
+        <min>10</min>
+        <max>10</max>
+      </radiusTolerance>
+    </hypha>
+  </hyphae>
+</rhizopus>

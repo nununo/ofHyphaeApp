@@ -10,7 +10,7 @@
 
 #include <vector>
 #include "Settings.h"
-#include "MyceliumParams.h"
+#include "HyphaeParams.h"
 
 #define BORDER_ANGLE_RESOLUTION 10
 

@@ -2,16 +2,18 @@
 
 #include "ofMain.h"
 #include "Settings.h"
-#include "Mycelium.h"
+#include "Hyphae.h"
+#include "HyphaeParamsBuilder.h"
 
 class ofApp : public ofBaseApp{
 
 private:
   Settings *settings;
-  Mycelium *mycelium;
+  Hyphae *hyphae;
+  HyphaeParamsBuilder *builder;
 
   void drawOSD();
-  void newMycelium();
+  void restart();
 
 public:
   ~ofApp();

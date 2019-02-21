@@ -10,6 +10,12 @@
 
 #include "ofxXmlSettings.h"
 
+struct BorderSettings {
+  float distortion;
+  ofVec2f ratioRange;
+  ofVec2f radiusRange;
+};
+
 struct HyphaSettings {
   ofColor color;
   ofVec2f speed;
@@ -24,21 +30,13 @@ struct HyphaeSettings {
   ofVec2f primalHyphaCount;
   ofVec2f newPrimalHyphaPeriod;
   ofVec2f maxHyphaCount;
+  BorderSettings border;
   HyphaSettings hypha;
 };
 
-struct BorderSettings {
-  float distortion;
-  ofVec2f ratioRange;
-  ofVec2f radiusRange;
-};
-
-struct MyceliumSettings {
-  BorderSettings border;
-  HyphaeSettings hyphae;
-};
-
 struct CanvasSettings {
+  int framerate;
+  ofColor osdColor;
   int width;
   int height;
   ofColor backgroundColor;
@@ -51,10 +49,8 @@ private:
   ofVec2f getRange(const string& xmlPath, const float defaultValue=0.0f) const;
 
 public:
-  int framerate;
-  ofColor osdColor;
   CanvasSettings canvas;
-  MyceliumSettings mycelium;
+  HyphaeSettings hyphae;
 
   Settings(const string& xmlFile);
 };
