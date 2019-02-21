@@ -19,6 +19,9 @@ Mycelia::~Mycelia() {
 }
 
 void Mycelia::add(ofVec3f pos)  {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
+    itr = elements.erase(itr);
+  }
   MyceliumParams params = MyceliumParamsBuilder(settings).create();
   elements.push_back(new Mycelium(pos, settings, params));
 }
