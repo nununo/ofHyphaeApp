@@ -14,6 +14,7 @@ class Tools {
 public:
   static int angleToInt(float angle, int resolution=1);
   static float posToAngle(ofVec2f v) {return ofVec2f(1,0).angle(v);}
+  static float randomInRange(ofVec2f v) {return ofRandom(v.x, v.y);}
 };
 
 #endif /* Tools_h */

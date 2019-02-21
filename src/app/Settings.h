@@ -12,19 +12,19 @@
 
 struct HyphaSettings {
   ofColor color;
-  float speed;
-  float speedVariation;
-  float maxForkAngle;
-  float maxBendAngle;
-  float radiusTolerance;
+  ofVec2f speed;
+  ofVec2f speedVariation;
+  ofVec2f maxForkAngle;
+  ofVec2f maxBendAngle;
+  ofVec2f radiusTolerance;
 };
 
 struct HyphaeSettings {
-  int creationAreaSize;
+  ofVec2f creationAreaSize;
+  ofVec2f primalHyphaCount;
+  ofVec2f newPrimalHyphaPeriod;
+  ofVec2f maxHyphaCount;
   HyphaSettings hypha;
-  int primalHyphaCount;
-  float newPrimalHyphaPeriod;
-  int maxHyphaCount;
 };
 
 struct BorderSettings {
@@ -41,13 +41,14 @@ struct MyceliumSettings {
 struct CanvasSettings {
   int width;
   int height;
-  std::filesystem::path shaderFilename;
   ofColor backgroundColor;
 };
 
 class Settings {
 private:
   ofxXmlSettings xmlSettings;
+  
+  ofVec2f getRange(const string& xmlPath, const float defaultValue=0.0f) const;
 
 public:
   int framerate;

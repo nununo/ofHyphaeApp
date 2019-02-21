@@ -29,10 +29,22 @@
       </radiusRange>
     </border>
     <hyphae>
-      <creationAreaSize>10</creationAreaSize>
-      <primalHyphaCount>100</primalHyphaCount>
-      <newPrimalHyphaPeriod>0.02</newPrimalHyphaPeriod> <!--seconds-->
-      <maxHyphaCount>20000</maxHyphaCount>
+      <creationAreaSize>
+        <min>10</min>
+        <max>10</max>
+      </creationAreaSize>
+      <primalHyphaCount>
+        <min>100</min>
+        <max>100</max>
+      </primalHyphaCount>
+      <newPrimalHyphaPeriod> <!--seconds-->
+        <min>0.02</min>
+        <max>0.02</max>
+      </newPrimalHyphaPeriod>
+      <maxHyphaCount>
+        <min>20000</min>
+        <max>20000</max>
+      </maxHyphaCount>
       <hypha>
         <color>
           <r>0</r>
@@ -40,11 +52,26 @@
           <b>0</b>
           <a>10</a>
         </color>
-        <speed>4</speed> <!--pixels/s-->
-        <speedVariation>20</speedVariation> <!--%-->
-        <maxForkAngle>10</maxForkAngle>
-        <maxBendAngle>3</maxBendAngle>
-        <radiusTolerance>10</radiusTolerance> <!--%-->
+        <speed> <!--pixels/s-->
+          <min>4</min>
+          <max>4</max>
+        </speed>
+        <speedVariation> <!--%-->
+          <min>20</min>
+          <max>20</max>
+        </speedVariation>
+        <maxForkAngle>
+          <min>10</min>
+          <max>10</max>
+        </maxForkAngle>
+        <maxBendAngle>
+          <min>3</min>
+          <max>3</max>
+        </maxBendAngle>
+        <radiusTolerance> <!--%-->
+          <min>10</min>
+          <max>10</max>
+        </radiusTolerance>
       </hypha>
     </hyphae>
   </mycelium>
