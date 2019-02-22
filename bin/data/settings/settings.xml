@@ -41,7 +41,10 @@
       <v>1000</v>
     </maxHyphaCount>
     <border>
-      <distortion>0.7</distortion>
+      <distortion>
+        <min>0.1</min>
+        <max>1</max>
+      </distortion>
       <ratioRange>
         <min>1</min>
         <max>2</max>
