@@ -1,3 +1,5 @@
+- Convert other settings into sets
+- Store ofRandom seed in parameters (and probably the ofNoise offsets too) and try to make twice the same Hyphae
 - The Hypha deathBorder must be calculated based on its actual position and only on its initial direction (or we'll end up with a circle anyway)
 - Display all params in the OSD
 - Turn OSD on/off
