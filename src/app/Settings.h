@@ -12,7 +12,7 @@
 
 struct BorderSettings {
   ofVec2f distortion;
-  ofVec2f ratio;
+  ofVec2f ratioVariation;
   ofVec2f radius;
 };
 

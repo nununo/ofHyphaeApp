@@ -20,8 +20,8 @@ Settings::Settings(const string& xmlFile) {
   canvas.backgroundColor = getColor(s, "rhizopus:canvas:backgroundColor");
 
   hyphae.border.distortion = getRange(s, "rhizopus:hyphae:border:distortion", 0.0f); // 0.7
-  hyphae.border.radius = getRange(s, "rhizopus:hyphae:border:radiusRange", 10);
-  hyphae.border.ratio = getRange(s, "rhizopus:hyphae:border:ratioRange", 1);
+  hyphae.border.radius = getRange(s, "rhizopus:hyphae:border:radius", 10);
+  hyphae.border.ratioVariation = getRange(s, "rhizopus:hyphae:border:ratioVariation", 1);
 
   hyphae.creationAreaSize = getRange(s, "rhizopus:hyphae:creationAreaSize", 1000); // 40
   hyphae.primalHyphaCount = getSet(s, "rhizopus:hyphae:primalHyphaCount");

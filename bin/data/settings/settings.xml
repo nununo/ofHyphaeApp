@@ -45,21 +45,21 @@
         <min>0.1</min>
         <max>1</max>
       </distortion>
-      <ratioRange>
+      <ratioVariation>
         <min>1</min>
         <max>2</max>
-      </ratioRange>
-      <radiusRange>
+      </ratioVariation>
+      <radius>
         <min>100</min>
         <max>500</max>
-      </radiusRange>
+      </radius>
     </border>
     <hypha>
       <color>
         <r>0</r>
         <g>0</g>
         <b>0</b>
-        <a>10</a>
+        <a>20</a>
       </color>
       <speed> <!--pixels/s-->
         <min>4</min>
@@ -75,7 +75,7 @@
       </maxForkAngle>
       <maxBendAngle>
         <min>3</min>
-        <max>3</max>
+        <max>30</max>
       </maxBendAngle>
       <radiusTolerance> <!--%-->
         <min>10</min>

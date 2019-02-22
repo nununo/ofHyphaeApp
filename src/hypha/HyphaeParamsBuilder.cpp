@@ -13,7 +13,7 @@ HyphaeParams HyphaeParamsBuilder::create() {
   
   params.border.distortion = Tools::randomInRange(settings.border.distortion);
   params.border.radius = Tools::randomInRange(settings.border.radius);
-  params.border.ratioVariation = settings.border.ratio;
+  params.border.ratioVariation = settings.border.ratioVariation;
 
   params.position = ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
                                    ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5));
