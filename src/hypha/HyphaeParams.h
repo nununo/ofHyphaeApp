@@ -9,6 +9,7 @@
 #define HyphaeParams_h
 
 struct BorderParams {
+  int seed;
   float distortion;
   float radius;
   ofVec2f ratioVariation;
@@ -24,6 +25,7 @@ struct HyphaParams {
 };
 
 struct HyphaeParams {
+  int seed;
   ofVec2f position;
   int creationAreaSize;
   int primalHyphaCount;

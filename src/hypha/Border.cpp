@@ -15,9 +15,8 @@ Border::Border(const BorderParams params) {
 }
 
 void Border::generateRadiuses() {
-  float seed = ofRandom(0,1000);
   for (int i=0; i<BORDER_ANGLE_RESOLUTION*360; i++) {
-    radiuses.push_back(calcRadiusForAngle(i/(float)BORDER_ANGLE_RESOLUTION, seed));
+    radiuses.push_back(calcRadiusForAngle(i/(float)BORDER_ANGLE_RESOLUTION, params.seed));
   }
 }
 
