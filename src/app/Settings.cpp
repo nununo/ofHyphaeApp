@@ -24,7 +24,7 @@ Settings::Settings(const string& xmlFile) {
   hyphae.border.ratioRange = getRange(s, "rhizopus:hyphae:border:ratioRange", 1);
 
   hyphae.creationAreaSize = getRange(s, "rhizopus:hyphae:creationAreaSize", 1000); // 40
-  hyphae.primalHyphaCount = getRange(s, "rhizopus:hyphae:primalHyphaCount", 7); // 10
+  hyphae.primalHyphaCount = getSet(s, "rhizopus:hyphae:primalHyphaCount");
   hyphae.newPrimalHyphaPeriod = getRange(s, "rhizopus:hyphae:newPrimalHyphaPeriod", 0.0f); // 100
   hyphae.maxHyphaCount = getSet(s, "rhizopus:hyphae:maxHyphaCount");
 

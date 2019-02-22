@@ -27,7 +27,7 @@ struct HyphaSettings {
 
 struct HyphaeSettings {
   ofVec2f creationAreaSize;
-  ofVec2f primalHyphaCount;
+  vector<float> primalHyphaCount;
   ofVec2f newPrimalHyphaPeriod;
   vector<float> maxHyphaCount;
   BorderSettings border;

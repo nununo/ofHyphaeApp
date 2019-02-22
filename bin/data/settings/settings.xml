@@ -22,8 +22,12 @@
       <max>10</max>
     </creationAreaSize>
     <primalHyphaCount>
-      <min>1</min>
-      <max>5000</max>
+      <v>1</v>
+      <v>5</v>
+      <v>10</v>
+      <v>50</v>
+      <v>100</v>
+      <v>500</v>
     </primalHyphaCount>
     <newPrimalHyphaPeriod> <!--seconds-->
       <min>0.0</min>

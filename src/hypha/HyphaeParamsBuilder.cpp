@@ -18,7 +18,7 @@ HyphaeParams HyphaeParamsBuilder::create() {
   params.position = ofVec2f(ofRandom(0+ofGetWidth()/5,ofGetWidth()-ofGetWidth()/5),
                                    ofRandom(0+ofGetHours()/5,ofGetHeight()-ofGetHeight()/5));
   params.creationAreaSize = Tools::randomInRange(settings.creationAreaSize);
-  params.primalHyphaCount = (int)(Tools::randomInRange(settings.primalHyphaCount)+0.5f);
+  params.primalHyphaCount = (int)Tools::randomInSet(settings.primalHyphaCount);
   params.newPrimalHyphaPeriod = Tools::randomInRange(settings.newPrimalHyphaPeriod);
   params.maxHyphaCount = (int)Tools::randomInSet(settings.maxHyphaCount);
   
