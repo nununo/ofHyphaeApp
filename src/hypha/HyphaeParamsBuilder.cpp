@@ -20,7 +20,7 @@ HyphaeParams HyphaeParamsBuilder::create() {
   params.creationAreaSize = Tools::randomInRange(settings.creationAreaSize);
   params.primalHyphaCount = (int)(Tools::randomInRange(settings.primalHyphaCount)+0.5f);
   params.newPrimalHyphaPeriod = Tools::randomInRange(settings.newPrimalHyphaPeriod);
-  params.maxHyphaCount = (int)(Tools::randomInRange(settings.maxHyphaCount)+0.5f);
+  params.maxHyphaCount = (int)Tools::randomInSet(settings.maxHyphaCount);
   
   params.hypha.color = settings.hypha.color;
   params.hypha.speed = Tools::randomInRange(settings.hypha.speed);

@@ -29,7 +29,7 @@ struct HyphaeSettings {
   ofVec2f creationAreaSize;
   ofVec2f primalHyphaCount;
   ofVec2f newPrimalHyphaPeriod;
-  ofVec2f maxHyphaCount;
+  vector<float> maxHyphaCount;
   BorderSettings border;
   HyphaSettings hypha;
 };
@@ -46,6 +46,9 @@ class Settings {
 private:  
   ofVec2f getRange(ofxXmlSettings &xmlSettings, const string& xmlPath, const float defaultValue=0.0f) const;
   ofColor getColor(ofxXmlSettings &s, const string& xmlPath) const;
+  vector<float> getSet(ofxXmlSettings &s, const string& xmlPath);
+  int pushTags(ofxXmlSettings &s, const string& xmlPath);
+  void popTags(ofxXmlSettings &s, int levels);
 
 public:
   CanvasSettings canvas;

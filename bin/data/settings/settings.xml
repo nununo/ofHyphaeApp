@@ -30,8 +30,11 @@
       <max>0.2</max>
     </newPrimalHyphaPeriod>
     <maxHyphaCount>
-      <min>200</min>
-      <max>100000</max>
+      <v>1</v>
+      <v>2</v>
+      <v>10</v>
+      <v>100</v>
+      <v>1000</v>
     </maxHyphaCount>
     <border>
       <distortion>0.7</distortion>

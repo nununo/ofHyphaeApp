@@ -26,7 +26,7 @@ Settings::Settings(const string& xmlFile) {
   hyphae.creationAreaSize = getRange(s, "rhizopus:hyphae:creationAreaSize", 1000); // 40
   hyphae.primalHyphaCount = getRange(s, "rhizopus:hyphae:primalHyphaCount", 7); // 10
   hyphae.newPrimalHyphaPeriod = getRange(s, "rhizopus:hyphae:newPrimalHyphaPeriod", 0.0f); // 100
-  hyphae.maxHyphaCount = getRange(s, "rhizopus:hyphae:maxHyphaCount", 0); // 10000
+  hyphae.maxHyphaCount = getSet(s, "rhizopus:hyphae:maxHyphaCount");
 
   hyphae.hypha.color = getColor(s, "rhizopus:hyphae:hypha:color");
   hyphae.hypha.speed = getRange(s, "rhizopus:hyphae:hypha:speed", 1) / canvas.framerate; // pixels/second
@@ -36,9 +36,46 @@ Settings::Settings(const string& xmlFile) {
   hyphae.hypha.radiusTolerance = getRange(s, "rhizopus:hyphae:hypha:radiusTolerance", 1.0f); // 10%
 }
 
+int Settings::pushTags(ofxXmlSettings &s, const string& xmlPath) {
+  int pos;
+  int levels = 0;
+  string tag = xmlPath;
+  do {
+    pos = tag.find(":");
+    string tagToFind((pos > 0) ? tag.substr(0,pos) :tag);
+    s.pushTag(tagToFind);
+    levels++;
+    if (pos>0) {
+      tag = tag.substr(pos+1);
+    }
+  } while (pos>0);
+  return levels;
+}
+
+void Settings::popTags(ofxXmlSettings &s, int levels) {
+  for(int i=0;i<levels;i++) {
+    s.popTag();
+  }
+}
+
 ofVec2f Settings::getRange(ofxXmlSettings &s, const string& xmlPath, const float defaultValue) const {
   return ofVec2f(s.getValue(xmlPath + ":min", defaultValue),
                  s.getValue(xmlPath + ":max", defaultValue));
+}
+
+vector<float> Settings::getSet(ofxXmlSettings &s, const string& xmlPath) {
+  vector<float> list;
+  float value;
+
+  int levels = pushTags(s, xmlPath);
+  int numElements = s.getNumTags("v");
+  for(int i=0; i<numElements; i++){
+    value = s.getValue("v", 0, i);
+    list.push_back(value);
+  }
+  
+  popTags(s, levels);
+  return list;
 }
 
 ofColor Settings::getColor(ofxXmlSettings &s, const string& xmlPath) const {
