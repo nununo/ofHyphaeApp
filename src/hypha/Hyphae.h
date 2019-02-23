@@ -20,7 +20,7 @@ private:
   std::list<Hypha> elements;
   bool sterile;
   
-  void add(Hypha *hypha);
+  void add(ofVec2f pos, ofVec2f dir, int generation);
   void generatePrimalHyphas();
   void removeAllHypha(bool onlyDead);
   void sterilizeIfFull();

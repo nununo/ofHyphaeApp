@@ -18,9 +18,9 @@ Hyphae::~Hyphae() {
   removeAllHypha(false);
 }
 
-void Hyphae::add(Hypha *hypha) {
-  ofAddListener(hypha->forkEvent, this, &Hyphae::onHyphaFork);
-  elements.push_back(*hypha);
+void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
+  elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
+  ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
 }
 
 void Hyphae::generatePrimalHyphas() {
@@ -29,7 +29,7 @@ void Hyphae::generatePrimalHyphas() {
     float angle = ofRandom(0,360);
     ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-    add(new Hypha(pos, dir, border.get(), params.hypha));
+    add(pos, dir, 0);
     primalHyphaCount++;
   }
 }
@@ -53,7 +53,7 @@ void Hyphae::sterilizeIfFull() {
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   if (!sterile) {
-    add(new Hypha(e.pos, e.dir, border.get(), params.hypha, e.generation));
+    add(e.pos, e.dir, e.generation);
   }
 }
 
