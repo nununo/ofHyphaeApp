@@ -22,6 +22,7 @@ private:
 
   ofVec2f position;
   ofVec2f velocity;
+  float angle;
 
   ofVec2f delta;
   bool posIsNewPixel;

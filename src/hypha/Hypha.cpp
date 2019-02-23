@@ -17,10 +17,11 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
   
+  this->angle = 0;
   this->forkCount = 0;
+  this->delta = ofVec2f::zero();
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
-  this->delta = ofVec2f::zero();
 }
 
 ofVec2f Hypha::getInitialVelocity(const ofVec2f dir) const {
@@ -33,7 +34,7 @@ ofVec2f Hypha::getInitialVelocity(const ofVec2f dir) const {
 void Hypha::updateDirection() {
   float bendAngle = 2*(ofNoise(position.x+noiseOffset.x,
                         position.y+noiseOffset.y)-0.5f)*params.maxBendAngle;
-  velocity.rotate(bendAngle);
+  angle += bendAngle;
 }
 
 void Hypha::calcNextForkDistance() {
@@ -51,14 +52,14 @@ void Hypha::throwForkEvent() {
   HyphaForkEventArgs e;
   e.generation = this->generation + 1;
   e.pos = this->position;
-  float angle = ofRandom(-params.maxForkAngle, params.maxForkAngle);
-  e.dir = this->velocity.getRotated(angle);
+  float forkAngle = ofRandom(-params.maxForkAngle, params.maxForkAngle);
+  e.dir = this->velocity.getRotated(angle+forkAngle);
   ofNotifyEvent(this->forkEvent, e);
 }
 
 void Hypha::update() {
   if (isAlive()) {
-    delta += velocity;
+    delta += velocity.getRotated(angle);
     if (abs(delta.x)>params.pixelOverlap || abs(delta.y)>params.pixelOverlap) {
       position += delta;
       delta = ofVec2f::zero();
