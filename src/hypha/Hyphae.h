@@ -15,7 +15,7 @@
 class Hyphae {
 private:
   HyphaeParams params;
-  Border *border;
+  unique_ptr<Border> border;
   int newPrimalHyphaFramesPeriod;
   int primalHyphaCount;
   std::list<Hypha> elements;
