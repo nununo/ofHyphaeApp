@@ -75,7 +75,7 @@
       </maxForkAngle>
       <maxBendAngle>
         <min>3</min>
-        <max>30</max>
+        <max>10</max>
       </maxBendAngle>
       <radiusTolerance> <!--%-->
         <min>10</min>

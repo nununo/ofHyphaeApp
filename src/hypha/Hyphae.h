@@ -10,6 +10,7 @@
 
 #include "Hypha.h"
 #include "Border.h"
+#include "HyphaeStats.h"
 
 class Hyphae {
 private:
@@ -35,6 +36,7 @@ public:
   int primalCount() const {return primalHyphaCount;}
   bool isAlive() const {return count() > 0;}
   HyphaeParams getParams() const {return params;}
+  HyphaeStats getStats() const;
 
   void onHyphaFork(HyphaForkEventArgs &e);
 };

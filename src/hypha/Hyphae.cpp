@@ -59,6 +59,13 @@ void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   }
 }
 
+HyphaeStats Hyphae::getStats() const {
+  HyphaeStats stats;
+  stats.hyphaCount = elements.size();
+  stats.primalHyphaCount = this->primalHyphaCount;
+  return stats;
+}
+
 void Hyphae::update() {
   sterilizeIfFull();
   removeAllHypha(true);

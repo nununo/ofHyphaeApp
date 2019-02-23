@@ -4,15 +4,17 @@
 #include "Settings.h"
 #include "Hyphae.h"
 #include "HyphaeParamsBuilder.h"
+#include "OSD.h"
 
 class ofApp : public ofBaseApp{
 
 private:
   Settings *settings;
   Hyphae *hyphae;
+  HyphaeParams currentParams;
   HyphaeParamsBuilder *builder;
+  OSD *osd;
 
-  void drawOSD();
   void restart();
 
 public:
