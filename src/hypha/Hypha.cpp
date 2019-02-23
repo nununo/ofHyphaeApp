@@ -16,17 +16,11 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->border = border;
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
-  this->deathRadius = calcDeathRadius();
   
   this->forkCount = 0;
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   calcNextForkDistance();
   this->delta = ofVec2f::zero();
-}
-
-float Hypha::calcDeathRadius() const {
-  float angle = Tools::posToAngle(velocity);
-  return border->getRadius(angle) * ofRandom(1, 1+params.radiusTolerance/100.0f);
 }
 
 ofVec2f Hypha::getInitialVelocity(const ofVec2f dir) const {
@@ -68,7 +62,7 @@ void Hypha::update() {
     if (abs(delta.x)>params.pixelOverlap || abs(delta.y)>params.pixelOverlap) {
       position += delta;
       delta = ofVec2f::zero();
-      if (position.length() > deathRadius) {
+      if (position.length() > border->getRadius(Tools::posToAngle(position)) * ofRandom(1, 1+params.radiusTolerance/100.0f)) {
         die();
       } else {
         posIsNewPixel = true;

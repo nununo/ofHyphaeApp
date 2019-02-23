@@ -26,7 +26,6 @@ private:
   bool posIsNewPixel;
   int nextForkDistance;
   int forkCount;
-  float deathRadius;
   bool dead;
 
   void growOlder();
@@ -34,7 +33,6 @@ private:
   void updateDirection();
   void calcNextForkDistance();
   void fork();
-  float calcDeathRadius() const;
   
   void throwForkEvent();
   void throwDieEvent();
