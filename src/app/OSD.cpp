@@ -51,7 +51,7 @@ void OSD::draw(const Settings &settings, const HyphaeParams params, const Hyphae
   str = "creation area size: " + ofToString(params.creationAreaSize);
   ofDrawBitmapString(str, 10,145);
 
-  str = "new primal hypha period: " + ofToString(params.newPrimalHyphaPeriod);
+  str = "new primal hypha period: " + ofToString(params.newPrimalHyphaFramesPeriod);
   ofDrawBitmapString(str, 10,160);
 
   ofPopStyle();

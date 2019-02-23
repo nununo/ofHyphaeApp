@@ -13,7 +13,7 @@
 
 class HyphaeParamsBuilder {
 public:
-  HyphaeParams create(HyphaeSettings settings);
+  HyphaeParams create(const Settings &settings);
 };
 
 #endif /* HyphaeParamsBuilder_h */

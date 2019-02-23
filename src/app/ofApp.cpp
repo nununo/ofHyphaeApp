@@ -14,7 +14,7 @@ void ofApp::setup(){
 
 void ofApp::restart() {
   HyphaeParamsBuilder builder;
- currentParams = builder.create(settings->hyphae);
+ currentParams = builder.create(*settings.get());
   hyphae.reset(new Hyphae(currentParams));
   ofBackground(settings->canvas.backgroundColor);
 }

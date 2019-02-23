@@ -8,30 +8,30 @@
 #include "HyphaeParamsBuilder.h"
 #include "Tools.h"
 
-HyphaeParams HyphaeParamsBuilder::create(HyphaeSettings settings) {
+HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   HyphaeParams params;
-  
+  HyphaeSettings hyphaeSettings = settings.hyphae;
   params.seed = (int)ofRandom(999999);
   ofSeedRandom(params.seed);
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
-  params.creationAreaSize = Tools::randomInRange(settings.creationAreaSize);
-  params.primalHyphaCount = (int)Tools::randomInSet(settings.primalHyphaCount);
-  params.newPrimalHyphaPeriod = Tools::randomInRange(settings.newPrimalHyphaPeriod);
-  params.maxHyphaCount = (int)Tools::randomInSet(settings.maxHyphaCount);
+  params.creationAreaSize = Tools::randomInRange(hyphaeSettings.creationAreaSize);
+  params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
+  params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
+  params.maxHyphaCount = (int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
 
   params.border.noiseOffset = ofRandom(100000);
-  params.border.distortion = Tools::randomInRange(settings.border.distortion);
-  params.border.radius = Tools::randomInRange(settings.border.radius);
-  params.border.ratioVariation = settings.border.ratioVariation;
+  params.border.distortion = Tools::randomInRange(hyphaeSettings.border.distortion);
+  params.border.radius = Tools::randomInRange(hyphaeSettings.border.radius);
+  params.border.ratioVariation = hyphaeSettings.border.ratioVariation;
 
-  params.hypha.color = settings.hypha.color;
-  params.hypha.speed = Tools::randomInRange(settings.hypha.speed);
-  params.hypha.speedVariation = Tools::randomInRange(settings.hypha.speedVariation);
-  params.hypha.maxForkAngle = Tools::randomInRange(settings.hypha.maxForkAngle);
-  params.hypha.maxBendAngle = Tools::randomInRange(settings.hypha.maxBendAngle);
-  params.hypha.radiusTolerance = Tools::randomInRange(settings.hypha.radiusTolerance);
-  params.hypha.pixelOverlap = Tools::randomInRange(settings.hypha.pixelOverlap);
+  params.hypha.color = hyphaeSettings.hypha.color;
+  params.hypha.speed = Tools::randomInRange(hyphaeSettings.hypha.speed);
+  params.hypha.speedVariation = Tools::randomInRange(hyphaeSettings.hypha.speedVariation);
+  params.hypha.maxForkAngle = Tools::randomInRange(hyphaeSettings.hypha.maxForkAngle);
+  params.hypha.maxBendAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBendAngle);
+  params.hypha.radiusTolerance = Tools::randomInRange(hyphaeSettings.hypha.radiusTolerance);
+  params.hypha.pixelOverlap = Tools::randomInRange(hyphaeSettings.hypha.pixelOverlap);
 
   return params;
 }

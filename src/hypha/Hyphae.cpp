@@ -10,7 +10,6 @@
 Hyphae::Hyphae(const HyphaeParams params) {
   this->params = params;
   this->border.reset(new Border(params.border));
-  this->newPrimalHyphaFramesPeriod = ofGetFrameRate() * params.newPrimalHyphaPeriod;
   this->primalHyphaCount = 0;
   this->sterile = false;
 }
@@ -26,7 +25,7 @@ void Hyphae::add(Hypha *hypha) {
 
 void Hyphae::generatePrimalHyphas() {
   if (primalHyphaCount < params.primalHyphaCount &&
-      (newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % newPrimalHyphaFramesPeriod == 0)) {
+      (params.newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
     float angle = ofRandom(0,360);
     ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
