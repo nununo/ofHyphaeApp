@@ -11,14 +11,12 @@ class ofApp : public ofBaseApp{
 private:
   unique_ptr<Settings> settings;
   unique_ptr<Hyphae> hyphae;
-  HyphaeParams currentParams;
-  HyphaeParamsBuilder *builder;
   unique_ptr<OSD> osd;
+  HyphaeParams currentParams;
 
   void restart();
 
 public:
-  ~ofApp();
   void setup();
   void update();
   void draw();

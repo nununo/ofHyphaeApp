@@ -3,7 +3,6 @@
 
 void ofApp::setup(){
   settings.reset(new Settings("settings/settings.xml"));
-  this->builder = new HyphaeParamsBuilder(settings->hyphae);
   osd.reset(new OSD(settings.get()));
   //ofSetVerticalSync(true);
   ofSetFrameRate(settings->canvas.framerate);
@@ -12,12 +11,9 @@ void ofApp::setup(){
   restart();
 }
 
-ofApp::~ofApp() {
-  delete builder;
-}
-
 void ofApp::restart() {
-  currentParams = builder->create();
+  HyphaeParamsBuilder builder(settings->hyphae);
+ currentParams = builder.create();
   hyphae.reset(new Hyphae(currentParams));
   ofBackground(settings->canvas.backgroundColor);
 }
