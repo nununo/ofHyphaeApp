@@ -1,3 +1,4 @@
+- Get rid of leaks! Replace all raw pointers with smart pointers.
 - The Hypha deathBorder must be calculated based on its actual position and only on its initial direction (or we'll end up with a circle anyway)
 - Review Hypha nextForkDistance
 - Convert other settings into sets
