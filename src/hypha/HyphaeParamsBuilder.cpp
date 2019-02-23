@@ -8,7 +8,7 @@
 #include "HyphaeParamsBuilder.h"
 #include "Tools.h"
 
-HyphaeParams HyphaeParamsBuilder::create() {
+HyphaeParams HyphaeParamsBuilder::create(HyphaeSettings settings) {
   HyphaeParams params;
   
   params.seed = (int)ofRandom(999999);

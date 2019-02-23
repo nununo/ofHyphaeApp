@@ -12,12 +12,8 @@
 #include "HyphaeParams.h"
 
 class HyphaeParamsBuilder {
-private:
-  HyphaeSettings settings;
-  
 public:
-  HyphaeParamsBuilder(HyphaeSettings settings) {this->settings = settings;}
-  HyphaeParams create();
+  HyphaeParams create(HyphaeSettings settings);
 };
 
 #endif /* HyphaeParamsBuilder_h */
