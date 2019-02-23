@@ -30,8 +30,7 @@ void Hyphae::generatePrimalHyphas() {
   }
   if (primalHyphaCount < params.primalHyphaCount &&
       (params.newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
-    float angle = ofRandom(0,360);
-    ofVec3f dir = ofVec3f(1,0,0).rotate(0,0,angle);
+    ofVec2f dir = ofVec2f(1,0).getRotated(ofRandom(0,360));
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(pos, dir, 0);
     primalHyphaCount++;

@@ -30,7 +30,7 @@ private:
   bool dead;
 
   void growOlder();
-  ofVec3f getInitialVelocity(const ofVec2f dir) const;
+  ofVec2f getInitialVelocity(const ofVec2f dir) const;
   void updateDirection();
   void calcNextForkDistance();
   void fork();
