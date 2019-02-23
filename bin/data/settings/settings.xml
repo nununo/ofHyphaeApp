@@ -99,6 +99,10 @@
         <min>10</min>
         <max>10</max>
       </radiusTolerance>
+      <pixelOverlap>
+        <min>0.9</min>
+        <max>0.9</max>
+      </pixelOverlap>
     </hypha>
   </hyphae>
 </rhizopus>

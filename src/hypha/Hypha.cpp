@@ -69,7 +69,7 @@ void Hypha::throwForkEvent() {
 void Hypha::update() {
   if (isAlive()) {
     delta += velocity;
-    if (abs(delta.x)>0.9f || abs(delta.y)>0.9f) {
+    if (abs(delta.x)>params.pixelOverlap || abs(delta.y)>params.pixelOverlap) {
       position += delta;
       delta = ofVec2f(0,0);
       if (position.length() > deathRadius) {

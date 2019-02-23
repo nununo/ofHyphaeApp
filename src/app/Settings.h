@@ -23,6 +23,7 @@ struct HyphaSettings {
   ofVec2f maxForkAngle;
   ofVec2f maxBendAngle;
   ofVec2f radiusTolerance;
+  ofVec2f pixelOverlap;
 };
 
 struct HyphaeSettings {

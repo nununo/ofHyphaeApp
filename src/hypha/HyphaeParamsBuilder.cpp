@@ -31,6 +31,7 @@ HyphaeParams HyphaeParamsBuilder::create() {
   params.hypha.maxForkAngle = Tools::randomInRange(settings.hypha.maxForkAngle);
   params.hypha.maxBendAngle = Tools::randomInRange(settings.hypha.maxBendAngle);
   params.hypha.radiusTolerance = Tools::randomInRange(settings.hypha.radiusTolerance);
-  
+  params.hypha.pixelOverlap = Tools::randomInRange(settings.hypha.pixelOverlap);
+
   return params;
 }
