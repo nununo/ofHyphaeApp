@@ -9,7 +9,6 @@
     </osdColor>
     <width>1280</width>
     <height>720</height>
-    <shaderFilename>shaders/alphamask.frag</shaderFilename>
     <backgroundColor>
       <r>255</r>
       <g>255</g>
