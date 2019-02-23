@@ -16,9 +16,9 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
   params.creationAreaSize = Tools::randomInRange(hyphaeSettings.creationAreaSize);
+  params.maxHyphaCount = (int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
   params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
   params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
-  params.maxHyphaCount = (int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
 
   params.border.noiseOffset = ofRandom(100000);
   params.border.distortion = Tools::randomInRange(hyphaeSettings.border.distortion);
