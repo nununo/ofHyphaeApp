@@ -55,6 +55,9 @@ void ofApp::keyPressed(int key) {
     case 'b':
       hyphae->drawBorder();
       break;
+    
+    case 's':
+      ofLog() << "seed: " << currentParams.seed;
 
     default:
       break;
