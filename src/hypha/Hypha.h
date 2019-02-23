@@ -45,7 +45,7 @@ public:
   bool isAlive() const {return !dead;}
   void update();
   void draw();
-  void die();
+  void die() {dead = true;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
 };

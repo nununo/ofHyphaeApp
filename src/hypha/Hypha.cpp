@@ -29,10 +29,6 @@ float Hypha::calcDeathRadius() const {
   return border->getRadius(angle) * ofRandom(1, 1+params.radiusTolerance/100.0f);
 }
 
-void Hypha::die() {
-  dead = true;
-}
-
 ofVec3f Hypha::getInitialVelocity(ofVec2f dir) const {
    return dir.getNormalized() *
           ofRandom(params.speed*(1-params.speedVariation/100.0f),
