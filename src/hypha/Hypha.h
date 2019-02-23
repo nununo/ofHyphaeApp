@@ -16,30 +16,30 @@
 class Hypha {
 private:
   HyphaParams params;
-  int generation;
   Border *border;
+  int generation;
   ofVec2f noiseOffset;
 
   ofVec2f position;
-  ofVec2f delta;
   ofVec2f velocity;
+
+  ofVec2f delta;
   bool posIsNewPixel;
+
   int nextForkDistance;
   int forkCount;
+
   bool dead;
 
-  void growOlder();
   ofVec2f getInitialVelocity(const ofVec2f dir) const;
   void updateDirection();
   void calcNextForkDistance();
   void fork();
   
   void throwForkEvent();
-  void throwDieEvent();
-  void throwPositionEvent();
 
 public:
-  Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation=0);
+  Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation);
   bool isAlive() const {return !dead;}
   void update();
   void draw();
