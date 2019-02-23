@@ -10,7 +10,7 @@ class ofApp : public ofBaseApp{
 
 private:
   unique_ptr<Settings> settings;
-  Hyphae *hyphae;
+  unique_ptr<Hyphae> hyphae;
   HyphaeParams currentParams;
   HyphaeParamsBuilder *builder;
   unique_ptr<OSD> osd;
