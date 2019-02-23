@@ -1,9 +1,10 @@
 #include "ofApp.h"
 #include "HyphaeParamsBuilder.h"
+#include "OSD.h"
 
 void ofApp::setup(){
   settings.reset(new Settings("settings/settings.xml"));
-  osd.reset(new OSD(settings.get()));
+  osd.reset(new OSD());
   //ofSetVerticalSync(true);
   ofSetFrameRate(settings->canvas.framerate);
   ofSetBackgroundAuto(false);
@@ -24,7 +25,12 @@ void ofApp::update(){
 
 void ofApp::draw(){
   hyphae->draw();
-  osd->draw(currentParams, hyphae->getStats());
+  drawOSD();
+}
+
+void ofApp::drawOSD() {
+  OSD osd;
+  osd.draw(*settings.get(), currentParams, hyphae->getStats());
 }
 
 

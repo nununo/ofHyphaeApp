@@ -15,6 +15,7 @@ private:
   HyphaeParams currentParams;
 
   void restart();
+  void drawOSD();
 
 public:
   void setup();

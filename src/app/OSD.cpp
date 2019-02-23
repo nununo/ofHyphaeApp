@@ -7,17 +7,17 @@
 
 #include "OSD.h"
 
-void OSD::draw(HyphaeParams params, HyphaeStats stats) {
+void OSD::draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats) {
   if (!active) {
     return;
   }
 
   ofPushStyle();
   
-  ofSetColor(settings->canvas.backgroundColor);
+  ofSetColor(settings.canvas.backgroundColor);
   ofDrawRectangle(0, 0, 180, 50);
   
-  ofSetColor(settings->canvas.osdColor);
+  ofSetColor(settings.canvas.osdColor);
   
   string str = "framerate: " + ofToString(ofGetFrameRate(), 2);
   ofDrawBitmapString(str, 10,10);

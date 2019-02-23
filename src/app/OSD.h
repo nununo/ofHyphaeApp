@@ -13,12 +13,10 @@
 #include "HyphaeStats.h"
 
 class OSD {
-  Settings *settings;
-  bool active;
+  bool active = true;
 
 public:
-  OSD(Settings *settings) {this->settings = settings; active=true;}
-  void draw(HyphaeParams params, HyphaeStats stats);
+  void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats);
   void toggleActive() {active=!active;}
 };
 
