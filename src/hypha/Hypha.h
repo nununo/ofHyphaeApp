@@ -20,9 +20,9 @@ private:
   Border *border;
   ofVec2f noiseOffset;
 
-  ofVec2f pos;
-  ofVec2f vel;
-  ofVec2f lastIntPos;
+  ofVec2f position;
+  ofVec2f delta;
+  ofVec2f velocity;
   bool posIsNewPixel;
   int nextForkDistance;
   int forkCount;
