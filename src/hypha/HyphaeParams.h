@@ -9,7 +9,7 @@
 #define HyphaeParams_h
 
 struct BorderParams {
-  int seed;
+  float noiseOffset;
   float distortion;
   float radius;
   ofVec2f ratioVariation;

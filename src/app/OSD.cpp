@@ -28,7 +28,7 @@ void OSD::draw(HyphaeParams params, HyphaeStats stats) {
   str = "primalHyphae: " + ofToString(stats.primalHyphaCount) + "/" + ofToString(params.primalHyphaCount);
   ofDrawBitmapString(str, 10,40);
 
-  str = "seed: " + ofToString(params.border.seed);
+  str = "noiseOffset: " + ofToString(params.border.noiseOffset);
   ofDrawBitmapString(str, 10,55);
 
   str = "distortion: " + ofToString(params.border.distortion);

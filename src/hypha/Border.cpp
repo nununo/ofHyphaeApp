@@ -15,27 +15,30 @@ Border::Border(const BorderParams params) {
 }
 
 void Border::generateRadiuses() {
-  for (int i=0; i<BORDER_ANGLE_RESOLUTION*360; i++) {
-    radiuses.push_back(calcRadiusForAngle(i/(float)BORDER_ANGLE_RESOLUTION, params.seed));
+  for (int i=0; i<360; i++) {
+    radiuses.push_back(calcRatioForAngle(i));
   }
 }
 
-float Border::calcRadiusForAngle(float angle, float seed) const {
+float Border::calcRatioForAngle(float angle) const {
   ofVec2f p = ofVec2f(1,0).rotate(angle);
-  return ofLerp(params.ratioVariation.x, params.ratioVariation.y, ofNoise(p.x*params.distortion+seed, p.y*params.distortion+seed));
+  return ofLerp(params.ratioVariation.x, params.ratioVariation.y,
+                ofNoise(p.x*params.distortion+params.noiseOffset, p.y*params.distortion+params.noiseOffset));
 }
 
 float Border::getRatio(float angle) const {
-  int i = Tools::angleToInt(angle, BORDER_ANGLE_RESOLUTION);
+  int i = Tools::angleToInt(angle);
   return radiuses[i];
 }
 
 void Border::draw() const {
   ofPushStyle();
   ofSetColor(255, 0, 0);
-  for(int i=0; i<BORDER_ANGLE_RESOLUTION*360; i++) {
-    ofVec2f p = ofVec2f(params.radius*radiuses[i],0).rotate(i/(float)BORDER_ANGLE_RESOLUTION);
-    ofDrawRectangle(p.x, p.y, 1, 1);
+  ofVec2f prevP;
+  for(int i=0; i<=360; i++) {
+    ofVec2f p = ofVec2f(params.radius*radiuses[Tools::angleToInt(i)],0).rotate(i);
+    if (i!=0) {ofDrawLine(prevP, p);}
+    prevP = p;
   }
   ofPopStyle();
 }

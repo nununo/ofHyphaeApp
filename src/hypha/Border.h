@@ -12,15 +12,13 @@
 #include "Settings.h"
 #include "HyphaeParams.h"
 
-#define BORDER_ANGLE_RESOLUTION 10
-
 class Border {
 private:
   BorderParams params;
   std::vector<float> radiuses;
   
   void generateRadiuses();
-  float calcRadiusForAngle(float angle, float seed) const;
+  float calcRatioForAngle(float angle) const;
 public:
   Border(const BorderParams params);
   float getRatio(float angle) const;
