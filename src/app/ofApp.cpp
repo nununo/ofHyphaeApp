@@ -2,10 +2,10 @@
 #include "HyphaeParamsBuilder.h"
 
 void ofApp::setup(){
-  this->settings = new Settings("settings/settings.xml");
+  settings.reset(new Settings("settings/settings.xml"));
   ofSetFrameRate(settings->canvas.framerate);
   this->builder = new HyphaeParamsBuilder(settings->hyphae);
-  this->osd = new OSD(settings);
+  this->osd = new OSD(settings.get());
   //ofSetVerticalSync(true);
   ofSetBackgroundAuto(false);
   ofBackground(settings->canvas.backgroundColor);
@@ -14,7 +14,6 @@ void ofApp::setup(){
 
 ofApp::~ofApp() {
   delete hyphae;
-  delete settings;
   delete builder;
   delete osd;
 }
