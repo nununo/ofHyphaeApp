@@ -13,7 +13,7 @@ private:
   Hyphae *hyphae;
   HyphaeParams currentParams;
   HyphaeParamsBuilder *builder;
-  OSD *osd;
+  unique_ptr<OSD> osd;
 
   void restart();
 
