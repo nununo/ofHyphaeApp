@@ -11,10 +11,10 @@
 HyphaeParams HyphaeParamsBuilder::create() {
   HyphaeParams params;
   
-  params.seed = (int)ofRandom(1000000);
+  params.seed = (int)ofRandom(999999);
   ofSeedRandom(params.seed);
 
-  params.border.seed = ofRandom(1000000);
+  params.border.seed = ofRandom(999999);
   params.border.distortion = Tools::randomInRange(settings.border.distortion);
   params.border.radius = Tools::randomInRange(settings.border.radius);
   params.border.ratioVariation = settings.border.ratioVariation;
