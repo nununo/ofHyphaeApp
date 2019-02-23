@@ -37,6 +37,7 @@ public:
   bool isAlive() const {return count() > 0;}
   HyphaeParams getParams() const {return params;}
   HyphaeStats getStats() const;
+  void drawBorder() const;
 
   void onHyphaFork(HyphaForkEventArgs &e);
 };

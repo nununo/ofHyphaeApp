@@ -72,6 +72,13 @@ void Hyphae::update() {
   generatePrimalHyphas();
 }
 
+void Hyphae::drawBorder() const {
+  ofPushMatrix();
+  ofTranslate(params.position);
+  border->draw();
+  ofPopMatrix();
+}
+
 void Hyphae::draw() {
   ofPushMatrix();
   ofTranslate(params.position);

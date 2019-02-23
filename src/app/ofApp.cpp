@@ -51,6 +51,10 @@ void ofApp::keyPressed(int key) {
     case 'o':
       osd->toggleActive();
       break;
+      
+    case 'b':
+      hyphae->drawBorder();
+      break;
 
     default:
       break;
