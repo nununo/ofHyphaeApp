@@ -42,7 +42,7 @@ void Hypha::updateDirection() {
 
 void Hypha::calcNextForkDistance() {
   float length = position.length();
-  this->nextForkDistance = 1+(int)(ofRandom(length,length*1.1)+0.5f);
+  this->nextForkDistance = 1+(int)(ofRandom(length*0.1f,length*1.0f)+0.5f);
 }
 
 void Hypha::fork() {
