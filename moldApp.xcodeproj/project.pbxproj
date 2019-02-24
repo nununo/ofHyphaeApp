@@ -61,6 +61,7 @@
 		7D477B002220C99F00F6D6FD /* OSD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSD.h; sourceTree = "<group>"; };
 		7D477B052220CE5C00F6D6FD /* HyphaeStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyphaeStats.h; sourceTree = "<group>"; };
 		7D4908F321EA7A4700D2B263 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		7D54A22E2222FC78001E1451 /* IStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IStage.h; sourceTree = "<group>"; };
 		7D5F18042218528700705116 /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = settings.xml; sourceTree = "<group>"; };
 		7D5F181C2219985700705116 /* Border.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Border.cpp; sourceTree = "<group>"; };
 		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
@@ -358,6 +359,7 @@
 				7D5F18352219E37600705116 /* Tools.h */,
 				7D477AFF2220C99F00F6D6FD /* OSD.cpp */,
 				7D477B002220C99F00F6D6FD /* OSD.h */,
+				7D54A22E2222FC78001E1451 /* IStage.h */,
 			);
 			path = app;
 			sourceTree = "<group>";

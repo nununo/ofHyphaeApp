@@ -1,4 +1,5 @@
 - Review Hypha nextForkDistance
+- Implement proper state machine to manage hyphae lifecycle
 
 - Get rid of what Filipa calls the apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Convert other settings into sets
