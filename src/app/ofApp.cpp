@@ -9,21 +9,42 @@ void ofApp::setup(){
   ofSetFrameRate(settings->canvas.framerate);
   ofSetBackgroundAuto(false);
   ofBackground(settings->canvas.backgroundColor);
-  restart();
 }
 
-void ofApp::restart() {
+void ofApp::newHyphae() {
   HyphaeParamsBuilder builder;
- currentParams = builder.create(*settings.get());
+  currentParams = builder.create(*settings.get());
   hyphae.reset(new Hyphae(currentParams));
   ofBackground(settings->canvas.backgroundColor);
+  lifecycleStage = alive;
 }
 
 void ofApp::update(){
-  if (!hyphae->isAlive()) {
-    restart();
+  switch (lifecycleStage) {
+    case alive:
+      if (hyphae->isAlive()) {
+        hyphae->update();
+      } else {
+        lifecycleStage = mourn;
+        mourningFrames = settings->canvas.mourningTime * settings->canvas.framerate;
+      }
+      break;
+    
+    case mourn:
+      if (mourningFrames > 0) {
+        mourningFrames--;
+      } else {
+        lifecycleStage = idle;
+      }
+      break;
+    
+    case fadeout:
+      break;
+    
+    case idle:
+      newHyphae();
+      break;
   }
-  hyphae->update();
 }
 
 void ofApp::draw(){
@@ -40,7 +61,7 @@ void ofApp::drawOSD() {
 void ofApp::keyPressed(int key) {
   switch (key) {
     case ' ':
-      restart();
+      newHyphae();
       break;
     
     case 'f':

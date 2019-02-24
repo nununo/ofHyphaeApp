@@ -10,9 +10,6 @@
 Hyphae::Hyphae(const HyphaeParams params) {
   this->params = params;
   this->border.reset(new Border(params.border));
-  this->primalHyphaCount = 0;
-  this->sterile = false;
-  this->wasAlive = false;
 }
 
 Hyphae::~Hyphae() {
@@ -50,7 +47,7 @@ void Hyphae::removeAllHypha(bool onlyDead) {
   }
 }
 
-void Hyphae::sterilizeIfFull() {
+void Hyphae::updateLifecycle() {
   if (elements.size() >= params.maxHyphaCount) {
     sterile = true;
   }
@@ -70,7 +67,7 @@ HyphaeStats Hyphae::getStats() const {
 }
 
 void Hyphae::update() {
-  sterilizeIfFull();
+  updateLifecycle();
   removeAllHypha(true);
   generatePrimalHyphas();
 }

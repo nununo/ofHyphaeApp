@@ -42,6 +42,7 @@ struct CanvasSettings {
   int width;
   int height;
   ofColor backgroundColor;
+  float mourningTime;      // Time (in sec) before an Hyphae says it is dead
 };
 
 class Settings {

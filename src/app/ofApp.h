@@ -6,6 +6,8 @@
 #include "HyphaeParamsBuilder.h"
 #include "OSD.h"
 
+enum LifecycleStage {idle, alive, mourn, fadeout};
+
 class ofApp : public ofBaseApp{
 
 private:
@@ -13,8 +15,10 @@ private:
   unique_ptr<Hyphae> hyphae;
   unique_ptr<OSD> osd;
   HyphaeParams currentParams;
+  LifecycleStage lifecycleStage = idle;
+  int mourningFrames = 0;
 
-  void restart();
+  void newHyphae();
   void drawOSD();
 
 public:

@@ -16,15 +16,16 @@ class Hyphae {
 private:
   HyphaeParams params;
   unique_ptr<Border> border;
-  int primalHyphaCount;
   std::list<Hypha> elements;
-  bool sterile;
-  bool wasAlive;
+
+  int primalHyphaCount = 0;
+  bool sterile = false;
+  bool wasAlive = false;
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
   void generatePrimalHyphas();
   void removeAllHypha(bool onlyDead);
-  void sterilizeIfFull();
+  void updateLifecycle();
   void updateAllHypha();
 
 public:
@@ -34,7 +35,7 @@ public:
   void draw();
   int count() const {return elements.size();}
   int primalCount() const {return primalHyphaCount;}
-  bool isAlive() const {return (!wasAlive || count() > 0);}
+  bool isAlive() {return (!wasAlive || count()>0);}
   HyphaeParams getParams() const {return params;}
   HyphaeStats getStats() const;
   void drawBorder() const;
