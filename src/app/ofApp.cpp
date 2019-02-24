@@ -105,6 +105,12 @@ void ofApp::keyPressed(int key) {
       hyphae->drawBorder();
       break;
     
+    case 'c':
+      ofPushStyle();
+      ofSetColor(settings->canvas.backgroundColor);
+      ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+      ofPopStyle();
+
     case 's':
       ofLog() << "seed: " << currentParams.seed;
 
