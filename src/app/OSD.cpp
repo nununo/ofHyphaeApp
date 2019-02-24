@@ -7,7 +7,7 @@
 
 #include "OSD.h"
 
-void OSD::draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats) {
+void OSD::draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const int lifecycleStage) {
   if (!active) {
     return;
   }
@@ -59,6 +59,9 @@ void OSD::draw(const Settings &settings, const HyphaeParams params, const Hyphae
   line++;
   
   str = "framerate: " + ofToString(ofGetFrameRate(),2);
+  ofDrawBitmapString(str, 10,distance*line++);
+  
+  str = "stage: " + ofToString(lifecycleStage);
   ofDrawBitmapString(str, 10,distance*line++);
   
   str = "hyphae: " + ofToString(stats.hyphaCount) + "/" + ofToString(params.maxHyphaCount);

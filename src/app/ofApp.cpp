@@ -83,7 +83,7 @@ void ofApp::draw(){
 
 void ofApp::drawOSD() {
   OSD osd;
-  osd.draw(*settings.get(), currentParams, hyphae->getStats());
+  osd.draw(*settings.get(), currentParams, hyphae->getStats(), lifecycleStage);
 }
 
 

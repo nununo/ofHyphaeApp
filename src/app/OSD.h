@@ -16,7 +16,7 @@ class OSD {
   bool active = true;
 
 public:
-  void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats);
+  void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const int lifecycleStage);
   void toggleActive() {active=!active;}
 };
 
