@@ -17,9 +17,11 @@ Hyphae::~Hyphae() {
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
-  wasAlive = true;
-  elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
-  ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
+  if (!sterile) {
+    wasAlive = true;
+    elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
+    ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
+  }
 }
 
 void Hyphae::generatePrimalHyphas() {
@@ -54,9 +56,7 @@ void Hyphae::updateLifecycle() {
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  if (!sterile) {
-    add(e.pos, e.dir, e.generation);
-  }
+  add(e.pos, e.dir, e.generation);
 }
 
 HyphaeStats Hyphae::getStats() const {
