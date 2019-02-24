@@ -23,7 +23,7 @@ private:
   bool wasAlive = false;
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
-  void generatePrimalHyphas();
+  void generatePrimal();
   void removeAllHypha(bool onlyDead);
   void updateLifecycle();
   void updateAllHypha();

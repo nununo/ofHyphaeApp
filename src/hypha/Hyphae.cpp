@@ -24,10 +24,10 @@ void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
   }
 }
 
-void Hyphae::generatePrimalHyphas() {
+void Hyphae::generatePrimal() {
   if (sterile) {
     // If we already reached the maximum possible hypha count then don't create more primal hypha
-    primalHyphaCount = params.primalHyphaCount;
+    return;
   }
   if (primalHyphaCount < params.primalHyphaCount &&
       (params.newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
@@ -69,7 +69,7 @@ HyphaeStats Hyphae::getStats() const {
 void Hyphae::update() {
   updateLifecycle();
   removeAllHypha(true);
-  generatePrimalHyphas();
+  generatePrimal();
 }
 
 void Hyphae::drawBorder() const {
