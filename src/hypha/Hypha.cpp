@@ -8,8 +8,6 @@
 #include "Hypha.h"
 #include "Tools.h"
 
-#define OFFSET_MAX 1000
-
 Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation) {
   this->position = pos;
   this->params = params;
@@ -20,7 +18,6 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->angle = 0;
   this->forkCount = 0;
   this->delta = ofVec2f::zero();
-  this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
   this->radiusRatio = ofRandom(1, 1+params.radiusTolerance/100.0f);
   calcNextForkDistance();
 }
@@ -33,8 +30,8 @@ ofVec2f Hypha::getInitialVelocity(const ofVec2f dir) const {
 }
 
 void Hypha::updateDirection() {
-  float bendAngle = 2*(ofNoise(position.x+noiseOffset.x,
-                        position.y+noiseOffset.y)-0.5f)*params.maxBendAngle;
+  float bendAngle = 2*(ofNoise(position.x+params.noiseOffset.x,
+                        position.y+params.noiseOffset.y)-0.5f)*params.maxBendAngle;
   if (abs(angle+bendAngle)<params.maxBentAngle) {
     angle += bendAngle;
   }

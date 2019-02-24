@@ -1,5 +1,8 @@
 - Review Hypha nextForkDistance
 - Implement proper state machine to manage hyphae lifecycle
+- Radius tolerance is not working because so many hypha will generate a too smooth average
+- Solve mystery in #848599 in which the latest primals generate a wave of black 
+- Same params still don't generate the exact same Hypha
 
 - Get rid of what Filipa calls the apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Convert other settings into sets

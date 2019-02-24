@@ -20,12 +20,13 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
   params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
 
-  params.border.noiseOffset = ofRandom(100000);
+  params.border.noiseOffset = ofRandom(999999);
   params.border.distortion = Tools::randomInRange(hyphaeSettings.border.distortion);
   params.border.radius = Tools::randomInRange(hyphaeSettings.border.radius);
   params.border.ratioVariation = hyphaeSettings.border.ratioVariation;
 
   params.hypha.color = hyphaeSettings.hypha.color;
+  params.hypha.noiseOffset = ofVec2f(ofRandom(99999), ofRandom(99999));
   params.hypha.speed = Tools::randomInRange(hyphaeSettings.hypha.speed);
   params.hypha.speedVariation = Tools::randomInRange(hyphaeSettings.hypha.speedVariation);
   params.hypha.maxForkAngle = Tools::randomInRange(hyphaeSettings.hypha.maxForkAngle);
