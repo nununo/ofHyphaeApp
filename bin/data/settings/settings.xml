@@ -100,10 +100,6 @@
         <min>80</min>
         <max>80</max>
       </maxBentAngle>
-      <radiusTolerance> <!--%-->
-        <min>30</min>
-        <max>50</max>
-      </radiusTolerance>
       <pixelOverlap>
         <min>0.9</min>
         <max>0.9</max>

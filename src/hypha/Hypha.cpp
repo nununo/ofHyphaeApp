@@ -14,8 +14,6 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->border = border;
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
-  
-  this->radiusRatio = ofRandom(1, 1+params.radiusTolerance/100.0f);
   calcNextForkDistance();
 }
 
@@ -55,7 +53,7 @@ void Hypha::throwForkEvent() {
 }
 
 bool Hypha::isOutsideBorder() {
-  return (position.length() > border->getRadius(Tools::posToAngle(position)) * radiusRatio);
+  return position.length() > border->getRadius(Tools::posToAngle(position));
 }
 
 void Hypha::update() {
