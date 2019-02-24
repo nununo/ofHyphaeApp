@@ -8,6 +8,7 @@ void ofApp::setup(){
   //ofSetVerticalSync(true);
   ofSetFrameRate(settings->canvas.framerate);
   ofSetBackgroundAuto(false);
+  ofSetWindowShape(settings->canvas.width, settings->canvas.height);
   ofBackground(settings->canvas.backgroundColor);
 }
 
@@ -82,8 +83,7 @@ void ofApp::draw(){
 }
 
 void ofApp::drawOSD() {
-  OSD osd;
-  osd.draw(*settings.get(), currentParams, hyphae->getStats(), lifecycleStage);
+  osd->draw(*settings.get(), currentParams, hyphae->getStats(), lifecycleStage);
 }
 
 
