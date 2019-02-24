@@ -21,6 +21,7 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->forkCount = 0;
   this->delta = ofVec2f::zero();
   this->noiseOffset = ofVec2f(ofRandom(OFFSET_MAX), ofRandom(OFFSET_MAX));
+  this->radiusRatio = ofRandom(1, 1+params.radiusTolerance/100.0f);
   calcNextForkDistance();
 }
 
@@ -60,7 +61,7 @@ void Hypha::throwForkEvent() {
 }
 
 bool Hypha::isOutsideBorder() {
-  return (position.length() > border->getRadius(Tools::posToAngle(position)) * ofRandom(1, 1+params.radiusTolerance/100.0f));
+  return (position.length() > border->getRadius(Tools::posToAngle(position)) * radiusRatio);
 }
 
 void Hypha::update() {
@@ -74,7 +75,7 @@ void Hypha::update() {
       } else {
         posIsNewPixel = true;
         updateDirection();
-        if (--nextForkDistance==0) {
+        if (--nextForkDistance<=0) {
           fork();
         }
       }

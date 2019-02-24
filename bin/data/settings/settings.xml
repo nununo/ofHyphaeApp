@@ -69,8 +69,8 @@
         <max>2</max>
       </ratioVariation>
       <radius>
-        <min>50</min>
-        <max>100</max>
+        <min>200</min>
+        <max>500</max>
       </radius>
     </border>
     <hypha>
@@ -81,8 +81,8 @@
         <a>20</a>
       </color>
       <speed> <!--pixels/s-->
-        <min>4</min>
-        <max>4</max>
+        <min>10</min>
+        <max>10</max>
       </speed>
       <speedVariation> <!--%-->
         <min>10</min>
