@@ -20,6 +20,9 @@ void ofApp::restart() {
 }
 
 void ofApp::update(){
+  if (!hyphae->isAlive()) {
+    restart();
+  }
   hyphae->update();
 }
 

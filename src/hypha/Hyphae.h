@@ -19,6 +19,7 @@ private:
   int primalHyphaCount;
   std::list<Hypha> elements;
   bool sterile;
+  bool wasAlive;
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
   void generatePrimalHyphas();
@@ -33,7 +34,7 @@ public:
   void draw();
   int count() const {return elements.size();}
   int primalCount() const {return primalHyphaCount;}
-  bool isAlive() const {return count() > 0;}
+  bool isAlive() const {return (!wasAlive || count() > 0);}
   HyphaeParams getParams() const {return params;}
   HyphaeStats getStats() const;
   void drawBorder() const;

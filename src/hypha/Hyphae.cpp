@@ -12,6 +12,7 @@ Hyphae::Hyphae(const HyphaeParams params) {
   this->border.reset(new Border(params.border));
   this->primalHyphaCount = 0;
   this->sterile = false;
+  this->wasAlive = false;
 }
 
 Hyphae::~Hyphae() {
@@ -19,12 +20,13 @@ Hyphae::~Hyphae() {
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
+  wasAlive = true;
   elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
   ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
 }
 
 void Hyphae::generatePrimalHyphas() {
-  if (count()>=params.maxHyphaCount) {
+  if (sterile) {
     // If we already reached the maximum possible hypha count then don't create more primal hypha
     primalHyphaCount = params.primalHyphaCount;
   }
