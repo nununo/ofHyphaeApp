@@ -44,6 +44,9 @@ void OSD::draw(const Settings &settings, const HyphaeParams params, const Hyphae
   str = "max bend angle: " + ofToString(params.hypha.maxBendAngle);
   ofDrawBitmapString(str, 10,distance*line++);
 
+  str = "max bent angle: " + ofToString(params.hypha.maxBentAngle);
+  ofDrawBitmapString(str, 10,distance*line++);
+
   str = "max fork angle: " + ofToString(params.hypha.maxForkAngle);
   ofDrawBitmapString(str, 10,distance*line++);
 

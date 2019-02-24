@@ -34,7 +34,9 @@ ofVec2f Hypha::getInitialVelocity(const ofVec2f dir) const {
 void Hypha::updateDirection() {
   float bendAngle = 2*(ofNoise(position.x+noiseOffset.x,
                         position.y+noiseOffset.y)-0.5f)*params.maxBendAngle;
-  angle += bendAngle;
+  if (abs(angle+bendAngle)<params.maxBentAngle) {
+    angle += bendAngle;
+  }
 }
 
 void Hypha::calcNextForkDistance() {

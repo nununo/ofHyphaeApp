@@ -21,6 +21,7 @@ struct HyphaParams {
   float speedVariation;
   float maxForkAngle;
   float maxBendAngle;
+  float maxBentAngle;
   float radiusTolerance;
   float pixelOverlap;
 };

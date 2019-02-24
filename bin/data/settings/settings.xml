@@ -94,6 +94,10 @@
         <min>3</min>
         <max>10</max>
       </maxBendAngle>
+      <maxBentAngle>
+        <min>80</min>
+        <max>80</max>
+      </maxBentAngle>
       <radiusTolerance> <!--%-->
         <min>10</min>
         <max>10</max>
