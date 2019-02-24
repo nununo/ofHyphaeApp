@@ -25,20 +25,29 @@ void ofApp::update(){
       if (hyphae->isAlive()) {
         hyphae->update();
       } else {
-        lifecycleStage = mourn;
+        lifecycleStage = mourning;
         mourningFrames = settings->canvas.mourningTime * settings->canvas.framerate;
       }
       break;
     
-    case mourn:
-      if (mourningFrames > 0) {
-        mourningFrames--;
-      } else {
-        lifecycleStage = idle;
+    case mourning:
+      if (--mourningFrames <= 0) {
+        lifecycleStage = fadeout;
+        fadeoutFramesPeriod = (int)(settings->canvas.fadeoutTime * settings->canvas.framerate / 256);
+        if (fadeoutFramesPeriod==0) {
+          fadeoutFramesPeriod = 1;
+        }
+        fadeoutFrames = settings->canvas.fadeoutTime * settings->canvas.framerate;
+        if (fadeoutFrames<256) {
+          fadeoutFrames = 256;
+        }
       }
       break;
     
     case fadeout:
+      if (--fadeoutFrames <= 0) {
+        lifecycleStage = idle;
+      }
       break;
     
     case idle:
@@ -48,7 +57,27 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
-  hyphae->draw();
+  switch (lifecycleStage) {
+    case alive:
+      hyphae->draw();
+      break;
+    
+    case mourning:
+      break;
+    
+    case fadeout:
+      if (ofGetFrameNum() % fadeoutFramesPeriod == 0) {
+        ofPushStyle();
+        ofEnableBlendMode(OF_BLENDMODE_ADD);
+        ofSetColor(settings->canvas.backgroundColor, 1);
+        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+        ofPopStyle();
+      }
+      break;
+    
+    case idle:
+      break;
+  }
   drawOSD();
 }
 

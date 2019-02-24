@@ -42,7 +42,8 @@ struct CanvasSettings {
   int width;
   int height;
   ofColor backgroundColor;
-  float mourningTime;      // Time (in sec) before an Hyphae says it is dead
+  float mourningTime;      // Time a Hyphae is shown after it is dead (in secs)
+  float fadeoutTime;       // Duration of the fadeout (in secs)
 };
 
 class Settings {

@@ -1,6 +1,5 @@
 - Review Hypha nextForkDistance
 
-- When a hyphae dies, automatically create a new one (maybe with a fadeout and a title)
 - Get rid of what Filipa calls the apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Convert other settings into sets
 - Test what happens if hypha.noiseOffset moves to hyphae.noiseOffset and becomes common to all hypha

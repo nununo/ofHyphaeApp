@@ -15,6 +15,7 @@
       <b>255</b>
     </backgroundColor>
     <mourningTime>3</mourningTime>
+    <fadeoutTime>5</fadeoutTime>
   </canvas>
   <hyphae>
     <creationAreaSize>
