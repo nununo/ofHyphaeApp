@@ -15,9 +15,6 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
   
-  this->angle = 0;
-  this->forkCount = 0;
-  this->delta = ofVec2f::zero();
   this->radiusRatio = ofRandom(1, 1+params.radiusTolerance/100.0f);
   calcNextForkDistance();
 }

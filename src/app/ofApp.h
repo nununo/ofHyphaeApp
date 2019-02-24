@@ -20,7 +20,6 @@ private:
   int fadeoutFrames = 0;
   int fadeoutFramesPeriod = 0;
 
-
   void newHyphae();
   void drawOSD();
 

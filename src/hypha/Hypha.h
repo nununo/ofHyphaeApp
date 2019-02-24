@@ -22,15 +22,15 @@ private:
 
   ofVec2f position;
   ofVec2f velocity;
-  float angle;
+  float angle = 0;
 
-  ofVec2f delta;
-  bool posIsNewPixel;
+  ofVec2f delta = ofVec2f::zero();
+  bool posIsNewPixel = false;
 
   int nextForkDistance;
-  int forkCount;
+  int forkCount = 0;
 
-  bool dead;
+  bool dead = false;
 
   ofVec2f getInitialVelocity(const ofVec2f dir) const;
   void updateDirection();
