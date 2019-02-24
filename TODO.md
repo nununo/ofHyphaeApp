@@ -6,7 +6,5 @@
 - Test what happens if hypha.noiseOffset moves to hyphae.noiseOffset and becomes common to all hypha
 - Try to make Hyphae looks not depend on its growth speed
 
-
-- Add circle mask?
 - Save set of parameters to file?
 - Load set of parameters from file?
