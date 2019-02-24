@@ -17,8 +17,8 @@
   </canvas>
   <hyphae>
     <creationAreaSize>
-      <min>10</min>
-      <max>10</max>
+      <min>5</min>
+      <max>5</max>
     </creationAreaSize>
     <primalHyphaCount>
       <v>1</v>
@@ -67,8 +67,8 @@
         <max>2</max>
       </ratioVariation>
       <radius>
-        <min>100</min>
-        <max>500</max>
+        <min>50</min>
+        <max>100</max>
       </radius>
     </border>
     <hypha>
@@ -83,8 +83,8 @@
         <max>4</max>
       </speed>
       <speedVariation> <!--%-->
-        <min>20</min>
-        <max>20</max>
+        <min>10</min>
+        <max>10</max>
       </speedVariation>
       <maxForkAngle>
         <min>10</min>
@@ -100,7 +100,7 @@
       </maxBentAngle>
       <radiusTolerance> <!--%-->
         <min>10</min>
-        <max>10</max>
+        <max>20</max>
       </radiusTolerance>
       <pixelOverlap>
         <min>0.9</min>

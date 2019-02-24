@@ -59,13 +59,17 @@ void Hypha::throwForkEvent() {
   ofNotifyEvent(this->forkEvent, e);
 }
 
+bool Hypha::isOutsideBorder() {
+  return (position.length() > border->getRadius(Tools::posToAngle(position)) * ofRandom(1, 1+params.radiusTolerance/100.0f));
+}
+
 void Hypha::update() {
   if (isAlive()) {
     delta += velocity.getRotated(angle);
     if (abs(delta.x)>params.pixelOverlap || abs(delta.y)>params.pixelOverlap) {
       position += delta;
       delta = ofVec2f::zero();
-      if (position.length() > border->getRadius(Tools::posToAngle(position)) * ofRandom(1, 1+params.radiusTolerance/100.0f)) {
+      if (isOutsideBorder()) {
         die();
       } else {
         posIsNewPixel = true;

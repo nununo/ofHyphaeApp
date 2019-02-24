@@ -36,6 +36,7 @@ private:
   void updateDirection();
   void calcNextForkDistance();
   void fork();
+  bool isOutsideBorder();
   
   void throwForkEvent();
 
