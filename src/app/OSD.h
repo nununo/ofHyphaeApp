@@ -13,7 +13,12 @@
 #include "HyphaeStats.h"
 
 class OSD {
+private:
   bool active = true;
+  bool clean = false;
+
+  void drawBackground(const Settings &settings);
+  void drawInfo(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const int lifecycleStage);
 
 public:
   void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const int lifecycleStage);
