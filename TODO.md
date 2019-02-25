@@ -1,12 +1,9 @@
-- Kill Hyphae as soon as the first Hypha reaches the Border
 - Review Hypha nextForkDistance
+- Get rid of apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Implement proper state machine to manage hyphae lifecycle
-- Solve mystery in #848599 in which the latest primals generate a wave of black 
 - Same params still don't generate the exact same Hypha
 
-- Get rid of what Filipa calls the apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Convert other settings into sets
-- Test what happens if hypha.noiseOffset moves to hyphae.noiseOffset and becomes common to all hypha
 - Try to make Hyphae looks not depend on its growth speed
 
 - Save set of parameters to file?
