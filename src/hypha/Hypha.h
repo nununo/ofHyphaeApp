@@ -29,8 +29,6 @@ private:
   int nextForkDistance;
   int forkCount = 0;
 
-  bool dead = false;
-
   ofVec2f getInitialVelocity(const ofVec2f dir) const;
   void updateDirection();
   void calcNextForkDistance();
@@ -41,12 +39,11 @@ private:
 
 public:
   Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation);
-  bool isAlive() const {return !dead;}
   void update();
   void draw();
-  void die() {dead = true;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
+  ofEvent<ofEventArgs> outsideEvent;
 };
 
 #endif /* Hypha_h */
