@@ -30,7 +30,6 @@ struct HyphaeParams {
   int seed;
   ofVec2f position;
   int creationAreaSize;
-  float dyingFrames;
   int primalHyphaCount;
   int newPrimalHyphaFramesPeriod;
   int maxHyphaCount;

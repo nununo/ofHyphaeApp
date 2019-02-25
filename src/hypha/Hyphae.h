@@ -20,16 +20,15 @@ private:
 
   int primalHyphaCount = 0;
   bool sterile = false;
-  int dyingPerFrame = 0;
-  bool dead = false;
+  bool wasAlive = false;
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
   void generatePrimal();
-  void removeAllHypha(const int quantity=0);
+  void removeAllHypha(bool onlyDead);
+  void updateLifecycle();
   void updateAllHypha();
   int count() const {return elements.size();}
   int primalCount() const {return primalHyphaCount;}
-  int getDyingPerFrame();
 
 public:
   Hyphae(const HyphaeParams params);
@@ -37,14 +36,13 @@ public:
 
   virtual void update();
   virtual void draw();
-  bool isAlive() {return !dead;}
+  bool isAlive() {return (!wasAlive || count()>0);}
 
   HyphaeParams getParams() const {return params;}
   HyphaeStats getStats() const;
   void drawBorder() const;
 
   void onHyphaFork(HyphaForkEventArgs &e);
-  void onHyphaOutside(ofEventArgs &e);
 };
 
 #endif /* Hyphae_h */

@@ -28,7 +28,6 @@ struct HyphaSettings {
 
 struct HyphaeSettings {
   ofVec2f creationAreaSize;
-  float dyingTime;
   vector<float> primalHyphaCount;
   ofVec2f newPrimalHyphaPeriod;
   vector<float> maxHyphaCount;
