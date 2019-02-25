@@ -13,14 +13,14 @@ Hyphae::Hyphae(const HyphaeParams params) {
 }
 
 Hyphae::~Hyphae() {
-  removeAllHypha(false);
+  removeAllHypha();
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
   if (!sterile) {
-    wasAlive = true;
     elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
     ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
+    ofAddListener(elements.back().outsideEvent, this, &Hyphae::onHyphaOutside);
   }
 }
 
@@ -30,7 +30,8 @@ void Hyphae::generatePrimal() {
     return;
   }
   if (primalHyphaCount < params.primalHyphaCount &&
-      (params.newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
+      (params.newPrimalHyphaFramesPeriod == 0 ||
+       ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
     ofVec2f dir = ofVec2f(1,0).getRotated(ofRandom(0,360));
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(pos, dir, 0);
@@ -38,18 +39,32 @@ void Hyphae::generatePrimal() {
   }
 }
 
-void Hyphae::removeAllHypha(bool onlyDead) {
+void Hyphae::removeAllHypha(const int quantity) {
+  int erased = 0;
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
-    if (onlyDead && !itr->isAlive()) {
-      ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-      itr = elements.erase(itr);
-    } else {
-      itr->update();
+    ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
+    itr = elements.erase(itr);
+    // If quantity is provided and > 0 we stop erasing after reaching that quantity
+    if (quantity > 0 && ++erased>=quantity) {
+      return;
     }
+  }
+  if (count()==0) {
+    dead = true;
   }
 }
 
-void Hyphae::updateLifecycle() {
+int Hyphae::getDyingPerFrame() {
+  int frames = count() / params.dyingFrames;
+  if (frames < 1) {frames=1;}
+  return frames;
+}
+
+void Hyphae::updateAllHypha() {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
+    itr->update();
+  }
   if (elements.size() >= params.maxHyphaCount) {
     sterile = true;
   }
@@ -57,6 +72,13 @@ void Hyphae::updateLifecycle() {
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   add(e.pos, e.dir, e.generation);
+}
+
+void Hyphae::onHyphaOutside(ofEventArgs &e) {
+  if (dyingPerFrame==0) {
+    sterile = true;
+    dyingPerFrame = getDyingPerFrame();
+  }
 }
 
 HyphaeStats Hyphae::getStats() const {
@@ -67,8 +89,10 @@ HyphaeStats Hyphae::getStats() const {
 }
 
 void Hyphae::update() {
-  updateLifecycle();
-  removeAllHypha(true);
+  if (dyingPerFrame > 0) {
+    removeAllHypha(dyingPerFrame);
+  }
+  updateAllHypha();
   generatePrimal();
 }
 
