@@ -83,4 +83,3 @@ void Hypha::draw() {
     posIsNewPixel = false;
   }
 }
-
