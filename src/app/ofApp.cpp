@@ -5,10 +5,10 @@
 void ofApp::setup(){
   settings.reset(new Settings("settings/settings.xml"));
   osd.reset(new OSD());
-  //ofSetVerticalSync(true);
-  ofSetFrameRate(settings->canvas.framerate);
   ofSetBackgroundAuto(false);
-  ofSetWindowShape(settings->canvas.width, settings->canvas.height);
+  ofSetFrameRate(settings->canvas.framerate);
+  //ofSetVerticalSync(true);
+  //ofSetWindowShape(settings->canvas.size.x, settings->canvas.size.y);
   ofBackground(settings->canvas.backgroundColor);
 }
 

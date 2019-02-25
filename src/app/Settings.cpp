@@ -15,8 +15,8 @@ Settings::Settings(const string& xmlFile) {
   canvas.framerate = s.getValue("rhizopus:canvas:framerate", 1); // 120
   canvas.osdColor = getColor(s, "rhizopus:canvas:osdColor");
 
-  canvas.width = s.getValue("rhizopus:canvas:width", 1); // 1920
-  canvas.height = s.getValue("rhizopus:canvas:height", 1); // 1080
+  canvas.size.x = s.getValue("rhizopus:canvas:size:width", 1); // 1920
+  canvas.size.y = s.getValue("rhizopus:canvas:size:height", 1); // 1080
   canvas.backgroundColor = getColor(s, "rhizopus:canvas:backgroundColor");
   canvas.mourningTime = s.getValue("rhizopus:canvas:mourningTime", 0); // 5
   canvas.fadeoutTime = s.getValue("rhizopus:canvas:fadeoutTime", 0); // 5
