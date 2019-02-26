@@ -2,15 +2,15 @@
   <canvas>
     <framerate>30</framerate>
     <osdColor>
-      <r>0</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </osdColor>
-    <backgroundColor>
       <r>255</r>
       <g>255</g>
       <b>255</b>
+      <a>255</a>
+    </osdColor>
+    <backgroundColor>
+      <r>0</r>
+      <g>0</g>
+      <b>0</b>
     </backgroundColor>
     <mourningTime>3</mourningTime>
     <fadeoutTime>5</fadeoutTime>
@@ -65,19 +65,19 @@
       </distortion>
       <ratioVariation>
         <min>1</min>
-        <max>2</max>
+        <max>3</max>
       </ratioVariation>
       <radius>
-        <min>200</min>
-        <max>500</max>
+        <min>300</min>
+        <max>700</max>
       </radius>
     </border>
     <hypha>
       <color>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
-        <a>20</a>
+        <r>255</r>
+        <g>255</g>
+        <b>255</b>
+        <a>10</a>
       </color>
       <speed> <!--pixels/s-->
         <min>20</min>
