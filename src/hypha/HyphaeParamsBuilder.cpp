@@ -11,7 +11,7 @@
 HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   HyphaeParams params;
   HyphaeSettings hyphaeSettings = settings.hyphae;
-  params.seed = 848599; //(int)ofRandom(999999);
+  params.seed = (int)ofRandom(999999);
   ofSeedRandom(params.seed);
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
