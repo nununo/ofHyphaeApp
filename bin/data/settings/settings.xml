@@ -26,6 +26,7 @@
     <fadeoutTime>5</fadeoutTime>
   </canvas>
   <hyphae>
+    <dyingTime>5</dyingTime>
     <creationAreaSize>
       <min>5</min>
       <max>5</max>

@@ -27,7 +27,6 @@ private:
   void generatePrimalHyphas();
   void removeAllHypha(bool onlyDead);
   void updateLifecycle();
-  void updateAllHypha();
   int count() const {return elements.size();}
   int primalCount() const {return primalHyphaCount;}
 
@@ -37,7 +36,7 @@ public:
 
   virtual void update();
   virtual void draw();
-  bool isAlive() {return (!wasAlive || count()>0);}
+  bool isAlive() {return !wasAlive || count()>0;}
 
   HyphaeParams getParams() const {return params;}
   HyphaeStats getStats() const;

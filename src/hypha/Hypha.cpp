@@ -82,7 +82,7 @@ void Hypha::update() {
 }
 
 void Hypha::draw() {
-  if (isAlive() && posIsNewPixel) {
+  if (posIsNewPixel) {
     ofDrawRectangle(this->position.x, this->position.y, 1, 1);
     posIsNewPixel = false;
   }

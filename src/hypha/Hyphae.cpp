@@ -30,7 +30,8 @@ void Hyphae::generatePrimalHyphas() {
     return; // If maximum possible hypha count reached, don't create more primal hypha
   }
   if (primalHyphaCount < params.primalHyphaCount &&
-      (params.newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
+      (params.newPrimalHyphaFramesPeriod == 0 ||
+       ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
     ofVec2f dir = ofVec2f(1,0).getRotated(ofRandom(0,360));
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(pos, dir, 0);
@@ -44,13 +45,14 @@ void Hyphae::removeAllHypha(bool onlyDead) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
       ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
       itr = elements.erase(itr);
-    } else {
-      itr->update();
     }
   }
 }
 
 void Hyphae::updateLifecycle() {
+  for(auto& element: elements) {
+    element.update();
+  }
   if (elements.size() >= params.maxHyphaCount) {
     sterile = true;
   }
@@ -66,7 +68,6 @@ void Hyphae::onHyphaOutside(ofEventArgs &e) {
   // - Set dying = true
   // - Set all Hypha with a random energy
   if (!dying) {
-    ofLog() << "dying";
     sterile = true;
     dying = true;
     for( auto& element : elements ) {
