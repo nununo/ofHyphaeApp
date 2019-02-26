@@ -7,16 +7,6 @@
       <b>0</b>
       <a>255</a>
     </osdColor>
-<!--
-    <size id="4K">
-      <width>3840</width>
-      <height>2160</height>
-    </size>
--->
-    <size id="MacBook Pro 15 Retina">
-      <width>3840</width>
-      <height>2160</height>
-    </size>
     <backgroundColor>
       <r>255</r>
       <g>255</g>
@@ -26,7 +16,7 @@
     <fadeoutTime>5</fadeoutTime>
   </canvas>
   <hyphae>
-    <dyingPixels>100</dyingPixels>
+    <dyingPixels>150</dyingPixels>
     <creationAreaSize>
       <min>5</min>
       <max>5</max>

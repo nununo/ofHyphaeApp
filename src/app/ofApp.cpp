@@ -8,7 +8,6 @@ void ofApp::setup(){
   ofSetBackgroundAuto(false);
   ofSetFrameRate(settings->canvas.framerate);
   //ofSetVerticalSync(true);
-  //ofSetWindowShape(settings->canvas.size.x, settings->canvas.size.y);
   ofBackground(settings->canvas.backgroundColor);
 }
 
