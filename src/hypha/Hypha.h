@@ -29,6 +29,7 @@ private:
   int energy;
   int nextForkDistance;
   int forkCount = 0;
+  bool dying = false;
 
   ofVec2f getInitialVelocity(const ofVec2f dir) const;
   void updateDirection();
@@ -43,7 +44,7 @@ public:
   bool isAlive() const {return energy>0;}
   void update();
   void draw();
-  void setEnergy(int energy) {this->energy = energy;}
+  void die(int energy) {this->dying=true; this->energy = energy;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
   ofEvent<ofEventArgs> outsideEvent;

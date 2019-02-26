@@ -17,7 +17,7 @@ Hyphae::~Hyphae() {
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
-  if (!sterile) {
+  if (!sterile && !dying) {
     wasAlive = true;
     elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
     ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
@@ -26,7 +26,7 @@ void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
 }
 
 void Hyphae::generatePrimalHyphas() {
-  if (sterile) {
+  if (sterile || dying) {
     return; // If maximum possible hypha count reached, don't create more primal hypha
   }
   if (primalHyphaCount < params.primalHyphaCount &&
@@ -64,14 +64,12 @@ void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
 
 void Hyphae::onHyphaOutside(ofEventArgs &e) {
   // When the first Hypha goes outside the border the dying process starts:
-  // - Become sterile (so that no more Hypha are created
   // - Set dying = true
-  // - Set all Hypha with a random energy
+  // - Set all Hypha to die with a random energy left
   if (!dying) {
-    sterile = true;
     dying = true;
     for( auto& element : elements ) {
-      element.setEnergy(ofRandom(150));
+      element.die(ofRandom(params.dyingPixels));
     }
   }
 }

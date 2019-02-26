@@ -25,7 +25,7 @@ Settings::Settings(const string& xmlFile) {
   hyphae.border.radius = getRange(s, "rhizopus:hyphae:border:radius", 10);
   hyphae.border.ratioVariation = getRange(s, "rhizopus:hyphae:border:ratioVariation", 1);
 
-  hyphae.dyingTime = s.getValue("rhizopus:hyphae:dyingTime", 0.0f); // 5.0f
+  hyphae.dyingPixels = s.getValue("rhizopus:hyphae:dyingPixels", 0); // 20
   hyphae.creationAreaSize = getRange(s, "rhizopus:hyphae:creationAreaSize", 1000); // 40
   hyphae.primalHyphaCount = getSet(s, "rhizopus:hyphae:primalHyphaCount");
   hyphae.newPrimalHyphaPeriod = getRange(s, "rhizopus:hyphae:newPrimalHyphaPeriod", 0.0f); // 100

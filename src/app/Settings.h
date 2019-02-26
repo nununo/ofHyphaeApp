@@ -27,11 +27,11 @@ struct HyphaSettings {
 };
 
 struct HyphaeSettings {
-  ofVec2f creationAreaSize;
-  float dyingTime;
-  vector<float> primalHyphaCount;
-  ofVec2f newPrimalHyphaPeriod;
-  vector<float> maxHyphaCount;
+  ofVec2f creationAreaSize;       // Square position around (0,0) where primal Hypha are created
+  int dyingPixels;                // Hypha's energy is set toofRandom(0,dyingPixels) when it starts dying
+  vector<float> primalHyphaCount; // Number of primal hypha
+  ofVec2f newPrimalHyphaPeriod;   // Delay between ech new primal hypha
+  vector<float> maxHyphaCount;    // Max possible number of hypha
   BorderSettings border;
   HyphaSettings hypha;
 };

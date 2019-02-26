@@ -64,17 +64,15 @@ void Hypha::update() {
     if (abs(delta.x)>params.pixelOverlap || abs(delta.y)>params.pixelOverlap) {
       position += delta;
       delta = ofVec2f::zero();
-      if (isOutsideBorder()) {
+      if (!dying && isOutsideBorder()) {
         ofEventArgs e;
         ofNotifyEvent(this->outsideEvent, e);
-        setEnergy(0);
-      } else {
-        energy--;
-        posIsNewPixel = true;
-        updateDirection();
-        if (--nextForkDistance<=0) {
-          fork();
-        }
+      }
+      energy--;
+      posIsNewPixel = true;
+      updateDirection();
+      if (!dying && --nextForkDistance<=0) {
+        fork();
       }
     }
   }
