@@ -1,3 +1,4 @@
+- Make each Hypha have its own ofNoise offset again
 - Get rid of radius tolerance
 - Review Hypha nextForkDistance
 - Get rid of apple core: tendency to have more hypha in the 4 diagonals. But how?

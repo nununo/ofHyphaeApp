@@ -46,7 +46,7 @@ void OSD::drawInfo(const Settings &settings, const HyphaeParams params, const Hy
   
   str = "radius: " + ofToString(params.border.radius) + " (" +
   ofToString(params.border.ratioVariation.x) + "," +
-  ofToString(params.border.ratioVariation.y) + ") tolerance: " + ofToString(params.hypha.radiusTolerance) + "%";
+  ofToString(params.border.ratioVariation.y) + ")";
   ofDrawBitmapString(str, 10,distance*line++);
   
   str = "speed: " + ofToString(params.hypha.speed) + " +-" + ofToString(params.hypha.speedVariation) + "%";
