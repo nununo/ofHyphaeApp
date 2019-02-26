@@ -27,10 +27,9 @@ private:
   ofVec2f delta = ofVec2f::zero();
   bool posIsNewPixel = false;
 
+  int energy;
   int nextForkDistance;
   int forkCount = 0;
-
-  bool dead = false;
 
   ofVec2f getInitialVelocity(const ofVec2f dir) const;
   void updateDirection();
@@ -42,12 +41,13 @@ private:
 
 public:
   Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation);
-  bool isAlive() const {return !dead;}
+  bool isAlive() const {return energy>0;}
   void update();
   void draw();
-  void die() {dead = true;}
+  void setEnergy(int energy) {this->energy = energy;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
+  ofEvent<ofEventArgs> outsideEvent;
 };
 
 #endif /* Hypha_h */

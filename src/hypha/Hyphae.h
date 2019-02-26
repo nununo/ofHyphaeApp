@@ -20,6 +20,7 @@ private:
 
   int primalHyphaCount = 0;
   bool sterile = false;
+  bool dying = false;
   bool wasAlive = false;
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
@@ -43,6 +44,7 @@ public:
   void drawBorder() const;
 
   void onHyphaFork(HyphaForkEventArgs &e);
+  void onHyphaOutside(ofEventArgs &e);
 };
 
 #endif /* Hyphae_h */

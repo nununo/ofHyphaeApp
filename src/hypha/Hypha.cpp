@@ -14,6 +14,7 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->border = border;
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
+  this->energy = 999999;
   
   this->radiusRatio = ofRandom(1, 1+params.radiusTolerance/100.0f);
   calcNextForkDistance();
@@ -65,8 +66,11 @@ void Hypha::update() {
       position += delta;
       delta = ofVec2f::zero();
       if (isOutsideBorder()) {
-        die();
+        ofEventArgs e;
+        ofNotifyEvent(this->outsideEvent, e);
+        setEnergy(0);
       } else {
+        energy--;
         posIsNewPixel = true;
         updateDirection();
         if (--nextForkDistance<=0) {

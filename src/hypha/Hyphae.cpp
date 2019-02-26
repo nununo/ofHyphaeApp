@@ -21,13 +21,13 @@ void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
     wasAlive = true;
     elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
     ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
+    ofAddListener(elements.back().outsideEvent, this, &Hyphae::onHyphaOutside);
   }
 }
 
 void Hyphae::generatePrimalHyphas() {
   if (sterile) {
-    // If we already reached the maximum possible hypha count then don't create more primal hypha
-    return;
+    return; // If maximum possible hypha count reached, don't create more primal hypha
   }
   if (primalHyphaCount < params.primalHyphaCount &&
       (params.newPrimalHyphaFramesPeriod == 0 || ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
@@ -40,8 +40,9 @@ void Hyphae::generatePrimalHyphas() {
 
 void Hyphae::removeAllHypha(bool onlyDead) {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
-    if (onlyDead && !itr->isAlive()) {
+    if (!onlyDead || !itr->isAlive()) {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+      ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
       itr = elements.erase(itr);
     } else {
       itr->update();
@@ -57,6 +58,21 @@ void Hyphae::updateLifecycle() {
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   add(e.pos, e.dir, e.generation);
+}
+
+void Hyphae::onHyphaOutside(ofEventArgs &e) {
+  // When the first Hypha goes outside the border the dying process starts:
+  // - Become sterile (so that no more Hypha are created
+  // - Set dying = true
+  // - Set all Hypha with a random energy
+  if (!dying) {
+    ofLog() << "dying";
+    sterile = true;
+    dying = true;
+    for( auto& element : elements ) {
+      element.setEnergy(ofRandom(150));
+    }
+  }
 }
 
 HyphaeStats Hyphae::getStats() const {
