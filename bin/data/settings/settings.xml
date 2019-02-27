@@ -80,8 +80,8 @@
         <a>10</a>
       </color>
       <speed> <!--pixels/s-->
-        <min>20</min>
-        <max>20</max>
+        <min>2</min>
+        <max>2</max>
       </speed>
       <speedVariation> <!--%-->
         <min>10</min>
