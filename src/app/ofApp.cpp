@@ -9,6 +9,7 @@ void ofApp::setup(){
   ofSetFrameRate(settings->canvas.framerate);
   //ofSetVerticalSync(true);
   ofBackground(settings->canvas.backgroundColor);
+  ofHideCursor();
 }
 
 void ofApp::newHyphae() {
