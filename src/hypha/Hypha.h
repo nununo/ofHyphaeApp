@@ -23,13 +23,13 @@ private:
   ofVec2f position;
   ofVec2f velocity;
   float angle = 0;
-  bool started = false;
+  //bool started = false;
 
   ofVec2f delta = ofVec2f::zero();
   bool posIsNewPixel = false;
 
-  int energy;
-  int nextForkDistance;
+  int energy = 999999;
+  int nextForkDistance = 0;
   int forkCount = 0;
   bool dying = false;
 

@@ -36,6 +36,7 @@ Settings::Settings(const string& xmlFile) {
   hyphae.hypha.maxBendAngle = getRange(s, "rhizopus:hyphae:hypha:maxBendAngle", 0.0f); // 1
   hyphae.hypha.maxBentAngle = getRange(s, "rhizopus:hyphae:hypha:maxBentAngle", 0.0f); // 80
   hyphae.hypha.pixelOverlap = getRange(s, "rhizopus:hyphae:hypha:pixelOverlap", 0.0f); // 0.9f
+  hyphae.hypha.fertilityRatio = getRange(s, "rhizopus:hyphae:hypha:fertilityRatio", 0.0f); // 1.0f
 }
 
 int Settings::pushTags(ofxXmlSettings &s, const string& xmlPath) {

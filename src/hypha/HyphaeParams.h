@@ -23,6 +23,7 @@ struct HyphaParams {
   float maxBendAngle;
   float maxBentAngle;
   float pixelOverlap;
+  float fertilityRatio;
 };
 
 struct HyphaeParams {

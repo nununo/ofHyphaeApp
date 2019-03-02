@@ -16,7 +16,7 @@ void OSD::drawBackground(const Settings &settings) {
   if (!clean) {
     ofPushStyle();
     ofSetColor(settings.canvas.backgroundColor);
-    ofDrawRectangle(0, 0, 400, 250);
+    ofDrawRectangle(0, 0, 400, 300);
     ofPopStyle();
     clean = true;
   }
@@ -48,7 +48,9 @@ void OSD::drawInfo(const Settings &settings, const HyphaeParams params, const Hy
   ofToString(params.border.ratioVariation.x) + "," +
   ofToString(params.border.ratioVariation.y) + ")";
   ofDrawBitmapString(str, 10,distance*line++);
-  
+
+  line++;
+
   str = "speed: " + ofToString(params.hypha.speed) + " +-" + ofToString(params.hypha.speedVariation) + "%";
   ofDrawBitmapString(str, 10,distance*line++);
   
@@ -60,13 +62,18 @@ void OSD::drawInfo(const Settings &settings, const HyphaeParams params, const Hy
   
   str = "max fork angle: " + ofToString(params.hypha.maxForkAngle);
   ofDrawBitmapString(str, 10,distance*line++);
-  
+
+  str = "fertility ratio: " + ofToString(params.hypha.fertilityRatio);
+  ofDrawBitmapString(str, 10,distance*line++);
+
+  line++;
+
   str = "creation area size: " + ofToString(params.creationAreaSize);
   ofDrawBitmapString(str, 10,distance*line++);
   
   str = "new primal hypha period: " + ofToString(params.newPrimalHyphaFramesPeriod);
   ofDrawBitmapString(str, 10,distance*line++);
-  
+
   line++;
   
   str = "framerate: " + ofToString(ofGetFrameRate(),2);

@@ -24,6 +24,7 @@ struct HyphaSettings {
   ofVec2f maxBendAngle;    // Max angle applied to the velocity on each iteration
   ofVec2f maxBentAngle;    // Max angle allowed between velocity and position (<90º prevents reapproaching center)
   ofVec2f pixelOverlap;    // How much a position needs to move before a new pixel is drawn
+  ofVec2f fertilityRatio;   // Next fork distance ratio
 };
 
 struct HyphaeSettings {

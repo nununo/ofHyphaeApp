@@ -14,7 +14,6 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->border = border;
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
-  this->energy = 999999;
   this->noiseOffset = Tools::getRandomVec2f();
   
   calcNextForkDistance();
@@ -37,7 +36,7 @@ void Hypha::updateDirection() {
 
 void Hypha::calcNextForkDistance() {
   float length = position.length();
-  this->nextForkDistance = 1+(int)(ofRandom(length*0.1f,length*1.0f)+0.5f);
+  this->nextForkDistance = 1+(int)(params.fertilityRatio*ofRandom(length*0.1f,length*1.0f)+0.5f);
 }
 
 void Hypha::fork() {
@@ -83,13 +82,15 @@ void Hypha::update() {
 }
 
 void Hypha::draw() {
-  if (!started) {
+/*
+  if (!started && generation==1) {
     ofPushStyle();
     ofSetColor(params.color, 255);
     ofDrawRectangle(this->position.x, this->position.y, 1, 1);
     ofPopStyle();
     started = true;
   }
+*/
   if (posIsNewPixel) {
     ofDrawRectangle(this->position.x, this->position.y, 1, 1);
     posIsNewPixel = false;

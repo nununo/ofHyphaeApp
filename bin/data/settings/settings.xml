@@ -115,6 +115,10 @@
         <min>0.9</min>
         <max>0.9</max>
       </pixelOverlap>
+      <fertilityRatio>
+        <min>1</min>
+        <max>1</max>
+      </fertilityRatio>
     </hypha>
   </hyphae>
 </rhizopus>

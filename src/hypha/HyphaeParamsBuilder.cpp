@@ -11,13 +11,13 @@
 HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   HyphaeParams params;
   HyphaeSettings hyphaeSettings = settings.hyphae;
-  params.seed = (int)ofRandom(999999);
+  params.seed = 933570; //(int)ofRandom(999999);
   ofSeedRandom(params.seed);
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
   params.creationAreaSize = Tools::randomInRange(hyphaeSettings.creationAreaSize);
   params.maxHyphaCount = (int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
-  params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
+  params.primalHyphaCount = 1; //(int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
   params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
   params.dyingPixels = settings.hyphae.dyingPixels;
   
@@ -33,6 +33,7 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   params.hypha.maxBendAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBendAngle);
   params.hypha.maxBentAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBentAngle);
   params.hypha.pixelOverlap = Tools::randomInRange(hyphaeSettings.hypha.pixelOverlap);
+  params.hypha.fertilityRatio = Tools::randomInRange(hyphaeSettings.hypha.fertilityRatio);
 
   return params;
 }
