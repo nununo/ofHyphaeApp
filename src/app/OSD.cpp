@@ -24,7 +24,7 @@ void OSD::drawBackground() {
 }
 
 void OSD::drawLine(const string text) {
-  ofDrawBitmapString(text, 10,distance*currentLine++);
+  ofDrawBitmapString(text, 10,distance*(1+currentLine++));
 }
 
 void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
