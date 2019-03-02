@@ -7,7 +7,6 @@
 - Better death (which fills the whole area inside the border)
 
 - Try to make Hyphae looks not depend on its growth speed
-- Implement proper state machine to manage hyphae lifecycle
 
 - Same params still don't generate the exact same Hypha
 
