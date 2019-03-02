@@ -11,7 +11,7 @@
 HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   HyphaeParams params;
   HyphaeSettings hyphaeSettings = settings.hyphae;
-  params.seed = 205460; //(int)ofRandom(999999);
+  params.seed = (int)ofRandom(999999);
   ofSeedRandom(params.seed);
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
@@ -27,7 +27,6 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   params.border.ratioVariation = hyphaeSettings.border.ratioVariation;
 
   params.hypha.color = hyphaeSettings.hypha.color;
-  params.hypha.noiseOffset = ofVec2f(ofRandom(99999), ofRandom(99999));
   params.hypha.speed = Tools::randomInRange(hyphaeSettings.hypha.speed);
   params.hypha.speedVariation = Tools::randomInRange(hyphaeSettings.hypha.speedVariation);
   params.hypha.maxForkAngle = Tools::randomInRange(hyphaeSettings.hypha.maxForkAngle);

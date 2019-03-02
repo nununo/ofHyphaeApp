@@ -17,7 +17,6 @@ struct BorderParams {
 
 struct HyphaParams {
   ofColor color;
-  ofVec2f noiseOffset;
   float speed;
   float speedVariation;
   float maxForkAngle;
