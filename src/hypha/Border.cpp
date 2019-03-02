@@ -21,9 +21,18 @@ void Border::generateRadiuses() {
 }
 
 float Border::calcRatioForAngle(float angle) const {
-  ofVec2f p = ofVec2f(1,0).rotate(angle);
-  return ofLerp(params.ratioVariation.x, params.ratioVariation.y,
-                ofNoise(p.x*params.distortion+params.noiseOffset, p.y*params.distortion+params.noiseOffset));
+  // 2 level Perlin noise in which the 1st octave is just a symetry of 180º so that it can make elongated
+  // shapes. The 2nd octave is actually the 3rd octave since it is being multiplied by 4. The first octave
+  // has 0.75 weight while the 2nd has a smaller weight and will just add diversity to the shape
+
+  // Octave 1
+  ofVec2f p1 = ofVec2f(1,0).getRotated(abs(angle-180)); // We want it to be symetrical
+  float ratio1 = ofNoise(p1.x*params.distortion+params.noiseOffset, p1.y*params.distortion+params.noiseOffset);
+  // Octave 2 (wich will be 3rd)
+  ofVec2f p2 = ofVec2f(1,0).getRotated(angle);
+  float ratio2 = ofNoise(4*p2.x*params.distortion+params.noiseOffset, 4*p2.y*params.distortion+params.noiseOffset);
+  // Add both and conform the result to the ratio variation in the settings
+  return ofLerp(params.ratioVariation.x, params.ratioVariation.y, 0.75f*ratio1 + 0.25f*ratio2);
 }
 
 float Border::getRatio(float angle) const {

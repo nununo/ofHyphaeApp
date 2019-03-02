@@ -1,6 +1,5 @@
 - Get rid of apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Consider making Hypha speed proportional to its distance from the center
-- Rethink border so that it can be elongated (independent x and y ratios)
 
 - Replace Hyphae.removeAllHypha() with a dieEvent. This way much less time is wasted asking every single Hypha if it is alive
 

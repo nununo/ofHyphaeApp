@@ -76,12 +76,12 @@
         <max>0.2</max>
       </distortion>
       <ratioVariation>
-        <min>1</min>
+        <min>0.1</min>
         <max>4</max>
       </ratioVariation>
       <radius>
-        <min>300</min>
-        <max>700</max>
+        <min>200</min>
+        <max>400</max>
       </radius>
     </border>
     <hypha>
