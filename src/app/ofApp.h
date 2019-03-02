@@ -17,6 +17,8 @@ private:
   int mourningFrames = 0;
   int fadeoutFrames = 0;
   int fadeoutFramesPeriod = 0;
+  
+  void clearScreen();
 
 public:
   void setup();

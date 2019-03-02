@@ -24,12 +24,23 @@ void ofApp::draw(){
   osd->draw(steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName());
 }
 
+void ofApp::clearScreen() {
+  ofPushStyle();
+  ofSetColor(settings->canvas.backgroundColor);
+  ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+  ofPopStyle();
+}
+
 void ofApp::keyPressed(int key) {
   switch (key) {
     case ' ':
       steps->setGrowing();
       break;
-    
+
+    case 'd':
+      steps->setFadeout();
+      break;
+
     case 'f':
       ofToggleFullscreen();
       break;
@@ -43,11 +54,8 @@ void ofApp::keyPressed(int key) {
       break;
     
     case 'c':
-      ofPushStyle();
-      ofSetColor(settings->canvas.backgroundColor);
-      ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
-      ofPopStyle();
-
+      clearScreen();
+      break;
     case 's':
       ofLog() << "seed: " << steps->getHyphaeParams().seed;
 
