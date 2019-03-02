@@ -18,6 +18,7 @@ private:
   HyphaParams params;
   Border *border;
   int generation;
+  ofVec2f noiseOffset;
 
   ofVec2f position;
   ofVec2f velocity;

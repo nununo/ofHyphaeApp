@@ -15,6 +15,7 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
   this->velocity = getInitialVelocity(dir);
   this->generation = generation;
   this->energy = 999999;
+  this->noiseOffset = Tools::getRandomVec2f();
   
   calcNextForkDistance();
 }
@@ -27,8 +28,8 @@ ofVec2f Hypha::getInitialVelocity(const ofVec2f dir) const {
 }
 
 void Hypha::updateDirection() {
-  float bendAngle = 2*(ofNoise(position.x+params.noiseOffset.x,
-                        position.y+params.noiseOffset.y)-0.5f)*params.maxBendAngle;
+  float bendAngle = 2*(ofNoise(position.x+noiseOffset.x,
+                        position.y+noiseOffset.y)-0.5f)*params.maxBendAngle;
   if (abs(angle+bendAngle)<params.maxBentAngle) {
     angle += bendAngle;
   }
