@@ -13,10 +13,11 @@
 
 class StepFadeout: public StepCountdown {
 private:
+  int period;
   ofColor color;
   
 public:
-  StepFadeout(ofColor color, int count, int period) : StepCountdown(count,period) {this->color = color;}
+  StepFadeout(ofColor color, int count, int steps);
   void draw() override;
 };
 

@@ -47,7 +47,7 @@ void Steps::setGrowing() {
 }
 
 void Steps::setMourning() {
-  step.reset(new StepCountdown(settings->canvas.mourningTime * settings->canvas.framerate, 256));
+  step.reset(new StepCountdown(settings->canvas.mourningTime * settings->canvas.framerate));
   currentStep = mourning;
 }
 
