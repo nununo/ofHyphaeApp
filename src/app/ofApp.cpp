@@ -6,7 +6,7 @@
 
 void ofApp::setup(){
   settings.reset(new Settings("settings/settings.xml"));
-  osd.reset(new OSD());
+  osd.reset(new OSD(settings.get()));
   steps.reset(new Steps(settings.get()));
   ofSetBackgroundAuto(false);
   ofSetFrameRate(settings->canvas.framerate);
@@ -21,7 +21,7 @@ void ofApp::update(){
 
 void ofApp::draw(){
   steps->draw();
-  osd->draw(*settings.get(), steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName());
+  osd->draw(steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName());
 }
 
 void ofApp::keyPressed(int key) {

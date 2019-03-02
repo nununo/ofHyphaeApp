@@ -14,14 +14,20 @@
 
 class OSD {
 private:
+  const int distance = 15;
+
+  Settings *settings;
   bool active = true;
   bool clean = false;
+  int currentLine = 0;
 
-  void drawBackground(const Settings &settings);
-  void drawInfo(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const string lifecycleStage);
+  void drawBackground();
+  void drawInfo(const HyphaeParams params, const HyphaeStats stats, const string lifecycleStage);
+  void drawLine(const string text);
 
 public:
-  void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const string currentStep);
+  OSD(Settings *settings) {this->settings = settings;}
+  void draw(const HyphaeParams params, const HyphaeStats stats, const string currentStep);
   void toggleActive() {active=!active;}
 };
 

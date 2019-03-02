@@ -7,86 +7,64 @@
 
 #include "OSD.h"
 
-void OSD::draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
-  drawBackground(settings);
-  drawInfo(settings, params, stats, currentStep);
+void OSD::draw(const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
+  drawBackground();
+  drawInfo(params, stats, currentStep);
 }
 
-void OSD::drawBackground(const Settings &settings) {
+void OSD::drawBackground() {
   if (!clean) {
     ofPushStyle();
-    ofSetColor(settings.canvas.backgroundColor);
-    ofDrawRectangle(0, 0, 400, 300);
+    ofSetColor(settings->canvas.backgroundColor);
+    ofDrawRectangle(0, 0, 400, 350);
     ofPopStyle();
     clean = true;
+    currentLine = 0;
   }
 }
 
-void OSD::drawInfo(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
+void OSD::drawLine(const string text) {
+  ofDrawBitmapString(text, 10,distance*currentLine++);
+}
+
+void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
   if (!active) {
     return;
   }
-
-  int line = 1;
-  const int distance = 15;
   
   ofPushStyle();
-  ofSetColor(settings.canvas.osdColor);
+  ofSetColor(settings->canvas.osdColor);
   
-  string str = "#" + ofToString(params.seed);
-  ofDrawBitmapString(str, 10,distance*line++);
+  drawLine("#" + ofToString(params.seed));
   
-  line++;
-  
-  str = "noiseOffset: " + ofToString(params.border.noiseOffset);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "distortion: " + ofToString(params.border.distortion);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "radius: " + ofToString(params.border.radius) + " (" +
-  ofToString(params.border.ratioVariation.x) + "," +
-  ofToString(params.border.ratioVariation.y) + ")";
-  ofDrawBitmapString(str, 10,distance*line++);
+  drawLine("");
 
-  line++;
+  drawLine("border");
+  drawLine(" distortion: " + ofToString(params.border.distortion));
+  drawLine(" radius: " + ofToString(params.border.radius));
 
-  str = "speed: " + ofToString(params.hypha.speed) + " +-" + ofToString(params.hypha.speedVariation) + "%";
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "max bend angle: " + ofToString(params.hypha.maxBendAngle);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "max bent angle: " + ofToString(params.hypha.maxBentAngle);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "max fork angle: " + ofToString(params.hypha.maxForkAngle);
-  ofDrawBitmapString(str, 10,distance*line++);
+  drawLine("");
 
-  str = "fertility ratio: " + ofToString(params.hypha.fertilityRatio);
-  ofDrawBitmapString(str, 10,distance*line++);
+  drawLine("hypha");
+  drawLine(" speed: " + ofToString(params.hypha.speed) + " +-" + ofToString(params.hypha.speedVariation) + "%");
+  drawLine(" max bend angle: " + ofToString(params.hypha.maxBendAngle));
+  drawLine(" max bent angle: " + ofToString(params.hypha.maxBentAngle));
+  drawLine(" max fork angle: " + ofToString(params.hypha.maxForkAngle));
+  drawLine(" fertility ratio: " + ofToString(params.hypha.fertilityRatio));
 
-  line++;
+  drawLine("");
 
-  str = "creation area size: " + ofToString(params.creationAreaSize);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "new primal hypha period: " + ofToString(params.newPrimalHyphaFramesPeriod);
-  ofDrawBitmapString(str, 10,distance*line++);
+  drawLine("hyphae");
+  drawLine(" creation area size: " + ofToString(params.creationAreaSize));
+  drawLine(" new primal hypha period: " + ofToString(params.newPrimalHyphaFramesPeriod));
 
-  line++;
-  
-  str = "framerate: " + ofToString(ofGetFrameRate(),2);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "step: " + currentStep;
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "hyphae: " + ofToString(stats.hyphaCount) + "/" + ofToString(params.maxHyphaCount);
-  ofDrawBitmapString(str, 10,distance*line++);
-  
-  str = "primalHyphae: " + ofToString(stats.primalHyphaCount) + "/" + ofToString(params.primalHyphaCount);
-  ofDrawBitmapString(str, 10,distance*line++);
+  drawLine("");
+
+  drawLine("stats");
+  drawLine(" framerate: " + ofToString(ofGetFrameRate(),2));
+  drawLine(" step: " + currentStep);
+  drawLine(" hyphae: " + ofToString(stats.hyphaCount) + "/" + ofToString(params.maxHyphaCount));
+  drawLine(" primalHyphae: " + ofToString(stats.primalHyphaCount) + "/" + ofToString(params.primalHyphaCount));
   
   ofPopStyle();
 
