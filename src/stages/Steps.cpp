@@ -31,7 +31,7 @@ void Steps::update() {
         setFadeout();
         break;
       case fadeout:
-        currentStep = idle;
+        setIdle();
         break;
     }
   }
@@ -42,8 +42,8 @@ void Steps::setGrowing() {
   HyphaeParams currentParams = builder.create(*settings);
   hyphae.reset(new Hyphae(currentParams));
   ofBackground(settings->canvas.backgroundColor);
-  currentStep = growing;
   step.reset(new StepHyphae(hyphae.get()));
+  currentStep = growing;
 }
 
 void Steps::setMourning() {
@@ -54,6 +54,11 @@ void Steps::setMourning() {
 void Steps::setFadeout() {
   step.reset(new StepFadeout(settings->canvas.backgroundColor, settings->canvas.fadeoutTime * settings->canvas.framerate, 256));
   currentStep = fadeout;
+}
+
+void Steps::setIdle() {
+  step.reset(new StepCountdown(settings->canvas.idleTime * settings->canvas.framerate));
+  currentStep = idle;
 }
 
 string Steps::getCurrentStepName() {

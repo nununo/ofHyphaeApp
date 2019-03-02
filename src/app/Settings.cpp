@@ -18,6 +18,7 @@ Settings::Settings(const string& xmlFile) {
   canvas.backgroundColor = getColor(s, "rhizopus:canvas:backgroundColor");
   canvas.mourningTime = s.getValue("rhizopus:canvas:mourningTime", 0); // 5
   canvas.fadeoutTime = s.getValue("rhizopus:canvas:fadeoutTime", 0); // 5
+  canvas.idleTime = s.getValue("rhizopus:canvas:idleTime", 0); // 5
 
   hyphae.border.distortion = getRange(s, "rhizopus:hyphae:border:distortion", 0.0f); // 0.7
   hyphae.border.radius = getRange(s, "rhizopus:hyphae:border:radius", 10);

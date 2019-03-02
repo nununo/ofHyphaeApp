@@ -32,6 +32,7 @@ public:
   void setGrowing();
   void setMourning();
   void setFadeout();
+  void setIdle();
   
   string getCurrentStepName();
 
