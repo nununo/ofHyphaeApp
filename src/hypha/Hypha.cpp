@@ -62,9 +62,12 @@ bool Hypha::isOutsideBorder() {
 void Hypha::update() {
   if (isAlive()) {
     delta += velocity.getRotated(angle);
-    if (abs(delta.x)>params.pixelOverlap || abs(delta.y)>params.pixelOverlap) {
+    float absDeltaX = abs(delta.x);
+    float absDeltaY = abs(delta.y);
+    if (absDeltaX>params.pixelOverlap || absDeltaY>params.pixelOverlap) {
       position += delta;
-      delta = ofVec2f::zero();
+      if (absDeltaX>0) {delta.x=0;}
+      if (absDeltaY>0) {delta.y=0;}
       if (!dying && isOutsideBorder()) {
         ofEventArgs e;
         ofNotifyEvent(this->outsideEvent, e);
