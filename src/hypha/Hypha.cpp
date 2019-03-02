@@ -80,6 +80,13 @@ void Hypha::update() {
 }
 
 void Hypha::draw() {
+  if (!started) {
+    ofPushStyle();
+    ofSetColor(params.color, 255);
+    ofDrawRectangle(this->position.x, this->position.y, 1, 1);
+    ofPopStyle();
+    started = true;
+  }
   if (posIsNewPixel) {
     ofDrawRectangle(this->position.x, this->position.y, 1, 1);
     posIsNewPixel = false;

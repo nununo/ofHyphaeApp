@@ -23,6 +23,7 @@ private:
   ofVec2f position;
   ofVec2f velocity;
   float angle = 0;
+  bool started = false;
 
   ofVec2f delta = ofVec2f::zero();
   bool posIsNewPixel = false;
