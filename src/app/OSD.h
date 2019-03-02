@@ -18,10 +18,10 @@ private:
   bool clean = false;
 
   void drawBackground(const Settings &settings);
-  void drawInfo(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const int lifecycleStage);
+  void drawInfo(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const string lifecycleStage);
 
 public:
-  void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const int lifecycleStage);
+  void draw(const Settings &settings, const HyphaeParams params, const HyphaeStats stats, const string currentStep);
   void toggleActive() {active=!active;}
 };
 

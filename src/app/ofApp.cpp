@@ -1,10 +1,13 @@
 #include "ofApp.h"
-#include "HyphaeParamsBuilder.h"
 #include "OSD.h"
+#include "StepHyphae.h"
+#include "StepCountdown.h"
+#include "StepFadeout.h"
 
 void ofApp::setup(){
   settings.reset(new Settings("settings/settings.xml"));
   osd.reset(new OSD());
+  steps.reset(new Steps(settings.get()));
   ofSetBackgroundAuto(false);
   ofSetFrameRate(settings->canvas.framerate);
   //ofSetVerticalSync(true);
@@ -12,85 +15,19 @@ void ofApp::setup(){
   ofHideCursor();
 }
 
-void ofApp::newHyphae() {
-  HyphaeParamsBuilder builder;
-  currentParams = builder.create(*settings.get());
-  hyphae.reset(new Hyphae(currentParams));
-  ofBackground(settings->canvas.backgroundColor);
-  lifecycleStage = alive;
-}
-
 void ofApp::update(){
-  switch (lifecycleStage) {
-    case alive:
-      if (hyphae->isAlive()) {
-        hyphae->update();
-      } else {
-        lifecycleStage = mourning;
-        mourningFrames = settings->canvas.mourningTime * settings->canvas.framerate;
-      }
-      break;
-    
-    case mourning:
-      if (--mourningFrames <= 0) {
-        lifecycleStage = fadeout;
-        fadeoutFramesPeriod = (int)(settings->canvas.fadeoutTime * settings->canvas.framerate / 256);
-        if (fadeoutFramesPeriod==0) {
-          fadeoutFramesPeriod = 1;
-        }
-        fadeoutFrames = settings->canvas.fadeoutTime * settings->canvas.framerate;
-        if (fadeoutFrames<256) {
-          fadeoutFrames = 256;
-        }
-      }
-      break;
-    
-    case fadeout:
-      if (--fadeoutFrames <= 0) {
-        lifecycleStage = idle;
-      }
-      break;
-    
-    case idle:
-      newHyphae();
-      break;
-  }
+  steps->update();
 }
 
 void ofApp::draw(){
-  switch (lifecycleStage) {
-    case alive:
-      hyphae->draw();
-      break;
-    
-    case mourning:
-      break;
-    
-    case fadeout:
-      if (ofGetFrameNum() % fadeoutFramesPeriod == 0) {
-        ofPushStyle();
-        ofEnableBlendMode(OF_BLENDMODE_ADD);
-        ofSetColor(settings->canvas.backgroundColor, 1);
-        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
-        ofPopStyle();
-      }
-      break;
-    
-    case idle:
-      break;
-  }
-  drawOSD();
+  steps->draw();
+  osd->draw(*settings.get(), steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName());
 }
-
-void ofApp::drawOSD() {
-  osd->draw(*settings.get(), currentParams, hyphae->getStats(), lifecycleStage);
-}
-
 
 void ofApp::keyPressed(int key) {
   switch (key) {
     case ' ':
-      newHyphae();
+      steps->setGrowing();
       break;
     
     case 'f':
@@ -102,7 +39,7 @@ void ofApp::keyPressed(int key) {
       break;
       
     case 'b':
-      hyphae->drawBorder();
+      steps->drawHyphaeBorder();
       break;
     
     case 'c':
@@ -112,7 +49,7 @@ void ofApp::keyPressed(int key) {
       ofPopStyle();
 
     case 's':
-      ofLog() << "seed: " << currentParams.seed;
+      ofLog() << "seed: " << steps->getHyphaeParams().seed;
 
     default:
       break;
