@@ -17,7 +17,6 @@
     <idleTime>2</idleTime>
   </canvas>
   <hyphae>
-    <dyingPixels>150</dyingPixels>
     <creationAreaSize>
       <min>5</min>
       <max>5</max>
@@ -90,7 +89,7 @@
         <r>255</r>
         <g>255</g>
         <b>255</b>
-        <a>10</a>
+        <a>30</a>
       </color>
       <speed> <!--pixels/s-->
         <min>3</min>
@@ -120,6 +119,7 @@
         <min>1</min>
         <max>1</max>
       </fertilityRatio>
+      <dyingPixels>20</dyingPixels>
     </hypha>
   </hyphae>
 </rhizopus>

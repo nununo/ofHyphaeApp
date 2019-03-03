@@ -24,12 +24,12 @@ struct HyphaSettings {
   ofVec2f maxBendAngle;    // Max angle applied to the velocity on each iteration
   ofVec2f maxBentAngle;    // Max angle allowed between velocity and position (<90º prevents reapproaching center)
   ofVec2f pixelOverlap;    // How much a position needs to move before a new pixel is drawn
-  ofVec2f fertilityRatio;   // Next fork distance ratio
+  ofVec2f fertilityRatio;  // Next fork distance ratio
+  int dyingPixels;         // Hypha's energy when it starts dying
 };
 
 struct HyphaeSettings {
   ofVec2f creationAreaSize;       // Square position around (0,0) where primal Hypha are created
-  int dyingPixels;                // Hypha's energy is set toofRandom(0,dyingPixels) when it starts dying
   vector<float> primalHyphaCount; // Number of primal hypha
   ofVec2f newPrimalHyphaPeriod;   // Delay between ech new primal hypha
   vector<float> maxHyphaCount;    // Max possible number of hypha
