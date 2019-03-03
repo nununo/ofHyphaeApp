@@ -20,6 +20,7 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
   params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
   params.dyingPixels = settings.hyphae.dyingPixels;
+  params.euthanasiaPercentage = settings.hyphae.euthanasiaPercentage;
   
   params.border.noiseOffset = ofRandom(99999);
   params.border.distortion = hyphaeSettings.border.distortion;

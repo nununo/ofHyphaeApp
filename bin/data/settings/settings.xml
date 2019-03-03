@@ -18,6 +18,7 @@
   </canvas>
   <hyphae>
     <dyingPixels>100</dyingPixels>
+    <euthanasiaPercentage>10</euthanasiaPercentage> <!--%-->
     <creationAreaSize>5</creationAreaSize>
     <primalHyphaCount>
       <v>1</v>

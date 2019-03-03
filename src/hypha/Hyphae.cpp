@@ -13,11 +13,7 @@ Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
 }
 
 Hyphae::~Hyphae() {
-  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
-    ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
-    itr = elements.erase(itr);
-  }
+  removeAllHypha();
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
@@ -26,6 +22,14 @@ void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
     elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
     ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
     ofAddListener(elements.back().outsideEvent, this, &Hyphae::onHyphaOutside);
+  }
+}
+
+void Hyphae::removeAllHypha() {
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
+    ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
+    itr = elements.erase(itr);
   }
 }
 
@@ -43,6 +47,7 @@ void Hyphae::generatePrimalHyphas() {
   }
 }
 void Hyphae::updateLifecycle() {
+  // Iterate through all Hypha and update if alive or remove if dead
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (itr->isAlive()) {
       itr->update();
@@ -52,8 +57,13 @@ void Hyphae::updateLifecycle() {
       itr = elements.erase(itr);
     }
   }
+  // If maximum hypha reached become sterile
   if (elements.size() >= params.maxHyphaCount) {
     sterile = true;
+  }
+  // If dying and only X% left alive, delete all (reduce time without noticeable evolution)
+  if (dying && elements.size() < params.maxHyphaCount*params.euthanasiaPercentage) {
+    removeAllHypha();
   }
 }
 

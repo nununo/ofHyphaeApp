@@ -28,6 +28,7 @@ private:
   void updateLifecycle();
   int count() const {return elements.size();}
   int primalCount() const {return primalHyphaCount;}
+  void removeAllHypha();
 
 public:
   Hyphae(const HyphaeParams params, ofColor backgroundColor);
