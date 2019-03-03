@@ -13,7 +13,11 @@ Hyphae::Hyphae(const HyphaeParams params) {
 }
 
 Hyphae::~Hyphae() {
-  removeAllHypha();
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
+    ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
+    itr = elements.erase(itr);
+  }
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
@@ -38,15 +42,6 @@ void Hyphae::generatePrimalHyphas() {
     primalHyphaCount++;
   }
 }
-
-void Hyphae::removeAllHypha() {
-  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
-    ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
-    itr = elements.erase(itr);
-  }
-}
-
 void Hyphae::updateLifecycle() {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (itr->isAlive()) {
