@@ -18,7 +18,7 @@ struct BorderSettings {
 
 struct HyphaSettings {
   ofColor color;           // Color
-  ofVec2f speed;           // Speed in s (which will be converted to frames)
+  float speed;             // Speed in s (which will be converted to frames)
   ofVec2f speedVariation;  // Percentual variation from speed
   ofVec2f maxForkAngle;    // Max angle between a fork and its parent's velocity
   ofVec2f maxBendAngle;    // Max angle applied to the velocity on each iteration

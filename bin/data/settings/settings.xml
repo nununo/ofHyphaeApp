@@ -87,10 +87,7 @@
         <b>255</b>
         <a>10</a>
       </color>
-      <speed> <!--pixels/s-->
-        <min>3</min>
-        <max>3</max>
-      </speed>
+      <speed>3</speed> <!--pixels/s-->
       <speedVariation> <!--%-->
         <min>10</min>
         <max>10</max>
