@@ -11,19 +11,27 @@
 #include <vector>
 #include "Settings.h"
 #include "HyphaeParams.h"
+#include "Tools.h"
+
+struct BorderPoint {
+  float ratio=0;
+  bool touched=false;
+};
 
 class Border {
 private:
   BorderParams params;
-  std::vector<float> radiuses;
+  std::vector<BorderPoint> points;
+  bool drawn = false;
   
   void generateRadiuses();
   float calcRatioForAngle(float angle) const;
+
 public:
   Border(const BorderParams params);
-  float getRatio(float angle) const;
-  float getRadius(float angle) const {return getRatio(angle)*params.radius;}
-  void draw() const;
+  float getRatio(float angle) const {return points[Tools::angleToInt(angle)].ratio;};
+  bool isOutside(ofVec2f pos);
+  void draw();
   
 };
 

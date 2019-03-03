@@ -7,7 +7,6 @@
 
 #include "Border.h"
 #include "ofMain.h"
-#include "Tools.h"
 
 Border::Border(const BorderParams params) {
   this->params = params;
@@ -16,7 +15,9 @@ Border::Border(const BorderParams params) {
 
 void Border::generateRadiuses() {
   for (int i=0; i<360; i++) {
-    radiuses.push_back(calcRatioForAngle(i));
+    BorderPoint bp;
+    bp.ratio = calcRatioForAngle(i);
+    points.push_back(bp);
   }
 }
 
@@ -35,19 +36,45 @@ float Border::calcRatioForAngle(float angle) const {
   return ofLerp(params.ratioVariation.x, params.ratioVariation.y, 0.75f*ratio1 + 0.25f*ratio2);
 }
 
-float Border::getRatio(float angle) const {
-  int i = Tools::angleToInt(angle);
-  return radiuses[i];
+bool Border::isOutside(ofVec2f pos) {
+  int i = Tools::angleToInt(Tools::posToAngle(pos));
+  if (points[i].touched) {
+    return true;
+  } else if (pos.length() > points[i].ratio*params.radius) {
+    points[i].touched = true;
+    if (i==0) {
+      points[359].touched = true;
+      points[1].touched = true;
+    } else if (i==359) {
+      points[358].touched = true;
+      points[0].touched = true;
+    } else {
+      points[i+1].touched = true;
+      points[i-1].touched = true;
+    }
+    return true;
+  } else {
+    return false;
+  }
 }
 
-void Border::draw() const {
+void Border::draw() {
   ofPushStyle();
-  ofSetColor(255, 0, 0);
   ofVec2f prevP;
   for(int i=0; i<=360; i++) {
-    ofVec2f p = ofVec2f(params.radius*radiuses[Tools::angleToInt(i)],0).rotate(i);
+    if (!drawn) {
+      if (points[i%360].touched) {
+        ofSetColor(255, 0, 0);
+      } else {
+        ofSetColor(0, 255, 0);
+      }
+    } else {
+      ofSetColor(0,0,0);
+    }
+    ofVec2f p = ofVec2f(params.radius*points[i%360].ratio,0).rotate(i);
     if (i!=0) {ofDrawLine(prevP, p);}
     prevP = p;
   }
   ofPopStyle();
+  drawn = !drawn;
 }
