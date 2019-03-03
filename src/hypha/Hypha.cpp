@@ -58,24 +58,22 @@ bool Hypha::isOutsideBorder() {
 }
 
 void Hypha::update() {
-  if (isAlive()) {
-    delta += velocity.getRotated(angle);
-    float absDeltaX = abs(delta.x);
-    float absDeltaY = abs(delta.y);
-    if (absDeltaX>params.pixelOverlap || absDeltaY>params.pixelOverlap) {
-      position += delta;
-      if (absDeltaX>0) {delta.x=0;}
-      if (absDeltaY>0) {delta.y=0;}
+  delta += velocity.getRotated(angle);
+  float absDeltaX = abs(delta.x);
+  float absDeltaY = abs(delta.y);
+  if (absDeltaX>params.pixelOverlap || absDeltaY>params.pixelOverlap) {
+    position += delta;
+    if (absDeltaX>0) {delta.x=0;}
+    if (absDeltaY>0) {delta.y=0;}
       if (!dying && isOutsideBorder()) {
         ofEventArgs e;
         ofNotifyEvent(this->outsideEvent, e);
       }
-      energy--;
-      posIsNewPixel = true;
-      updateDirection();
-      if (!dying && --nextForkDistance<=0) {
-        fork();
-      }
+    energy--;
+    posIsNewPixel = true;
+    updateDirection();
+    if (!dying && --nextForkDistance<=0) {
+      fork();
     }
   }
 }
