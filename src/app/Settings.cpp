@@ -20,7 +20,7 @@ Settings::Settings(const string& xmlFile) {
   canvas.fadeoutTime = s.getValue("rhizopus:canvas:fadeoutTime", 0); // 5
   canvas.idleTime = s.getValue("rhizopus:canvas:idleTime", 0); // 5
 
-  hyphae.border.distortion = getRange(s, "rhizopus:hyphae:border:distortion", 0.0f); // 0.7
+  hyphae.border.distortion = s.getValue("rhizopus:hyphae:border:distortion", 0.0f); // 0.7
   hyphae.border.radius = getRange(s, "rhizopus:hyphae:border:radius", 10);
   hyphae.border.ratioVariation = getRange(s, "rhizopus:hyphae:border:ratioVariation", 1);
 

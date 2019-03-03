@@ -17,7 +17,7 @@
     <idleTime>2</idleTime>
   </canvas>
   <hyphae>
-    <dyingPixels>150</dyingPixels>
+    <dyingPixels>100</dyingPixels>
     <creationAreaSize>5</creationAreaSize>
     <primalHyphaCount>
       <v>1</v>
@@ -67,18 +67,16 @@
       <v>80001</v>
       <v>90001</v>
       <v>100001</v>
+      <v>150001</v>
     </maxHyphaCount>
     <border>
-      <distortion>
-        <min>0.2</min>
-        <max>0.2</max>
-      </distortion>
+      <distortion>0.2</distortion>
       <ratioVariation>
         <min>0.1</min>
         <max>4</max>
       </ratioVariation>
       <radius>
-        <min>200</min>
+        <min>100</min>
         <max>400</max>
       </radius>
     </border>

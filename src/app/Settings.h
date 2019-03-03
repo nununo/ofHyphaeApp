@@ -11,7 +11,7 @@
 #include "ofxXmlSettings.h"
 
 struct BorderSettings {
-  ofVec2f distortion;
+  float distortion;
   ofVec2f ratioVariation;
   ofVec2f radius;
 };
