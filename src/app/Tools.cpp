@@ -7,8 +7,8 @@
 
 #include "Tools.h"
 
-int Tools::angleToInt(float angle, int resolution) {
-  return ((int)((angle+360)*resolution + 0.5))%(360*resolution);
+int Tools::angleToInt(float angle) {
+  return ((int)((angle+360) + 0.5))%360;
 }
 
 float Tools::randomInSet(vector<float> set) {
