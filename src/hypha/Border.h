@@ -1,6 +1,6 @@
 //
 //  Border.h
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 17/02/2019.
 //

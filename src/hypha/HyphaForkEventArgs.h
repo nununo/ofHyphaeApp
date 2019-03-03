@@ -1,6 +1,6 @@
 //
 //  HyphaForkEventArgs.h
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 26/01/2019.
 //

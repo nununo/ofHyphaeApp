@@ -1,6 +1,6 @@
 //
 //  IStep.h
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 24/02/2019.
 //

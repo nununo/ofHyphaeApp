@@ -1,6 +1,6 @@
 //
 //  StepFadeToWhite.h
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 03/03/2019.
 //

@@ -1,6 +1,6 @@
 //
 //  Settings.cpp
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 27/01/2019.
 //

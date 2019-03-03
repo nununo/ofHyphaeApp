@@ -1,6 +1,6 @@
 //
 //  HyphaeStats.h
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 23/02/2019.
 //

@@ -1,6 +1,6 @@
 //
 //  HyphaeParams.h
-//  moldApp
+//  hyphaeApp
 //
 //  Created by Nuno on 19/02/2019.
 //
