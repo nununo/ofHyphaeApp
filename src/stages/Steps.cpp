@@ -10,6 +10,7 @@
 #include "StepHyphae.h"
 #include "StepCountdown.h"
 #include "StepFadeToBlack.h"
+#include "StepFadeToWhite.h"
 
 Steps::Steps(Settings *settings) {
   this->settings = settings;
@@ -52,7 +53,11 @@ void Steps::setMourning() {
 }
 
 void Steps::setFadeout() {
-  step.reset(new StepFadeToBlack(settings->canvas.fadeoutTime * settings->canvas.framerate));
+  if (settings->canvas.backgroundColor.r == 0) {
+    step.reset(new StepFadeToBlack(settings->canvas.fadeoutTime * settings->canvas.framerate));
+  } else {
+    step.reset(new StepFadeToWhite(settings->canvas.fadeoutTime * settings->canvas.framerate));
+  }
   currentStep = fadeout;
 }
 

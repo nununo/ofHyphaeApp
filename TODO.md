@@ -1,6 +1,5 @@
 - Get rid of apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Consider making Hypha speed proportional to its distance from the center
-- Allow fade to white also
 
 - Better death (which fills the whole area inside the border)
 

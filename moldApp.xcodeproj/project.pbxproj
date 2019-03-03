@@ -17,6 +17,7 @@
 		7D477B012220C99F00F6D6FD /* OSD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D477AFF2220C99F00F6D6FD /* OSD.cpp */; };
 		7D5ECE66222ACD3E009C2269 /* StepFadeToBlack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE64222ACD3E009C2269 /* StepFadeToBlack.cpp */; };
 		7D5ECE69222ACF7C009C2269 /* Steps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE67222ACF7C009C2269 /* Steps.cpp */; };
+		7D5ECE6E222B76EE009C2269 /* StepFadeToWhite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE6C222B76EE009C2269 /* StepFadeToWhite.cpp */; };
 		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
 		7D5F18362219E37600705116 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18342219E37600705116 /* Tools.cpp */; };
 		7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CE90C6D9EF6BB1529BE9E /* ofxToggle.cpp */; };
@@ -71,6 +72,8 @@
 		7D5ECE67222ACF7C009C2269 /* Steps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Steps.cpp; sourceTree = "<group>"; };
 		7D5ECE68222ACF7C009C2269 /* Steps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Steps.h; sourceTree = "<group>"; };
 		7D5ECE6B222B1DCC009C2269 /* fadeToBlack.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fadeToBlack.frag; sourceTree = "<group>"; };
+		7D5ECE6C222B76EE009C2269 /* StepFadeToWhite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StepFadeToWhite.cpp; sourceTree = "<group>"; };
+		7D5ECE6D222B76EE009C2269 /* StepFadeToWhite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepFadeToWhite.h; sourceTree = "<group>"; };
 		7D5F18042218528700705116 /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = settings.xml; sourceTree = "<group>"; };
 		7D5F181C2219985700705116 /* Border.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Border.cpp; sourceTree = "<group>"; };
 		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				7D5ECE63222ACBD7009C2269 /* StepCountdown.h */,
 				7D5ECE64222ACD3E009C2269 /* StepFadeToBlack.cpp */,
 				7D5ECE65222ACD3E009C2269 /* StepFadeToBlack.h */,
+				7D5ECE6C222B76EE009C2269 /* StepFadeToWhite.cpp */,
+				7D5ECE6D222B76EE009C2269 /* StepFadeToWhite.h */,
 				7D5ECE68222ACF7C009C2269 /* Steps.h */,
 				7D5ECE67222ACF7C009C2269 /* Steps.cpp */,
 			);
@@ -877,6 +882,7 @@
 				7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */,
 				6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */,
 				7DF3E31C21FE1AD60034502C /* Settings.cpp in Sources */,
+				7D5ECE6E222B76EE009C2269 /* StepFadeToWhite.cpp in Sources */,
 				7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */,
 				21C28723F7D8CA1BB84F3F3F /* tinyxmlparser.cpp in Sources */,
 				D4EBA2E1D767309891BAE77B /* ofxXmlSettings.cpp in Sources */,
