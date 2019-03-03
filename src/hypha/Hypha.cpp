@@ -53,6 +53,10 @@ void Hypha::throwForkEvent() {
   ofNotifyEvent(this->forkEvent, e);
 }
 
+bool Hypha::isOutsideBorder() {
+  return (position.length() > border->getRadius(Tools::posToAngle(position)));
+}
+
 void Hypha::update() {
   delta += velocity.getRotated(angle);
   float absDeltaX = abs(delta.x);
@@ -61,9 +65,10 @@ void Hypha::update() {
     position += delta;
     if (absDeltaX>0) {delta.x=0;}
     if (absDeltaY>0) {delta.y=0;}
-    if (!dying && border->isOutside(position)) {
-      die(params.dyingPixels);
-    }
+      if (!dying && isOutsideBorder()) {
+        ofEventArgs e;
+        ofNotifyEvent(this->outsideEvent, e);
+      }
     energy--;
     posIsNewPixel = true;
     updateDirection();

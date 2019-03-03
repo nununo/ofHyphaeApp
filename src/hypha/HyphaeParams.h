@@ -24,7 +24,6 @@ struct HyphaParams {
   float maxBentAngle;
   float pixelOverlap;
   float fertilityRatio;
-  int dyingPixels;
 };
 
 struct HyphaeParams {
@@ -34,6 +33,7 @@ struct HyphaeParams {
   int primalHyphaCount;
   int newPrimalHyphaFramesPeriod;
   int maxHyphaCount;
+  int dyingPixels;
   BorderParams border;
   HyphaParams hypha;
 };

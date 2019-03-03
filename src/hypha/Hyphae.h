@@ -43,6 +43,7 @@ public:
   void drawBorder() const;
 
   void onHyphaFork(HyphaForkEventArgs &e);
+  void onHyphaOutside(ofEventArgs &e);
 };
 
 #endif /* Hyphae_h */

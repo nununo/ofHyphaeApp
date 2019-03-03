@@ -37,17 +37,19 @@ private:
   void updateDirection();
   void calcNextForkDistance();
   void fork();
+  bool isOutsideBorder();
   
   void throwForkEvent();
-  void die(int energy) {this->dying=true; this->energy = energy;}
 
 public:
   Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation);
   bool isAlive() const {return energy>0;}
   void update();
   void draw();
+  void die(int energy) {this->dying=true; this->energy = energy;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
+  ofEvent<ofEventArgs> outsideEvent;
 };
 
 #endif /* Hypha_h */

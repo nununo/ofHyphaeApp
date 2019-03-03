@@ -24,6 +24,7 @@ Settings::Settings(const string& xmlFile) {
   hyphae.border.radius = getRange(s, "rhizopus:hyphae:border:radius", 10);
   hyphae.border.ratioVariation = getRange(s, "rhizopus:hyphae:border:ratioVariation", 1);
 
+  hyphae.dyingPixels = s.getValue("rhizopus:hyphae:dyingPixels", 0); // 20
   hyphae.creationAreaSize = getRange(s, "rhizopus:hyphae:creationAreaSize", 1000); // 40
   hyphae.primalHyphaCount = getSet(s, "rhizopus:hyphae:primalHyphaCount");
   hyphae.newPrimalHyphaPeriod = getRange(s, "rhizopus:hyphae:newPrimalHyphaPeriod", 0.0f); // 100
@@ -37,7 +38,6 @@ Settings::Settings(const string& xmlFile) {
   hyphae.hypha.maxBentAngle = getRange(s, "rhizopus:hyphae:hypha:maxBentAngle", 0.0f); // 80
   hyphae.hypha.pixelOverlap = getRange(s, "rhizopus:hyphae:hypha:pixelOverlap", 0.0f); // 0.9f
   hyphae.hypha.fertilityRatio = getRange(s, "rhizopus:hyphae:hypha:fertilityRatio", 0.0f); // 1.0f
-  hyphae.hypha.dyingPixels = s.getValue("rhizopus:hyphae:hypha:dyingPixels", 0); // 20
 }
 
 int Settings::pushTags(ofxXmlSettings &s, const string& xmlPath) {
