@@ -21,7 +21,12 @@ private:
   unique_ptr<Hyphae> hyphae;
   std::unique_ptr<IStep> step;
   LifecycleStep currentStep = idle;
+  int counter = 0;
+  string filenamePrefix;
+  bool saveScreenEnabled = false;
 
+  void saveScreen();
+  
 public:
   Steps(Settings *settings);
   // IStep
@@ -35,10 +40,12 @@ public:
   void setIdle();
   
   string getCurrentStepName();
+  bool getSaveScreenEnabled() {return saveScreenEnabled;}
 
   HyphaeParams getHyphaeParams() const {return hyphae->getParams();}
   HyphaeStats getHyphaeStats() const {return hyphae->getStats();}
   void drawHyphaeBorder() {hyphae->drawBorder();}
+  void toggleSaveScreen() {saveScreenEnabled=!saveScreenEnabled;}
 };
 
 #endif /* Steps_h */

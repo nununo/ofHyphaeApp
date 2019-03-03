@@ -7,16 +7,16 @@
 
 #include "OSD.h"
 
-void OSD::draw(const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
+void OSD::draw(const HyphaeParams params, const HyphaeStats stats, const string currentStep, const bool saveScreenEnabled) {
   drawBackground();
-  drawInfo(params, stats, currentStep);
+  drawInfo(params, stats, currentStep, saveScreenEnabled);
 }
 
 void OSD::drawBackground() {
   if (!clean) {
     ofPushStyle();
     ofSetColor(settings->canvas.backgroundColor);
-    ofDrawRectangle(0, 0, 400, 350);
+    ofDrawRectangle(0, 0, 400, 400);
     ofPopStyle();
     clean = true;
     currentLine = 0;
@@ -27,7 +27,7 @@ void OSD::drawLine(const string text) {
   ofDrawBitmapString(text, 10,distance*(1+currentLine++));
 }
 
-void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const string currentStep) {
+void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const string currentStep, const bool saveScreenEnabled) {
   if (!active) {
     return;
   }
@@ -65,7 +65,11 @@ void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const str
   drawLine(" step: " + currentStep);
   drawLine(" hyphae: " + ofToString(stats.hyphaCount) + "/" + ofToString(params.maxHyphaCount));
   drawLine(" primalHyphae: " + ofToString(stats.primalHyphaCount) + "/" + ofToString(params.primalHyphaCount));
+
+  drawLine("");
   
+  drawLine("save screen: " + ofToString(saveScreenEnabled));
+
   ofPopStyle();
 
   clean = false;

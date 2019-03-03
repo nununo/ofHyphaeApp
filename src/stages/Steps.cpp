@@ -14,7 +14,12 @@
 
 Steps::Steps(Settings *settings) {
   this->settings = settings;
+  filenamePrefix = "images/hyphae_" + ofGetTimestampString() + "_";
   setGrowing();
+}
+
+void Steps::saveScreen() {
+  ofSaveScreen(filenamePrefix + ofToString(counter, 5, '0')+".png");
 }
 
 void Steps::update() {
@@ -53,6 +58,10 @@ void Steps::setMourning() {
 }
 
 void Steps::setFadeout() {
+  counter++;
+  if (saveScreenEnabled) {
+    saveScreen();
+  }
   if (settings->canvas.backgroundColor.r == 0) {
     step.reset(new StepFadeToBlack(settings->canvas.fadeoutTime * settings->canvas.framerate));
   } else {

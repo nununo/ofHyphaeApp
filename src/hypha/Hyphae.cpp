@@ -40,12 +40,15 @@ void Hyphae::generatePrimalHyphas() {
   if (primalHyphaCount < params.primalHyphaCount &&
       (params.newPrimalHyphaFramesPeriod == 0 ||
        ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
-    ofVec2f dir = ofVec2f(1,0).getRotated(ofRandom(0,360));
+    float angle = ofRandom(0,360);
+    ofLog() << "primal angle: " << angle;
+    ofVec2f dir = ofVec2f(1,0).getRotated(angle);
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(pos, dir, 0);
     primalHyphaCount++;
   }
 }
+
 void Hyphae::updateLifecycle() {
   // Iterate through all Hypha and update if alive or remove if dead
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {

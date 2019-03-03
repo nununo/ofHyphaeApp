@@ -21,7 +21,7 @@ void ofApp::update(){
 
 void ofApp::draw(){
   steps->draw();
-  osd->draw(steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName());
+  osd->draw(steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName(), steps->getSaveScreenEnabled());
 }
 
 void ofApp::clearScreen() {
@@ -56,8 +56,14 @@ void ofApp::keyPressed(int key) {
     case 'c':
       clearScreen();
       break;
+
     case 's':
+      steps->toggleSaveScreen();
+      break;
+
+    case 'l':
       ofLog() << "seed: " << steps->getHyphaeParams().seed;
+      break;
 
     default:
       break;
