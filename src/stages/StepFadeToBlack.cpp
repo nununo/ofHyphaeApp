@@ -2,10 +2,11 @@
 //  StepFadeToBlack.cpp
 //  moldApp
 //
-//  Created by Nuno on 02/03/2019.
+//  Created by Nuno on 03/03/2019.
 //
 
 #include "StepFadeToBlack.h"
+#include "ofMain.h"
 
 #define STEPS 256
 
@@ -16,20 +17,15 @@ StepFadeToBlack::StepFadeToBlack(int count): StepCountdown((count>STEPS?count:ST
   if (period==0) {
     period = 1;
   }
-  screenTexture.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
-  shader.setupShaderFromFile(GL_FRAGMENT_SHADER, "shaders/fadeToBlack.frag");
-  shader.linkProgram();
-  
 }
 
 void StepFadeToBlack::draw() {
   if (ofGetFrameNum() % period == 0) {
     ofPushStyle();
-    screenTexture.loadScreenData(0, 0, ofGetWidth(), ofGetHeight());
-    shader.begin();
-    shader.setUniform1f("amount", 1/(float(STEPS)));
-    screenTexture.draw(0,0);
-    shader.end();
+    ofEnableAlphaBlending();
+    ofSetColor(ofColor::black, alpha++);
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     ofPopStyle();
+    alpha++;
   }
 }

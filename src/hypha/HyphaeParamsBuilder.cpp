@@ -11,13 +11,13 @@
 HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   HyphaeParams params;
   HyphaeSettings hyphaeSettings = settings.hyphae;
-  params.seed = 933570; //(int)ofRandom(999999);
+  params.seed = 249957; //(int)ofRandom(999999);
   ofSeedRandom(params.seed);
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
   params.creationAreaSize = Tools::randomInRange(hyphaeSettings.creationAreaSize);
   params.maxHyphaCount = (int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
-  params.primalHyphaCount = 1; //(int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
+  params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
   params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
   params.dyingPixels = settings.hyphae.dyingPixels;
   

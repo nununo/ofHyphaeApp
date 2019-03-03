@@ -1,25 +1,23 @@
 //
-//  StepFadeout.h
+//  StepFadeToBlack.h
 //  moldApp
 //
-//  Created by Nuno on 02/03/2019.
+//  Created by Nuno on 03/03/2019.
 //
 
-#ifndef StepFadeToBlack_h
-#define StepFadeToBlack_h
+#ifndef StepFadeToBlack2_h
+#define StepFadeToBlack2_h
 
 #include "StepCountdown.h"
-#include "ofMain.h"
 
 class StepFadeToBlack: public StepCountdown {
 private:
   int period;
-  ofShader shader;
-  ofTexture screenTexture;
+  int alpha=0;
   
 public:
   StepFadeToBlack(int count);
   void draw() override;
 };
 
-#endif /* StepFadeToBlack_h */
+#endif /* StepFadeToBlack2_h */
