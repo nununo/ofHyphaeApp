@@ -41,6 +41,10 @@ float Border::getRatio(float angle) const {
   return radiuses[i];
 }
 
+bool Border::isOutside(ofVec2f pos) const {
+  return (pos.length() > getRadius(Tools::posToAngle(pos)));
+}
+
 void Border::draw() {
   ofPushStyle();
   if(!drawn) {
