@@ -2,7 +2,7 @@
 #include "OSD.h"
 #include "StepHyphae.h"
 #include "StepCountdown.h"
-#include "StepFadeout.h"
+#include "StepFadeToBlack.h"
 
 void ofApp::setup(){
   settings.reset(new Settings("settings/settings.xml"));

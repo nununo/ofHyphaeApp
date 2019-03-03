@@ -9,7 +9,7 @@
 #include "HyphaeParamsBuilder.h"
 #include "StepHyphae.h"
 #include "StepCountdown.h"
-#include "StepFadeout.h"
+#include "StepFadeToBlack.h"
 
 Steps::Steps(Settings *settings) {
   this->settings = settings;
@@ -52,7 +52,7 @@ void Steps::setMourning() {
 }
 
 void Steps::setFadeout() {
-  step.reset(new StepFadeout(settings->canvas.backgroundColor, settings->canvas.fadeoutTime * settings->canvas.framerate, 256));
+  step.reset(new StepFadeToBlack(settings->canvas.fadeoutTime * settings->canvas.framerate));
   currentStep = fadeout;
 }
 

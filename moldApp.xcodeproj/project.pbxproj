@@ -15,7 +15,7 @@
 		7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33BA17F44303B78FCF8D4EA3 /* tinyxml.cpp */; };
 		7D0F2D0D221CCAB20016A25D /* HyphaeParamsBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F2D0B221CCAB20016A25D /* HyphaeParamsBuilder.cpp */; };
 		7D477B012220C99F00F6D6FD /* OSD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D477AFF2220C99F00F6D6FD /* OSD.cpp */; };
-		7D5ECE66222ACD3E009C2269 /* StepFadeout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE64222ACD3E009C2269 /* StepFadeout.cpp */; };
+		7D5ECE66222ACD3E009C2269 /* StepFadeToBlack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE64222ACD3E009C2269 /* StepFadeToBlack.cpp */; };
 		7D5ECE69222ACF7C009C2269 /* Steps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE67222ACF7C009C2269 /* Steps.cpp */; };
 		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
 		7D5F18362219E37600705116 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18342219E37600705116 /* Tools.cpp */; };
@@ -66,10 +66,11 @@
 		7D54A22E2222FC78001E1451 /* IStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IStep.h; sourceTree = "<group>"; };
 		7D5ECE61222AC72C009C2269 /* StepHyphae.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepHyphae.h; sourceTree = "<group>"; };
 		7D5ECE63222ACBD7009C2269 /* StepCountdown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepCountdown.h; sourceTree = "<group>"; };
-		7D5ECE64222ACD3E009C2269 /* StepFadeout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StepFadeout.cpp; sourceTree = "<group>"; };
-		7D5ECE65222ACD3E009C2269 /* StepFadeout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepFadeout.h; sourceTree = "<group>"; };
+		7D5ECE64222ACD3E009C2269 /* StepFadeToBlack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StepFadeToBlack.cpp; sourceTree = "<group>"; };
+		7D5ECE65222ACD3E009C2269 /* StepFadeToBlack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepFadeToBlack.h; sourceTree = "<group>"; };
 		7D5ECE67222ACF7C009C2269 /* Steps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Steps.cpp; sourceTree = "<group>"; };
 		7D5ECE68222ACF7C009C2269 /* Steps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Steps.h; sourceTree = "<group>"; };
+		7D5ECE6B222B1DCC009C2269 /* fadeToBlack.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = fadeToBlack.frag; sourceTree = "<group>"; };
 		7D5F18042218528700705116 /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = settings.xml; sourceTree = "<group>"; };
 		7D5F181C2219985700705116 /* Border.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Border.cpp; sourceTree = "<group>"; };
 		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
@@ -344,17 +345,26 @@
 				7D54A22E2222FC78001E1451 /* IStep.h */,
 				7D5ECE61222AC72C009C2269 /* StepHyphae.h */,
 				7D5ECE63222ACBD7009C2269 /* StepCountdown.h */,
-				7D5ECE64222ACD3E009C2269 /* StepFadeout.cpp */,
-				7D5ECE65222ACD3E009C2269 /* StepFadeout.h */,
+				7D5ECE64222ACD3E009C2269 /* StepFadeToBlack.cpp */,
+				7D5ECE65222ACD3E009C2269 /* StepFadeToBlack.h */,
 				7D5ECE68222ACF7C009C2269 /* Steps.h */,
 				7D5ECE67222ACF7C009C2269 /* Steps.cpp */,
 			);
 			path = stages;
 			sourceTree = "<group>";
 		};
+		7D5ECE6A222B1DB4009C2269 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				7D5ECE6B222B1DCC009C2269 /* fadeToBlack.frag */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 		7D5F18022218528700705116 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				7D5ECE6A222B1DB4009C2269 /* shaders */,
 				7D5F18032218528700705116 /* settings */,
 			);
 			name = data;
@@ -857,7 +867,7 @@
 				7D477B012220C99F00F6D6FD /* OSD.cpp in Sources */,
 				204A1C84FA14E65FA63D95C4 /* ofxLabel.cpp in Sources */,
 				7D5F181E2219985700705116 /* Border.cpp in Sources */,
-				7D5ECE66222ACD3E009C2269 /* StepFadeout.cpp in Sources */,
+				7D5ECE66222ACD3E009C2269 /* StepFadeToBlack.cpp in Sources */,
 				DCDC2010C94095DC6E6D23BE /* ofxPanel.cpp in Sources */,
 				7D5ECE69222ACF7C009C2269 /* Steps.cpp in Sources */,
 				7D0F2D0D221CCAB20016A25D /* HyphaeParamsBuilder.cpp in Sources */,
