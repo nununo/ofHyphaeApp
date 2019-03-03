@@ -21,7 +21,6 @@ void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
     wasAlive = true;
     elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
     ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
-    ofAddListener(elements.back().outsideEvent, this, &Hyphae::onHyphaOutside);
   }
 }
 
@@ -42,7 +41,6 @@ void Hyphae::generatePrimalHyphas() {
 void Hyphae::removeAllHypha() {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
     itr = elements.erase(itr);
   }
 }
@@ -53,7 +51,6 @@ void Hyphae::updateLifecycle() {
       itr->update();
     } else {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-      ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
       itr = elements.erase(itr);
     }
   }
@@ -64,18 +61,6 @@ void Hyphae::updateLifecycle() {
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
   add(e.pos, e.dir, e.generation);
-}
-
-void Hyphae::onHyphaOutside(ofEventArgs &e) {
-  // When the first Hypha goes outside the border the dying process starts:
-  // - Set dying = true
-  // - Set all Hypha to die with a random energy left
-  if (!dying) {
-    dying = true;
-    for( auto& element : elements ) {
-      element.die(ofRandom(params.dyingPixels));
-    }
-  }
 }
 
 HyphaeStats Hyphae::getStats() const {

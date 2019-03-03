@@ -63,8 +63,6 @@ void Hypha::update() {
     if (absDeltaY>0) {delta.y=0;}
     if (!dying && border->isOutside(position)) {
       die(20);
-      //ofEventArgs e;
-      //ofNotifyEvent(this->outsideEvent, e);
     }
     energy--;
     posIsNewPixel = true;
