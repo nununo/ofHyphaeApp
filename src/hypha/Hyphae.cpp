@@ -7,9 +7,9 @@
 
 #include "Hyphae.h"
 
-Hyphae::Hyphae(const HyphaeParams params) {
+Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
   this->params = params;
-  this->border.reset(new Border(params.border));
+  this->border.reset(new Border(params.border, backgroundColor));
 }
 
 Hyphae::~Hyphae() {

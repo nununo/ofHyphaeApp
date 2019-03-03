@@ -41,7 +41,7 @@ void Steps::update() {
 void Steps::setGrowing() {
   HyphaeParamsBuilder builder;
   HyphaeParams currentParams = builder.create(*settings);
-  hyphae.reset(new Hyphae(currentParams));
+  hyphae.reset(new Hyphae(currentParams, settings->canvas.backgroundColor));
   ofBackground(settings->canvas.backgroundColor);
   step.reset(new StepHyphae(hyphae.get()));
   currentStep = growing;

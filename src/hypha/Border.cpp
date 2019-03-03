@@ -9,8 +9,9 @@
 #include "ofMain.h"
 #include "Tools.h"
 
-Border::Border(const BorderParams params) {
+Border::Border(const BorderParams params, ofColor backgroundColor) {
   this->params = params;
+  this->backgroundColor = backgroundColor;
   generateRadiuses();
 }
 
@@ -40,9 +41,13 @@ float Border::getRatio(float angle) const {
   return radiuses[i];
 }
 
-void Border::draw() const {
+void Border::draw() {
   ofPushStyle();
-  ofSetColor(255, 0, 0);
+  if(!drawn) {
+    ofSetColor(255, 0, 0);
+  } else {
+    ofSetColor(backgroundColor);
+  }
   ofVec2f prevP;
   for(int i=0; i<=360; i++) {
     ofVec2f p = ofVec2f(params.radius*radiuses[Tools::angleToInt(i)],0).rotate(i);
@@ -50,4 +55,5 @@ void Border::draw() const {
     prevP = p;
   }
   ofPopStyle();
+  drawn = !drawn;
 }

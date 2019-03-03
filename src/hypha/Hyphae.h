@@ -30,7 +30,7 @@ private:
   int primalCount() const {return primalHyphaCount;}
 
 public:
-  Hyphae(const HyphaeParams params);
+  Hyphae(const HyphaeParams params, ofColor backgroundColor);
   ~Hyphae();
 
   virtual void update();

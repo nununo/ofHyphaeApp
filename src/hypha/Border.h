@@ -16,14 +16,16 @@ class Border {
 private:
   BorderParams params;
   std::vector<float> radiuses;
+  ofColor backgroundColor;
+  bool drawn = false;
   
   void generateRadiuses();
   float calcRatioForAngle(float angle) const;
 public:
-  Border(const BorderParams params);
+  Border(const BorderParams params, ofColor backgroundColor);
   float getRatio(float angle) const;
   float getRadius(float angle) const {return getRatio(angle)*params.radius;}
-  void draw() const;
+  void draw();
   
 };
 
