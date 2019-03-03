@@ -18,10 +18,7 @@
   </canvas>
   <hyphae>
     <dyingPixels>150</dyingPixels>
-    <creationAreaSize>
-      <min>5</min>
-      <max>5</max>
-    </creationAreaSize>
+    <creationAreaSize>5</creationAreaSize>
     <primalHyphaCount>
       <v>1</v>
       <v>3</v>
