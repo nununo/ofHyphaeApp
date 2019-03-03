@@ -2,15 +2,15 @@
   <canvas>
     <framerate>30</framerate>
     <osdColor>
-      <r>0</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </osdColor>
-    <backgroundColor>
       <r>255</r>
       <g>255</g>
       <b>255</b>
+      <a>255</a>
+    </osdColor>
+    <backgroundColor>
+      <r>0</r>
+      <g>0</g>
+      <b>0</b>
     </backgroundColor>
     <mourningTime>3</mourningTime>
     <fadeoutTime>5</fadeoutTime>
@@ -87,9 +87,9 @@
     </border>
     <hypha>
       <color>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
+        <r>255</r>
+        <g>255</g>
+        <b>255</b>
         <a>10</a>
       </color>
       <speed> <!--pixels/s-->
