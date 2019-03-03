@@ -1,6 +1,6 @@
 <rhizopus>
   <canvas>
-    <framerate>30</framerate>
+    <framerate>15</framerate>
     <osdColor>
       <r>255</r>
       <g>255</g>
