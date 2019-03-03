@@ -25,7 +25,7 @@ private:
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
   void generatePrimalHyphas();
-  void removeAllHypha(bool onlyDead);
+  void removeAllHypha();
   void updateLifecycle();
   int count() const {return elements.size();}
   int primalCount() const {return primalHyphaCount;}

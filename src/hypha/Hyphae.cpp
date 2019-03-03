@@ -13,7 +13,7 @@ Hyphae::Hyphae(const HyphaeParams params) {
 }
 
 Hyphae::~Hyphae() {
-  removeAllHypha(false);
+  removeAllHypha();
 }
 
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
@@ -39,19 +39,23 @@ void Hyphae::generatePrimalHyphas() {
   }
 }
 
-void Hyphae::removeAllHypha(bool onlyDead) {
+void Hyphae::removeAllHypha() {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
-    if (!onlyDead || !itr->isAlive()) {
-      ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
-      ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
-      itr = elements.erase(itr);
-    }
+    ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+    ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
+    itr = elements.erase(itr);
   }
 }
 
 void Hyphae::updateLifecycle() {
-  for(auto& element: elements) {
-    element.update();
+  for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
+    if (itr->isAlive()) {
+      itr->update();
+    } else {
+      ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
+      ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
+      itr = elements.erase(itr);
+    }
   }
   if (elements.size() >= params.maxHyphaCount) {
     sterile = true;
@@ -83,7 +87,6 @@ HyphaeStats Hyphae::getStats() const {
 
 void Hyphae::update() {
   updateLifecycle();
-  removeAllHypha(true);
   generatePrimalHyphas();
 }
 
