@@ -29,7 +29,7 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
 
   params.hypha.color = hyphaeSettings.hypha.color;
   params.hypha.speed = hyphaeSettings.hypha.speed;
-  params.hypha.speedVariation = Tools::randomInRange(hyphaeSettings.hypha.speedVariation);
+  params.hypha.speedVariation = hyphaeSettings.hypha.speedVariation;
   params.hypha.maxForkAngle = Tools::randomInRange(hyphaeSettings.hypha.maxForkAngle);
   params.hypha.maxBendAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBendAngle);
   params.hypha.maxBentAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBentAngle);
