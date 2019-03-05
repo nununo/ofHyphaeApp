@@ -19,7 +19,7 @@ Steps::Steps(Settings *settings) {
 }
 
 void Steps::saveScreen() {
-  ofSaveScreen(filenamePrefix + ofToString(counter, 5, '0')+".png");
+  ofSaveScreen(filenamePrefix + ofToString(counter, 5, '0')+".jpg");
 }
 
 void Steps::update() {
