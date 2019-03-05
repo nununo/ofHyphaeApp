@@ -1,4 +1,3 @@
-- Draw all Hypha in one go using a shader
 - Consider adjusting Hypha's velocity on each iteration according to its current direction's border limit
 - Fade to black still not ok. It is not smooth
 
