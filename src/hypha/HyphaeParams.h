@@ -35,6 +35,7 @@ struct HyphaeParams {
   int maxHyphaCount;
   int dyingPixels;
   float euthanasiaPercentage;
+  float dyingOutsidePercentage;
   BorderParams border;
   HyphaParams hypha;
 };

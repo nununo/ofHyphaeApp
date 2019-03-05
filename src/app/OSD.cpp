@@ -66,6 +66,7 @@ void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const str
   drawLine(" step: " + currentStep);
   drawLine(" hyphae: " + ofToString(stats.hyphaCount) + "/" + ofToString(params.maxHyphaCount));
   drawLine(" primalHyphae: " + ofToString(stats.primalHyphaCount) + "/" + ofToString(params.primalHyphaCount));
+  drawLine(" outside: " + ofToString(stats.outsideCount));
 
   drawLine("");
   

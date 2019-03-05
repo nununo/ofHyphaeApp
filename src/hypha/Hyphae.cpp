@@ -80,9 +80,11 @@ void Hyphae::onHyphaOutside(ofEventArgs &e) {
   // - Set dying = true
   // - Set all Hypha to die with a random energy left
   if (!dying) {
-    dying = true;
-    for( auto& element : elements ) {
-      element.die(ofRandom(params.dyingPixels));
+    if (++outsideCount > params.dyingOutsidePercentage * params.maxHyphaCount) {
+      dying = true;
+      for( auto& element : elements ) {
+        element.die(ofRandom(params.dyingPixels));
+      }
     }
   }
 }
@@ -91,6 +93,7 @@ HyphaeStats Hyphae::getStats() const {
   HyphaeStats stats;
   stats.hyphaCount = elements.size();
   stats.primalHyphaCount = primalHyphaCount;
+  stats.outsideCount = outsideCount;
   stats.startFrameNum = startFrameNum;
   return stats;
 }

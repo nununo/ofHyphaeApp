@@ -30,6 +30,7 @@ Settings::Settings(const string& xmlFile) {
   hyphae.newPrimalHyphaPeriod = getRange(s, "rhizopus:hyphae:newPrimalHyphaPeriod", 0.0f); // 100
   hyphae.maxHyphaCount = getSet(s, "rhizopus:hyphae:maxHyphaCount");
   hyphae.euthanasiaPercentage = s.getValue("rhizopus:hyphae:euthanasiaPercentage", 100.0f) / 100.0f; // 10.0f
+  hyphae.dyingOutsidePercentage = s.getValue("rhizopus:hyphae:dyingOutsidePercentage", 100.0f) / 100.0f; // 10.0f
 
   hyphae.hypha.color = getColor(s, "rhizopus:hyphae:hypha:color");
   hyphae.hypha.speed = s.getValue("rhizopus:hyphae:hypha:speed", 1.0f) / canvas.framerate; // pixels/second

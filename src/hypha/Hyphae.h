@@ -20,9 +20,11 @@ private:
 
   int startFrameNum = 0;
   int primalHyphaCount = 0;
+  int outsideCount = 0;
   bool sterile = false;
   bool dying = false;
   bool wasAlive = false;
+
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
   void generatePrimalHyphas();

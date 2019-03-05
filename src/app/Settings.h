@@ -34,6 +34,7 @@ struct HyphaeSettings {
   ofVec2f newPrimalHyphaPeriod;   // Delay between ech new primal hypha
   vector<float> maxHyphaCount;    // Max possible number of hypha
   float euthanasiaPercentage;     // When dying, % of Hypha left before all are deleted
+  float dyingOutsidePercentage;   // % of Hypha out before Hyphae starts dying
   BorderSettings border;
   HyphaSettings hypha;
 };
