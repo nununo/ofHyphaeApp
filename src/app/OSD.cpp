@@ -62,6 +62,7 @@ void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const str
 
   drawLine("stats");
   drawLine(" framerate: " + ofToString(ofGetFrameRate(),2));
+  drawLine(" hyphae lifetime: " + ofToString((ofGetFrameNum() - stats.startFrameNum) / settings->canvas.framerate ,2));
   drawLine(" step: " + currentStep);
   drawLine(" hyphae: " + ofToString(stats.hyphaCount) + "/" + ofToString(params.maxHyphaCount));
   drawLine(" primalHyphae: " + ofToString(stats.primalHyphaCount) + "/" + ofToString(params.primalHyphaCount));

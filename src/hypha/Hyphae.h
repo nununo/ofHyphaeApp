@@ -18,6 +18,7 @@ private:
   unique_ptr<Border> border;
   std::list<Hypha> elements;
 
+  int startFrameNum = 0;
   int primalHyphaCount = 0;
   bool sterile = false;
   bool dying = false;

@@ -1,3 +1,5 @@
+- Draw all Hypha in one go using a shader
+- Die only after % hypha crossed the border
 - Fade to black still not ok. It is not smooth
 - Get rid of apple core: tendency to have more hypha in the 4 diagonals. But how?
 - Better death (which fills the whole area inside the border)

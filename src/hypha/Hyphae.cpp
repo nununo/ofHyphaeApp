@@ -10,6 +10,7 @@
 Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
   this->params = params;
   this->border.reset(new Border(params.border, backgroundColor));
+  this->startFrameNum = ofGetFrameNum();
 }
 
 Hyphae::~Hyphae() {
@@ -89,7 +90,8 @@ void Hyphae::onHyphaOutside(ofEventArgs &e) {
 HyphaeStats Hyphae::getStats() const {
   HyphaeStats stats;
   stats.hyphaCount = elements.size();
-  stats.primalHyphaCount = this->primalHyphaCount;
+  stats.primalHyphaCount = primalHyphaCount;
+  stats.startFrameNum = startFrameNum;
   return stats;
 }
 

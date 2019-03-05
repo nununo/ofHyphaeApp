@@ -11,6 +11,7 @@
 struct HyphaeStats {
   int primalHyphaCount;
   int hyphaCount;
+  int startFrameNum;
 };
 
 #endif /* HyphaeStats_h */
