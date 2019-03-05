@@ -115,8 +115,11 @@ void Hyphae::draw() {
   ofTranslate(params.position);
   ofPushStyle();
   ofSetColor(params.hypha.color);
+  int count = 0;
   for(auto &itr: elements) {
-    itr.draw();
+    //itr.draw();
+    ofDrawRectangle(count, count, 1, 1);
+    count++;
   }
   ofPopStyle();
   ofPopMatrix();
