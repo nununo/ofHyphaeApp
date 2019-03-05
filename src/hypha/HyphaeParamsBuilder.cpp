@@ -16,8 +16,8 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
   params.creationAreaSize = hyphaeSettings.creationAreaSize;
-  params.maxHyphaCount = 200000; //(int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
-  params.primalHyphaCount = 1000; //(int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
+  params.maxHyphaCount = (int)Tools::randomInSet(hyphaeSettings.maxHyphaCount);
+  params.primalHyphaCount = (int)Tools::randomInSet(hyphaeSettings.primalHyphaCount);
   params.newPrimalHyphaFramesPeriod = settings.canvas.framerate * Tools::randomInRange(hyphaeSettings.newPrimalHyphaPeriod);
   params.dyingPixels = settings.hyphae.dyingPixels;
   params.euthanasiaPercentage = settings.hyphae.euthanasiaPercentage;
