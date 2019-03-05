@@ -37,15 +37,9 @@
       <max>0.2</max>
     </newPrimalHyphaPeriod>
     <maxHyphaCount>
-      <v>1</v>
-      <v>3</v>
-      <v>5</v>
       <v>7</v>
       <v>11</v>
-      <v>13</v>
-      <v>17</v>
       <v>19</v>
-      <v>23</v>
       <v>29</v>
       <v>51</v>
       <v>101</v>
@@ -77,8 +71,8 @@
         <max>4</max>
       </ratioVariation>
       <radius>
-        <min>100</min>
-        <max>400</max>
+        <min>200</min>
+        <max>600</max>
       </radius>
     </border>
     <hypha>
@@ -88,7 +82,7 @@
         <b>255</b>
         <a>10</a>
       </color>
-      <speed>3</speed> <!--pixels/s-->
+      <speed>4</speed> <!--pixels/s-->
       <speedVariation>10</speedVariation> <!--%-->
       <maxForkAngle>
         <min>10</min>
