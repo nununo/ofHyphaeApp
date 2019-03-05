@@ -10,9 +10,9 @@ void ofApp::setup(){
   steps.reset(new Steps(settings.get()));
   ofSetBackgroundAuto(false);
   ofSetFrameRate(settings->canvas.framerate);
-  //ofSetVerticalSync(true);
+  ofDisableAntiAliasing();
   ofBackground(settings->canvas.backgroundColor);
-  ofHideCursor();
+  //ofHideCursor();
 }
 
 void ofApp::update(){
