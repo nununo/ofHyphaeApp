@@ -50,7 +50,7 @@ void Painter::update() {
 void Painter::draw() {
   if (counter>0) {
     shader.begin();
-    mesh.drawInstanced(OF_MESH_WIREFRAME,counter);
+    mesh.drawInstanced(OF_MESH_POINTS,counter);
     shader.end();
   }
 }
