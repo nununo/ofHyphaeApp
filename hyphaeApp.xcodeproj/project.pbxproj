@@ -20,6 +20,7 @@
 		7D5ECE71222B7D82009C2269 /* StepFadeToBlack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5ECE6F222B7D82009C2269 /* StepFadeToBlack.cpp */; };
 		7D5F181E2219985700705116 /* Border.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F181C2219985700705116 /* Border.cpp */; };
 		7D5F18362219E37600705116 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F18342219E37600705116 /* Tools.cpp */; };
+		7D9EC0E0222E99E300C62C91 /* Painter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC0DE222E99E300C62C91 /* Painter.cpp */; };
 		7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CE90C6D9EF6BB1529BE9E /* ofxToggle.cpp */; };
 		7DF3E31221FCEE8A0034502C /* Hypha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31021FCEE8A0034502C /* Hypha.cpp */; };
 		7DF3E31821FD123C0034502C /* Hyphae.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3E31621FD123C0034502C /* Hyphae.cpp */; };
@@ -78,6 +79,10 @@
 		7D5F181D2219985700705116 /* Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Border.h; sourceTree = "<group>"; };
 		7D5F18342219E37600705116 /* Tools.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tools.cpp; sourceTree = "<group>"; };
 		7D5F18352219E37600705116 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		7D9EC0DE222E99E300C62C91 /* Painter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Painter.cpp; sourceTree = "<group>"; };
+		7D9EC0DF222E99E300C62C91 /* Painter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Painter.h; sourceTree = "<group>"; };
+		7D9EC0E2222E9B6F00C62C91 /* painter.vert.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = painter.vert.glsl; sourceTree = "<group>"; };
+		7D9EC0E3222E9B8100C62C91 /* painter.frag.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = painter.frag.glsl; sourceTree = "<group>"; };
 		7DF3E31021FCEE8A0034502C /* Hypha.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hypha.cpp; sourceTree = "<group>"; };
 		7DF3E31121FCEE8A0034502C /* Hypha.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hypha.h; sourceTree = "<group>"; };
 		7DF3E31621FD123C0034502C /* Hyphae.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hyphae.cpp; sourceTree = "<group>"; };
@@ -360,6 +365,7 @@
 		7D5F18022218528700705116 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				7D9EC0E1222E9B5900C62C91 /* shaders */,
 				7D5F18032218528700705116 /* settings */,
 			);
 			name = data;
@@ -374,6 +380,15 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
+		7D9EC0E1222E9B5900C62C91 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				7D9EC0E2222E9B6F00C62C91 /* painter.vert.glsl */,
+				7D9EC0E3222E9B8100C62C91 /* painter.frag.glsl */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 		7DF3E30E21FCEC6C0034502C /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +401,8 @@
 				7D5F18352219E37600705116 /* Tools.h */,
 				7D477AFF2220C99F00F6D6FD /* OSD.cpp */,
 				7D477B002220C99F00F6D6FD /* OSD.h */,
+				7D9EC0DE222E99E300C62C91 /* Painter.cpp */,
+				7D9EC0DF222E99E300C62C91 /* Painter.h */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -870,6 +887,7 @@
 				7DB967574A2E870A49F1B366 /* ofxToggle.cpp in Sources */,
 				7C91C1AD7E68262FC8569652 /* tinyxml.cpp in Sources */,
 				6FF2233264225F29FD42F764 /* tinyxmlerror.cpp in Sources */,
+				7D9EC0E0222E99E300C62C91 /* Painter.cpp in Sources */,
 				7D5ECE71222B7D82009C2269 /* StepFadeToBlack.cpp in Sources */,
 				7DF3E31C21FE1AD60034502C /* Settings.cpp in Sources */,
 				7D5ECE6E222B76EE009C2269 /* StepFadeToWhite.cpp in Sources */,
