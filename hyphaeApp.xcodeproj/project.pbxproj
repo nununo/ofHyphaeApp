@@ -81,8 +81,6 @@
 		7D5F18352219E37600705116 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		7D9EC0DE222E99E300C62C91 /* Painter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Painter.cpp; sourceTree = "<group>"; };
 		7D9EC0DF222E99E300C62C91 /* Painter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Painter.h; sourceTree = "<group>"; };
-		7D9EC0E2222E9B6F00C62C91 /* painter.vert.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = painter.vert.glsl; sourceTree = "<group>"; };
-		7D9EC0E3222E9B8100C62C91 /* painter.frag.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = painter.frag.glsl; sourceTree = "<group>"; };
 		7DF3E31021FCEE8A0034502C /* Hypha.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hypha.cpp; sourceTree = "<group>"; };
 		7DF3E31121FCEE8A0034502C /* Hypha.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hypha.h; sourceTree = "<group>"; };
 		7DF3E31621FD123C0034502C /* Hyphae.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hyphae.cpp; sourceTree = "<group>"; };
@@ -365,7 +363,6 @@
 		7D5F18022218528700705116 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				7D9EC0E1222E9B5900C62C91 /* shaders */,
 				7D5F18032218528700705116 /* settings */,
 			);
 			name = data;
@@ -378,15 +375,6 @@
 				7D5F18042218528700705116 /* settings.xml */,
 			);
 			path = settings;
-			sourceTree = "<group>";
-		};
-		7D9EC0E1222E9B5900C62C91 /* shaders */ = {
-			isa = PBXGroup;
-			children = (
-				7D9EC0E2222E9B6F00C62C91 /* painter.vert.glsl */,
-				7D9EC0E3222E9B8100C62C91 /* painter.frag.glsl */,
-			);
-			path = shaders;
 			sourceTree = "<group>";
 		};
 		7DF3E30E21FCEC6C0034502C /* app */ = {

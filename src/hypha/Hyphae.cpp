@@ -107,7 +107,6 @@ HyphaeStats Hyphae::getStats() const {
 void Hyphae::update() {
   updateLifecycle();
   generatePrimalHyphas();
-  painter->update();
 }
 
 void Hyphae::drawBorder() const {
