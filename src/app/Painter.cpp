@@ -40,10 +40,7 @@ Painter::Painter(int maxSize,ofColor color) {
 }
 
 void Painter::set(ofVec2f pos) {
-  ofNode node;
-  ofVec3f pos3 = pos;
-  node.setPosition(pos3);
-  matrices[counter++] = node.getLocalTransformMatrix();
+  matrices[counter++].setTranslation(pos.x, pos.y, 0);
 }
 
 void Painter::update() {
