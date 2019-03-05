@@ -18,6 +18,9 @@ void ofApp::setup(){
 void ofApp::update(){
   if (!paused) {
     steps->update();
+    if (steps->getHyphaeStats().hyphaCount>=10) {
+      togglePaused();
+    }
   }
 }
 
