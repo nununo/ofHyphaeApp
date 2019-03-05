@@ -14,9 +14,10 @@ class Painter {
 private:
   ofShader shader;
   ofTexture tex;
-  vector<ofMatrix4x4> matrices;
+  vector<ofVec2f> matrices;
   ofBufferObject buffer;
   ofVboMesh mesh;
+
   int counter=0;
 
 public:

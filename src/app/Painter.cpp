@@ -22,7 +22,7 @@ Painter::Painter(int maxSize,ofColor color) {
   // as a float vec4 from the shader.
   // Note that we're allocating the texture as a Buffer Texture:
   // https://www.opengl.org/wiki/Buffer_Texture
-  tex.allocateAsBufferTexture(buffer,GL_RGBA32F);
+  tex.allocateAsBufferTexture(buffer,GL_RG32F);
 
   // now we bind the texture to the shader as a uniform
   // so we can read the texture buffer from it
@@ -40,7 +40,7 @@ Painter::Painter(int maxSize,ofColor color) {
 }
 
 void Painter::set(ofVec2f pos) {
-  matrices[counter++].setTranslation(pos.x, pos.y, 0);
+  matrices[counter++] = pos;
 }
 
 void Painter::update() {
