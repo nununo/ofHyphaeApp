@@ -17,10 +17,12 @@ private:
   vector<ofMatrix4x4> matrices;
   ofBufferObject buffer;
   ofVboMesh mesh;
+  int counter=0;
 
 public:
-  Painter(int maxSize);
-  void set(int i, ofVec3f pos);
+  Painter(int maxSize, ofColor color);
+  void reset() {counter=0;}
+  void set(ofVec2f pos);
   void update();
   void draw();
 };

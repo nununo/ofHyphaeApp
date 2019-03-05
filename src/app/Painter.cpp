@@ -9,7 +9,7 @@
 
 #include "Painter.h"
 
-Painter::Painter(int maxSize) {
+Painter::Painter(int maxSize,ofColor color) {
   matrices.resize(maxSize);
 
   // upload the transformation for each box using a texture buffer. for that
@@ -26,9 +26,10 @@ Painter::Painter(int maxSize) {
 
   // now we bind the texture to the shader as a uniform
   // so we can read the texture buffer from it
-  shader.load("shaders/painter.vert.glsl","shaders/frag.glsl");
+  shader.load("shaders/painter.vert.glsl","shaders/painter.frag.glsl");
   shader.begin();
   shader.setUniformTexture("tex",tex,0);
+  shader.setUniform4f("color",color);
   shader.end();
 
   // we are going to use instanced drawing so we
@@ -38,10 +39,11 @@ Painter::Painter(int maxSize) {
 
 }
 
-void Painter::set(int i, ofVec3f pos) {
+void Painter::set(ofVec2f pos) {
   ofNode node;
-  node.setPosition(pos);
-  matrices[i] = node.getLocalTransformMatrix();
+  ofVec3f pos3 = pos;
+  node.setPosition(pos3);
+  matrices[counter++] = node.getLocalTransformMatrix();
 }
 
 void Painter::update() {
@@ -49,7 +51,9 @@ void Painter::update() {
 }
 
 void Painter::draw() {
-  shader.begin();
-  mesh.drawInstanced(OF_MESH_WIREFRAME,matrices.size());
-  shader.end();
+  if (counter>0) {
+    shader.begin();
+    mesh.drawInstanced(OF_MESH_WIREFRAME,counter);
+    shader.end();
+  }
 }

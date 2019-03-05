@@ -44,9 +44,9 @@ public:
   Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation);
   bool isAlive() const {return energy>0;}
   void update();
-  void draw();
   void die(int energy) {this->dying=true; this->energy = energy;}
-  ofVec3f getPosition() {return ofVec3f(position.x, position.y, (posIsNewPixel?1:0));}
+  ofVec3f getPosition() const {return ofVec3f(position.x, position.y, (posIsNewPixel?1:0));}
+  void resetNewPixel() {posIsNewPixel=false;}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
   ofEvent<ofEventArgs> outsideEvent;

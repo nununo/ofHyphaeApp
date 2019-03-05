@@ -10,7 +10,7 @@
 Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
   this->params = params;
   this->border.reset(new Border(params.border, backgroundColor));
-  this->painter.reset(new Painter(params.maxHyphaCount));
+  this->painter.reset(new Painter(params.maxHyphaCount, params.hypha.color));
   this->startFrameNum = ofGetFrameNum();
 }
 
@@ -43,7 +43,6 @@ void Hyphae::generatePrimalHyphas() {
       (params.newPrimalHyphaFramesPeriod == 0 ||
        ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
     float angle = ofRandom(0,360);
-    ofLog() << "primal angle: " << angle;
     ofVec2f dir = ofVec2f(1,0).getRotated(angle);
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
     add(pos, dir, 0);
@@ -53,9 +52,15 @@ void Hyphae::generatePrimalHyphas() {
 
 void Hyphae::updateLifecycle() {
   // Iterate through all Hypha and update if alive or remove if dead
+  painter->reset();
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (itr->isAlive()) {
       itr->update();
+      ofVec3f drawPosition = itr->getPosition();
+      if (drawPosition.z==1) {
+        painter->set(itr->getPosition());
+        itr->resetNewPixel();
+      }
     } else {
       ofRemoveListener(itr->forkEvent, this, &Hyphae::onHyphaFork);
       ofRemoveListener(itr->outsideEvent, this, &Hyphae::onHyphaOutside);
@@ -102,6 +107,7 @@ HyphaeStats Hyphae::getStats() const {
 void Hyphae::update() {
   updateLifecycle();
   generatePrimalHyphas();
+  painter->update();
 }
 
 void Hyphae::drawBorder() const {
@@ -116,9 +122,7 @@ void Hyphae::draw() {
   ofTranslate(params.position);
   ofPushStyle();
   ofSetColor(params.hypha.color);
-  for(auto &itr: elements) {
-    itr.draw();
-  }
+  painter->draw();
   ofPopStyle();
   ofPopMatrix();
 }
