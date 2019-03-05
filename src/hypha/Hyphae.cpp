@@ -10,6 +10,7 @@
 Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
   this->params = params;
   this->border.reset(new Border(params.border, backgroundColor));
+  this->painter.reset(new Painter(params.maxHyphaCount));
   this->startFrameNum = ofGetFrameNum();
 }
 

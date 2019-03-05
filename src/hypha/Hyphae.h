@@ -11,12 +11,14 @@
 #include "Hypha.h"
 #include "Border.h"
 #include "HyphaeStats.h"
+#include "Painter.h"
 
 class Hyphae {
 private:
   HyphaeParams params;
-  unique_ptr<Border> border;
   std::list<Hypha> elements;
+  unique_ptr<Border> border;
+  unique_ptr<Painter> painter;
 
   int startFrameNum = 0;
   int primalHyphaCount = 0;
