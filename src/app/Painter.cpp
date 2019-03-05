@@ -34,7 +34,7 @@ Painter::Painter(int maxSize,ofColor color) {
 
   // we are going to use instanced drawing so we
   // only need one geometry
-  mesh = ofMesh::box(1,1,1,1,1,1);
+  mesh = ofMesh::plane(1, 1);
   mesh.setUsage(GL_STATIC_DRAW);
 
 }
