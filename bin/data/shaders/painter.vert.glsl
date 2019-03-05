@@ -6,5 +6,7 @@ in vec4 position;
 
 void main(){
   vec4 texPos = texelFetch(tex, gl_InstanceID);
+  texPos.x = gl_InstanceID;
+  texPos.y = gl_InstanceID;
   gl_Position = modelViewProjectionMatrix * position + texPos;
 }
