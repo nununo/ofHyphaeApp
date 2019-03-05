@@ -64,6 +64,7 @@
       <v>90001</v>
       <v>100001</v>
       <v>150001</v>
+      <v>250001</v>
     </maxHyphaCount>
     <border>
       <distortion>0.2</distortion>
@@ -81,7 +82,7 @@
         <r>255</r>
         <g>255</g>
         <b>255</b>
-        <a>10</a>
+        <a>5</a>
       </color>
       <speed>4</speed> <!--pixels/s-->
       <speedVariation>10</speedVariation> <!--%-->
