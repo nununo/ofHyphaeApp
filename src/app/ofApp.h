@@ -17,6 +17,7 @@ private:
   int mourningFrames = 0;
   int fadeoutFrames = 0;
   int fadeoutFramesPeriod = 0;
+  bool paused = false;
   
   void clearScreen();
 
@@ -24,6 +25,8 @@ public:
   void setup();
   void update();
   void draw();
+  
+  void togglePaused() {paused=!paused;}
 
   void keyPressed(int key);
   void keyReleased(int key) {}

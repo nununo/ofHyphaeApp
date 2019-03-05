@@ -16,11 +16,15 @@ void ofApp::setup(){
 }
 
 void ofApp::update(){
-  steps->update();
+  if (!paused) {
+    steps->update();
+  }
 }
 
 void ofApp::draw(){
-  steps->draw();
+  if (!paused) {
+    steps->draw();
+  }
   osd->draw(steps->getHyphaeParams(), steps->getHyphaeStats(), steps->getCurrentStepName(), steps->getSaveScreenEnabled());
 }
 
@@ -55,6 +59,10 @@ void ofApp::keyPressed(int key) {
     
     case 'c':
       clearScreen();
+      break;
+    
+    case 'p':
+      togglePaused();
       break;
 
     case 's':
