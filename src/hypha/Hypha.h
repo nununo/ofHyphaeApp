@@ -46,6 +46,7 @@ public:
   void update();
   void draw();
   void die(int energy) {this->dying=true; this->energy = energy;}
+  ofVec3f getPosition() {return ofVec3f(position.x, position.y, (posIsNewPixel?1:0));}
 
   ofEvent<HyphaForkEventArgs> forkEvent;
   ofEvent<ofEventArgs> outsideEvent;
