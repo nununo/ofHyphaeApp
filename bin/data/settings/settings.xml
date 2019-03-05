@@ -19,7 +19,7 @@
   <hyphae>
     <dyingPixels>100</dyingPixels>
     <euthanasiaPercentage>10</euthanasiaPercentage> <!--%-->
-    <dyingOutsidePercentage>10</dyingOutsidePercentage> <!--%-->
+    <dyingOutsidePercentage>20</dyingOutsidePercentage> <!--%-->
     <creationAreaSize>5</creationAreaSize>
     <primalHyphaCount>
       <v>1</v>
@@ -82,7 +82,7 @@
         <r>255</r>
         <g>255</g>
         <b>255</b>
-        <a>5</a>
+        <a>10</a>
       </color>
       <speed>4</speed> <!--pixels/s-->
       <speedVariation>10</speedVariation> <!--%-->
