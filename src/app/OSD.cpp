@@ -16,7 +16,7 @@ void OSD::drawBackground() {
   if (!clean) {
     ofPushStyle();
     ofSetColor(settings->canvas.backgroundColor);
-    ofDrawRectangle(0, 0, 400, 400);
+    ofDrawRectangle(0, 0, 400, 450);
     ofPopStyle();
     clean = true;
     currentLine = 0;
