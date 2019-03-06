@@ -26,6 +26,7 @@ private:
   bool saveScreenEnabled = false;
 
   void saveScreen();
+  void appendToLogFile(const string &str);
   
 public:
   Steps(Settings *settings);

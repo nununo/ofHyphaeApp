@@ -18,6 +18,13 @@ Steps::Steps(Settings *settings) {
   setGrowing();
 }
 
+void Steps::appendToLogFile(const string &str) {
+  ofBuffer buffer;
+  buffer.append(ofGetTimestampString() + " " + str + "\n");
+  ofFile logFile(ofToDataPath("logs/hyphaeLog.txt"), ofFile::Append, false);
+  logFile.writeFromBuffer(buffer);
+}
+
 void Steps::saveScreen() {
   ofSaveScreen(filenamePrefix + ofToString(counter, 5, '0')+".jpg");
 }
@@ -47,6 +54,9 @@ void Steps::setGrowing() {
   HyphaeParamsBuilder builder;
   HyphaeParams currentParams = builder.create(*settings);
   ofLog() << "Hyphae #" << currentParams.seed;
+  if (settings->canvas.logToFile) {
+    appendToLogFile(ofToString(currentParams.seed));
+  }
   hyphae.reset(new Hyphae(currentParams, settings->canvas.backgroundColor));
   ofBackground(settings->canvas.backgroundColor);
   step.reset(new StepHyphae(hyphae.get()));
