@@ -13,6 +13,7 @@
 class Tools {
 public:
   static int angleToInt(float angle);
+  static float angleTo360(float angle);
   static float posToAngle(ofVec2f v) {return ofVec2f(1,0).angle(v);}
   static float randomInRange(ofVec2f v) {return ofRandom(v.x, v.y);}
   static float randomInSet(vector<float> set);
