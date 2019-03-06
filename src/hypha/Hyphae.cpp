@@ -71,7 +71,7 @@ void Hyphae::updateLifecycle() {
     sterile = true;
   }
   // If dying and only X% left alive, delete all (reduce time without noticeable evolution)
-  if (dying && elements.size() < params.maxHyphaCount*params.euthanasiaPercentage) {
+  if (dying && elements.size() < dyingCount*params.euthanasiaPercentage) {
     removeAllHypha();
   }
 }
@@ -87,6 +87,7 @@ void Hyphae::onHyphaOutside(ofEventArgs &e) {
   if (!dying) {
     if (++outsideCount > params.dyingOutsidePercentage * count()) {
       dying = true;
+      dyingCount = count();
       for( auto& element : elements ) {
         element.die(ofRandom(params.dyingPixels));
       }

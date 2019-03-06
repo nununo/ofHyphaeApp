@@ -20,12 +20,13 @@ private:
   unique_ptr<Border> border;
   unique_ptr<Painter> painter;
 
-  int startFrameNum = 0;
-  int primalHyphaCount = 0;
-  int outsideCount = 0;
-  bool sterile = false;
-  bool dying = false;
-  bool wasAlive = false;
+  int startFrameNum = 0;    // Frame number at birth
+  int primalHyphaCount = 0; // Primal Hypha
+  int outsideCount = 0;     // Number of hypha outside border
+  int dyingCount = 0;       // Hypha count when dying starts
+  bool sterile = false;     // Sterile Hyphae cannot create more Hypha
+  bool dying = false;       // Is in a dying process
+  bool wasAlive = false;    // To return isAlive()=true when no Hypha was created yet
 
   
   void add(ofVec2f pos, ofVec2f dir, int generation);
