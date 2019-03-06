@@ -98,8 +98,8 @@
         <max>80</max>
       </maxBentAngle>
       <fertilityRatio>
-        <min>0.7</min>
-        <max>3</max>
+        <min>0.9</min>
+        <max>2.5</max>
       </fertilityRatio>
     </hypha>
   </hyphae>
