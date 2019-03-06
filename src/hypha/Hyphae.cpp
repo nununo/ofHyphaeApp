@@ -85,7 +85,7 @@ void Hyphae::onHyphaOutside(ofEventArgs &e) {
   // - Set dying = true
   // - Set all Hypha to die with a random energy left
   if (!dying) {
-    if (++outsideCount > params.dyingOutsidePercentage * params.maxHyphaCount) {
+    if (++outsideCount > params.dyingOutsidePercentage * count()) {
       dying = true;
       for( auto& element : elements ) {
         element.die(ofRandom(params.dyingPixels));
