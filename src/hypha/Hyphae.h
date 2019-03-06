@@ -38,7 +38,7 @@ private:
 
 public:
   Hyphae(const HyphaeParams params, ofColor backgroundColor);
-  ~Hyphae();
+  ~Hyphae() {removeAllHypha();}
 
   virtual void update();
   virtual void draw();

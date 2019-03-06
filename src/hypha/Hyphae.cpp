@@ -14,10 +14,6 @@ Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
   this->startFrameNum = ofGetFrameNum();
 }
 
-Hyphae::~Hyphae() {
-  removeAllHypha();
-}
-
 void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
   if (!sterile && !dying) {
     wasAlive = true;
