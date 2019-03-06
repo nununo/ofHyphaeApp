@@ -36,8 +36,8 @@ private:
   int forkCount = 0;
   bool dying = false;
 
-  ofVec2f calcVelocity() const;
-  void updateDirectionAndVelocity();
+  void updateVelocity(bool skipAgeCheck=false);
+  void updateDirection();
   void calcNextForkDistance();
   void fork();
   void checkBorder();

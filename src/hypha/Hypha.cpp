@@ -19,22 +19,21 @@ Hypha::Hypha(const ofVec2f pos, const float angle, Border *border, const HyphaPa
   baseSpeed = ofRandom(params.speed*(1-params.speedVariation/100.0f),
                        params.speed*(1+params.speedVariation/100.0f));
 
-  this->velocity = calcVelocity();
-
+  updateVelocity(true);
   calcNextForkDistance();
 }
 
-ofVec2f Hypha::calcVelocity() const {
-  ofVec2f newDirection = ofVec2f(1,0).getRotated(angle);
-  float speed = baseSpeed * border->getRatio(angle);
-  return newDirection * speed;
-}
-
-void Hypha::updateDirectionAndVelocity() {
+void Hypha::updateDirection() {
   float bendAngle = ofRandom(-params.maxBendAngle, params.maxBendAngle);
   angle += bendAngle;
-  if (++velocityAge>10) {
-    velocity = calcVelocity();
+  if (angle<0) {angle+=360;}
+}
+
+void Hypha::updateVelocity(bool skipAgeCheck) {
+  if (skipAgeCheck || ++velocityAge>10) {
+    ofVec2f direction = ofVec2f(1,0).getRotated(angle);
+    float speed = baseSpeed * border->getRatio(angle);
+    velocity = direction * speed;
     velocityAge = 0;
   }
 }
@@ -83,7 +82,8 @@ void Hypha::update() {
     energy--;
     posIsNewPixel = true;
     pos += delta;
-    updateDirectionAndVelocity();
+    updateDirection();
+    updateVelocity();
 
     if (absDeltaX>0) {delta.x=0;}
     if (absDeltaY>0) {delta.y=0;}
