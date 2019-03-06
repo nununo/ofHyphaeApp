@@ -8,11 +8,11 @@
 #include "Hypha.h"
 #include "Tools.h"
 
-Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation) {
+Hypha::Hypha(const ofVec2f pos, const float angle, Border *border, const HyphaParams params, const int generation) {
   this->pos = pos;
   this->params = params;
   this->border = border;
-  this->dir = dir.getNormalized();
+  this->angle = angle;
   this->generation = generation;
   this->noiseOffset = Tools::getRandomVec2f();
   
@@ -25,16 +25,14 @@ Hypha::Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaPa
 }
 
 ofVec2f Hypha::calcVelocity() const {
-  ofVec2f newDirection = dir.getRotated(angle);
-  float speed = baseSpeed * border->getRatio(Tools::posToAngle(newDirection));
+  ofVec2f newDirection = ofVec2f(1,0).getRotated(angle);
+  float speed = baseSpeed * border->getRatio(angle);
   return newDirection * speed;
 }
 
 void Hypha::updateDirectionAndVelocity() {
   float bendAngle = ofRandom(-params.maxBendAngle, params.maxBendAngle);
-  if (abs(angle+bendAngle)<params.maxBentAngle) {
-    angle += bendAngle;
-  }
+  angle += bendAngle;
   if (++velocityAge>10) {
     velocity = calcVelocity();
     velocityAge = 0;
@@ -57,7 +55,7 @@ void Hypha::throwForkEvent() {
   e.generation = this->generation + 1;
   e.pos = pos;
   float forkAngle = ofRandom(-params.maxForkAngle, params.maxForkAngle);
-  e.dir = dir.getRotated(angle+forkAngle);
+  e.angle = angle+forkAngle;
   ofNotifyEvent(this->forkEvent, e);
 }
 

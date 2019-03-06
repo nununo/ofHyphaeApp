@@ -14,10 +14,10 @@ Hyphae::Hyphae(const HyphaeParams params, ofColor backgroundColor) {
   this->startFrameNum = ofGetFrameNum();
 }
 
-void Hyphae::add(ofVec2f pos, ofVec2f dir, int generation) {
+void Hyphae::add(ofVec2f pos, float angle, int generation) {
   if (!sterile && !dying) {
     wasAlive = true;
-    elements.push_back(Hypha(pos, dir, border.get(), params.hypha, generation));
+    elements.push_back(Hypha(pos, angle, border.get(), params.hypha, generation));
     ofAddListener(elements.back().forkEvent, this, &Hyphae::onHyphaFork);
     ofAddListener(elements.back().outsideEvent, this, &Hyphae::onHyphaOutside);
   }
@@ -39,9 +39,8 @@ void Hyphae::generatePrimalHyphas() {
       (params.newPrimalHyphaFramesPeriod == 0 ||
        ofGetFrameNum() % params.newPrimalHyphaFramesPeriod == 0)) {
     float angle = ofRandom(0,360);
-    ofVec2f dir = ofVec2f(1,0).getRotated(angle);
     ofVec2f pos = ofVec2f(params.creationAreaSize*ofRandom(0,1)).getRotated(ofRandom(0,360));
-    add(pos, dir, 0);
+    add(pos, angle, 0);
     primalHyphaCount++;
   }
 }
@@ -73,7 +72,7 @@ void Hyphae::updateLifecycle() {
 }
 
 void Hyphae::onHyphaFork(HyphaForkEventArgs &e) {
-  add(e.pos, e.dir, e.generation);
+  add(e.pos, e.angle, e.generation);
 }
 
 void Hyphae::onHyphaOutside(ofEventArgs &e) {

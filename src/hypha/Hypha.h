@@ -18,13 +18,12 @@ private:
   HyphaParams params;
   Border *border;
   int generation;
-  ofVec2f dir;
   ofVec2f noiseOffset;
   float baseSpeed;
 
   ofVec2f pos;
   ofVec2f velocity;
-  float angle = 0;
+  float angle;
   //bool started = false;
 
   ofVec2f delta = ofVec2f::zero();
@@ -47,7 +46,7 @@ private:
   void throwForkEvent();
 
 public:
-  Hypha(const ofVec2f pos, const ofVec2f dir, Border *border, const HyphaParams params, const int generation);
+  Hypha(const ofVec2f pos, const float angle, Border *border, const HyphaParams params, const int generation);
   bool isAlive() const {return energy>0;}
   void update();
   void die(int energy) {this->dying=true; this->energy = energy;}

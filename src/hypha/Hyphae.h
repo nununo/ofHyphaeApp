@@ -27,9 +27,8 @@ private:
   bool sterile = false;     // Sterile Hyphae cannot create more Hypha
   bool dying = false;       // Is in a dying process
   bool wasAlive = false;    // To return isAlive()=true when no Hypha was created yet
-
   
-  void add(ofVec2f pos, ofVec2f dir, int generation);
+  void add(ofVec2f pos, float angle, int generation);
   void generatePrimalHyphas();
   void updateLifecycle();
   int count() const {return elements.size();}
