@@ -76,7 +76,7 @@ vector<float> Settings::getSet(ofxXmlSettings &s, const string& xmlPath) {
   int levels = pushTags(s, xmlPath);
   int numElements = s.getNumTags("v");
   for(int i=0; i<numElements; i++){
-    value = s.getValue("v", 0, i);
+    value = s.getValue("v", 0.0f, i);
     list.push_back(value);
   }
   
