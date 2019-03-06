@@ -43,6 +43,7 @@ struct CanvasSettings {
   int framerate;
   ofColor osdColor;
   ofColor backgroundColor;
+  bool antialiasing;
   float mourningTime;      // Time a Hyphae is shown after it is dead (in secs)
   float fadeoutTime;       // Duration of the fadeout (in secs)
   float idleTime;          // Pause before starting a new cycle

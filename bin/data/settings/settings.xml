@@ -12,6 +12,7 @@
       <g>0</g>
       <b>0</b>
     </backgroundColor>
+    <antialiasing>1</antialiasing>
     <mourningTime>3</mourningTime>
     <fadeoutTime>5</fadeoutTime>
     <idleTime>2</idleTime>
@@ -83,6 +84,7 @@
       </color>
       <speed>4</speed> <!--pixels/s-->
       <speedVariation>10</speedVariation> <!--%-->
+      <pixelOverlap>0.75</pixelOverlap>
       <maxForkAngle>
         <min>10</min>
         <max>10</max>
@@ -95,7 +97,6 @@
         <min>50</min>
         <max>80</max>
       </maxBentAngle>
-      <pixelOverlap>0.75</pixelOverlap>
       <fertilityRatio>
         <min>0.7</min>
         <max>3</max>

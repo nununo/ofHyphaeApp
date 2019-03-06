@@ -10,7 +10,9 @@ void ofApp::setup(){
   steps.reset(new Steps(settings.get()));
   ofSetBackgroundAuto(false);
   ofSetFrameRate(settings->canvas.framerate);
-  ofDisableAntiAliasing();
+  if (!settings->canvas.antialiasing) {
+    ofDisableAntiAliasing();
+  }
   ofBackground(settings->canvas.backgroundColor);
   //ofHideCursor();
 }

@@ -70,6 +70,7 @@ void OSD::drawInfo(const HyphaeParams params, const HyphaeStats stats, const str
 
   drawLine("");
   
+  drawLine("antialiasing: " + ofToString(settings->canvas.antialiasing));
   drawLine("save screen: " + ofToString(saveScreenEnabled));
 
   ofPopStyle();
