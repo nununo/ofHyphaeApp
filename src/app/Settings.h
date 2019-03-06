@@ -42,6 +42,7 @@ struct HyphaeSettings {
 
 struct CanvasSettings {
   int framerate;
+  bool logToFile;
   ofColor osdColor;
   ofColor backgroundColor;
   bool antialiasing;

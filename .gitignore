@@ -12,6 +12,7 @@
 /bin/*
 !/bin/data/
 /bin/data/images/
+/bin/data/logs/
 
 #########
 # general

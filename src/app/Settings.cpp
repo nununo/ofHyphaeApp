@@ -16,6 +16,7 @@ Settings::Settings(const string& xmlFile) {
   canvas.osdColor = getColor(s, "rhizopus:canvas:osdColor");
   canvas.backgroundColor = getColor(s, "rhizopus:canvas:backgroundColor");
   canvas.antialiasing = (bool)s.getValue("rhizopus:canvas:antialiasing", true);
+  canvas.logToFile = (bool)s.getValue("rhizopus:canvas:logToFile", true);
   canvas.mourningTime = s.getValue("rhizopus:canvas:mourningTime", 0); // 5
   canvas.fadeoutTime = s.getValue("rhizopus:canvas:fadeoutTime", 0); // 5
   canvas.idleTime = s.getValue("rhizopus:canvas:idleTime", 0); // 5
