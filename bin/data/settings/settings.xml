@@ -38,15 +38,11 @@
       <max>0.2</max>
     </newPrimalHyphaPeriod>
     <maxHyphaCount>
-      <v>7</v>
       <v>11</v>
-      <v>19</v>
       <v>29</v>
       <v>51</v>
       <v>101</v>
-      <v>201</v>
       <v>301</v>
-      <v>501</v>
       <v>601</v>
       <v>1001</v>
       <v>2001</v>
@@ -65,6 +61,7 @@
       <v>100001</v>
       <v>150001</v>
       <v>250001</v>
+      <v>400001</v>
     </maxHyphaCount>
     <border>
       <distortion>0.2</distortion>
@@ -100,8 +97,8 @@
       </maxBentAngle>
       <pixelOverlap>0.75</pixelOverlap>
       <fertilityRatio>
-        <min>1</min>
-        <max>1</max>
+        <min>0.7</min>
+        <max>3</max>
       </fertilityRatio>
     </hypha>
   </hyphae>
