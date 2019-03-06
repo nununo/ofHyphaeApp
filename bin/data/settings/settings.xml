@@ -95,7 +95,7 @@
         <max>10</max>
       </maxBendAngle>
       <maxBentAngle>
-        <min>80</min>
+        <min>50</min>
         <max>80</max>
       </maxBentAngle>
       <pixelOverlap>0.75</pixelOverlap>
