@@ -56,8 +56,7 @@ void Hyphae::updateLifecycle() {
   for(auto itr = elements.begin(); itr != elements.end(); ++itr ) {
     if (itr->isAlive()) {
       itr->update();
-      ofVec3f drawPosition = itr->getPosition();
-      if (drawPosition.z==1) {
+      if (itr->isNewPixel()) {
         painter->set(itr->getPosition());
         itr->resetNewPixel();
       }
