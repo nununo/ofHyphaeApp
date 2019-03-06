@@ -23,6 +23,7 @@ private:
 
   ofVec2f pos;
   ofVec2f velocity;
+  ofVec2f direction;
   float angle;
   //bool started = false;
 
@@ -36,7 +37,8 @@ private:
   int forkCount = 0;
   bool dying = false;
 
-  void updateVelocity(bool skipAgeCheck=false);
+  ofVec2f getVelocity() const {return direction * baseSpeed * border->getRatio(angle);}
+  void updateVelocity();
   void updateDirection();
   void calcNextForkDistance();
   void fork();

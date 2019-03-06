@@ -91,11 +91,11 @@
       </maxForkAngle>
       <maxBendAngle>
         <min>3</min>
-        <max>10</max>
+        <max>5</max>
       </maxBendAngle>
       <maxBentAngle>
         <min>50</min>
-        <max>80</max>
+        <max>50</max>
       </maxBentAngle>
       <fertilityRatio>
         <min>0.9</min>

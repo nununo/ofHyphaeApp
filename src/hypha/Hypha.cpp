@@ -8,32 +8,39 @@
 #include "Hypha.h"
 #include "Tools.h"
 
+#define VELOCITY_CALC_STEP 5
+
 Hypha::Hypha(const ofVec2f pos, const float angle, Border *border, const HyphaParams params, const int generation) {
+  this->generation = generation;
   this->pos = pos;
   this->params = params;
   this->border = border;
   this->angle = angle;
-  this->generation = generation;
+  this->direction = ofVec2f(1,0).getRotated(angle);
   this->noiseOffset = Tools::getRandomVec2f();
   
   baseSpeed = ofRandom(params.speed*(1-params.speedVariation/100.0f),
                        params.speed*(1+params.speedVariation/100.0f));
+  this->velocity = getVelocity();
 
-  updateVelocity(true);
   calcNextForkDistance();
 }
 
 void Hypha::updateDirection() {
-  float bendAngle = ofRandom(-params.maxBendAngle, params.maxBendAngle);
-  angle += bendAngle;
-  if (angle<0) {angle+=360;}
+  float bendAngle = VELOCITY_CALC_STEP*ofRandom(-params.maxBendAngle, params.maxBendAngle);
+
+  float posVelAngle = pos.angle(velocity);
+  if (posVelAngle+bendAngle>params.maxBentAngle || posVelAngle+bendAngle<-params.maxBentAngle) {
+    bendAngle = -bendAngle;
+  }
+  direction.rotate(bendAngle);
+  angle = Tools::angleTo360(angle+bendAngle);
 }
 
-void Hypha::updateVelocity(bool skipAgeCheck) {
-  if (skipAgeCheck || ++velocityAge>10) {
-    ofVec2f direction = ofVec2f(1,0).getRotated(angle);
-    float speed = baseSpeed * border->getRatio(angle);
-    velocity = direction * speed;
+void Hypha::updateVelocity() {
+  if (++velocityAge>VELOCITY_CALC_STEP) {
+    updateDirection();
+    velocity = getVelocity();
     velocityAge = 0;
   }
 }
@@ -82,7 +89,6 @@ void Hypha::update() {
     energy--;
     posIsNewPixel = true;
     pos += delta;
-    updateDirection();
     updateVelocity();
 
     if (absDeltaX>0) {delta.x=0;}
