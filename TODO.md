@@ -5,6 +5,7 @@
 
 - Consider making Hypha speed proportional to its distance from the center
 - Same params still don't generate the exact same Hypha (it seems to be related to roundings)
+- pixelOverlap isn't working well and somehow a lot of pixels are skipped
 
 - Save set of parameters to file?
 - Load set of parameters from file?

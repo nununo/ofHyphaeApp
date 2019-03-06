@@ -98,10 +98,7 @@
         <min>80</min>
         <max>80</max>
       </maxBentAngle>
-      <pixelOverlap>
-        <min>0.99</min>
-        <max>0.99</max>
-      </pixelOverlap>
+      <pixelOverlap>0.75</pixelOverlap>
       <fertilityRatio>
         <min>1</min>
         <max>1</max>

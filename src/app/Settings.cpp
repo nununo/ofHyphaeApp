@@ -35,10 +35,10 @@ Settings::Settings(const string& xmlFile) {
   hyphae.hypha.color = getColor(s, "rhizopus:hyphae:hypha:color");
   hyphae.hypha.speed = s.getValue("rhizopus:hyphae:hypha:speed", 1.0f) / canvas.framerate; // pixels/second
   hyphae.hypha.speedVariation = s.getValue("rhizopus:hyphae:hypha:speedVariation", 0.0f); // 10%
+  hyphae.hypha.pixelOverlap = s.getValue("rhizopus:hyphae:hypha:pixelOverlap", 0.0f); // 0.9f
   hyphae.hypha.maxForkAngle = getRange(s, "rhizopus:hyphae:hypha:maxForkAngle", 1.0f); // 90
   hyphae.hypha.maxBendAngle = getRange(s, "rhizopus:hyphae:hypha:maxBendAngle", 0.0f); // 1
   hyphae.hypha.maxBentAngle = getRange(s, "rhizopus:hyphae:hypha:maxBentAngle", 0.0f); // 80
-  hyphae.hypha.pixelOverlap = getRange(s, "rhizopus:hyphae:hypha:pixelOverlap", 0.0f); // 0.9f
   hyphae.hypha.fertilityRatio = getRange(s, "rhizopus:hyphae:hypha:fertilityRatio", 0.0f); // 1.0f
 }
 

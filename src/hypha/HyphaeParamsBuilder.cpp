@@ -31,10 +31,10 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   params.hypha.color = hyphaeSettings.hypha.color;
   params.hypha.speed = hyphaeSettings.hypha.speed;
   params.hypha.speedVariation = hyphaeSettings.hypha.speedVariation;
+  params.hypha.pixelOverlap = hyphaeSettings.hypha.pixelOverlap;
   params.hypha.maxForkAngle = Tools::randomInRange(hyphaeSettings.hypha.maxForkAngle);
   params.hypha.maxBendAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBendAngle);
   params.hypha.maxBentAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBentAngle);
-  params.hypha.pixelOverlap = Tools::randomInRange(hyphaeSettings.hypha.pixelOverlap);
   params.hypha.fertilityRatio = Tools::randomInRange(hyphaeSettings.hypha.fertilityRatio);
 
   return params;
