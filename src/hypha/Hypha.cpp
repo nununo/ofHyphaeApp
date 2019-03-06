@@ -31,7 +31,7 @@ void Hypha::updateDirection() {
 
   float posVelAngle = pos.angle(velocity);
   if (posVelAngle+bendAngle>params.maxBentAngle || posVelAngle+bendAngle<-params.maxBentAngle) {
-    bendAngle = -bendAngle;
+    bendAngle = -posVelAngle; // If it bent too much, reset its angle to align with the current position's angle
   }
   direction.rotate(bendAngle);
   angle = Tools::angleTo360(angle+bendAngle);
