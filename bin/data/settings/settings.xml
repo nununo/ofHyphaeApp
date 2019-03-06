@@ -25,12 +25,12 @@
     <primalHyphaCount>
       <v>1</v>
       <v>3</v>
-      <v>5</v>
       <v>7</v>
       <v>11</v>
       <v>51</v>
       <v>101</v>
       <v>501</v>
+      <v>751</v>
       <v>1001</v>
       <v>3001</v>
     </primalHyphaCount>
@@ -39,18 +39,13 @@
       <max>0.2</max>
     </newPrimalHyphaPeriod>
     <maxHyphaCount>
-      <v>11</v>
       <v>29</v>
       <v>51</v>
-      <v>101</v>
       <v>301</v>
       <v>601</v>
       <v>1001</v>
-      <v>2001</v>
-      <v>3001</v>
       <v>5001</v>
       <v>10001</v>
-      <v>15001</v>
       <v>20001</v>
       <v>30001</v>
       <v>40001</v>
@@ -61,6 +56,9 @@
       <v>90001</v>
       <v>100001</v>
       <v>150001</v>
+      <v>250001</v>
+      <v>250001</v>
+      <v>250001</v>
       <v>250001</v>
       <v>400001</v>
     </maxHyphaCount>
@@ -94,12 +92,22 @@
         <max>5</max>
       </maxBendAngle>
       <maxBentAngle>
-        <min>50</min>
-        <max>50</max>
+        <min>89</min>
+        <max>89</max>
       </maxBentAngle>
       <fertilityRatio>
-        <min>0.9</min>
-        <max>2.5</max>
+        <v>0.9</v>
+        <v>1</v>
+        <v>1</v>
+        <v>1</v>
+        <v>1</v>
+        <v>1</v>
+        <v>1</v>
+        <v>1</v>
+        <v>1.5</v>
+        <v>2</v>
+        <v>2.5</v>
+        <v>3</v>
       </fertilityRatio>
     </hypha>
   </hyphae>

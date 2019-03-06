@@ -11,7 +11,7 @@
 HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   HyphaeParams params;
   HyphaeSettings hyphaeSettings = settings.hyphae;
-  params.seed = 634710; //(int)ofRandom(999999);
+  params.seed = (int)ofRandom(999999); //634710
   ofSeedRandom(params.seed);
 
   params.position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
@@ -35,7 +35,7 @@ HyphaeParams HyphaeParamsBuilder::create(const Settings &settings) {
   params.hypha.maxForkAngle = Tools::randomInRange(hyphaeSettings.hypha.maxForkAngle);
   params.hypha.maxBendAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBendAngle);
   params.hypha.maxBentAngle = Tools::randomInRange(hyphaeSettings.hypha.maxBentAngle);
-  params.hypha.fertilityRatio = Tools::randomInRange(hyphaeSettings.hypha.fertilityRatio);
+  params.hypha.fertilityRatio = Tools::randomInSet(hyphaeSettings.hypha.fertilityRatio);
 
   return params;
 }
