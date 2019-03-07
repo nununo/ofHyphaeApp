@@ -14,7 +14,7 @@ void ofApp::setup(){
     ofDisableAntiAliasing();
   }
   ofBackground(settings->canvas.backgroundColor);
-  //ofHideCursor();
+  ofHideCursor();
 }
 
 void ofApp::update(){
