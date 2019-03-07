@@ -3,8 +3,8 @@
     <framerate>15</framerate>
     <antialiasing>1</antialiasing>
     <mourningTime>3</mourningTime>
-    <fadeoutTime>3</fadeoutTime>
-    <idleTime>2</idleTime>
+    <fadeoutTime>5</fadeoutTime>
+    <idleTime>1</idleTime>
     <logToFile>1</logToFile>
     <osdColor>
       <r>255</r>

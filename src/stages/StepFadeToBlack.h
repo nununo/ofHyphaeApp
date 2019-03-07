@@ -16,7 +16,7 @@ private:
   int alpha=0;
   
 public:
-  StepFadeToBlack(int count);
+  StepFadeToBlack(int count): StepCountdown(count) {}
   void draw() override;
 };
 
