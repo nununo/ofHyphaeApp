@@ -61,7 +61,7 @@
       <v>250001</v>
       <v>250001</v>
       <v>250001</v>
-      <v>400001</v>
+      <v>250001</v>
     </maxHyphaCount>
     <border>
       <distortion>0.2</distortion>
@@ -89,7 +89,7 @@
         <max>10</max>
       </maxForkAngle>
       <maxBendAngle>
-        <min>3</min>
+        <min>1</min>
         <max>5</max>
       </maxBendAngle>
       <maxBentAngle>
