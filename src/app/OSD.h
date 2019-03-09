@@ -26,7 +26,7 @@ private:
   void drawLine(const string text);
 
 public:
-  OSD(Settings *settings) {this->settings = settings;}
+  OSD(Settings *settings);
   void draw(const HyphaeParams params, const HyphaeStats stats, const string currentStep, const bool saveScreenEnabled);
   void toggleActive() {active=!active;}
 };

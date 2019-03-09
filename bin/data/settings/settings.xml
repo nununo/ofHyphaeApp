@@ -6,6 +6,7 @@
     <fadeoutTime>5</fadeoutTime>
     <idleTime>1</idleTime>
     <logToFile>1</logToFile>
+    <osdActive>0</osdActive>
     <osdColor>
       <r>255</r>
       <g>255</g>

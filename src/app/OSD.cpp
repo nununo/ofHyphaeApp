@@ -7,6 +7,10 @@
 
 #include "OSD.h"
 
+OSD::OSD(Settings *settings) {
+  this->settings = settings;
+  active = settings->canvas.osdActive;
+}
 void OSD::draw(const HyphaeParams params, const HyphaeStats stats, const string currentStep, const bool saveScreenEnabled) {
   drawBackground();
   drawInfo(params, stats, currentStep, saveScreenEnabled);

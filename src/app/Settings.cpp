@@ -14,6 +14,7 @@ Settings::Settings(const string& xmlFile) {
   
   canvas.framerate = s.getValue("rhizopus:canvas:framerate", 1); // 120
   canvas.osdColor = getColor(s, "rhizopus:canvas:osdColor");
+  canvas.osdActive = (bool)s.getValue("rhizopus:canvas:osdActive", false);
   canvas.backgroundColor = getColor(s, "rhizopus:canvas:backgroundColor");
   canvas.antialiasing = (bool)s.getValue("rhizopus:canvas:antialiasing", true);
   canvas.logToFile = (bool)s.getValue("rhizopus:canvas:logToFile", true);
