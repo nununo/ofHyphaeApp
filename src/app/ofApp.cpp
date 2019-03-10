@@ -18,6 +18,9 @@ void ofApp::setup(){
 }
 
 void ofApp::update(){
+  if (ofGetFrameNum()==100) {
+    ofHideCursor();
+  }
   if (!paused) {
     steps->update();
   }
