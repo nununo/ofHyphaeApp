@@ -50,6 +50,7 @@ struct CanvasSettings {
   float mourningTime;      // Time a Hyphae is shown after it is dead (in secs)
   float fadeoutTime;       // Duration of the fadeout (in secs)
   float idleTime;          // Pause before starting a new cycle
+  bool saveScreen;         // If true a BMP is saved at the end of each Hyphae's life
 };
 
 class Settings {

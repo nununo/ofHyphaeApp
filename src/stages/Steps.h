@@ -23,7 +23,7 @@ private:
   LifecycleStep currentStep = idle;
   int counter = 0;
   string filenamePrefix;
-  bool saveScreenEnabled = false;
+  bool saveScreenEnabled;
 
   void saveScreen();
   void appendToLogFile(const string &str);

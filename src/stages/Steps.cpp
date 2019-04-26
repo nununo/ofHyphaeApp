@@ -14,6 +14,7 @@
 
 Steps::Steps(Settings *settings) {
   this->settings = settings;
+  this->saveScreenEnabled = settings->canvas.saveScreen;
   filenamePrefix = "images/hyphae_" + ofGetTimestampString() + "_";
   setGrowing();
 }
@@ -26,7 +27,7 @@ void Steps::appendToLogFile(const string &str) {
 }
 
 void Steps::saveScreen() {
-  ofSaveScreen(filenamePrefix + ofToString(counter, 5, '0')+".jpg");
+  ofSaveScreen(filenamePrefix + ofToString(counter, 5, '0')+".bmp");
 }
 
 void Steps::update() {

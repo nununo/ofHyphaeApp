@@ -1,12 +1,13 @@
 <rhizopus>
   <canvas>
-    <framerate>15</framerate>
+    <framerate>30</framerate>
     <antialiasing>1</antialiasing>
     <mourningTime>3</mourningTime>
     <fadeoutTime>5</fadeoutTime>
     <idleTime>1</idleTime>
     <logToFile>1</logToFile>
     <osdActive>0</osdActive>
+    <saveScreen>1</saveScreen>
     <osdColor>
       <r>255</r>
       <g>255</g>
